@@ -1,0 +1,96 @@
+/* ============================================
+   DESIGN TOKENS — Atlas Portfolio
+   Global variables for colour, type, spacing
+   ============================================ */
+
+:root {
+
+  /* --- Colour Palette --- */
+  --color-ink:        #0D0D0D;   /* primary dark / backgrounds */
+  --color-parchment:  #F4EFE6;   /* warm off-white, aged paper */
+  --color-chalk:      #FAFAF8;   /* text on dark */
+  --color-saffron:    #F5A623;   /* bold accent — warmth, energy */
+  --color-cobalt:     #1B3FFF;   /* deep blue — oceans */
+  --color-terracotta: #C45C3A;   /* earthy red — earth, clay */
+  --color-forest:     #2C5F2E;   /* green — jungles, nature */
+  --color-mist:       #E8E3DA;   /* subtle dividers, card borders */
+
+  /* --- Typography --- */
+  --font-display:  'Clash Display', 'Space Grotesk', sans-serif;
+  --font-body:     'Inter', 'DM Sans', sans-serif;
+  --font-accent:   'DM Serif Display', Georgia, serif;
+  --font-mono:     'JetBrains Mono', 'Courier New', monospace;
+
+  /* --- Type Scale (fluid) --- */
+  --text-xs:   clamp(0.75rem,  1vw,   0.875rem);
+  --text-sm:   clamp(0.875rem, 1.2vw, 1rem);
+  --text-base: clamp(1rem,     1.5vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 2vw,   1.375rem);
+  --text-xl:   clamp(1.5rem,   3vw,   2rem);
+  --text-2xl:  clamp(2rem,     4vw,   3rem);
+  --text-3xl:  clamp(3rem,     6vw,   5rem);
+  --text-hero: clamp(4rem,     10vw,  9rem);
+
+  /* --- Font Weights --- */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+  --weight-black:   900;
+
+  /* --- Line Heights --- */
+  --leading-tight:  0.95;
+  --leading-snug:   1.15;
+  --leading-normal: 1.5;
+  --leading-loose:  1.75;
+
+  /* --- Letter Spacing --- */
+  --tracking-tight:  -0.03em;
+  --tracking-normal: 0em;
+  --tracking-wide:   0.08em;
+  --tracking-wider:  0.15em;
+
+  /* --- Spacing Scale --- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Border Radius --- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-pill: 999px;
+
+  /* --- Borders --- */
+  --border-thin:   1px solid var(--color-mist);
+  --border-medium: 2px solid var(--color-ink);
+  --border-thick:  4px solid var(--color-ink);
+
+  /* --- Shadows --- */
+  --shadow-sm: 2px 2px 0px var(--color-ink);
+  --shadow-md: 4px 4px 0px var(--color-ink);
+  --shadow-lg: 8px 8px 0px var(--color-ink);
+
+  /* --- Transitions --- */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:    cubic-bezier(0.7, 0, 0.84, 0);
+  --duration-fast:   150ms;
+  --duration-normal: 300ms;
+  --duration-slow:   600ms;
+
+  /* --- Layout --- */
+  --container-max:  1400px;
+  --container-wide: 1200px;
+  --container-text: 720px;
+  --grid-gap:       clamp(1rem, 2vw, 2rem);
+  --section-pad:    clamp(4rem, 10vw, 8rem);
+}
