@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Amithi Liyanagamage</title>
+  <meta name="description" content="Projects and case studies by Amithi Liyanagamage across UI/UX, Data & Analytics, and Software Development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .coord-strip {
+      background-color: var(--color-ink);
+      color: var(--color-mist);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 0;
+      text-align: center;
+    }
+    .page-header {
+      padding-top: calc(80px + var(--section-pad));
+      padding-bottom: var(--section-pad);
+      background-color: var(--color-ink);
+      color: var(--color-chalk);
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 2px var(--space-3);
+      border-radius: var(--radius-pill);
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      vertical-align: middle;
+      margin-left: var(--space-2);
+    }
+    .status-badge--live     { background-color: var(--color-saffron); color: var(--color-ink); }
+    .status-badge--progress { background-color: var(--color-mist); color: #666; }
+    .org-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: var(--tracking-wide);
+      padding: 2px var(--space-2);
+      border: 1px solid var(--color-mist);
+      border-radius: var(--radius-sm);
+      color: #888;
+      text-transform: uppercase;
+    }
+    .card[data-hidden="true"] { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="coord-strip">
+    6.9271° N, 79.8612° E &nbsp;·&nbsp; Currently: Planet Earth &nbsp;·&nbsp; Open to opportunities
+  </div>
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">AL</a>
+        <ul class="nav__links">
+          <li><a href="about.html"       class="nav__link">About</a></li>
+          <li><a href="work.html"        class="nav__link active">Work</a></li>
+          <li><a href="beyond-work.html" class="nav__link">Beyond Work</a></li>
+          <li><a href="timeline.html"    class="nav__link">Timeline</a></li>
+          <li><a href="contact.html"     class="nav__link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary">Say Hello</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <p class="hero__eyebrow">02 / Work</p>
+      <h1 style="font-size: var(--text-3xl); color: var(--color-chalk); margin-block: var(--space-4) var(--space-6);">
+        Selected <em style="font-family: var(--font-accent); font-style: italic; color: var(--color-saffron);">Work</em>
+      </h1>
+      <p class="hero__subtitle">
+        Projects across UI/UX, data analytics, and software development — shipped and in the pipeline.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="filter-bar animate-in">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="ux">UI / UX</button>
+        <button class="pill" data-filter="data">Data & Analytics</button>
+        <button class="pill" data-filter="software">Software Dev</button>
+      </div>
+
+      <div class="grid grid--2 animate-in" style="gap: var(--space-6);" id="work-grid">
+
+        <!-- Explore Your Campus -->
+        <a href="pages/work/explore-your-campus.html" class="card" data-category="ux" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-cobalt">EYC</div>
+          <div class="card__body">
+            <span class="card__category">UI/UX · EdTech <span class="status-badge status-badge--live">Live</span></span>
+            <h3 class="card__title">Explore Your Campus</h3>
+            <p class="card__teaser">Redesigning how new students navigate and discover life at ANU.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">ANU</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- SharePoint -->
+        <a href="pages/work/sharepoint.html" class="card" data-category="ux" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-terracotta">SP</div>
+          <div class="card__body">
+            <span class="card__category">UI/UX · Internal Tools <span class="status-badge status-badge--live">Live</span></span>
+            <h3 class="card__title">SharePoint Redesign</h3>
+            <p class="card__teaser">Improving internal knowledge-sharing and staff experience on SharePoint.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">ANU</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- WheelTodo -->
+        <a href="pages/work/wheeltodo.html" class="card" data-category="software" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-ink">WT</div>
+          <div class="card__body">
+            <span class="card__category">Software Dev · Productivity <span class="status-badge status-badge--live">Live</span></span>
+            <h3 class="card__title">WheelTodo</h3>
+            <p class="card__teaser">A gamified to-do app built at Ion Studio that makes task management less painful.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Ion Studio</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Cribd -->
+        <a href="pages/work/cribd.html" class="card" data-category="data" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-cobalt">CR</div>
+          <div class="card__body">
+            <span class="card__category">Data & Analytics <span class="status-badge status-badge--live">Live</span></span>
+            <h3 class="card__title">Cribd</h3>
+            <p class="card__teaser">Data-driven project built as part of an ANU degree course.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">ANU Degree</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Leftover -->
+        <a href="pages/work/leftover.html" class="card" data-category="ux" style="text-decoration:none;">
+          <div class="card__image--placeholder" style="background-color: var(--color-forest); color: rgba(255,255,255,0.15);">LO</div>
+          <div class="card__body">
+            <span class="card__category">UI/UX · Sustainability <span class="status-badge status-badge--live">Live</span></span>
+            <h3 class="card__title">Leftover</h3>
+            <p class="card__teaser">Designed as part of an ANU degree course — reducing food waste through UX.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">ANU Degree</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- A/B Testing -->
+        <a href="pages/work/ab-testing.html" class="card" data-category="data" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-terracotta">A/B</div>
+          <div class="card__body">
+            <span class="card__category">Data & Analytics <span class="status-badge status-badge--live">Live</span></span>
+            <h3 class="card__title">A/B Testing Analysis</h3>
+            <p class="card__teaser">Personal analytics project exploring statistical significance in UX experiments.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Villain Predictor -->
+        <a href="pages/work/villain-predictor.html" class="card" data-category="data" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-ink">VP</div>
+          <div class="card__body">
+            <span class="card__category">Data & Analytics <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Villain Predictor</h3>
+            <p class="card__teaser">Can data predict who the villain is? A fun personal analytics project.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- ANU Course Recommender -->
+        <a href="pages/work/anu-course-recommender.html" class="card" data-category="software" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-cobalt">ACR</div>
+          <div class="card__body">
+            <span class="card__category">Software Dev · EdTech <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">ANU Course Recommender</h3>
+            <p class="card__teaser">Helping ANU students find the right courses through intelligent recommendations.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">ANU</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Coffee Stamp Tracker -->
+        <a href="pages/work/coffee-stamp-tracker.html" class="card" data-category="software" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-terracotta">CST</div>
+          <div class="card__body">
+            <span class="card__category">Software Dev <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Coffee Stamp Tracker</h3>
+            <p class="card__teaser">A personal app to track loyalty stamps across multiple coffee shops.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Financial Time Machine -->
+        <a href="pages/work/financial-time-machine.html" class="card" data-category="data" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-cobalt">FTM</div>
+          <div class="card__body">
+            <span class="card__category">Data & Analytics <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Financial Time Machine</h3>
+            <p class="card__teaser">What if you could replay your spending habits to find where it all went?</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Music Recommendation Chatbot -->
+        <a href="pages/work/music-recommendation-chatbot.html" class="card" data-category="software" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-ink">MRC</div>
+          <div class="card__body">
+            <span class="card__category">Software Dev <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Music Recommendation Chatbot</h3>
+            <p class="card__teaser">A conversational chatbot that recommends music based on your mood and listening history.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Sentiment Analysis Tool -->
+        <a href="pages/work/sentiment-analysis-tool.html" class="card" data-category="data" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-terracotta">SAT</div>
+          <div class="card__body">
+            <span class="card__category">Data & Analytics <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Sentiment Analysis Tool</h3>
+            <p class="card__teaser">Using NLP to analyse sentiment patterns across social and review data.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- ANU Study Stories Revamp -->
+        <a href="pages/work/anu-study-stories-revamp.html" class="card" data-category="ux" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-cobalt">ASS</div>
+          <div class="card__body">
+            <span class="card__category">UI/UX · EdTech <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">ANU Study Stories Revamp</h3>
+            <p class="card__teaser">Redesigning how ANU shares student experience stories to prospective students.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">ANU</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Real Estate Price Prediction -->
+        <a href="pages/work/real-estate-price-prediction.html" class="card" data-category="data" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-ink">RE</div>
+          <div class="card__body">
+            <span class="card__category">Data & Analytics <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Real Estate Price Prediction</h3>
+            <p class="card__teaser">ML model predicting property prices using location, size, and market data.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Customer Churn Model -->
+        <a href="pages/work/customer-churn-model.html" class="card" data-category="data" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-terracotta">CCM</div>
+          <div class="card__body">
+            <span class="card__category">Data & Analytics <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Customer Churn Model</h3>
+            <p class="card__teaser">Predicting which customers are at risk of churning before they do.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Resume Generator -->
+        <a href="pages/work/resume-generator.html" class="card" data-category="software" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-cobalt">RG</div>
+          <div class="card__body">
+            <span class="card__category">Software Dev <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Resume Generator</h3>
+            <p class="card__teaser">A tool that generates tailored CVs from a structured data source.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Sound to Emotion Visualiser -->
+        <a href="pages/work/sound-to-emotion-visualiser.html" class="card" data-category="ux" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-ink">SEV</div>
+          <div class="card__body">
+            <span class="card__category">UI/UX · Data <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Sound to Emotion Visualiser</h3>
+            <p class="card__teaser">Translating audio characteristics into emotional visual patterns in real time.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Stock Price Prediction -->
+        <a href="pages/work/stock-price-prediction.html" class="card" data-category="data" style="text-decoration:none;">
+          <div class="card__image--placeholder bg-terracotta">SPP</div>
+          <div class="card__body">
+            <span class="card__category">Data & Analytics <span class="status-badge status-badge--progress">In Progress</span></span>
+            <h3 class="card__title">Stock Price Prediction</h3>
+            <p class="card__teaser">Time-series modelling to forecast stock price movements.</p>
+          </div>
+          <div class="card__footer">
+            <span class="org-tag">Personal</span>
+            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__cta">Let's make<br/>something <em>worth</em><br/>remembering.</p>
+          <a href="mailto:hello@amithi.com" class="btn btn--chalk">hello@amithi.com</a>
+        </div>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">LinkedIn</a></li>
+          <li><a href="#" class="footer__link">GitHub</a></li>
+          <li><a href="assets/cv.pdf" class="footer__link">Download CV</a></li>
+        </ul>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Amithi Liyanagamage</span>
+        <span>Designed with intention. Built with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.querySelectorAll('.filter-bar .pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-bar .pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('#work-grid .card').forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

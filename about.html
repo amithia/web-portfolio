@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Amithi Liyanagamage</title>
+  <meta name="description" content="About Amithi Liyanagamage — Designer, Strategist, Global Citizen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    .coord-strip {
+      background-color: var(--color-ink);
+      color: var(--color-mist);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 0;
+      text-align: center;
+    }
+    .page-header {
+      padding-top: calc(80px + var(--section-pad));
+      padding-bottom: var(--section-pad);
+      background-color: var(--color-ink);
+      color: var(--color-chalk);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+    .about-photo {
+      aspect-ratio: 3 / 4;
+      background-color: var(--color-mist);
+      border: var(--border-medium);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: sticky;
+      top: 100px;
+    }
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .country-tag {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wide);
+      padding: var(--space-1) var(--space-3);
+      border: 1px solid var(--color-mist);
+      border-radius: var(--radius-sm);
+      color: #666;
+    }
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    .skill-item {
+      padding: var(--space-5) var(--space-6);
+      border: var(--border-medium);
+      border-radius: var(--radius-md);
+    }
+    .skill-item__label {
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      font-weight: var(--weight-bold);
+      color: var(--color-terracotta);
+      margin-bottom: var(--space-2);
+    }
+    .skill-item__title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-black);
+      letter-spacing: var(--tracking-tight);
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { position: static; aspect-ratio: 4 / 3; }
+      .skill-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="coord-strip">
+    6.9271° N, 79.8612° E &nbsp;·&nbsp; Currently: Planet Earth &nbsp;·&nbsp; Open to opportunities
+  </div>
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">AL</a>
+        <ul class="nav__links">
+          <li><a href="about.html"       class="nav__link active">About</a></li>
+          <li><a href="work.html"        class="nav__link">Work</a></li>
+          <li><a href="beyond-work.html" class="nav__link">Beyond Work</a></li>
+          <li><a href="timeline.html"    class="nav__link">Timeline</a></li>
+          <li><a href="contact.html"     class="nav__link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary">Say Hello</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <p class="hero__eyebrow">01 / About</p>
+      <h1 style="font-size: var(--text-3xl); color: var(--color-chalk); margin-block: var(--space-4) var(--space-6); max-width: 16ch;">
+        Designer. Strategist.<br/><em style="font-family: var(--font-accent); font-style: italic; color: var(--color-saffron);">Global Citizen.</em>
+      </h1>
+      <p class="hero__subtitle" style="max-width: 55ch;">
+        I work at the crossroads of design, data, and policy — with a global lens shaped by living and working across multiple countries.
+      </p>
+    </div>
+  </header>
+
+  <!-- About section -->
+  <section class="section">
+    <div class="container">
+      <div class="about-grid animate-in">
+        <div class="about-photo">
+          <img src="assets/images/portrait.jpg" alt="Amithi Liyanagamage" onerror="this.style.display='none'" />
+        </div>
+        <div>
+          <p class="hero__eyebrow" style="color: var(--color-terracotta); margin-bottom: var(--space-4);">Hello, I'm Amithi</p>
+          <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-6);">
+            I make complex things clear,<br/><em style="font-family: var(--font-accent); font-style: italic;">and impactful things human.</em>
+          </h2>
+          <p style="line-height: var(--leading-loose); color: #444; margin-bottom: var(--space-6);">
+            Add your first paragraph here — your background, how you got here, what shaped your perspective.
+          </p>
+          <p style="line-height: var(--leading-loose); color: #444; margin-bottom: var(--space-8);">
+            Add a second paragraph here about your values, what drives you, or what makes your work distinct.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-8);">
+            <span class="country-tag">🇱🇰 Sri Lanka</span>
+            <span class="country-tag">🇬🇧 United Kingdom</span>
+            <span class="country-tag">🇿🇦 South Africa</span>
+            <span class="country-tag">🇦🇺 Australia</span>
+            <span class="country-tag">+ more</span>
+          </div>
+          <a href="assets/cv.pdf" class="btn btn--primary">Download CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disciplines -->
+  <section class="section bg-parchment">
+    <div class="container">
+      <div class="section-header animate-in">
+        <h2 class="section-header__title">What I Do</h2>
+        <span class="section-header__number">Disciplines</span>
+      </div>
+      <div class="skill-grid animate-in">
+        <div class="skill-item">
+          <div class="skill-item__label">01</div>
+          <div class="skill-item__title">UI / UX Design</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__label">02</div>
+          <div class="skill-item__title">Data & Analytics</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__label">03</div>
+          <div class="skill-item__title">AI Ethics</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__label">04</div>
+          <div class="skill-item__title">AI Policy</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__label">05</div>
+          <div class="skill-item__title">EdTech</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item__label">06</div>
+          <div class="skill-item__title">Start-up Growth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__cta">Let's make<br/>something <em>worth</em><br/>remembering.</p>
+          <a href="mailto:hello@amithi.com" class="btn btn--chalk">hello@amithi.com</a>
+        </div>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">LinkedIn</a></li>
+          <li><a href="#" class="footer__link">GitHub</a></li>
+          <li><a href="assets/cv.pdf" class="footer__link">Download CV</a></li>
+        </ul>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Amithi Liyanagamage</span>
+        <span>Designed with intention. Built with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

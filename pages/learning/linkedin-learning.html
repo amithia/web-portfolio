@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkedIn Learning — Amithi Liyanagamage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/animations.css" />
+  <style>
+    .coord-strip { background-color: var(--color-ink); color: var(--color-mist); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 0; text-align: center; }
+    .case-header { padding-top: calc(80px + var(--section-pad)); padding-bottom: var(--section-pad); background-color: var(--color-ink); color: var(--color-chalk); }
+    .back-link { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); letter-spacing: var(--tracking-wider); text-transform: uppercase; font-weight: var(--weight-bold); color: var(--color-mist); margin-bottom: var(--space-8); transition: color var(--duration-fast); }
+    .back-link:hover { color: var(--color-saffron); }
+    .status-badge { display: inline-block; padding: 2px var(--space-3); border-radius: var(--radius-pill); font-size: 10px; font-weight: var(--weight-bold); letter-spacing: var(--tracking-wide); text-transform: uppercase; margin-left: var(--space-2); }
+    .status-badge--active  { background-color: var(--color-saffron); color: var(--color-ink); }
+    .status-badge--planned { background-color: rgba(244,239,230,0.15); color: var(--color-mist); border: 1px solid rgba(244,239,230,0.3); }
+  </style>
+</head>
+<body>
+  <div class="coord-strip">6.9271° N, 79.8612° E &nbsp;·&nbsp; Currently: Planet Earth &nbsp;·&nbsp; Open to opportunities</div>
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="../../index.html" class="nav__logo">AL</a>
+        <ul class="nav__links">
+          <li><a href="../../about.html" class="nav__link">About</a></li>
+          <li><a href="../../work.html" class="nav__link">Work</a></li>
+          <li><a href="../../beyond-work.html" class="nav__link">Beyond Work</a></li>
+          <li><a href="../../timeline.html" class="nav__link">Timeline</a></li>
+          <li><a href="../../contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <a href="../../contact.html" class="btn btn--primary">Say Hello</a>
+      </div>
+    </div>
+  </nav>
+  <header class="case-header">
+    <div class="container">
+      <a href="../../beyond-work.html" class="back-link">← Beyond Work</a>
+      <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4);">
+        <span class="hero__eyebrow">LinkedIn</span>
+        <span class="status-badge status-badge--planned">In the Works</span>
+      </div>
+      <h1 style="font-size:var(--text-3xl); color:var(--color-chalk); margin-bottom:var(--space-6);">LinkedIn Learning</h1>
+      <p class="hero__subtitle">Ongoing courses across design, data, and professional development.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 style="margin-bottom:var(--space-4);">About this certification</h2>
+      <p style="color:#444; margin-bottom:var(--space-8);">Add notes about this certification — what drew you to it, what you're learning, and how it connects to your broader goals.</p>
+      <h2 style="margin-bottom:var(--space-4);">What I'm learning</h2>
+      <p style="color:#444;">Add the key skills and topics covered here.</p>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__cta">Let's make<br/>something <em>worth</em><br/>remembering.</p>
+          <a href="mailto:hello@amithi.com" class="btn btn--chalk">hello@amithi.com</a>
+        </div>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">LinkedIn</a></li>
+          <li><a href="#" class="footer__link">GitHub</a></li>
+          <li><a href="../../assets/cv.pdf" class="footer__link">Download CV</a></li>
+        </ul>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Amithi Liyanagamage</span>
+        <span>Designed with intention. Built with care.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>
