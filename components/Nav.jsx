@@ -23,11 +23,11 @@ function Nav() {
   }, [menuOpen]);
 
   const links = [
-    ['/pages/about',        '01', 'About'],
-    ['/pages/work',         '02', 'Work'],
-    ['/pages/beyond-work',  '03', 'Beyond Work'],
-    ['/pages/timeline',     '04', 'Timeline'],
-    ['/pages/contact',      '05', 'Contact'],
+    ['/about',        '01', 'About'],
+    ['/work',         '02', 'Work'],
+    ['/beyond-work',  '03', 'Beyond Work'],
+    ['/timeline',     '04', 'Timeline'],
+    ['/contact',      '05', 'Contact'],
   ];
 
   const current = window.location.pathname.replace(/\.html$/, '');
@@ -56,7 +56,7 @@ function Nav() {
             </ul>
             <div className="al-nav__actions">
               <div className="al-nav__cta-wrap">
-                <Btn href="/pages/contact" variant="primary">Say Hello</Btn>
+                <Btn href="/contact" variant="primary">Say Hello</Btn>
               </div>
               <button
                 className="al-nav__hamburger"
@@ -86,7 +86,7 @@ function Nav() {
               </a>
             ))}
             <div className="al-mobile-menu__foot">
-              <Btn href="/pages/contact" variant="primary">Say Hello</Btn>
+              <Btn href="/contact" variant="primary">Say Hello</Btn>
             </div>
           </div>
         </div>

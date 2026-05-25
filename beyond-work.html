@@ -76,7 +76,7 @@ function BeyondWorkPage() {
             </div>
             <div className="cert-grid">
               {window.LEARNING.map(cert => (
-                <a key={cert.id} href={`/templates/learning-detail?id=${cert.slug}`} className="cert-card">
+                <a key={cert.id} href={`/beyond-work/${cert.slug}`} className="cert-card">
                   <div className="cert-card__header">
                     <span className="cert-card__provider">{cert.provider}</span>
                     <span className={`cert-card__status cert-card__status--${cert.status}`}>
@@ -105,7 +105,7 @@ function BeyondWorkPage() {
             </div>
             <div className="art-grid">
               {window.CREATIVE.map(item => (
-                <a key={item.id} href={`/templates/creative-detail?id=${item.slug}`} className="art-card">
+                <a key={item.id} href={`/beyond-work/${item.slug}`} className="art-card">
                   <div className="art-card__img">✦</div>
                   <div className="art-card__body">
                     <div className="art-card__title">{item.title}</div>

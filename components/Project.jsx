@@ -154,7 +154,7 @@ const GLYPHS = {
 
 function ProjectCard({ project, featured }) {
   const { tone = 'cherry', cat, title, teaser, label, meta, glyph, stickers, slug } = project;
-  const href = `/templates/case-study?id=${slug}`;
+  const href = `/work/${slug}`;
   const g = GLYPHS[glyph] || GLYPHS.star;
   const set = (stickers && STICKER_SETS[stickers]) || [glyph, glyph, glyph];
 

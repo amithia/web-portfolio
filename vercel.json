@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/work/:slug", "destination": "/templates/case-study?id=:slug" },
+    { "source": "/beyond-work/:slug", "destination": "/templates/beyond-work-detail?id=:slug" }
+  ]
 }

@@ -48,14 +48,14 @@ function Footer() {
             <li><a href="#" className="al-footer__link">LinkedIn</a></li>
             <li><a href="#" className="al-footer__link">Are.na</a></li>
             <li><a href="#" className="al-footer__link">GitHub</a></li>
-            <li><a href="/pages/courses" className="al-footer__link">Learning</a></li>
+            <li><a href="/courses" className="al-footer__link">Learning</a></li>
             <li><a href="#" className="al-footer__link">Download CV</a></li>
           </ul>
         </div>
         <div className="al-footer__bottom">
           <span>© 2026 Amithi Liyanagamage</span>
           <span>Made slowly. Made with care.</span>
-          <a href="/pages/sitemap" style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.06em', textTransform: 'uppercase', color: 'rgba(252,247,229,.4)', textDecoration: 'none' }} onMouseOver={e => e.target.style.color='rgba(252,247,229,.8)'} onMouseOut={e => e.target.style.color='rgba(252,247,229,.4)'}>Sitemap</a>
+          <a href="/sitemap" style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.06em', textTransform: 'uppercase', color: 'rgba(252,247,229,.4)', textDecoration: 'none' }} onMouseOver={e => e.target.style.color='rgba(252,247,229,.8)'} onMouseOut={e => e.target.style.color='rgba(252,247,229,.4)'}>Sitemap</a>
         </div>
       </div>
     </footer>);

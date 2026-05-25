@@ -6,7 +6,7 @@ function Services() {
         <SectionHeader title='Four <em>practices</em>' index="03 / Practice" />
         <div className="al-services">
           {window.PRACTICES.map((s) => (
-            <a key={s.slug} href={`/pages/practice?id=${s.slug}`} className={`al-service al-service--${s.tone}`}>
+            <a key={s.slug} href={`/practice?id=${s.slug}`} className={`al-service al-service--${s.tone}`}>
               <div className="al-service__tag">{s.tag}</div>
               <h3 className="al-service__title">{s.title}</h3>
               <p className="al-service__body">{s.short}</p>
@@ -30,7 +30,7 @@ function Reading() {
         <ul className="al-reading">
           {window.READING.map((b) => (
             <li key={b.slug} className="al-reading__row">
-              <a href={`/pages/book?id=${b.slug}`} className="al-reading__link">
+              <a href={`/book?id=${b.slug}`} className="al-reading__link">
                 <span className="al-reading__num">{b.num}</span>
                 <span className="al-reading__title" dangerouslySetInnerHTML={{ __html: b.title }} />
                 <span className="al-reading__author">{b.author}</span>

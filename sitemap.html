@@ -274,11 +274,11 @@ function SitemapPage() {
             {/* Main navigation */}
             <SmCard label="Navigation" title="Main pages" tone="cherry" count={`${6} pages`}>
               <SmLink href="/"       name="Home"        num={1} tag="Index" />
-              <SmLink href="/pages/about"       name="About"       num={2} />
-              <SmLink href="/pages/work"        name="Work"        num={3} />
-              <SmLink href="/pages/beyond-work" name="Beyond Work" num={4} />
-              <SmLink href="/pages/timeline"    name="Timeline"    num={5} />
-              <SmLink href="/pages/contact"     name="Contact"     num={6} />
+              <SmLink href="/about"       name="About"       num={2} />
+              <SmLink href="/work"        name="Work"        num={3} />
+              <SmLink href="/beyond-work" name="Beyond Work" num={4} />
+              <SmLink href="/timeline"    name="Timeline"    num={5} />
+              <SmLink href="/contact"     name="Contact"     num={6} />
             </SmCard>
 
             {/* Shipped work */}
@@ -286,7 +286,7 @@ function SitemapPage() {
               {projects.map((p, i) => (
                 <SmLink
                   key={p.slug}
-                  href={`/templates/case-study?id=${p.slug}`}
+                  href={`/work/${p.slug}`}
                   name={stripHtml(p.title)}
                   num={i + 1}
                   tag={p.year ? String(p.year) : p.meta}
@@ -299,7 +299,7 @@ function SitemapPage() {
               {upcoming.map((p, i) => (
                 <SmLink
                   key={p.slug}
-                  href={`/templates/case-study?id=${p.slug}`}
+                  href={`/work/${p.slug}`}
                   name={stripHtml(p.title)}
                   num={i + 1}
                   tag="Soon"
@@ -312,7 +312,7 @@ function SitemapPage() {
               {learning.map((l, i) => (
                 <SmLink
                   key={l.slug}
-                  href={`/templates/learning-detail?id=${l.slug}`}
+                  href={`/beyond-work/${l.slug}`}
                   name={l.title}
                   num={i + 1}
                   tag={l.provider}
@@ -325,7 +325,7 @@ function SitemapPage() {
               {creative.map((c, i) => (
                 <SmLink
                   key={c.slug}
-                  href={`/templates/creative-detail?id=${c.slug}`}
+                  href={`/beyond-work/${c.slug}`}
                   name={c.title}
                   num={i + 1}
                   tag={c.meta || null}
@@ -335,9 +335,9 @@ function SitemapPage() {
 
             {/* Other pages */}
             <SmCard label="More" title="Other pages" count="3 pages">
-              <SmLink href="/pages/projects" name="All Work"     num={1} />
-              <SmLink href="/pages/courses"  name="Courses"      num={2} />
-              <SmLink href="/pages/book"     name="Reading list" num={3} />
+              <SmLink href="/projects" name="All Work"     num={1} />
+              <SmLink href="/courses"  name="Courses"      num={2} />
+              <SmLink href="/book"     name="Reading list" num={3} />
             </SmCard>
 
           </div>
