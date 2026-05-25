@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case study · Amithi Liyanagamage</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="detail.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="data.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Bits.jsx"></script>
+<script type="text/babel" src="components/AboutFooter.jsx"></script>
+<script type="text/babel" src="components/DetailParts.jsx"></script>
+
+<script type="text/babel">
+function CaseStudy() {
+  const slug = useSlug();
+  const idx = window.PROJECTS.findIndex(p => p.slug === slug);
+  const project = idx >= 0 ? window.PROJECTS[idx] : null;
+
+  const upcomingIdx = !project && window.UPCOMING
+    ? window.UPCOMING.findIndex(p => p.slug === slug)
+    : -1;
+  const upcoming = upcomingIdx >= 0 ? window.UPCOMING[upcomingIdx] : null;
+
+  React.useEffect(() => {
+    if (project) {
+      const plain = project.title.replace(/<[^>]+>/g, '');
+      document.title = `${plain} · Amithi Liyanagamage`;
+    } else if (upcoming) {
+      const plain = upcoming.title.replace(/<[^>]+>/g, '');
+      document.title = `${plain} · Coming Soon · Amithi Liyanagamage`;
+    }
+  }, [project, upcoming]);
+
+  if (!project && !upcoming) {
+    return (
+      <>
+        <Nav detailMode={true} />
+        <NotFound backHref="projects.html" backLabel="Back to all work" />
+        <Footer />
+      </>
+    );
+  }
+
+  if (upcoming) {
+    const glyph = HERO_GLYPHS[upcoming.glyph] || HERO_GLYPHS.star;
+    const prevU = upcomingIdx > 0 ? window.UPCOMING[upcomingIdx - 1] : null;
+    const nextU = upcomingIdx < window.UPCOMING.length - 1 ? window.UPCOMING[upcomingIdx + 1] : null;
+    return (
+      <>
+        <Nav detailMode={true} />
+        <main className="al-container" data-screen-label="Coming Soon">
+          <Breadcrumb trail={[
+            { label: 'Index', href: 'index.html' },
+            { label: 'Work', href: 'projects.html' },
+            { label: upcoming.cat.split('·')[0].trim() },
+          ]} />
+
+          <header className="al-detail-header">
+            <div>
+              <div className="al-detail-header__eyebrow">
+                <span className="badge" style={{ background: 'var(--color-moss)', color: 'white' }}>IN THE PIPELINE</span>
+                {upcoming.cat}
+              </div>
+              <h1 className="al-detail-header__title" dangerouslySetInnerHTML={{ __html: upcoming.title }} />
+              <p className="al-detail-header__lede">{upcoming.teaser}</p>
+            </div>
+            <div className="al-detail-header__meta">
+              <div className="al-detail-header__row">
+                <span className="al-detail-header__lbl">Status</span>
+                <span className="al-detail-header__val">Coming soon</span>
+              </div>
+              <div className="al-detail-header__row">
+                <span className="al-detail-header__lbl">Category</span>
+                <span className="al-detail-header__val">{upcoming.cat}</span>
+              </div>
+            </div>
+          </header>
+
+          <div className={`al-detail-hero al-detail-hero--${upcoming.tone}`} style={{ opacity: .65 }}>
+            <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>
+          </div>
+
+          {upcoming.sections && upcoming.sections.length > 0 ? (
+            <article className="al-article">
+              {upcoming.sections.map((s, i) => {
+                if (s.kind === 'metrics') return <MetricsRow key={i} items={s.items} />;
+                if (s.kind === 'pull') return <blockquote key={i} className="al-pull">{s.text}</blockquote>;
+                return (
+                  <section key={i} className="al-block">
+                    <div className="al-block__tag">{s.tag}</div>
+                    <div className="al-block__body">
+                      <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
+                      <p>{s.body}</p>
+                    </div>
+                  </section>
+                );
+              })}
+            </article>
+          ) : (
+            <section className="al-block" style={{ marginTop: '3rem' }}>
+              <div className="al-block__tag">What's next</div>
+              <div className="al-block__body">
+                <h3>This one is <em>in progress</em>.</h3>
+                <p>This project is on the workbench. The case study will fill in as the work develops — brief, approach, and outcomes added as they happen. Check back, or get in touch if you'd like to know more.</p>
+              </div>
+            </section>
+          )}
+
+          <div style={{ marginTop: '2.5rem' }}>
+            <Btn href="projects.html" variant="cherry">← Back to all work</Btn>
+          </div>
+
+          <NextPrev
+            prev={prevU}
+            next={nextU}
+            prevLabel="Previous project"
+            nextLabel="Next project"
+            hrefFor={(p) => `case-study?id=${p.slug}`}
+          />
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
+  const prev = idx > 0 ? window.PROJECTS[idx - 1] : null;
+  const next = idx < window.PROJECTS.length - 1 ? window.PROJECTS[idx + 1] : null;
+  const glyph = HERO_GLYPHS[project.glyph] || HERO_GLYPHS.star;
+
+  return (
+    <>
+      <Nav detailMode={true} />
+      <main className="al-container" data-screen-label="Case Study">
+        <Breadcrumb trail={[
+          { label: 'Index', href: 'index.html' },
+          { label: 'Work', href: 'index.html#work' },
+          { label: project.cat.split('·')[0].trim() },
+        ]} />
+
+        <header className="al-detail-header">
+          <div>
+            <div className="al-detail-header__eyebrow">
+              <span className="badge">Case · {project.year}</span>
+              {project.cat}
+            </div>
+            <h1 className="al-detail-header__title" dangerouslySetInnerHTML={{ __html: project.title }} />
+            <p className="al-detail-header__lede">{project.lede || project.teaser}</p>
+          </div>
+          <div className="al-detail-header__meta">
+            <div className="al-detail-header__row">
+              <span className="al-detail-header__lbl">Role</span>
+              <span className="al-detail-header__val">{project.role || '—'}</span>
+            </div>
+            <div className="al-detail-header__row">
+              <span className="al-detail-header__lbl">Client</span>
+              <span className="al-detail-header__val">{project.client || '—'}</span>
+            </div>
+            <div className="al-detail-header__row">
+              <span className="al-detail-header__lbl">Year</span>
+              <span className="al-detail-header__val">{project.year}</span>
+            </div>
+            <div className="al-detail-header__row">
+              <span className="al-detail-header__lbl">Duration</span>
+              <span className="al-detail-header__val">{project.duration || '—'}</span>
+            </div>
+          </div>
+        </header>
+
+        <div className={`al-detail-hero al-detail-hero--${project.tone}`}>
+          <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>
+        </div>
+
+        <article className="al-article">
+          {(project.sections || []).map((s, i) => {
+            if (s.kind === 'metrics') return <MetricsRow key={i} items={s.items} />;
+            if (s.kind === 'pull') return (
+              <blockquote key={i} className="al-pull">{s.text}</blockquote>
+            );
+            return (
+              <section key={i} className="al-block">
+                <div className="al-block__tag">{s.tag}</div>
+                <div className="al-block__body">
+                  <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
+                  <p>{s.body}</p>
+                </div>
+              </section>
+            );
+          })}
+        </article>
+
+        <NextPrev
+          prev={prev}
+          next={next}
+          prevLabel="Previous case"
+          nextLabel="Next case"
+          hrefFor={(p) => `case-study?id=${p.slug}`}
+        />
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<CaseStudy />);
+</script>
+</body>
+</html>

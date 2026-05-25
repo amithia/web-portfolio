@@ -1,261 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Timeline — Amithi Liyanagamage</title>
-  <meta name="description" content="Career timeline and resume of Amithi Liyanagamage." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <style>
-    .coord-strip {
-      background-color: var(--color-ink);
-      color: var(--color-mist);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 6px 0;
-      text-align: center;
-    }
-    .page-header {
-      padding-top: calc(80px + var(--section-pad));
-      padding-bottom: var(--section-pad);
-      background-color: var(--color-ink);
-      color: var(--color-chalk);
-    }
-    .timeline {
-      position: relative;
-      padding-left: var(--space-12);
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background-color: var(--color-mist);
-    }
-    .timeline-entry {
-      position: relative;
-      margin-bottom: var(--space-12);
-    }
-    .timeline-entry::before {
-      content: '';
-      position: absolute;
-      left: calc(-1 * var(--space-12) - 5px);
-      top: 6px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: var(--color-saffron);
-      border: 2px solid var(--color-ink);
-    }
-    .timeline-entry--education::before { background-color: var(--color-cobalt); }
-    .timeline-entry--current::before   { background-color: var(--color-saffron); box-shadow: 0 0 0 4px rgba(245,166,35,0.2); }
-    .timeline-date {
-      font-family: var(--font-mono);
-      font-size: var(--text-xs);
-      letter-spacing: var(--tracking-wider);
-      text-transform: uppercase;
-      color: #888;
-      margin-bottom: var(--space-2);
-    }
-    .timeline-role {
-      font-family: var(--font-display);
-      font-size: var(--text-xl);
-      font-weight: var(--weight-black);
-      letter-spacing: var(--tracking-tight);
-      margin-bottom: var(--space-1);
-    }
-    .timeline-org {
-      font-size: var(--text-sm);
-      font-weight: var(--weight-medium);
-      color: var(--color-terracotta);
-      margin-bottom: var(--space-4);
-    }
-    .timeline-desc {
-      font-size: var(--text-sm);
-      line-height: var(--leading-loose);
-      color: #555;
-      max-width: 60ch;
-    }
-    .timeline-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      margin-top: var(--space-4);
-    }
-    .timeline-tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: var(--tracking-wide);
-      padding: 2px var(--space-3);
-      border: 1px solid var(--color-mist);
-      border-radius: var(--radius-sm);
-      color: #888;
-      text-transform: uppercase;
-    }
-    .section-divider {
-      font-family: var(--font-mono);
-      font-size: var(--text-xs);
-      letter-spacing: var(--tracking-wider);
-      text-transform: uppercase;
-      color: var(--color-saffron);
-      margin-bottom: var(--space-8);
-      margin-top: var(--space-16);
-      padding-bottom: var(--space-4);
-      border-bottom: var(--border-medium);
-    }
-    .section-divider:first-child { margin-top: 0; }
-    @media (max-width: 768px) {
-      .timeline { padding-left: var(--space-8); }
-      .timeline-entry::before { left: calc(-1 * var(--space-8) - 5px); }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Timeline · Amithi Liyanagamage</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="detail.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<style>
+.tl { position: relative; padding-left: 2.5rem; }
+.tl::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 0; width: 2px; background: rgba(26,22,18,.15); }
+.tl-entry { position: relative; margin-bottom: 3rem; }
+.tl-entry::before { content: ''; position: absolute; left: -2.5rem; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--color-cherry); border: 2px solid var(--color-parchment); box-shadow: 0 0 0 2px var(--color-cherry); }
+.tl-entry--edu::before { background: var(--color-bubblegum); box-shadow: 0 0 0 2px var(--color-bubblegum); }
+.tl-entry--current::before { background: var(--color-cherry); box-shadow: 0 0 0 4px rgba(229,75,60,.2); }
+.tl-date { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: #888; margin-bottom: .4rem; }
+.tl-role { font-family: var(--font-display); font-weight: 900; font-size: var(--text-xl); letter-spacing: -.02em; line-height: 1.1; margin-bottom: .25rem; }
+.tl-org { font-size: var(--text-sm); font-weight: 600; color: var(--color-cherry); margin-bottom: .75rem; }
+.tl-desc { font-size: var(--text-sm); line-height: 1.7; color: #3a3530; max-width: 60ch; }
+.tl-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
+.tl-tag { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; padding: 2px 8px; border: 1px solid rgba(26,22,18,.2); border-radius: 100px; color: #6b6460; text-transform: uppercase; }
+.tl-section-head { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--color-cherry); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid var(--color-ink); margin-top: 3.5rem; }
+.tl-section-head:first-child { margin-top: 0; }
+</style>
 </head>
 <body>
+<div id="root"></div>
+<script src="data.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Bits.jsx"></script>
+<script type="text/babel" src="components/AboutFooter.jsx"></script>
+<script type="text/babel" src="components/DetailParts.jsx"></script>
 
-  <div class="coord-strip">
-    6.9271° N, 79.8612° E &nbsp;·&nbsp; Currently: Planet Earth &nbsp;·&nbsp; Open to opportunities
-  </div>
+<script type="text/babel">
+function TimelinePage() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <div className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)' }}>
+          <Breadcrumb trail={[{ label: 'Index', href: 'index.html' }, { label: 'Timeline' }]} />
 
-  <nav class="nav">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="index.html" class="nav__logo">AL</a>
-        <ul class="nav__links">
-          <li><a href="about.html"       class="nav__link">About</a></li>
-          <li><a href="work.html"        class="nav__link">Work</a></li>
-          <li><a href="beyond-work.html" class="nav__link">Beyond Work</a></li>
-          <li><a href="timeline.html"    class="nav__link active">Timeline</a></li>
-          <li><a href="contact.html"     class="nav__link">Contact</a></li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary">Say Hello</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="page-header">
-    <div class="container">
-      <p class="hero__eyebrow">04 / Timeline</p>
-      <h1 style="font-size: var(--text-3xl); color: var(--color-chalk); margin-block: var(--space-4) var(--space-6);">
-        The <em style="font-family: var(--font-accent); font-style: italic; color: var(--color-saffron);">Journey</em>
-      </h1>
-      <p class="hero__subtitle" style="margin-bottom: var(--space-8);">
-        Experience, education, and the moments that shaped the work.
-      </p>
-      <a href="assets/cv.pdf" class="btn btn--chalk">Download CV</a>
-    </div>
-  </header>
-
-  <section class="section">
-    <div class="container container--narrow">
-
-      <div class="animate-in">
-
-        <div class="section-divider">Experience</div>
-
-        <div class="timeline">
-
-          <div class="timeline-entry timeline-entry--current">
-            <div class="timeline-date">Current</div>
-            <div class="timeline-role">Role Title</div>
-            <div class="timeline-org">Organisation · Location</div>
-            <p class="timeline-desc">Describe what you do, what you've built or improved, and the impact of your work.</p>
-            <div class="timeline-tags">
-              <span class="timeline-tag">UI/UX</span>
-              <span class="timeline-tag">Strategy</span>
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '3rem' }}>
+            <div>
+              <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>04 / Timeline</p>
+              <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
+                The <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>journey</em>
+              </h1>
+              <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 520 }}>
+                Experience, education, and the moments that shaped the work.
+              </p>
             </div>
+            <Btn href="assets/cv.pdf" variant="primary">Download CV</Btn>
+          </div>
+        </div>
+
+        <div className="al-container" style={{ maxWidth: 'var(--container-text)', paddingBottom: 'clamp(3rem,7vw,6rem)' }}>
+
+          <div className="tl-section-head">Experience</div>
+          <div className="tl">
+
+            <div className="tl-entry tl-entry--current">
+              <div className="tl-date">2024 — Present</div>
+              <div className="tl-role">Co-founder</div>
+              <div className="tl-org">Ion Studio · Colombo / Remote</div>
+              <p className="tl-desc">Building AI integration tools for mobile app teams. Helping clients ship intelligent features without rebuilding from scratch.</p>
+              <div className="tl-tags">
+                <span className="tl-tag">AI Integration</span>
+                <span className="tl-tag">Start-up</span>
+                <span className="tl-tag">Product</span>
+              </div>
+            </div>
+
+            <div className="tl-entry">
+              <div className="tl-date">Add year — Add year</div>
+              <div className="tl-role">Role Title</div>
+              <div className="tl-org">Organisation · Location</div>
+              <p className="tl-desc">Describe this role — what you did, built, or contributed to, and the impact it had.</p>
+              <div className="tl-tags">
+                <span className="tl-tag">UI/UX</span>
+                <span className="tl-tag">Research</span>
+              </div>
+            </div>
+
+            <div className="tl-entry">
+              <div className="tl-date">Add year — Add year</div>
+              <div className="tl-role">Role Title</div>
+              <div className="tl-org">Australian National University · Canberra, Australia</div>
+              <p className="tl-desc">Describe your ANU work here — projects, research, or roles you held while studying.</p>
+              <div className="tl-tags">
+                <span className="tl-tag">ANU</span>
+                <span className="tl-tag">EdTech</span>
+              </div>
+            </div>
+
           </div>
 
-          <div class="timeline-entry">
-            <div class="timeline-date">Year — Year</div>
-            <div class="timeline-role">Role Title</div>
-            <div class="timeline-org">Organisation · Location</div>
-            <p class="timeline-desc">Describe the role, responsibilities, and outcomes here.</p>
-            <div class="timeline-tags">
-              <span class="timeline-tag">Data</span>
-              <span class="timeline-tag">Research</span>
+          <div className="tl-section-head">Education</div>
+          <div className="tl">
+
+            <div className="tl-entry tl-entry--edu">
+              <div className="tl-date">Add year — Add year</div>
+              <div className="tl-role">Degree Name</div>
+              <div className="tl-org">Australian National University · Canberra, Australia</div>
+              <p className="tl-desc">Describe your degree, major areas of study, and any notable projects or achievements.</p>
+              <div className="tl-tags">
+                <span className="tl-tag">ANU</span>
+              </div>
             </div>
+
+            <div className="tl-entry tl-entry--edu">
+              <div className="tl-date">Add year — Add year</div>
+              <div className="tl-role">Earlier Education</div>
+              <div className="tl-org">Institution · Location</div>
+              <p className="tl-desc">Describe your earlier education here.</p>
+            </div>
+
           </div>
 
-          <div class="timeline-entry">
-            <div class="timeline-date">Year — Year</div>
-            <div class="timeline-role">Role Title</div>
-            <div class="timeline-org">Ion Studio · Australia</div>
-            <p class="timeline-desc">Describe the role at Ion Studio — what you built, shipped, or contributed to.</p>
-            <div class="timeline-tags">
-              <span class="timeline-tag">Software Dev</span>
-              <span class="timeline-tag">Product</span>
+          <div className="tl-section-head">Lived &amp; Worked</div>
+          <div className="tl">
+            <div className="tl-entry">
+              <div className="tl-role" style={{ fontSize: 'var(--text-lg)' }}>🇱🇰 Sri Lanka &nbsp;·&nbsp; 🇬🇧 United Kingdom &nbsp;·&nbsp; 🇿🇦 South Africa &nbsp;·&nbsp; 🇦🇺 Australia &nbsp;·&nbsp; 🇵🇹 Portugal &nbsp;·&nbsp; + more</div>
+              <p className="tl-desc" style={{ marginTop: '.75rem' }}>A global perspective shaped by living, studying, and working across multiple countries.</p>
             </div>
           </div>
 
         </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
 
-        <div class="section-divider">Education</div>
-
-        <div class="timeline">
-
-          <div class="timeline-entry timeline-entry--education">
-            <div class="timeline-date">Year — Year</div>
-            <div class="timeline-role">Degree Name</div>
-            <div class="timeline-org">Australian National University · Canberra, Australia</div>
-            <p class="timeline-desc">Describe your degree, major areas of study, and any notable projects or achievements.</p>
-            <div class="timeline-tags">
-              <span class="timeline-tag">ANU</span>
-              <span class="timeline-tag">Research</span>
-            </div>
-          </div>
-
-          <div class="timeline-entry timeline-entry--education">
-            <div class="timeline-date">Year — Year</div>
-            <div class="timeline-role">Previous Education</div>
-            <div class="timeline-org">Institution · Location</div>
-            <p class="timeline-desc">Describe your earlier education here.</p>
-          </div>
-
-        </div>
-
-        <div class="section-divider">Lived &amp; Worked</div>
-
-        <div class="timeline">
-          <div class="timeline-entry">
-            <div class="timeline-role" style="font-size: var(--text-lg);">🇱🇰 Sri Lanka &nbsp;·&nbsp; 🇬🇧 United Kingdom &nbsp;·&nbsp; 🇿🇦 South Africa &nbsp;·&nbsp; 🇦🇺 Australia &nbsp;·&nbsp; + more</div>
-            <p class="timeline-desc" style="margin-top: var(--space-3);">A global perspective shaped by living, studying, and working across multiple countries.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div>
-          <p class="footer__cta">Let's make<br/>something <em>worth</em><br/>remembering.</p>
-          <a href="mailto:hello@amithi.com" class="btn btn--chalk">hello@amithi.com</a>
-        </div>
-        <ul class="footer__links">
-          <li><a href="#" class="footer__link">LinkedIn</a></li>
-          <li><a href="#" class="footer__link">GitHub</a></li>
-          <li><a href="assets/cv.pdf" class="footer__link">Download CV</a></li>
-        </ul>
-      </div>
-      <div class="footer__bottom">
-        <span>© 2026 Amithi Liyanagamage</span>
-        <span>Designed with intention. Built with care.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+ReactDOM.createRoot(document.getElementById('root')).render(<TimelinePage />);
+</script>
 </body>
 </html>

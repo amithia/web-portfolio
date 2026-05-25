@@ -1,462 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amithi Liyanagamage — Designer, Strategist, Global Citizen</title>
-  <meta name="description" content="Portfolio of Amithi Liyanagamage — UI/UX, Data & Analytics, AI Ethics, Technology in Education, AI Policy, and Start-up Growth." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-
-  <style>
-    /* Page-level overrides + atlas motifs */
-
-    /* Coordinate strip above nav */
-    .coord-strip {
-      background-color: var(--color-ink);
-      color: var(--color-mist);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 6px 0;
-      text-align: center;
-    }
-
-    /* Marquee ticker between sections */
-    .ticker {
-      background-color: var(--color-saffron);
-      color: var(--color-ink);
-      padding: var(--space-3) 0;
-      font-family: var(--font-display);
-      font-weight: var(--weight-black);
-      font-size: var(--text-lg);
-      letter-spacing: var(--tracking-tight);
-      overflow: hidden;
-      border-top: var(--border-medium);
-      border-bottom: var(--border-medium);
-    }
-
-    .ticker__sep {
-      margin-inline: var(--space-6);
-      opacity: 0.4;
-    }
-
-    /* About section */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-16);
-      align-items: center;
-    }
-
-    .about__image {
-      aspect-ratio: 3 / 4;
-      background-color: var(--color-mist);
-      border: var(--border-medium);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .about__image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Passport stamp overlay */
-    .about__image::after {
-      content: 'GLOBAL\ACITIZEN';
-      position: absolute;
-      bottom: var(--space-4);
-      right: var(--space-4);
-      border: 3px solid rgba(245, 166, 35, 0.6);
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 8px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-saffron);
-      text-align: center;
-      padding: var(--space-2);
-    }
-
-    .about__countries {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      margin-top: var(--space-6);
-    }
-
-    .country-tag {
-      font-family: var(--font-mono);
-      font-size: var(--text-xs);
-      letter-spacing: var(--tracking-wide);
-      padding: var(--space-1) var(--space-3);
-      border: 1px solid var(--color-mist);
-      border-radius: var(--radius-sm);
-      color: #666;
-    }
-
-    /* Stats bar */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border: var(--border-medium);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      margin-bottom: var(--space-24);
-    }
-
-    .stat {
-      padding: var(--space-8) var(--space-6);
-      border-right: var(--border-medium);
-      text-align: center;
-    }
-
-    .stat:last-child { border-right: none; }
-
-    .stat__number {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      font-weight: var(--weight-black);
-      line-height: 1;
-      letter-spacing: var(--tracking-tight);
-    }
-
-    .stat__label {
-      font-size: var(--text-xs);
-      letter-spacing: var(--tracking-wider);
-      text-transform: uppercase;
-      color: #888;
-      margin-top: var(--space-2);
-    }
-
-    @media (max-width: 768px) {
-      .about { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .stat:nth-child(2) { border-right: none; }
-      .stat:nth-child(1),
-      .stat:nth-child(2) { border-bottom: var(--border-medium); }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amithi Liyanagamage — Designer, Strategist, Global Citizen</title>
+<meta name="description" content="Portfolio of Amithi Liyanagamage — UI/UX, Data & Analytics, AI Ethics, Technology in Education, AI Policy, and Start-up Growth." />
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="root"></div>
 
-  <!-- Coordinate strip -->
-  <div class="coord-strip">
-    6.9271° N, 79.8612° E &nbsp;·&nbsp; Currently: Planet Earth &nbsp;·&nbsp; Open to opportunities
-  </div>
+<script src="data.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Hero.jsx"></script>
+<script type="text/babel" src="components/Bits.jsx"></script>
+<script type="text/babel" src="components/Project.jsx"></script>
+<script type="text/babel" src="components/Extras.jsx"></script>
+<script type="text/babel" src="components/AboutFooter.jsx"></script>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="#" class="nav__logo">AL</a>
-        <ul class="nav__links">
-          <li><a href="about.html"        class="nav__link">About</a></li>
-          <li><a href="work.html"         class="nav__link">Work</a></li>
-          <li><a href="beyond-work.html"  class="nav__link">Beyond Work</a></li>
-          <li><a href="timeline.html"     class="nav__link">Timeline</a></li>
-          <li><a href="contact.html"      class="nav__link">Contact</a></li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary">Say Hello</a>
-      </div>
-    </div>
-  </nav>
+<script type="text/babel">
+const { useState } = React;
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero__content">
-        <p class="hero__eyebrow">Designer · Strategist · Global Citizen</p>
-        <h1 class="hero__title">
-          <span class="word">Work</span>
-          <span class="word">that</span>
-          <span class="word"><em>moves</em></span>
-          <span class="word">people.</span>
-        </h1>
-        <p class="hero__subtitle">
-          I design for humans, reason with data, and shape policy at the intersection of AI, education, and society — across borders and disciplines.
-        </p>
-        <div style="display:flex; gap: var(--space-4);">
-          <a href="#work"    class="btn btn--chalk">View Work</a>
-          <a href="#about"   class="btn btn--ghost" style="border-color: rgba(250,250,248,0.3); color: var(--color-mist);">About Me</a>
+const FILTERS = [
+  { id: 'all',     label: 'All',               dot: '#E54B3C' },
+  { id: 'ux',      label: 'UI/UX',             dot: '#E54B3C' },
+  { id: 'startup', label: 'Start-ups',         dot: '#1A1612' },
+  { id: 'data',    label: 'Data & Analytics',  dot: '#EE7BA8' },
+];
+
+function App() {
+  const [filter, setFilter] = useState('all');
+  const visible = window.PROJECTS.filter(p => filter === 'all' || p.category === filter);
+  return (
+    <>
+      <Nav />
+      <Hero />
+      <div className="al-container">
+        <div className="al-widgets">
+          <NowReading />
+          <Stamp />
         </div>
-        <div class="hero__meta">
-          <span>UI/UX</span>
-          <span>·</span>
-          <span>Data & Analytics</span>
-          <span>·</span>
-          <span>AI Ethics</span>
-          <span>·</span>
-          <span>AI Policy</span>
-          <span>·</span>
-          <span>EdTech</span>
-          <span>·</span>
-          <span>Start-ups</span>
-        </div>
+        <Stats items={[
+          { num: '6+', label: 'Countries lived in' },
+          { num: '6',  label: 'Projects shipped' },
+          { num: '∞',  label: 'Curiosity' },
+          { num: '1',  label: 'Startup: Ion Studio' },
+        ]} />
       </div>
-    </div>
-  </section>
-
-  <!-- Ticker -->
-  <div class="ticker marquee" aria-hidden="true">
-    <div class="marquee__inner">
-      <span>Human-centred design</span><span class="ticker__sep">✦</span>
-      <span>Data storytelling</span><span class="ticker__sep">✦</span>
-      <span>AI ethics & policy</span><span class="ticker__sep">✦</span>
-      <span>Education technology</span><span class="ticker__sep">✦</span>
-      <span>Start-up growth</span><span class="ticker__sep">✦</span>
-      <span>Global perspective</span><span class="ticker__sep">✦</span>
-      <!-- duplicate for seamless loop -->
-      <span>Human-centred design</span><span class="ticker__sep">✦</span>
-      <span>Data storytelling</span><span class="ticker__sep">✦</span>
-      <span>AI ethics & policy</span><span class="ticker__sep">✦</span>
-      <span>Education technology</span><span class="ticker__sep">✦</span>
-      <span>Start-up growth</span><span class="ticker__sep">✦</span>
-      <span>Global perspective</span><span class="ticker__sep">✦</span>
-    </div>
-  </div>
-
-  <!-- Stats -->
-  <div class="container" style="margin-top: var(--space-16);">
-    <div class="stats animate-in">
-      <div class="stat">
-        <div class="stat__number">6+</div>
-        <div class="stat__label">Countries lived in</div>
-      </div>
-      <div class="stat">
-        <div class="stat__number">6</div>
-        <div class="stat__label">Disciplines</div>
-      </div>
-      <div class="stat">
-        <div class="stat__number">∞</div>
-        <div class="stat__label">Curiosity</div>
-      </div>
-      <div class="stat">
-        <div class="stat__number">1</div>
-        <div class="stat__label">Goal: impact</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Work Section -->
-  <section id="work" class="section">
-    <div class="container">
-
-      <div class="section-header animate-in">
-        <h2 class="section-header__title">Selected Work</h2>
-        <span class="section-header__number">01 / Work</span>
-      </div>
-
-      <!-- Filter pills -->
-      <div class="filter-bar animate-in">
-        <button class="pill active" data-filter="all">All</button>
-        <button class="pill" data-filter="ux">UI/UX</button>
-        <button class="pill" data-filter="data">Data & Analytics</button>
-        <button class="pill" data-filter="ai-ethics">AI Ethics</button>
-        <button class="pill" data-filter="ai-education">AI Education</button>
-        <button class="pill" data-filter="edtech">EdTech</button>
-        <button class="pill" data-filter="startup">Start-ups</button>
-        <button class="pill" data-filter="policy">AI Policy</button>
-      </div>
-
-      <!-- Project grid -->
-      <div class="grid grid--2" style="gap: var(--space-6);">
-
-        <!-- Featured card -->
-        <div class="card card--featured animate-in" data-category="ux" style="grid-column: 1 / -1;">
-          <div class="card__image--placeholder bg-cobalt">FEATURED</div>
-          <div class="card__body">
-            <span class="card__category">UI/UX · User-Centred Design</span>
-            <h3 class="card__title">Project Title Here</h3>
-            <p class="card__teaser">
-              A short compelling line about what this project did and why it mattered — who it was for, what problem it solved, what changed.
-            </p>
-            <a href="pages/case-study.html" class="btn btn--primary" style="align-self: flex-start; margin-top: var(--space-4);">Read Case Study</a>
+      <section className="al-section" id="work" data-screen-label="Work">
+        <div className="al-container">
+          <SectionHeader title='Selected <em>work</em>' index="01 / Work" />
+          <FilterBar filters={FILTERS} active={filter} onChange={setFilter} />
+          <div className="al-grid-2">
+            {visible.map(p => <ProjectCard key={p.id} project={p} featured={p.featured} />)}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <Btn href="work.html" variant="chalk">See all work &amp; upcoming projects</Btn>
           </div>
         </div>
-
-        <!-- Card 2 -->
-        <div class="card animate-in" data-category="data">
-          <div class="card__image--placeholder bg-terracotta">DATA</div>
-          <div class="card__body">
-            <span class="card__category">Data & Analytics</span>
-            <h3 class="card__title">Project Title Here</h3>
-            <p class="card__teaser">One compelling line about the insight, the dataset, or the decision it powered.</p>
-          </div>
-          <div class="card__footer">
-            <span>Data Visualisation</span>
-            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card animate-in" data-category="ai-ethics">
-          <div class="card__image--placeholder bg-forest" style="background-color: var(--color-forest);">AI</div>
-          <div class="card__body">
-            <span class="card__category">AI Ethics & Use</span>
-            <h3 class="card__title">Project Title Here</h3>
-            <p class="card__teaser">What ethical question did this address? What framework or outcome came from it?</p>
-          </div>
-          <div class="card__footer">
-            <span>Research · Policy</span>
-            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card animate-in" data-category="edtech">
-          <div class="card__image--placeholder" style="background-color: var(--color-saffron); color: rgba(13,13,13,0.15);">EDU</div>
-          <div class="card__body">
-            <span class="card__category">Technology in Education</span>
-            <h3 class="card__title">Project Title Here</h3>
-            <p class="card__teaser">How did this change how students or educators experienced learning?</p>
-          </div>
-          <div class="card__footer">
-            <span>EdTech · UX</span>
-            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="card animate-in" data-category="startup">
-          <div class="card__image--placeholder bg-ink">GROW</div>
-          <div class="card__body">
-            <span class="card__category">Start-ups & Growth</span>
-            <h3 class="card__title">Project Title Here</h3>
-            <p class="card__teaser">What did you build, grow, or scale? What was the outcome in numbers or impact?</p>
-          </div>
-          <div class="card__footer">
-            <span>Strategy · Product</span>
-            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="card animate-in" data-category="policy">
-          <div class="card__image--placeholder bg-cobalt">POLICY</div>
-          <div class="card__body">
-            <span class="card__category">AI Policy</span>
-            <h3 class="card__title">Project Title Here</h3>
-            <p class="card__teaser">What policy question, stakeholder, or governance challenge did this engage with?</p>
-          </div>
-          <div class="card__footer">
-            <span>Policy · Research</span>
-            <svg class="card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-            </svg>
-          </div>
-        </div>
-
+      </section>
+      <div className="al-container">
+        <Poll />
       </div>
-    </div>
-  </section>
+      <Services />
+      <Reading />
+      <About />
+      <Footer />
+    </>
+  );
+}
 
-  <!-- Ticker 2 -->
-  <div class="ticker marquee" aria-hidden="true" style="background-color: var(--color-ink); color: var(--color-chalk);">
-    <div class="marquee__inner">
-      <span>Sri Lanka</span><span class="ticker__sep">·</span>
-      <span>United Kingdom</span><span class="ticker__sep">·</span>
-      <span>Australia</span><span class="ticker__sep">·</span>
-      <span>South Africa</span><span class="ticker__sep">·</span>
-      <span>Add yours</span><span class="ticker__sep">·</span>
-      <span>Sri Lanka</span><span class="ticker__sep">·</span>
-      <span>United Kingdom</span><span class="ticker__sep">·</span>
-      <span>Australia</span><span class="ticker__sep">·</span>
-      <span>South Africa</span><span class="ticker__sep">·</span>
-      <span>Add yours</span><span class="ticker__sep">·</span>
-    </div>
-  </div>
-
-  <!-- About Section -->
-  <section id="about" class="section bg-parchment">
-    <div class="container">
-      <div class="section-header animate-in">
-        <h2 class="section-header__title">About</h2>
-        <span class="section-header__number">02 / About</span>
-      </div>
-
-      <div class="about">
-        <div class="about__image animate-in">
-          <!-- Replace src with your photo -->
-          <img src="assets/images/portrait.jpg" alt="Amithi Liyanagamage" onerror="this.style.display='none'" />
-        </div>
-
-        <div class="animate-in">
-          <p class="hero__eyebrow" style="color: var(--color-terracotta); margin-bottom: var(--space-4);">Hello, I'm Amithi</p>
-          <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-6); line-height: var(--leading-snug);">
-            I make complex things clear,<br/><em style="font-family: var(--font-accent); font-style: italic;">and impactful things human.</em>
-          </h3>
-          <p style="font-size: var(--text-base); line-height: var(--leading-loose); color: #444; margin-bottom: var(--space-6);">
-            I work at the crossroads of design, data, and policy — bringing a global lens shaped by living and working across multiple countries. Whether I'm designing an interface, analysing a dataset, or advising on AI governance, I start with people.
-          </p>
-          <p style="font-size: var(--text-base); line-height: var(--leading-loose); color: #444; margin-bottom: var(--space-8);">
-            Add a second paragraph here about your background, values, or what drives your work.
-          </p>
-
-          <div class="about__countries">
-            <!-- Update with your actual countries -->
-            <span class="country-tag">🇱🇰 Sri Lanka</span>
-            <span class="country-tag">🇬🇧 United Kingdom</span>
-            <span class="country-tag">🇿🇦 South Africa</span>
-            <span class="country-tag">🇦🇺 Australia</span>
-            <span class="country-tag">+ more</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact / Footer -->
-  <footer id="contact" class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div>
-          <p class="footer__cta">
-            Let's make<br/>something <em>worth</em><br/>remembering.
-          </p>
-          <a href="mailto:hello@amithi.com" class="btn btn--chalk">hello@amithi.com</a>
-        </div>
-        <ul class="footer__links">
-          <li><a href="#"                 class="footer__link">LinkedIn</a></li>
-          <li><a href="#"                 class="footer__link">Twitter / X</a></li>
-          <li><a href="#"                 class="footer__link">GitHub</a></li>
-          <li><a href="assets/cv.pdf"     class="footer__link">Download CV</a></li>
-        </ul>
-      </div>
-      <div class="footer__bottom">
-        <span>© 2025 Amithi Liyanagamage</span>
-        <span>Designed with intention. Built with care.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
 </body>
 </html>

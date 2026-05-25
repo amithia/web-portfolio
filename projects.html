@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Work · Amithi Liyanagamage</title>
+<title>All Work · Amithi Liyanagamage</title>
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="detail.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,22 +13,72 @@
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 <style>
-.al-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.al-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
 @media (max-width: 900px) { .al-grid-3 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px)  { .al-grid-3 { grid-template-columns: 1fr; } }
+
 .al-subsection { margin-top: 4rem; }
-.al-subsection__head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(26,22,18,.12); }
-.al-subsection__label { font-family: var(--font-display); font-weight: 900; font-size: var(--text-2xl); letter-spacing: -.02em; line-height: 1; }
-.al-subsection__count { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; color: #6b6460; }
+.al-subsection__head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(26,22,18,.12);
+}
+.al-subsection__label {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--text-2xl);
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+.al-subsection__count {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .06em;
+  color: #6b6460;
+}
+
+/* Upcoming / planned card */
 .al-card--upcoming .al-card__img { position: relative; overflow: hidden; }
-.al-card--upcoming .al-card__img::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, rgba(26,22,18,.06) 0, rgba(26,22,18,.06) 1px, transparent 1px, transparent 8px); }
-.al-card__soon-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-mono); font-size: .6rem; letter-spacing: .1em; padding: .3rem .8rem; background: rgba(26,22,18,.65); color: #FCF7E5; border-radius: 100px; white-space: nowrap; backdrop-filter: blur(2px); }
+.al-card--upcoming .al-card__img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(26,22,18,.06) 0, rgba(26,22,18,.06) 1px,
+    transparent 1px, transparent 8px
+  );
+}
+.al-card__soon-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .1em;
+  padding: .3rem .8rem;
+  background: rgba(26,22,18,.65);
+  color: #FCF7E5;
+  border-radius: 100px;
+  white-space: nowrap;
+  backdrop-filter: blur(2px);
+}
 .al-card--upcoming { opacity: .82; transition: opacity .2s ease; }
 .al-card--upcoming:hover { opacity: 1; }
+.al-card--upcoming .al-card__body { padding-bottom: 1.25rem; }
 </style>
 </head>
 <body>
 <div id="root"></div>
+
 <script src="data.js"></script>
 <script type="text/babel" src="components/Nav.jsx"></script>
 <script type="text/babel" src="components/Bits.jsx"></script>
@@ -52,7 +102,7 @@ function UpcomingCard({ project }) {
   const { tone = 'cherry', cat, title, teaser, slug, glyph } = project;
   const g = GLYPHS_SMALL[glyph] || GLYPHS_SMALL.star;
   return (
-    <a href={`case-study?id=${slug}`} className="al-card al-card--upcoming">
+    <a href={`case-study.html?id=${slug}`} className="al-card al-card--upcoming">
       <div className={`al-card__img al-card__img--${tone}`}>
         <svg className="al-card__img-glyph" viewBox="0 0 28 28">{g}</svg>
         <span className="al-card__soon-badge">COMING SOON</span>
@@ -79,41 +129,62 @@ const CAT_FILTERS = [
   { id: 'data',    label: 'Data' },
 ];
 
-function WorkPage() {
+function ProjectsPage() {
   const [status, setStatus] = useState('all');
-  const [cat, setCat]       = useState('all');
+  const [cat, setCat] = useState('all');
 
-  const shipped  = window.PROJECTS.filter(p => cat === 'all' || p.category === cat);
-  const upcoming = window.UPCOMING.filter(p => cat === 'all' || p.category === cat);
+  const shipped = window.PROJECTS.filter(p =>
+    cat === 'all' || p.category === cat
+  );
+  const upcoming = window.UPCOMING.filter(p =>
+    cat === 'all' || p.category === cat
+  );
 
   const showShipped = status === 'all' || status === 'shipped';
   const showPlanned = status === 'all' || status === 'planned';
 
   return (
     <>
-      <Nav />
-      <main className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)', paddingBottom: 'clamp(3rem,7vw,6rem)' }}>
-        <Breadcrumb trail={[{ label: 'Index', href: 'index.html' }, { label: 'Work' }]} />
+      <Nav detailMode={true} />
+      <main className="al-container" data-screen-label="All Work">
+        <Breadcrumb trail={[
+          { label: 'Index', href: 'index.html' },
+          { label: 'Work' },
+        ]} />
 
         <div style={{ marginBottom: '3rem' }}>
-          <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>02 / Work</p>
+          <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>All projects</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
             Work that <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>ships</em> — and work in the pipeline.
           </h1>
           <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 560 }}>
-            Shipped projects and upcoming work across UI/UX, data analytics, and software development.
+            Six shipped projects and twelve in the pipeline. Filter below or browse everything.
           </p>
         </div>
 
         <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginBottom: '2.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(26,22,18,.1)' }}>
           <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
             {STATUS_FILTERS.map(f => (
-              <button key={f.id} onClick={() => setStatus(f.id)} className={`al-pill${status === f.id ? ' active' : ''}`}>{f.label}</button>
+              <button
+                key={f.id}
+                onClick={() => setStatus(f.id)}
+                className={`al-pill${status === f.id ? ' active' : ''}`}
+              >{f.label}</button>
             ))}
           </div>
           <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
             {CAT_FILTERS.map(f => (
-              <button key={f.id} onClick={() => setCat(f.id)} style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.06em', padding: '.35rem .9rem', borderRadius: '100px', border: '1px solid rgba(26,22,18,.2)', background: cat === f.id ? 'var(--color-ink)' : 'transparent', color: cat === f.id ? '#FCF7E5' : 'var(--color-ink)', cursor: 'pointer' }}>{f.label}</button>
+              <button
+                key={f.id}
+                onClick={() => setCat(f.id)}
+                style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.06em',
+                  padding: '.35rem .9rem', borderRadius: '100px', border: '1px solid rgba(26,22,18,.2)',
+                  background: cat === f.id ? 'var(--color-ink)' : 'transparent',
+                  color: cat === f.id ? '#FCF7E5' : 'var(--color-ink)',
+                  cursor: 'pointer',
+                }}
+              >{f.label}</button>
             ))}
           </div>
         </div>
@@ -151,7 +222,7 @@ function WorkPage() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<WorkPage />);
+ReactDOM.createRoot(document.getElementById('root')).render(<ProjectsPage />);
 </script>
 </body>
 </html>

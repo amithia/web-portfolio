@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reading — Amithi Liyanagamage</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { cream:'#F5F0E8', chalk:'#FCF7E5', mist:'#DDD3BD', ink:'#1A1612', cherry:'#E8432D', pink:'#EE7BA8', lavender:'#B9A6E0', olive:'#6B7A3F' },
+      fontFamily: { sans:['Space Grotesk','system-ui','sans-serif'], serif:['Bespoke Serif','DM Serif Display','Georgia','serif'], mono:['JetBrains Mono','monospace'] },
+    }},
+  };
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+  @font-face { font-family:'Bespoke Serif'; src:url('../fonts/BespokeSerif-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Bespoke Serif'; src:url('../fonts/BespokeSerif-Italic.woff2')  format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+  @font-face { font-family:'Bespoke Serif'; src:url('../fonts/BespokeSerif-Bold.woff2')    format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Bespoke Serif'; src:url('../fonts/BespokeSerif-BoldItalic.woff2') format('woff2'); font-weight:700; font-style:italic; font-display:swap; }
+  html, body { background:#F5F0E8; color:#1A1612; font-family:'Space Grotesk',sans-serif; }
+  body { overflow-x:clip; }
+  ::selection { background:#E8432D; color:#FCF7E5; }
+  .serif-italic { font-family:'Bespoke Serif','DM Serif Display',serif; font-style:italic; font-weight:400; }
+  .mono { font-family:'JetBrains Mono',monospace; }
+
+  /* Book spine / cover illustration */
+  .book-cover {
+    width: 100%; max-width: 240px;
+    aspect-ratio: 2/3;
+    border: 2px solid #1A1612;
+    border-radius: 4px 12px 12px 4px;
+    box-shadow: 8px 8px 0 #1A1612;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    padding: 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .book-cover::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 12px;
+    background: rgba(0,0,0,0.18);
+  }
+
+  .prose-notes p { font-size:1.0625rem; line-height:1.75; color:#3a3530; margin-bottom:1.5rem; max-width:68ch; }
+  .prose-notes h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:900; letter-spacing:-0.03em; line-height:1.1; margin:3rem 0 1rem; }
+  .prose-notes blockquote { border-left:3px solid #E8432D; padding-left:1.5rem; margin:2rem 0; font-size:1.125rem; line-height:1.6; color:#1A1612; font-style:italic; font-family:'Bespoke Serif','DM Serif Display',serif; }
+  .prose-notes ul { list-style:none; padding:0; margin-bottom:1.5rem; }
+  .prose-notes ul li { padding:0.5rem 0 0.5rem 1.5rem; position:relative; color:#3a3530; font-size:1rem; line-height:1.6; }
+  .prose-notes ul li::before { content:'→'; position:absolute; left:0; color:#E8432D; font-weight:700; }
+</style>
+</head>
+<body class="bg-cream text-ink">
+
+<!-- Nav -->
+<nav class="sticky top-0 z-40 bg-cream/95 backdrop-blur border-b-2 border-ink py-4 px-6">
+  <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-6">
+    <a href="../index.html" class="text-2xl font-bold tracking-[-0.06em] leading-none inline-flex items-center gap-0.5">
+      A<span class="serif-italic text-cherry">L</span>
+    </a>
+    <a href="../index.html#reading" class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.1em] uppercase hover:text-cherry transition-colors">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+      All reading
+    </a>
+  </div>
+</nav>
+
+<!-- Hero band -->
+<header class="bg-ink text-chalk py-20 px-6">
+  <div class="max-w-[1400px] mx-auto grid md:grid-cols-[1fr_260px] gap-14 items-end">
+    <div>
+      <p class="mono text-[10px] tracking-[0.22em] uppercase text-cherry mb-6" id="bk-tag">Science · Philosophy</p>
+      <p class="mono text-[11px] tracking-[0.18em] uppercase mb-3" style="color:#DDD3BD; opacity:0.7;" id="bk-num">01</p>
+      <h1 class="font-bold tracking-[-0.04em] leading-[0.92] mb-5 max-w-[22ch]" style="font-size:clamp(2.5rem,6vw,5rem);" id="bk-title">
+        Braiding <span class="serif-italic">Sweetgrass</span>
+      </h1>
+      <p class="text-lg leading-snug" style="color:#DDD3BD;" id="bk-author">Robin Wall Kimmerer</p>
+    </div>
+
+    <!-- Book cover -->
+    <div class="flex justify-center md:justify-end pb-2">
+      <div class="book-cover" id="bk-cover">
+        <div id="bk-cover-glyph" class="font-bold tracking-[-0.06em] leading-none text-center select-none" style="font-size:3.5rem; opacity:0.18;"></div>
+        <div class="relative z-10 text-center w-full">
+          <p class="font-bold text-sm tracking-[-0.02em] leading-tight mb-1" id="bk-cover-title"></p>
+          <p class="mono text-[9px] tracking-[0.15em] uppercase opacity-60" id="bk-cover-author"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Body content -->
+<article class="max-w-[1400px] mx-auto px-6 py-16 grid md:grid-cols-[1fr_280px] gap-16 items-start">
+  <div class="prose-notes" id="bk-body"></div>
+
+  <!-- Sidebar -->
+  <aside class="space-y-6 md:sticky md:top-24">
+    <div class="border-2 border-ink rounded-2xl p-6 bg-chalk">
+      <p class="mono text-[9px] tracking-[0.22em] uppercase opacity-50 mb-4">Details</p>
+      <dl class="space-y-3 text-sm">
+        <div><dt class="mono text-[9px] tracking-[0.15em] uppercase opacity-40 mb-0.5">Author</dt><dd class="font-semibold" id="bk-detail-author"></dd></div>
+        <div><dt class="mono text-[9px] tracking-[0.15em] uppercase opacity-40 mb-0.5">Genre</dt><dd class="font-semibold" id="bk-detail-tag"></dd></div>
+        <div><dt class="mono text-[9px] tracking-[0.15em] uppercase opacity-40 mb-0.5">Status</dt><dd class="font-semibold text-cherry">Currently reading</dd></div>
+      </dl>
+    </div>
+    <div class="border-2 border-ink rounded-2xl p-6 bg-chalk">
+      <p class="mono text-[9px] tracking-[0.22em] uppercase opacity-50 mb-4">Connects to</p>
+      <div class="flex flex-wrap gap-2" id="bk-connects"></div>
+    </div>
+  </aside>
+</article>
+
+<!-- Next book -->
+<div class="bg-ink text-chalk border-t-4 border-cherry px-6 py-16">
+  <div class="max-w-[1400px] mx-auto flex flex-wrap justify-between items-center gap-6">
+    <div>
+      <p class="mono text-[10px] tracking-[0.22em] uppercase opacity-50 mb-2">Next on the list</p>
+      <a id="bk-next-link" href="#" class="font-bold tracking-[-0.03em] hover:text-cherry transition-colors" style="font-size:clamp(1.5rem,3vw,2.5rem);">
+        <span id="bk-next-title"></span>
+      </a>
+    </div>
+    <a id="bk-next-btn" href="#"
+      class="inline-flex items-center gap-2 px-6 py-3 border-2 border-chalk rounded-full text-xs font-bold tracking-[0.1em] uppercase hover:bg-chalk hover:text-ink transition-colors">
+      View book
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    </a>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const slug = params.get('slug') || 'braiding-sweetgrass';
+
+const data = {
+  'braiding-sweetgrass': {
+    num: '01',
+    title: 'Braiding <span class="serif-italic">Sweetgrass</span>',
+    plainTitle: 'Braiding Sweetgrass',
+    author: 'Robin Wall Kimmerer',
+    tag: 'Science · Philosophy',
+    coverBg: '#6B7A3F',
+    coverText: '#FCF7E5',
+    connects: ['AI Ethics', 'Slow Design', 'Systems Thinking'],
+    next: { slug: 'the-ministry-for-the-future', title: 'The Ministry for the <span class="serif-italic">Future</span>' },
+    body: `
+      <h2>Why I am reading this</h2>
+      <p>Robin Wall Kimmerer is a botanist and a member of the Citizen Potawatomi Nation. This book is about plants — but it is really about what happens when you take indigenous knowledge as seriously as scientific knowledge, and what that shift reveals about how we understand the world.</p>
+      <p>I came to it because I kept hitting a wall in my AI ethics work: Western analytical frameworks are useful for identifying harms, but they are not very good at articulating what a genuinely reciprocal relationship between technology and people might look like. Kimmerer has a lot to say about reciprocity.</p>
+      <blockquote>"In the Western tradition there is a pattern of thought called the Doctrine of Discovery — the idea that whoever arrives first has the right to claim the land. What if we inverted that, and asked instead: what are our obligations to the land that receives us?"</blockquote>
+      <h2>What I am taking from it</h2>
+      <p>The idea that gratitude is not sentiment but practice — and that the language we use to describe the world shapes what we are able to see in it. Kimmerer argues that the English language, by treating plants and the non-human world as objects (it, them) rather than subjects (she, they, kin), actively prevents us from certain kinds of understanding.</p>
+      <p>That applies directly to AI: the language of "tools", "systems", and "outputs" shapes what questions we think to ask. What if we asked different questions?</p>
+    `,
+  },
+  'the-ministry-for-the-future': {
+    num: '02',
+    title: 'The Ministry for the <span class="serif-italic">Future</span>',
+    plainTitle: 'The Ministry for the Future',
+    author: 'Kim Stanley Robinson',
+    tag: 'Climate Fiction',
+    coverBg: '#B9A6E0',
+    coverText: '#1A1612',
+    connects: ['AI Policy', 'Governance', 'Futures Thinking'],
+    next: { slug: 'invisible-cities', title: '<span class="serif-italic">Invisible</span> Cities' },
+    body: `
+      <h2>Why I am reading this</h2>
+      <p>Kim Stanley Robinson wrote a novel about climate governance — the unglamorous, procedural, institutional work of trying to change the world. It opens with a devastating heatwave scene and then spends four hundred pages inside the machinery of international policy. It is, somehow, gripping.</p>
+      <p>I read it alongside my AI governance work because it asks the same questions: what does it take to actually govern a global technology (or a global crisis) when national interests, corporate power, and democratic legitimacy all pull in different directions? Robinson is not optimistic, but he is not nihilistic either.</p>
+      <blockquote>"It's not that people are ignorant of what needs to be done. It's that the institutions don't exist to do it — so you have to build them while also trying to use them."</blockquote>
+      <h2>What I am taking from it</h2>
+      <p>The Ministry itself — a fictional UN agency — is interesting as a governance design artefact. It has no enforcement power. It operates by influence, persuasion, and the slow accumulation of legitimacy. That is basically how AI governance works too, right now. The book makes that feel less like failure and more like the nature of the problem.</p>
+    `,
+  },
+  'invisible-cities': {
+    num: '03',
+    title: '<span class="serif-italic">Invisible</span> Cities',
+    plainTitle: 'Invisible Cities',
+    author: 'Italo Calvino',
+    tag: 'Literary Fiction',
+    coverBg: '#E8432D',
+    coverText: '#FCF7E5',
+    connects: ['Design Thinking', 'Place', 'Narrative'],
+    next: { slug: 'atlas-of-ai', title: 'Atlas of <span class="serif-italic">AI</span>' },
+    body: `
+      <h2>Why I am reading this</h2>
+      <p>Calvino's Marco Polo describes fifty-five cities to Kublai Khan. None of them are real. Each one is a thought experiment about how a city can be organised, what a city can mean, what humans build and why. I read it slowly, one or two cities at a time.</p>
+      <p>It feels like a design portfolio from an alternate universe — each city a prototype for a different way of solving the same problem: how do people live together in space?</p>
+      <blockquote>"Cities, like dreams, are made of desires and fears, even if the thread of their discourse is secret, their rules are absurd, their perspectives deceitful, and everything conceals something else."</blockquote>
+      <h2>What I am taking from it</h2>
+      <p>That description is a perfect description of complex systems. And of AI models. And of most institutions. Reading Calvino has made me a better systems thinker by forcing me to hold contradiction — a city can be about memory and also about forgetting; a system can be about efficiency and also about power — without resolving it.</p>
+      <p>It is also just very beautiful. Not everything has to be instrumentalised.</p>
+    `,
+  },
+  'atlas-of-ai': {
+    num: '04',
+    title: 'Atlas of <span class="serif-italic">AI</span>',
+    plainTitle: 'Atlas of AI',
+    author: 'Kate Crawford',
+    tag: 'Technology · Ethics',
+    coverBg: '#1A1612',
+    coverText: '#FCF7E5',
+    connects: ['AI Ethics', 'AI Policy', 'Data'],
+    next: { slug: 'the-art-of-living', title: 'The Art of <span class="serif-italic">Living</span>' },
+    body: `
+      <h2>Why I am reading this</h2>
+      <p>Kate Crawford's Atlas of AI is required reading for anyone working in AI governance. It maps the physical, political, and social infrastructure that makes AI systems possible — the mines that produce the lithium for the hardware, the warehouses where human labellers sit annotating training data, the military contracts that fund research, the legal frameworks that protect corporate interests.</p>
+      <p>I return to it regularly because it is the best antidote to abstraction I know. When someone talks about "the cloud", Crawford shows you the data centre in the desert and the power infrastructure that feeds it.</p>
+      <blockquote>"AI is neither artificial nor intelligent. It is made from natural resources, and it is a system of human labour. It is neither as smart as its proponents claim, nor as dangerous as its detractors fear — but it is deeply political."</blockquote>
+      <h2>What I am taking from it</h2>
+      <p>The concept of the "atlas" is methodological as much as it is a title. Crawford argues that AI cannot be understood through any single lens — technical, economic, political, environmental, social — and that governance work has to be equally multi-perspectival. My own practice has moved in this direction: away from single-framework audits towards more situated, contextual analysis.</p>
+    `,
+  },
+  'the-art-of-living': {
+    num: '05',
+    title: 'The Art of <span class="serif-italic">Living</span>',
+    plainTitle: 'The Art of Living',
+    author: 'Thich Nhat Hanh',
+    tag: 'Philosophy',
+    coverBg: '#EE7BA8',
+    coverText: '#1A1612',
+    connects: ['Slow Design', 'Wellbeing', 'Practice'],
+    next: { slug: 'braiding-sweetgrass', title: 'Braiding <span class="serif-italic">Sweetgrass</span>' },
+    body: `
+      <h2>Why I am reading this</h2>
+      <p>I picked this up in a difficult week and have not put it down. Thich Nhat Hanh writes about practice — daily, embodied, unglamorous practice — as the only real way to change anything, including yourself. The clarity of the writing is almost disorienting: sentences that feel obvious until you sit with them and realise they are not obvious at all.</p>
+      <p>I read it partly as a counterweight to the urgency that runs through everything else I read. Not everything is a problem to be optimised.</p>
+      <blockquote>"The present moment is the only moment available to us, and it is the door to all moments."</blockquote>
+      <h2>What I am taking from it</h2>
+      <p>The idea of interbeing — that nothing exists independently of everything else — maps surprisingly well onto systems thinking and onto the critique of AI reductionism. Harms do not exist in isolation; they are relational. Solutions have to be relational too.</p>
+      <p>More personally: the reminder that how you do the work matters as much as what you produce. Presence is a design skill.</p>
+    `,
+  },
+};
+
+const d = data[slug] || data['braiding-sweetgrass'];
+
+/* Hero */
+document.getElementById('bk-tag').textContent = d.tag;
+document.getElementById('bk-num').textContent = d.num;
+document.getElementById('bk-title').innerHTML = d.title;
+document.getElementById('bk-author').textContent = d.author;
+
+/* Book cover */
+const cover = document.getElementById('bk-cover');
+cover.style.background = d.coverBg;
+cover.style.color = d.coverText;
+document.getElementById('bk-cover-glyph').textContent = d.num;
+document.getElementById('bk-cover-title').textContent = d.plainTitle;
+document.getElementById('bk-cover-author').textContent = d.author;
+
+/* Body */
+document.getElementById('bk-body').innerHTML = d.body;
+
+/* Sidebar */
+document.getElementById('bk-detail-author').textContent = d.author;
+document.getElementById('bk-detail-tag').textContent = d.tag;
+document.getElementById('bk-connects').innerHTML = d.connects.map(c =>
+  `<span class="mono text-[10px] tracking-[0.1em] px-3 py-1.5 border border-ink rounded-full">${c}</span>`
+).join('');
+
+/* Next */
+document.getElementById('bk-next-link').href = `book.html?slug=${d.next.slug}`;
+document.getElementById('bk-next-title').innerHTML = d.next.title;
+document.getElementById('bk-next-btn').href = `book.html?slug=${d.next.slug}`;
+
+document.title = `${d.plainTitle} — Amithi Liyanagamage`;
+</script>
+</body>
+</html>
