@@ -76,11 +76,19 @@ function SpotifyWidget() {
     <div className="al-spotify__wrap">
       <div className="al-spotify__heading">
         <svg className="al-spotify__record" viewBox="0 0 40 40">
-          <circle cx="20" cy="20" r="18" fill="#1A1612" stroke="#1A1612" strokeWidth="1.5"/>
-          <circle cx="20" cy="20" r="13" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="4"/>
-          <circle cx="20" cy="20" r="8"  fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="3"/>
-          <circle cx="20" cy="20" r="3"  fill="#FCF7E5"/>
-          <circle cx="20" cy="20" r="1.2" fill="#1DB954"/>
+          {/* Outer ring — cherry */}
+          <circle cx="20" cy="20" r="19" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5"/>
+          {/* Groove rings */}
+          <circle cx="20" cy="20" r="15" fill="none" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.25"/>
+          <circle cx="20" cy="20" r="12" fill="none" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.2"/>
+          <circle cx="20" cy="20" r="9"  fill="none" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.15"/>
+          {/* Label disc — cream */}
+          <circle cx="20" cy="20" r="7"  fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.2"/>
+          {/* Label detail — bubblegum dot */}
+          <circle cx="20" cy="16" r="1.5" fill="#EE7BA8"/>
+          {/* Centre hole */}
+          <circle cx="20" cy="20" r="2"  fill="#1A1612"/>
+          <circle cx="20" cy="20" r="0.8" fill="#FCF7E5"/>
         </svg>
         <span>Currently listening to</span>
       </div>

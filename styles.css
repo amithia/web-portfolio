@@ -509,11 +509,11 @@ html, body { overflow-x: clip; }
    ──────────────────────────────────────────── */
 .al-spotify__wrap { margin-block: var(--space-12); }
 .al-spotify__heading {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  opacity: 0.6; margin-bottom: var(--space-3);
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-display); font-weight: 900; font-size: var(--text-xl);
+  letter-spacing: -0.02em; margin-bottom: var(--space-3);
 }
-.al-spotify__record { width: 22px; height: 22px; animation: spin 4s linear infinite; }
+.al-spotify__record { width: 36px; height: 36px; animation: spin 4s linear infinite; flex-shrink: 0; }
 .al-spotify {
   display: flex; align-items: center; gap: var(--space-4);
   background: var(--color-ink); color: var(--color-chalk);
