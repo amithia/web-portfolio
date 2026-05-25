@@ -112,17 +112,13 @@ function PhotoStack() {
             <div className="al-photo-card__art">
               <img src={card.photo} alt={card.caption} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            {pos === 0 && (
-              <div className="al-photo-card__caption">
-                <span className="al-photo-card__title">{card.caption}</span>
-                <span className="al-photo-card__place">{card.place}</span>
-              </div>
-            )}
-            {pos === 0 && (
-              <div className="al-photo-card__hint">
-                <span className="dot"></span>Click to flip
-              </div>
-            )}
+            <div className="al-photo-card__caption" style={{ opacity: pos === 0 ? 1 : 0, transition: 'opacity 300ms ease' }}>
+              <span className="al-photo-card__title">{card.caption}</span>
+              <span className="al-photo-card__place">{card.place}</span>
+            </div>
+            <div className="al-photo-card__hint" style={{ opacity: pos === 0 ? 1 : 0, transition: 'opacity 300ms ease' }}>
+              <span className="dot"></span>Click to flip
+            </div>
           </div>);
 
       })}
