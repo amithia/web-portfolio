@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact · Amithi Liyanagamage</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="detail.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<style>
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,5rem); align-items: start; }
+@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-row { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; border-bottom: 1px solid rgba(26,22,18,.12); text-decoration: none; color: inherit; transition: color .15s; }
+.contact-row:first-child { border-top: 1px solid rgba(26,22,18,.12); }
+.contact-row:hover { color: var(--color-cherry); }
+.contact-row:hover .contact-row__arrow { transform: translate(3px,-3px); }
+.contact-row__label { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: #888; margin-bottom: .25rem; }
+.contact-row__value { font-family: var(--font-display); font-weight: 900; font-size: var(--text-lg); letter-spacing: -.02em; }
+.contact-row__arrow { transition: transform .15s var(--ease-out); }
+.form-field { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.25rem; }
+.form-label { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #555; }
+.form-input, .form-textarea { padding: .875rem 1rem; border: 2px solid var(--color-ink); border-radius: 8px; font-family: var(--font-body); font-size: var(--text-base); background: var(--color-chalk); color: var(--color-ink); outline: none; transition: border-color .15s; }
+.form-input:focus, .form-textarea:focus { border-color: var(--color-cherry); }
+.form-textarea { resize: vertical; min-height: 130px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="data.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Bits.jsx"></script>
+<script type="text/babel" src="components/AboutFooter.jsx"></script>
+<script type="text/babel" src="components/DetailParts.jsx"></script>
+
+<script type="text/babel">
+function ContactPage() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <div className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)', paddingBottom: 'clamp(3rem,7vw,6rem)' }}>
+          <Breadcrumb trail={[{ label: 'Index', href: 'index.html' }, { label: 'Contact' }]} />
+
+          <div style={{ marginBottom: '3rem' }}>
+            <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>05 / Contact</p>
+            <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
+              Let's make something<br />
+              <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>worth remembering.</em>
+            </h1>
+            <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 480 }}>
+              Open to opportunities, collaborations, and interesting conversations.
+            </p>
+          </div>
+
+          <div className="contact-grid">
+            <div>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.1em', textTransform: 'uppercase', color: '#888', marginBottom: '1rem' }}>Find me here</p>
+
+              <a href="mailto:hello@amithi.com" className="contact-row">
+                <div>
+                  <div className="contact-row__label">Email</div>
+                  <div className="contact-row__value">hello@amithi.com</div>
+                </div>
+                <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+
+              <a href="#" className="contact-row">
+                <div>
+                  <div className="contact-row__label">LinkedIn</div>
+                  <div className="contact-row__value">Amithi Liyanagamage</div>
+                </div>
+                <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+
+              <a href="#" className="contact-row">
+                <div>
+                  <div className="contact-row__label">GitHub</div>
+                  <div className="contact-row__value">@amithi</div>
+                </div>
+                <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+
+              <a href="#" className="contact-row">
+                <div>
+                  <div className="contact-row__label">Are.na</div>
+                  <div className="contact-row__value">amithi</div>
+                </div>
+                <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+
+              <a href="assets/cv.pdf" className="contact-row">
+                <div>
+                  <div className="contact-row__label">Resume</div>
+                  <div className="contact-row__value">Download CV</div>
+                </div>
+                <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+            </div>
+
+            <div>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.1em', textTransform: 'uppercase', color: '#888', marginBottom: '1rem' }}>Send a message</p>
+              <form name="contact" method="POST">
+                <div className="form-field">
+                  <label className="form-label" htmlFor="name">Name</label>
+                  <input className="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+                </div>
+                <div className="form-field">
+                  <label className="form-label" htmlFor="email">Email</label>
+                  <input className="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
+                </div>
+                <div className="form-field">
+                  <label className="form-label" htmlFor="message">Message</label>
+                  <textarea className="form-textarea" id="message" name="message" placeholder="What's on your mind?" required />
+                </div>
+                <Btn href="#" variant="primary" onClick={(e) => e.preventDefault()}>Send Message</Btn>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<ContactPage />);
+</script>
+</body>
+</html>

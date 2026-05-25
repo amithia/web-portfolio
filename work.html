@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work · Amithi Liyanagamage</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="detail.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<style>
+.al-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 900px) { .al-grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .al-grid-3 { grid-template-columns: 1fr; } }
+.al-subsection { margin-top: 4rem; }
+.al-subsection__head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(26,22,18,.12); }
+.al-subsection__label { font-family: var(--font-display); font-weight: 900; font-size: var(--text-2xl); letter-spacing: -.02em; line-height: 1; }
+.al-subsection__count { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; color: #6b6460; }
+.al-card--upcoming .al-card__img { position: relative; overflow: hidden; }
+.al-card--upcoming .al-card__img::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, rgba(26,22,18,.06) 0, rgba(26,22,18,.06) 1px, transparent 1px, transparent 8px); }
+.al-card__soon-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-mono); font-size: .6rem; letter-spacing: .1em; padding: .3rem .8rem; background: rgba(26,22,18,.65); color: #FCF7E5; border-radius: 100px; white-space: nowrap; backdrop-filter: blur(2px); }
+.al-card--upcoming { opacity: .82; transition: opacity .2s ease; }
+.al-card--upcoming:hover { opacity: 1; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="data.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Bits.jsx"></script>
+<script type="text/babel" src="components/Project.jsx"></script>
+<script type="text/babel" src="components/AboutFooter.jsx"></script>
+<script type="text/babel" src="components/DetailParts.jsx"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+const GLYPHS_SMALL = {
+  star:   <path d="M14 2 L17 11 L26 12 L19 18 L21 27 L14 22 L7 27 L9 18 L2 12 L11 11 Z" fill="currentColor"/>,
+  heart:  <path d="M14 24 C 14 24, 4 18, 4 11 A 5 5 0 0 1 14 8 A 5 5 0 0 1 24 11 C 24 18, 14 24, 14 24 Z" fill="currentColor"/>,
+  globe:  (<><circle cx="14" cy="14" r="10" fill="currentColor"/><ellipse cx="14" cy="14" rx="4" ry="10" fill="none" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1"/><line x1="4" y1="14" x2="24" y2="14" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1"/></>),
+  flower: (<g transform="translate(14 14)"><ellipse cx="0" cy="-7" rx="4" ry="6" fill="currentColor"/><ellipse cx="6.7" cy="-2.2" rx="4" ry="6" fill="currentColor" transform="rotate(72 6.7 -2.2)"/><ellipse cx="4.1" cy="5.7" rx="4" ry="6" fill="currentColor" transform="rotate(144 4.1 5.7)"/><ellipse cx="-4.1" cy="5.7" rx="4" ry="6" fill="currentColor" transform="rotate(216 -4.1 5.7)"/><ellipse cx="-6.7" cy="-2.2" rx="4" ry="6" fill="currentColor" transform="rotate(288 -6.7 -2.2)"/></g>),
+  flame:  <path d="M14 3 C 17 8, 22 11, 22 17 C 22 22, 18 26, 14 26 C 10 26, 6 22, 6 17 C 6 13, 9 11, 11 11 C 11 14, 12 15, 13 15 C 13 11, 13 7, 14 3 Z" fill="currentColor"/>,
+  pin:    <path d="M14 3 C 10 3, 7 6, 7 10 C 7 16, 14 25, 14 25 C 14 25, 21 16, 21 10 C 21 6, 18 3, 14 3 Z" fill="currentColor"/>,
+};
+
+function UpcomingCard({ project }) {
+  const { tone = 'cherry', cat, title, teaser, slug, glyph } = project;
+  const g = GLYPHS_SMALL[glyph] || GLYPHS_SMALL.star;
+  return (
+    <a href={`case-study?id=${slug}`} className="al-card al-card--upcoming">
+      <div className={`al-card__img al-card__img--${tone}`}>
+        <svg className="al-card__img-glyph" viewBox="0 0 28 28">{g}</svg>
+        <span className="al-card__soon-badge">COMING SOON</span>
+      </div>
+      <div className="al-card__body">
+        <span className="al-card__cat">{cat}</span>
+        <h3 className="al-card__title" dangerouslySetInnerHTML={{ __html: title }} />
+        <p className="al-card__teaser">{teaser}</p>
+      </div>
+    </a>
+  );
+}
+
+const STATUS_FILTERS = [
+  { id: 'all',     label: 'All work' },
+  { id: 'shipped', label: 'Shipped' },
+  { id: 'planned', label: 'Coming soon' },
+];
+
+const CAT_FILTERS = [
+  { id: 'all',     label: 'All' },
+  { id: 'ux',      label: 'UI/UX' },
+  { id: 'startup', label: 'Start-ups' },
+  { id: 'data',    label: 'Data' },
+];
+
+function WorkPage() {
+  const [status, setStatus] = useState('all');
+  const [cat, setCat]       = useState('all');
+
+  const shipped  = window.PROJECTS.filter(p => cat === 'all' || p.category === cat);
+  const upcoming = window.UPCOMING.filter(p => cat === 'all' || p.category === cat);
+
+  const showShipped = status === 'all' || status === 'shipped';
+  const showPlanned = status === 'all' || status === 'planned';
+
+  return (
+    <>
+      <Nav />
+      <main className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)', paddingBottom: 'clamp(3rem,7vw,6rem)' }}>
+        <Breadcrumb trail={[{ label: 'Index', href: 'index.html' }, { label: 'Work' }]} />
+
+        <div style={{ marginBottom: '3rem' }}>
+          <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>02 / Work</p>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
+            Work that <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>ships</em> — and work in the pipeline.
+          </h1>
+          <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 560 }}>
+            Shipped projects and upcoming work across UI/UX, data analytics, and software development.
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginBottom: '2.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(26,22,18,.1)' }}>
+          <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
+            {STATUS_FILTERS.map(f => (
+              <button key={f.id} onClick={() => setStatus(f.id)} className={`al-pill${status === f.id ? ' active' : ''}`}>{f.label}</button>
+            ))}
+          </div>
+          <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
+            {CAT_FILTERS.map(f => (
+              <button key={f.id} onClick={() => setCat(f.id)} style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.06em', padding: '.35rem .9rem', borderRadius: '100px', border: '1px solid rgba(26,22,18,.2)', background: cat === f.id ? 'var(--color-ink)' : 'transparent', color: cat === f.id ? '#FCF7E5' : 'var(--color-ink)', cursor: 'pointer' }}>{f.label}</button>
+            ))}
+          </div>
+        </div>
+
+        {showShipped && shipped.length > 0 && (
+          <div className="al-subsection">
+            <div className="al-subsection__head">
+              <span className="al-subsection__label">Shipped <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>work</em></span>
+              <span className="al-subsection__count">{shipped.length} project{shipped.length !== 1 ? 's' : ''}</span>
+            </div>
+            <div className="al-grid-2">
+              {shipped.map(p => <ProjectCard key={p.id} project={p} featured={p.featured} />)}
+            </div>
+          </div>
+        )}
+
+        {showPlanned && upcoming.length > 0 && (
+          <div className="al-subsection">
+            <div className="al-subsection__head">
+              <span className="al-subsection__label">In the <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>pipeline</em></span>
+              <span className="al-subsection__count">{upcoming.length} project{upcoming.length !== 1 ? 's' : ''}</span>
+            </div>
+            <div className="al-grid-3">
+              {upcoming.map(p => <UpcomingCard key={p.id} project={p} />)}
+            </div>
+          </div>
+        )}
+
+        {(showShipped ? shipped.length : 0) + (showPlanned ? upcoming.length : 0) === 0 && (
+          <p style={{ color: '#6b6460', marginTop: '3rem' }}>No projects match that filter.</p>
+        )}
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<WorkPage />);
+</script>
+</body>
+</html>

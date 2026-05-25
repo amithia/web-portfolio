@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reading · Amithi Liyanagamage</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="detail.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="data.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Bits.jsx"></script>
+<script type="text/babel" src="components/AboutFooter.jsx"></script>
+<script type="text/babel" src="components/DetailParts.jsx"></script>
+
+<script type="text/babel">
+function BookPage() {
+  const slug = useSlug();
+  const idx = window.READING.findIndex(b => b.slug === slug);
+  const book = idx >= 0 ? window.READING[idx] : null;
+
+  React.useEffect(() => {
+    if (book) {
+      const plain = book.title.replace(/<[^>]+>/g, '');
+      document.title = `${plain} · Reading · Amithi Liyanagamage`;
+    }
+  }, [book]);
+
+  if (!book) {
+    return (
+      <>
+        <Nav detailMode={true} />
+        <NotFound backHref="index.html#reading" backLabel="Back to reading list" />
+        <Footer />
+      </>
+    );
+  }
+
+  const prev = idx > 0 ? window.READING[idx - 1] : null;
+  const next = idx < window.READING.length - 1 ? window.READING[idx + 1] : null;
+
+  return (
+    <>
+      <Nav detailMode={true} />
+      <main className="al-container" data-screen-label="Book">
+        <Breadcrumb trail={[
+          { label: 'Index', href: 'index.html' },
+          { label: 'Reading', href: 'index.html#reading' },
+          { label: book.num },
+        ]} />
+
+        <header className="al-book-hero">
+          <div className={`al-book-cover al-book-cover--${book.tone || 'cherry'}`}>
+            <div className="al-book-cover__head">
+              <span>{book.num}</span>
+              <span>{book.tag}</span>
+            </div>
+            <div>
+              <div className="al-book-cover__title" dangerouslySetInnerHTML={{ __html: book.title }} />
+              <div className="al-book-cover__author">{book.author}</div>
+            </div>
+            <div>
+              <div className="al-progress">
+                <div className="al-progress__lbl">
+                  <span>{book.progress >= 100 ? 'Finished' : 'Reading'}</span>
+                  <span>{book.progress}%</span>
+                </div>
+                <div className="al-progress__bar"><div style={{ width: `${book.progress}%` }}></div></div>
+              </div>
+              <div className="al-book-cover__foot" style={{ marginTop: '1rem' }}>
+                <span>{book.publisher}</span>
+                <span>{book.year}</span>
+              </div>
+            </div>
+          </div>
+          <div className="al-book-side">
+            <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '1rem' }}>
+              {book.progress >= 100 ? 'Bookshelf · finished' : 'Currently reading'}
+            </p>
+            <h2 dangerouslySetInnerHTML={{ __html: book.title }} />
+            <div className="al-book-side__author">{book.author}</div>
+            <p className="al-book-side__lede">{book.lede}</p>
+          </div>
+        </header>
+
+        <article className="al-article">
+          <section className="al-block">
+            <div className="al-block__tag">Why I'm <br/>reading it</div>
+            <div className="al-block__body">
+              <h3>The reason it's on the <em>desk</em>.</h3>
+              <p>{book.why}</p>
+            </div>
+          </section>
+
+          {book.notes && book.notes.length > 0 && (
+            <section className="al-block">
+              <div className="al-block__tag">Notes &amp; <br/>highlights</div>
+              <div className="al-block__body" style={{ width: '100%' }}>
+                <h3>What I'm <em>marking</em>.</h3>
+                <div className="al-notes" style={{ marginTop: '1.5rem' }}>
+                  {book.notes.map((n, i) => (
+                    <div key={i} className="al-note">
+                      <div className="al-note__tag">{n.tag}</div>
+                      <div className="al-note__text">{n.text}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+        </article>
+
+        <NextPrev
+          prev={prev}
+          next={next}
+          prevLabel="Previous book"
+          nextLabel="Next book"
+          hrefFor={(b) => `book.html?id=${b.slug}`}
+        />
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<BookPage />);
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2">
+  <circle cx="40" cy="40" r="36"></circle>
+  <circle cx="40" cy="40" r="28" stroke-dasharray="3 3"></circle>
+  <text x="40" y="36" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" letter-spacing="2" fill="currentColor">GLOBAL</text>
+  <text x="40" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" letter-spacing="2" fill="currentColor">CITIZEN</text>
+  <path d="M16 60 L18 64 M62 60 L64 64 M16 16 L20 18 M62 16 L60 18"></path>
+</svg>

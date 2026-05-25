@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Beyond Work · Amithi Liyanagamage</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="detail.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<style>
+.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 900px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .cert-grid { grid-template-columns: 1fr; } }
+.cert-card { display: flex; flex-direction: column; border: 2px solid var(--color-ink); border-radius: 8px; overflow: hidden; background: var(--color-chalk); transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); text-decoration: none; color: inherit; }
+.cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.cert-card__header { padding: 1rem 1.25rem; background: var(--color-ink); color: var(--color-chalk); display: flex; align-items: center; justify-content: space-between; }
+.cert-card__provider { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--color-bubblegum); }
+.cert-card__status { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 100px; }
+.cert-card__status--active  { background: var(--color-cherry); color: #fff; }
+.cert-card__status--planned { background: rgba(252,247,229,.15); color: rgba(252,247,229,.7); border: 1px solid rgba(252,247,229,.2); }
+.cert-card__body { padding: 1.25rem; flex: 1; }
+.cert-card__title { font-family: var(--font-display); font-weight: 900; font-size: var(--text-lg); letter-spacing: -.02em; line-height: 1.1; margin-bottom: .5rem; }
+.cert-card__desc { font-size: var(--text-xs); color: #6b6460; line-height: 1.6; }
+.cert-card__footer { padding: .75rem 1.25rem; border-top: 1px solid rgba(26,22,18,.1); font-family: var(--font-mono); font-size: .65rem; letter-spacing: .06em; color: #888; text-transform: uppercase; }
+.art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 768px) { .art-grid { grid-template-columns: 1fr; } }
+.art-card { border: 2px solid var(--color-ink); border-radius: 8px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
+.art-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.art-card__img { aspect-ratio: 4/3; background: var(--color-ink); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 900; font-size: 3rem; color: rgba(252,247,229,.08); }
+.art-card__body { padding: 1.25rem; background: var(--color-chalk); }
+.art-card__title { font-family: var(--font-display); font-weight: 900; font-size: var(--text-xl); letter-spacing: -.02em; line-height: 1.1; margin-bottom: .3rem; }
+.art-card__meta { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .06em; color: #888; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="data.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Bits.jsx"></script>
+<script type="text/babel" src="components/AboutFooter.jsx"></script>
+<script type="text/babel" src="components/DetailParts.jsx"></script>
+
+<script type="text/babel">
+function BeyondWorkPage() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <div className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)', paddingBottom: 'clamp(3rem,7vw,6rem)' }}>
+          <Breadcrumb trail={[{ label: 'Index', href: 'index.html' }, { label: 'Beyond Work' }]} />
+
+          <div style={{ marginBottom: '3rem' }}>
+            <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>03 / Beyond Work</p>
+            <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
+              Learning &amp; <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>Creating</em>
+            </h1>
+            <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 560 }}>
+              Certifications I'm working through and creative work made outside of professional projects.
+            </p>
+          </div>
+
+          {/* Learning */}
+          <div style={{ marginBottom: '4rem' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '2rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(26,22,18,.12)' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-2xl)', letterSpacing: '-.02em', lineHeight: 1 }}>
+                Independent <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>learning</em>
+              </h2>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '.7rem', letterSpacing: '.06em', color: '#6b6460' }}>
+                {window.LEARNING.length} certifications
+              </span>
+            </div>
+            <div className="cert-grid">
+              {window.LEARNING.map(cert => (
+                <a key={cert.id} href={`learning-detail?id=${cert.slug}`} className="cert-card">
+                  <div className="cert-card__header">
+                    <span className="cert-card__provider">{cert.provider}</span>
+                    <span className={`cert-card__status cert-card__status--${cert.status}`}>
+                      {cert.status === 'active' ? 'In Progress' : 'In the Works'}
+                    </span>
+                  </div>
+                  <div className="cert-card__body">
+                    <div className="cert-card__title">{cert.title}</div>
+                    <p className="cert-card__desc">{cert.desc}</p>
+                  </div>
+                  <div className="cert-card__footer">{cert.platform}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Creative */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '2rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(26,22,18,.12)' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-2xl)', letterSpacing: '-.02em', lineHeight: 1 }}>
+                Creative <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>work</em>
+              </h2>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '.7rem', letterSpacing: '.06em', color: '#6b6460' }}>
+                Art &amp; expression
+              </span>
+            </div>
+            <div className="art-grid">
+              {window.CREATIVE.map(item => (
+                <a key={item.id} href={`creative-detail?id=${item.slug}`} className="art-card">
+                  <div className="art-card__img">✦</div>
+                  <div className="art-card__body">
+                    <div className="art-card__title">{item.title}</div>
+                    <div className="art-card__meta">{item.meta}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<BeyondWorkPage />);
+</script>
+</body>
+</html>

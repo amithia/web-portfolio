@@ -1,25 +1,40 @@
 /* ============================================
-   DESIGN TOKENS — Atlas Portfolio
-   Global variables for colour, type, spacing
+   DESIGN TOKENS — Atlas Portfolio (v2)
+   Editorial Zine palette · Bespoke Serif
    ============================================ */
+
+/* Bespoke Serif — self-hosted italic accent */
+@font-face { font-family:'Bespoke Serif'; src:url('../fonts/BespokeSerif-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Bespoke Serif'; src:url('../fonts/BespokeSerif-Italic.woff2')  format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Bespoke Serif'; src:url('../fonts/BespokeSerif-Bold.woff2')    format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Bespoke Serif'; src:url('../fonts/BespokeSerif-BoldItalic.woff2') format('woff2'); font-weight:700; font-style:italic; font-display:swap; }
 
 :root {
 
-  /* --- Colour Palette --- */
-  --color-ink:        #0D0D0D;   /* primary dark / backgrounds */
-  --color-parchment:  #F4EFE6;   /* warm off-white, aged paper */
-  --color-chalk:      #FAFAF8;   /* text on dark */
-  --color-saffron:    #F5A623;   /* bold accent — warmth, energy */
-  --color-cobalt:     #1B3FFF;   /* deep blue — oceans */
-  --color-terracotta: #C45C3A;   /* earthy red — earth, clay */
-  --color-forest:     #2C5F2E;   /* green — jungles, nature */
-  --color-mist:       #E8E3DA;   /* subtle dividers, card borders */
+  /* --- Colour Palette (Editorial Zine v2) --- */
+  --color-ink:        #1A1612;   /* warm near-black */
+  --color-parchment:  #F5F0E8;   /* butter cream — main light surface */
+  --color-chalk:      #FCF7E5;   /* pale cream — cards, distinctly lighter than parchment */
+  --color-mist:       #DDD3BD;   /* warm hairline dividers */
+  --color-cherry:     #E8432D;   /* primary accent — punchy red */
+  --color-pink:       #EE7BA8;   /* secondary accent — hot pink */
+  --color-lavender:   #B9A6E0;   /* tertiary accent — soft cool */
+  --color-olive:      #6B7A3F;   /* reserve accent — deep olive */
+
+  /* Legacy aliases (back-compat with any CSS referencing old names) */
+  --color-saffron:    var(--color-cherry);
+  --color-cobalt:     var(--color-lavender);
+  --color-terracotta: var(--color-cherry);
+  --color-forest:     var(--color-olive);
+  --color-bubblegum:  var(--color-pink);
+  --color-lilac:      var(--color-lavender);
+  --color-moss:       var(--color-olive);
 
   /* --- Typography --- */
-  --font-display:  'Clash Display', 'Space Grotesk', sans-serif;
-  --font-body:     'Inter', 'DM Sans', sans-serif;
-  --font-accent:   'DM Serif Display', Georgia, serif;
-  --font-mono:     'JetBrains Mono', 'Courier New', monospace;
+  --font-display: 'Clash Display', 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', 'DM Sans', system-ui, sans-serif;
+  --font-accent:  'Bespoke Serif', 'DM Serif Display', Georgia, serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
 
   /* --- Type Scale (fluid) --- */
   --text-xs:   clamp(0.75rem,  1vw,   0.875rem);
@@ -29,7 +44,7 @@
   --text-xl:   clamp(1.5rem,   3vw,   2rem);
   --text-2xl:  clamp(2rem,     4vw,   3rem);
   --text-3xl:  clamp(3rem,     6vw,   5rem);
-  --text-hero: clamp(4rem,     10vw,  9rem);
+  --text-hero: clamp(3.5rem,   9vw,   7.5rem);
 
   /* --- Font Weights --- */
   --weight-regular: 400;
@@ -44,7 +59,7 @@
   --leading-loose:  1.75;
 
   /* --- Letter Spacing --- */
-  --tracking-tight:  -0.03em;
+  --tracking-tight:  -0.04em;
   --tracking-normal: 0em;
   --tracking-wide:   0.08em;
   --tracking-wider:  0.15em;
@@ -68,21 +83,24 @@
   --radius-sm:   4px;
   --radius-md:   8px;
   --radius-lg:   16px;
+  --radius-xl:   20px;
   --radius-pill: 999px;
 
   /* --- Borders --- */
   --border-thin:   1px solid var(--color-mist);
   --border-medium: 2px solid var(--color-ink);
-  --border-thick:  4px solid var(--color-ink);
+  --border-thick:  4px solid var(--color-cherry);
 
-  /* --- Shadows --- */
+  /* --- Shadows (flat offset, risograph aesthetic) --- */
   --shadow-sm: 2px 2px 0px var(--color-ink);
   --shadow-md: 4px 4px 0px var(--color-ink);
   --shadow-lg: 8px 8px 0px var(--color-ink);
+  --shadow-xl: 12px 12px 0px var(--color-ink);
 
   /* --- Transitions --- */
-  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in:    cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:        cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-overshoot: cubic-bezier(0.34, 1.2, 0.5, 1);
   --duration-fast:   150ms;
   --duration-normal: 300ms;
   --duration-slow:   600ms;
@@ -92,5 +110,5 @@
   --container-wide: 1200px;
   --container-text: 720px;
   --grid-gap:       clamp(1rem, 2vw, 2rem);
-  --section-pad:    clamp(4rem, 10vw, 8rem);
+  --section-pad:    clamp(3rem, 7vw, 6rem);
 }

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+  <circle cx="32" cy="32" r="28"></circle>
+  <circle cx="32" cy="32" r="20" stroke-dasharray="2 3"></circle>
+  <path d="M32 6 L36 32 L32 58 L28 32 Z" fill="currentColor" stroke="none"></path>
+  <path d="M6 32 L32 28 L58 32 L32 36 Z" fill="currentColor" stroke="none" opacity="0.6"></path>
+  <text x="32" y="14" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="currentColor">N</text>
+  <text x="32" y="56" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="currentColor">S</text>
+  <text x="56" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="currentColor">E</text>
+  <text x="8" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="currentColor">W</text>
+</svg>
