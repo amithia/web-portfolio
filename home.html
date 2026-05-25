@@ -39,7 +39,7 @@ const FILTERS = [
 
 function App() {
   const [filter, setFilter] = useState('all');
-  const visible = window.PROJECTS.filter(p => filter === 'all' || p.category === filter);
+  const visible = window.PROJECTS.filter(p => p.slug !== 'ab-testing-calculator' && (filter === 'all' || p.category === filter));
   return (
     <>
       <Nav />
@@ -56,15 +56,16 @@ function App() {
           { num: '1',  label: 'Startup: Ion Studio' },
         ]} />
       </div>
+      <About />
       <section className="al-section" id="work" data-screen-label="Work">
         <div className="al-container">
           <SectionHeader title='Selected <em>work</em>' index="01 / Work" />
           <FilterBar filters={FILTERS} active={filter} onChange={setFilter} />
-          <div className="al-grid-2">
+          <div className="al-grid-3">
             {visible.map(p => <ProjectCard key={p.id} project={p} featured={p.featured} />)}
           </div>
           <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-            <Btn href="/work" variant="chalk">See all work &amp; upcoming projects</Btn>
+            <Btn href="/work" variant="primary">See all work &amp; upcoming projects</Btn>
           </div>
         </div>
       </section>
@@ -73,7 +74,6 @@ function App() {
       </div>
       <Services />
       <Reading />
-      <About />
       <Footer />
     </>
   );

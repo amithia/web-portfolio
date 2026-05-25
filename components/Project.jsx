@@ -206,8 +206,6 @@ function ProjectCard({ project, featured }) {
         <svg className="al-card__img-glyph" viewBox="0 0 28 28">{g}</svg>
         {label}
       </div>
-      {/* Stickers live OUTSIDE the img so the color panel can clip to
-          its rounded corners while stickers freely bleed past. */}
       <div className="al-card__stickers" aria-hidden="true">
         {layout.map((p, i) => {
           const stickerKey = set[i] || set[0];
@@ -232,21 +230,13 @@ function ProjectCard({ project, featured }) {
         <span className="al-card__cat">{cat}</span>
         <h3 className="al-card__title" dangerouslySetInnerHTML={{ __html: title }} />
         <p className="al-card__teaser">{teaser}</p>
-        {featured && (
-          <span className="al-btn al-btn--primary" style={{ alignSelf: 'flex-start', marginTop: '1rem' }}>
-            Read Case Study
-            <Sparkles />
-          </span>
-        )}
       </div>
-      {!featured && (
-        <div className="al-card__foot">
-          <span>{meta}</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="al-card__arrow">
-            <path d="M7 17L17 7M17 7H7M17 7v10"/>
-          </svg>
-        </div>
-      )}
+      <div className="al-card__foot">
+        <span>{meta}</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="al-card__arrow">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </div>
     </a>
   );
 }

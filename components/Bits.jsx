@@ -13,8 +13,8 @@ function NowReading() {
       </div>
       <div>
         <div className="al-now__lbl">Now Reading</div>
-        <div className="al-now__title">The Alignment <em>Problem</em></div>
-        <div className="al-now__sub">Brian Christian · W. W. Norton, 2020</div>
+        <div className="al-now__title">Our Man in <em>Havana</em></div>
+        <div className="al-now__sub">Graham Greene, 1958</div>
       </div>
       <div className="al-now__pct">
         <div>38%</div>
@@ -28,8 +28,8 @@ function Stamp() {
   return (
     <div className="al-stamp">
       <div className="al-stamp__lbl">Currently · May 2026</div>
-      <div className="al-stamp__val">Lisbon &amp; <em>elsewhere</em></div>
-      <div className="al-stamp__coords">38.7223° N · 9.1393° W</div>
+      <div className="al-stamp__val">Canberra, <em>Australia</em></div>
+      <div className="al-stamp__coords">35.2802° S · 149.1310° E</div>
     </div>);
 
 }

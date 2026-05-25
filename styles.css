@@ -425,6 +425,7 @@ html, body { overflow-x: clip; }
    Project cards
    ──────────────────────────────────────────── */
 .al-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+.al-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
 .al-card { display: grid; grid-template-rows: auto 1fr auto; border: 2px solid var(--color-ink); border-radius: 16px; overflow: hidden; background: var(--color-chalk); cursor: pointer; transition: all var(--duration-normal) var(--ease-out); }
 .al-card:hover { transform: translateY(-4px); box-shadow: 8px 8px 0 var(--color-ink); }
 .al-card__img { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 900; font-size: var(--text-2xl); letter-spacing: -0.04em; position: relative; overflow: hidden; border-radius: 14px 14px 0 0; }
@@ -492,12 +493,14 @@ html, body { overflow-x: clip; }
 .al-card__foot { padding: var(--space-4) var(--space-6); border-top: 1.5px solid var(--color-mist); display: flex; align-items: center; justify-content: space-between; font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6b645b; }
 .al-card__arrow { width: 22px; height: 22px; transition: transform var(--duration-fast); }
 .al-card:hover .al-card__arrow { transform: translate(3px, -3px); }
-.al-card--featured { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
-.al-card--featured .al-card__img { aspect-ratio: auto; height: 100%; min-height: 360px; font-size: var(--text-3xl); border-radius: 14px 0 0 14px; }
-.al-card--featured .al-card__body { padding: var(--space-10); justify-content: flex-end; gap: var(--space-4); }
-.al-card--featured .al-card__title { font-size: var(--text-2xl); }
+.al-card--featured { grid-column: span 2; }
+.al-card--featured .al-card__img { aspect-ratio: 32/9; }
+@media (max-width: 900px) {
+  .al-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 768px) {
   .al-grid-2 { grid-template-columns: 1fr; }
+  .al-grid-3 { grid-template-columns: 1fr; }
   .al-card--featured { grid-template-columns: 1fr; }
 }
 
