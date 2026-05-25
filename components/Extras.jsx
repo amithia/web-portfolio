@@ -47,7 +47,7 @@ function Reading() {
       <div className="al-container">
         <SectionHeader title='Beyond <em>work</em>' index="04 / Beyond Work" />
         <ul className="al-reading">
-          {items.map((item) => (
+          {items.slice(0, 5).map((item) => (
             <li key={item.slug} className="al-reading__row">
               <a href={item.href} className="al-reading__link">
                 <span className="al-reading__num">{item.num}</span>
@@ -59,6 +59,9 @@ function Reading() {
             </li>
           ))}
         </ul>
+        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+          <Btn href="/beyond-work" variant="ghost">See everything →</Btn>
+        </div>
       </div>
     </section>
   );
