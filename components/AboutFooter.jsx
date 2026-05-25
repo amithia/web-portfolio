@@ -55,6 +55,7 @@ function Footer() {
         <div className="al-footer__bottom">
           <span>© 2026 Amithi Liyanagamage</span>
           <span>Made slowly. Made with care.</span>
+          <a href="sitemap.html" style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.06em', textTransform: 'uppercase', color: 'rgba(252,247,229,.4)', textDecoration: 'none' }} onMouseOver={e => e.target.style.color='rgba(252,247,229,.8)'} onMouseOut={e => e.target.style.color='rgba(252,247,229,.4)'}>Sitemap</a>
         </div>
       </div>
     </footer>);
