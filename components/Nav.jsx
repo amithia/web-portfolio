@@ -1,9 +1,7 @@
 /* global React */
 const { useState, useEffect } = React;
 
-/* Nav is page-based — all links navigate to dedicated pages.
-   detailBase: path prefix for pages in subdirectories (e.g. '../../') */
-function Nav({ detailBase = '' }) {
+function Nav() {
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
 

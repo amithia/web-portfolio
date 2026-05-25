@@ -38,7 +38,7 @@ function PracticePage() {
   if (!practice) {
     return (
       <>
-        <Nav detailMode={true} />
+        <Nav />
         <NotFound backHref="index.html#practice" backLabel="Back to practices" />
         <Footer />
       </>
@@ -56,7 +56,7 @@ function PracticePage() {
 
   return (
     <>
-      <Nav detailMode={true} />
+      <Nav />
       <main className="al-container" data-screen-label="Practice">
         <Breadcrumb trail={[
           { label: 'Index', href: '/' },
@@ -135,7 +135,7 @@ function PracticePage() {
           next={next}
           prevLabel="Previous practice"
           nextLabel="Next practice"
-          hrefFor={(p) => `practice.html?id=${p.slug}`}
+          hrefFor={(p) => `/pages/practice?id=${p.slug}`}
         />
       </main>
       <Footer />

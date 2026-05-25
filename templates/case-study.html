@@ -46,7 +46,7 @@ function CaseStudy() {
   if (!project && !upcoming) {
     return (
       <>
-        <Nav detailMode={true} />
+        <Nav />
         <NotFound backHref="/pages/projects" backLabel="Back to all work" />
         <Footer />
       </>
@@ -59,7 +59,7 @@ function CaseStudy() {
     const nextU = upcomingIdx < window.UPCOMING.length - 1 ? window.UPCOMING[upcomingIdx + 1] : null;
     return (
       <>
-        <Nav detailMode={true} />
+        <Nav />
         <main className="al-container" data-screen-label="Coming Soon">
           <Breadcrumb trail={[
             { label: 'Index', href: '/' },
@@ -141,7 +141,7 @@ function CaseStudy() {
 
   return (
     <>
-      <Nav detailMode={true} />
+      <Nav />
       <main className="al-container" data-screen-label="Case Study">
         <Breadcrumb trail={[
           { label: 'Index', href: '/' },
