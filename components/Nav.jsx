@@ -43,7 +43,7 @@ function Nav() {
       <nav className={`al-nav${scrolled ? ' scrolled' : ''}`}>
         <div className="al-container">
           <div className="al-nav__inner">
-            <a href="/" className="al-nav__logo">AL</a>
+            <a href="/home" className="al-nav__logo">AL</a>
             <ul className="al-nav__links">
               {links.map(([page, idx, label]) => (
                 <li key={page}>
