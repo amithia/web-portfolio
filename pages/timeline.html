@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Timeline · Amithi Liyanagamage</title>
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="detail.css" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/detail.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -31,11 +31,11 @@
 </head>
 <body>
 <div id="root"></div>
-<script src="data.js"></script>
-<script type="text/babel" src="components/Nav.jsx"></script>
-<script type="text/babel" src="components/Bits.jsx"></script>
-<script type="text/babel" src="components/AboutFooter.jsx"></script>
-<script type="text/babel" src="components/DetailParts.jsx"></script>
+<script src="/data.js"></script>
+<script type="text/babel" src="/components/Nav.jsx"></script>
+<script type="text/babel" src="/components/Bits.jsx"></script>
+<script type="text/babel" src="/components/AboutFooter.jsx"></script>
+<script type="text/babel" src="/components/DetailParts.jsx"></script>
 
 <script type="text/babel">
 function TimelinePage() {
@@ -44,7 +44,7 @@ function TimelinePage() {
       <Nav />
       <main>
         <div className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)' }}>
-          <Breadcrumb trail={[{ label: 'Index', href: 'index.html' }, { label: 'Timeline' }]} />
+          <Breadcrumb trail={[{ label: 'Index', href: '/' }, { label: 'Timeline' }]} />
 
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '3rem' }}>
             <div>
@@ -56,7 +56,7 @@ function TimelinePage() {
                 Experience, education, and the moments that shaped the work.
               </p>
             </div>
-            <Btn href="assets/cv.pdf" variant="primary">Download CV</Btn>
+            <Btn href="/assets/cv.pdf" variant="primary">Download CV</Btn>
           </div>
         </div>
 

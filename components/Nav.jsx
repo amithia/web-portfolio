@@ -25,14 +25,14 @@ function Nav({ detailBase = '' }) {
   }, [menuOpen]);
 
   const links = [
-    ['about.html',       '01', 'About'],
-    ['work.html',        '02', 'Work'],
-    ['beyond-work.html', '03', 'Beyond Work'],
-    ['timeline.html',    '04', 'Timeline'],
-    ['contact.html',     '05', 'Contact'],
+    ['/pages/about',        '01', 'About'],
+    ['/pages/work',         '02', 'Work'],
+    ['/pages/beyond-work',  '03', 'Beyond Work'],
+    ['/pages/timeline',     '04', 'Timeline'],
+    ['/pages/contact',      '05', 'Contact'],
   ];
 
-  const current = window.location.pathname.split('/').pop() || 'index.html';
+  const current = window.location.pathname.replace(/\.html$/, '');
 
   return (
     <>
@@ -45,12 +45,12 @@ function Nav({ detailBase = '' }) {
       <nav className={`al-nav${scrolled ? ' scrolled' : ''}`}>
         <div className="al-container">
           <div className="al-nav__inner">
-            <a href={`${detailBase}index.html`} className="al-nav__logo">AL</a>
+            <a href="/" className="al-nav__logo">AL</a>
             <ul className="al-nav__links">
               {links.map(([page, idx, label]) => (
                 <li key={page}>
                   <a
-                    href={`${detailBase}${page}`}
+                    href={page}
                     className={`al-nav__link${current === page ? ' active' : ''}`}
                   ><span className="idx">{idx}</span> {label}</a>
                 </li>
@@ -58,7 +58,7 @@ function Nav({ detailBase = '' }) {
             </ul>
             <div className="al-nav__actions">
               <div className="al-nav__cta-wrap">
-                <Btn href={`${detailBase}contact.html`} variant="primary">Say Hello</Btn>
+                <Btn href="/pages/contact" variant="primary">Say Hello</Btn>
               </div>
               <button
                 className="al-nav__hamburger"
@@ -79,7 +79,7 @@ function Nav({ detailBase = '' }) {
             {links.map(([page, idx, label]) => (
               <a
                 key={page}
-                href={`${detailBase}${page}`}
+                href={page}
                 className={`al-mobile-menu__link${current === page ? ' active' : ''}`}
                 onClick={() => setMenuOpen(false)}
               >
@@ -88,7 +88,7 @@ function Nav({ detailBase = '' }) {
               </a>
             ))}
             <div className="al-mobile-menu__foot">
-              <Btn href={`${detailBase}contact.html`} variant="primary">Say Hello</Btn>
+              <Btn href="/pages/contact" variant="primary">Say Hello</Btn>
             </div>
           </div>
         </div>
