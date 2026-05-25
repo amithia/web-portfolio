@@ -9,11 +9,16 @@ const { useState } = React;
    ───────────────────────────────────────────── */
 function PhotoStack() {
   const cards = [
-  { tone: 'cherry', icon: 'flame', caption: 'Ion Studio', place: 'Colombo · 2024' },
-  { tone: 'lilac',  icon: 'heart', caption: 'WheelToDo',  place: 'Canberra · 2025' },
-  { tone: 'bubble', icon: 'globe', caption: 'Cribd.',      place: 'Canberra · 2024' },
-  { tone: 'moss',   icon: 'flower', caption: 'Leftover App', place: 'Canberra · 2023' },
-  { tone: 'cream',  icon: 'pin',   caption: 'Explore ANU', place: 'Canberra · 2024' }];
+  { tone: 'cherry', photo: '/assets/photos/card-1.jpg', caption: 'Pitching my startup idea', place: 'Vietnam · 2024' },
+  { tone: 'lilac',  photo: '/assets/photos/card-2.jpg', caption: 'Visiting the Amazon office',  place: 'Vietnam · 2024' },
+  { tone: 'bubble', photo: '/assets/photos/card-3.jpg', caption: 'Quick vacation', place: 'Singapore · 2025' },
+  { tone: 'moss',   photo: '/assets/photos/card-4.jpg', caption: 'Annual trip to the coast', place: 'Gold Coast · 2025' },
+  { tone: 'cream',  photo: '/assets/photos/card-5.jpg', caption: 'Balloons', place: 'Canberra · 2024' }, 
+  { tone: 'cherry',   photo: '/assets/photos/card-6.jpg', caption: 'Born a programmer', place: 'Sri Lanka · 2004' },
+  { tone: 'lilac',  photo: '/assets/photos/card-7.jpg', caption: 'With my besties', place: 'Sydney · 2026' },
+  { tone: 'bubble',    photo: '/assets/photos/card-8.jpg', caption: 'My music taste', place: 'Sydney · 2026' },
+  { tone: 'moss',   photo: '/assets/photos/card-9.jpg', caption: 'In Da Nang', place: 'Vietnam · 2024' },
+  { tone: 'cream',   photo: '/assets/photos/card-10.jpg', caption: 'With more besties', place: 'Canberra · 2024' },];
 
 
   const [order, setOrder] = useState(cards.map((_, i) => i));
@@ -105,17 +110,19 @@ function PhotoStack() {
             style={style}>
             
             <div className="al-photo-card__art">
-              <svg viewBox="0 0 40 40" width="120" height="120">{ICONS[card.icon]}</svg>
+              <img src={card.photo} alt={card.caption} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            <div className="al-photo-card__caption">
-              <span className="al-photo-card__title">{card.caption}</span>
-              <span className="al-photo-card__place">{card.place}</span>
-            </div>
-            {pos === 0 &&
-            <div className="al-photo-card__hint">
+            {pos === 0 && (
+              <div className="al-photo-card__caption">
+                <span className="al-photo-card__title">{card.caption}</span>
+                <span className="al-photo-card__place">{card.place}</span>
+              </div>
+            )}
+            {pos === 0 && (
+              <div className="al-photo-card__hint">
                 <span className="dot"></span>Click to flip
               </div>
-            }
+            )}
           </div>);
 
       })}
