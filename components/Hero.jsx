@@ -13,12 +13,12 @@ function PhotoStack() {
   { tone: 'lilac',  photo: '/assets/photos/card-2.jpg', caption: 'Visiting the Amazon office',  place: 'Vietnam · 2024' },
   { tone: 'bubble', photo: '/assets/photos/card-3.jpg', caption: 'Quick vacation', place: 'Singapore · 2025' },
   { tone: 'moss',   photo: '/assets/photos/card-4.jpg', caption: 'Annual trip to the coast', place: 'Gold Coast · 2025' },
-  { tone: 'cream',  photo: '/assets/photos/card-5.jpg', caption: 'Balloons', place: 'Canberra · 2024' }, 
-  { tone: 'cherry',   photo: '/assets/photos/card-6.jpg', caption: 'Born a programmer', place: 'Sri Lanka · 2004' },
+  { tone: 'cream',  photo: '/assets/photos/card-5.jpg', caption: 'Hot-air balloon watching', place: 'Canberra · 2024' }, 
+  { tone: 'cherry', photo: '/assets/photos/card-6.jpg', caption: 'Born a programmer', place: 'Sri Lanka · 2004' },
   { tone: 'lilac',  photo: '/assets/photos/card-7.jpg', caption: 'With my besties', place: 'Sydney · 2026' },
-  { tone: 'bubble',    photo: '/assets/photos/card-8.jpg', caption: 'My music taste', place: 'Sydney · 2026' },
+  { tone: 'bubble', photo: '/assets/photos/card-8.jpg', caption: 'My music taste', place: 'Sydney · 2026' },
   { tone: 'moss',   photo: '/assets/photos/card-9.jpg', caption: 'In Da Nang', place: 'Vietnam · 2024' },
-  { tone: 'cream',   photo: '/assets/photos/card-10.jpg', caption: 'With more besties', place: 'Canberra · 2024' },];
+  { tone: 'cream',  photo: '/assets/photos/card-10.jpg', caption: 'With more besties', place: 'Canberra · 2024' },];
 
 
   const [order, setOrder] = useState(cards.map((_, i) => i));
@@ -117,7 +117,7 @@ function PhotoStack() {
               <span className="al-photo-card__place">{card.place}</span>
             </div>
             <div className="al-photo-card__hint" style={{ opacity: pos === 0 ? 1 : 0, transition: 'opacity 300ms ease' }}>
-              <span className="dot"></span>Click to flip
+              Flip Through My Life
             </div>
           </div>);
 
@@ -139,28 +139,31 @@ function Hero() {
         <div className="al-hero__grid">
           <div className="al-hero__content" data-comment-anchor="9c49413224-div-136-11">
             <p className="al-hero__eyebrow">
-              <span className="badge">v. 2026</span>
-              Designer · Strategist · Global Citizen
+              <span className="badge">Full-Stack Developer</span>
+              <span className="badge">Web Project Officer</span>
             </p>
             <h1 className="al-hero__title">
               <span className="word">Work</span>{' '}
               <span className="word">that</span>{' '}
-              <span className="word"><em>moves</em></span>{' '}
-              <span className="word">people.</span>
+              <span className="word">has</span>{' '}
+              <span className="word"><em>purpose</em>.</span>
             </h1>
             <p className="al-hero__subtitle">
-              I design digital products, build AI integrations, and analyse data for impact — from mobile apps to web experiences, across borders and disciplines.
+              <br></br>
+              A collection of projects I've built across full-stack software, AI integrations and data — some shipped, some ongoing, but all worth sharing.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Btn href="#work" variant="cherry">View Work</Btn>
-              <Btn href="#about" variant="chalk">About Me</Btn>
+              <Btn href="#work" variant="cherry">View My Work</Btn>
+              <Btn href="#about" variant="chalk">Learn More About Me</Btn>
             </div>
             <div className="al-hero__meta" data-comment-anchor="e0ff07d39f-div-154-13">
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#E54B3C' }}></span>UI/UX</span>
+              <span className="al-hero__chip"><span className="dot" style={{ background: '#E54B3C' }}></span>Full-Stack Development</span>
+              <span className="al-hero__chip"><span className="dot" style={{ background: '#6B7A3F' }}></span>UI/UX</span>
               <span className="al-hero__chip"><span className="dot" style={{ background: '#EE7BA8' }}></span>Mobile Apps</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#B9A6E0' }}></span>AI Integration</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#6B7A3F' }}></span>Data &amp; Analytics</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#1A1612' }}></span>Start-ups</span>
+              <span className="al-hero__chip"><span className="dot" style={{ background: '#B9A6E0' }}></span>AI</span>
+              <span className="al-hero__chip"><span className="dot" style={{ background: '#571aff' }}></span>Data &amp; Analytics</span>
+              <span className="al-hero__chip"><span className="dot" style={{ background: '#e4d837' }}></span>Consulting</span>
+              <span className="al-hero__chip"><span className="dot" style={{ background: '#37e4cd' }}></span>Start-up Builds</span>
             </div>
           </div>
           <div className="al-hero__stack-wrap" data-comment-anchor="483d53d25e-div-163-11">

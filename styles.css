@@ -291,10 +291,10 @@ html, body { overflow-x: clip; }
 .al-photo-card__hint {
   position: absolute; top: 14px; right: 14px;
   font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em;
-  text-transform: uppercase; opacity: 1; color: #1A1612;
+  text-transform: uppercase; opacity: 1; color: #000000;
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 10px; border-radius: 999px; border: 1.5px solid #1A1612;
-  background: rgba(0,0,0,0.08);
+  padding: 4px 10px; border-radius: 999px; border: 1.5px solid #000000;
+  background: #FCF7E5;
 }
 .al-photo-card__hint .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 @media (max-width: 900px) {
