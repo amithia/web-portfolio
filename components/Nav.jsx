@@ -27,7 +27,7 @@ function Nav() {
     ['/work',         '02', 'Work'],
     ['/beyond-work',  '03', 'Beyond Work'],
     ['/timeline',     '04', 'Timeline'],
-    ['/contact',      '05', 'Contact'],
+    // ['/contact',      '05', 'Contact'],
   ];
 
   const current = window.location.pathname.replace(/\.html$/, '');

@@ -7,24 +7,23 @@ function About() {
         <div className="al-about">
           <div className="al-about__image">
             <div className="al-about__placeholder">AL</div>
-            <div className="al-about__stamp">GLOBAL<br />· CITIZEN ·</div>
+            <div className="al-about__stamp">ALWAYS<br />· BUILDING ·</div>
           </div>
           <div>
-            <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '1rem' }}>Hello, I'm Amithi</p>
+            <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '1rem' }}>Hi there, I'm Amithi</p>
             <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-2xl)', marginBottom: '1.5rem', lineHeight: 1.05, letterSpacing: '-0.03em' }}>
-              I make complex things clear,<br /><em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>and impactful things human.</em>
+              I write code and analyse data <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>with people who care.</em>
             </h3>
             <p style={{ marginBottom: '1.5rem', color: '#3a3530', lineHeight: 1.7 }}>
-              I'm a designer, developer, and co-founder — originally from Sri Lanka, formed by years at the Australian National University in Canberra, and currently based in Lisbon. I work across UX design, mobile development, AI integration, and data analytics.
+              I'm a full-stack developer with an interest in data analytics based in Canberra. I currently work in Digital Strategy, Insights & Analytics at the Australian National University as a Web Project Officer and as a developer/founder at Ion Studio. My work spans web development, data analytics and AI.
             </p>
             <p style={{ marginBottom: '2rem', color: '#3a3530', lineHeight: 1.7 }}>
-              I co-founded Ion Studio to help mobile teams ship AI features that work. My other work includes university research, web projects at ANU, student housing design, food systems, and the occasional statistics tool I built because nothing else existed.
+              With a background in computing and data science (also from ANU!), I've had the opportunity to work on a variety of projects across different industries, including education, healthcare and e-commerce. I'm passionate about using technology to solve real-world problems and create meaningful experiences for users.
             </p>
             <div className="al-countries">
               <span className="al-country"><span className="dot" style={{ background: '#E54B3C' }}></span>Sri Lanka</span>
               <span className="al-country"><span className="dot" style={{ background: '#6B7A3F' }}></span>Australia</span>
-              <span className="al-country"><span className="dot" style={{ background: '#EE7BA8' }}></span>Portugal</span>
-              <span className="al-country"><span className="dot" style={{ background: '#1A1612' }}></span>+ exploring</span>
+              <span className="al-country"><span style={{ background: '#1A1612' }}></span>+ exploring</span>
             </div>
           </div>
         </div>
