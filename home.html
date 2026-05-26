@@ -45,14 +45,14 @@ function App() {
       <Nav />
       <Hero />
       <About />
-      <section className="al-section" id="work" data-screen-label="Work">
+      <section className="al-section" id="work" data-screen-label="Work" style={{ paddingBottom: 'clamp(2rem,4vw,3rem)' }}>
         <div className="al-container">
           <SectionHeader title='Selected <em>work</em>' index="02 / Work" />
           <FilterBar filters={FILTERS} active={filter} onChange={setFilter} />
           <div className="al-grid-3">
             {visible.map(p => <ProjectCard key={p.id} project={p} featured={p.featured} />)}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+          <div style={{ textAlign: 'center', marginTop: '4rem' }}>
             <Btn href="/work" variant="primary">See all work &amp; upcoming projects</Btn>
           </div>
         </div>

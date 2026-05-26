@@ -1,7 +1,7 @@
 /* global React */
 function Services() {
   return (
-    <section className="al-section al-bg-parchment" id="practice" data-screen-label="Focuses">
+    <section className="al-section al-bg-parchment" id="practice" data-screen-label="Focuses" style={{ paddingTop: 'clamp(2rem,4vw,3rem)' }}>
       <div className="al-container">
         <SectionHeader title='Four <em>focuses</em>'/>
         <div className="al-services">
