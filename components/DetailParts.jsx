@@ -73,14 +73,17 @@ function NextPrev({ prev, next, hrefFor, prevLabel = 'Previous', nextLabel = 'Ne
   );
 }
 
-/* 404-ish fallback shown when the slug is missing/invalid */
+/* Fallback shown when the slug is missing/invalid */
 function NotFound({ backHref, backLabel }) {
   return (
     <div className="al-container" style={{ padding: '6rem 0', textAlign: 'center' }}>
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-cherry)', marginBottom: 16 }}>404 · OFF THE MAP</p>
+      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-cherry)', marginBottom: 16 }}>Coming soon</p>
       <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'clamp(3rem, 7vw, 5rem)', letterSpacing: '-0.04em', lineHeight: 0.95, marginBottom: 24 }}>
-        That entry doesn't <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, letterSpacing: 0, color: 'var(--color-cherry)' }}>exist yet</em>.
+        This one is <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, letterSpacing: 0, color: 'var(--color-cherry)' }}>in the works</em>.
       </h1>
+      <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 480, margin: '0 auto 2rem' }}>
+        The page for this entry is being put together — check back soon.
+      </p>
       <a href={backHref} className="al-btn al-btn--cherry">
         ← {backLabel}
         <Sparkles />

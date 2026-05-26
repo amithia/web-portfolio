@@ -232,6 +232,18 @@ window.UPCOMING = [
     cat: 'Data · EdTech',
     teaser: 'A personalised course recommendation system for ANU students — using academic history, career goals, and enrolment patterns to surface the right next step.',
     tone: 'moss', status: 'planned', category: 'data', glyph: 'globe',
+    lede: 'Most students pick courses based on what their friends are taking, or what fits a timetable gap. This tool is an attempt to do better.',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'Course selection is a hard problem.', body: 'ANU offers hundreds of courses across dozens of programs. The flexible degree structure means students have genuine choice — but most lack the context to use it well. A recommendation system that knows your academic history, your stated career interests, and what students like you found useful could make that choice feel navigable rather than overwhelming.' },
+      { kind: 'metrics', items: [
+        { num: 'Data · EdTech', label: 'Category' },
+        { num: 'ANU', label: 'Target context' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'Closer to an advisor than a filter.', body: 'The goal isn\'t another search interface. It\'s something that reasons about trajectory — what you\'ve done, where you\'re trying to go, and what the data says helps bridge that gap. The design challenge is making a recommendation feel like genuine advice rather than an algorithm output.' },
+    ],
   },
   {
     id: 'u3', slug: 'coffee-stamp-tracker',
@@ -239,6 +251,18 @@ window.UPCOMING = [
     cat: 'UI/UX · Mobile',
     teaser: 'A digital loyalty stamp app for independent coffee shops — lightweight, no vendor lock-in, works without installing anything on the customer\'s phone.',
     tone: 'cherry', status: 'planned', category: 'ux', glyph: 'heart',
+    lede: 'Independent cafes lose regulars to chains partly because chains have apps. This is the lightweight, no-install alternative.',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'The stamp card, rebuilt without the paper.', body: 'Most digital loyalty platforms are expensive, require the customer to install an app, and lock the cafe into a contract. This is a QR-based alternative: the customer scans, gets their stamp, no install required. The cafe sets it up in ten minutes and owns their data. No subscriptions, no lock-in.' },
+      { kind: 'metrics', items: [
+        { num: 'UI/UX · Mobile', label: 'Category' },
+        { num: 'No install', label: 'Key constraint' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'Built for the cafe I go to every day.', body: 'Recess Cafe doesn\'t have a loyalty system. Most of the independent places I like don\'t. This started as a "what would I actually want as a cafe owner" exercise — something effortless on both sides of the counter, that makes regulars feel noticed without requiring anyone to do much.' },
+    ],
   },
   {
     id: 'u4', slug: 'financial-time-machine',
@@ -246,6 +270,18 @@ window.UPCOMING = [
     cat: 'Data · Personal Finance',
     teaser: 'Visualise how financial decisions made in the past would play out with today\'s information — and what that tells you about the choices you\'re making now.',
     tone: 'lilac', status: 'planned', category: 'data', glyph: 'star',
+    lede: 'What would you have done differently if you\'d had this information sooner? That question drives the whole thing.',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'Hindsight, made useful.', body: 'Most financial tools show you where you are. This one shows you where you could have been — and more usefully, what the current version of that gap looks like for decisions you\'re making today. Input a past financial decision, a time horizon, and a few assumptions. See what the alternate path looked like, and what a comparable choice now might mean.' },
+      { kind: 'metrics', items: [
+        { num: 'Data · Finance', label: 'Category' },
+        { num: 'Client-side', label: 'Architecture' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'Decision-making, not data-dumping.', body: 'The goal isn\'t to make you feel bad about the past. It\'s to build intuition about compounding effects and decision timing — the things that are hardest to reason about without a concrete visualisation. The tool is designed to prompt reflection, not optimise regret.' },
+    ],
   },
   {
     id: 'u5', slug: 'music-chatbot',
@@ -253,6 +289,18 @@ window.UPCOMING = [
     cat: 'AI · Music',
     teaser: 'A conversational music recommender that asks what you\'re in the mood for, not what you\'ve listened to — built on Claude API with real music data.',
     tone: 'bubble', status: 'planned', category: 'data', glyph: 'flower',
+    lede: 'Spotify knows what you\'ve played. This tries to understand what you actually want right now.',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'Mood-first, not history-first.', body: 'Most recommenders optimise for what you\'ve already listened to. That\'s useful for discovering more of the same, but misses the moment when you want something genuinely different. This chatbot starts with a conversation: what are you doing, how are you feeling, what does the next hour need to feel like? Then it recommends. The Claude API handles the natural language; real music data handles the output.' },
+      { kind: 'metrics', items: [
+        { num: 'Claude API', label: 'Core technology' },
+        { num: 'Conversational', label: 'Interaction model' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'Because "I\'m feeling nostalgic on a rainy Sunday" is a valid query.', body: 'The thesis is that mood and context are better inputs for music discovery than play history. The engineering challenge is translating a fuzzy emotional description into music metadata — tempo, energy, key, era — without losing the nuance. The design challenge is making a chatbot feel natural, not like a search interface with extra steps.' },
+    ],
   },
   {
     id: 'u6', slug: 'sentiment-analysis-tool',
@@ -260,6 +308,18 @@ window.UPCOMING = [
     cat: 'Data · NLP',
     teaser: 'A clean interface for sentiment analysis — designed for non-technical stakeholders who need to understand what their customers feel, not just a score.',
     tone: 'cherry', status: 'planned', category: 'data', glyph: 'heart',
+    lede: 'A sentiment score is a number. This tool is an attempt to make it a conversation.',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'Beyond the score.', body: 'Most sentiment analysis tools return a number between -1 and 1. That\'s technically correct and practically useless for anyone who isn\'t already comfortable interpreting it. This tool surfaces sentiment with plain-language summaries, trend visualisations, and example extracts — designed for the marketing lead or product manager who needs to act on the finding, not analyse the model.' },
+      { kind: 'metrics', items: [
+        { num: 'NLP', label: 'Core technique' },
+        { num: 'Non-technical', label: 'Target audience' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'The communication gap in data tools.', body: 'I\'ve sat in enough stakeholder meetings where a data output needed a ten-minute explanation before it was useful. The analysis isn\'t the hard part — making it legible to the person who needs to act on it is. This tool is a response to that gap: NLP results presented as insight, not as data.' },
+    ],
   },
   {
     id: 'u7', slug: 'revamp-stories',
@@ -267,6 +327,18 @@ window.UPCOMING = [
     cat: 'UI/UX · Web',
     teaser: 'A redesign of the ANU Stories content platform — better editorial layout, improved discoverability, and a CMS experience that doesn\'t require a manual.',
     tone: 'ink', status: 'planned', category: 'ux', glyph: 'pin',
+    lede: 'ANU Stories has great content and a layout that works against it. This is the redesign case study.',
+    role: 'Web Project Officer, ANU', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Context', title: 'A content platform that buries its content.', body: 'ANU Stories publishes research, features, and institutional content — some of it genuinely compelling. The problem is discoverability: stories are hard to browse, the editorial hierarchy doesn\'t reflect content quality, and the CMS workflow adds friction for contributors. A redesign focused on surfacing good content more efficiently and making the publishing experience less painful.' },
+      { kind: 'metrics', items: [
+        { num: 'UI/UX · Web', label: 'Category' },
+        { num: 'ANU', label: 'Client' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Approach', title: 'Editorial design as navigation design.', body: 'The approach treats layout decisions as navigation decisions — how a story is presented determines whether a reader continues. The redesign tests a card-based browsing model, a simplified tagging taxonomy, and a CMS interface that surfaces the most common publishing tasks without requiring documentation. Still in early research phase.' },
+    ],
   },
   {
     id: 'u8', slug: 'real-estate-prediction',
@@ -274,6 +346,18 @@ window.UPCOMING = [
     cat: 'Data · Machine Learning',
     teaser: 'ML model for Canberra property prices — with a dashboard that explains the prediction and what drove it, not just the number.',
     tone: 'moss', status: 'planned', category: 'data', glyph: 'pin',
+    lede: 'Property price prediction is a solved problem in the literature. Building a dashboard that makes the prediction honest and explainable is the interesting part.',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'Prediction plus explanation.', body: 'Most property price tools give you a number. This one gives you a number and shows you what drove it — the three or four features that had the most weight in this specific prediction, and what it would take to move the price estimate meaningfully. The goal is a tool that builds understanding, not just outputs an estimate.' },
+      { kind: 'metrics', items: [
+        { num: 'ML · Data', label: 'Category' },
+        { num: 'Canberra', label: 'Market focus' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'Explainability as a design requirement.', body: 'A model that predicts well but can\'t explain itself isn\'t useful to most people. This project treats explainability as a first-class design requirement alongside accuracy — the feature importance output and the uncertainty range are as much a part of the user experience as the prediction itself.' },
+    ],
   },
   {
     id: 'u9', slug: 'customer-churn',
@@ -281,6 +365,18 @@ window.UPCOMING = [
     cat: 'Data · Machine Learning',
     teaser: 'Predicting customer churn before it happens — and designing the intervention alongside the model, not as an afterthought.',
     tone: 'lilac', status: 'planned', category: 'data', glyph: 'globe',
+    lede: 'The model is the easy part. Knowing what to do with the prediction is what this project is actually about.',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'Churn prediction and churn response.', body: 'Most churn models stop at the prediction: this customer is likely to leave in the next 30 days. What that means for the team trying to act on it depends entirely on the business context — what levers are available, what the cost of intervention is, and what "saving" a customer actually looks like. This project builds the model and the intervention framework together.' },
+      { kind: 'metrics', items: [
+        { num: 'ML · Data', label: 'Category' },
+        { num: 'Intervention design', label: 'Key focus' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'A model without a use case is a demo.', body: 'I\'ve seen too many ML projects ship a model and call it done, leaving the team that needs to act on it to figure out the rest. This project is an attempt to build the whole thing — prediction, interpretation, and recommended response — as an integrated product.' },
+    ],
   },
   {
     id: 'u10', slug: 'personalised-resume-generator',
@@ -288,6 +384,18 @@ window.UPCOMING = [
     cat: 'AI · Productivity',
     teaser: 'AI-powered resume tailoring to a specific job description — with transparent output about what changed and why, so you stay in control.',
     tone: 'cherry', status: 'planned', category: 'data', glyph: 'flame',
+    lede: 'AI resume tools exist. Most of them optimise for keywords and produce something that sounds like nobody wrote it.',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'Tailored, not rewritten.', body: 'The difference between a generic resume and a good application is specificity — connecting your actual experience to what this particular role needs. This tool takes your base resume and a job description and surfaces the best match: what to emphasise, what to reframe, what to cut. Crucially, it shows its reasoning — you\'re editing with understanding, not accepting output blindly.' },
+      { kind: 'metrics', items: [
+        { num: 'Claude API', label: 'Core technology' },
+        { num: 'Transparent', label: 'Output design' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'Staying in control of your own story.', body: 'The design constraint is transparency: every suggestion the tool makes should come with a reason, and the user should feel like they\'re making a more informed edit, not outsourcing their voice to a model. Especially important for a document that represents you to a hiring panel.' },
+    ],
   },
   {
     id: 'u11', slug: 'sound-emotion-visualiser',
@@ -295,6 +403,18 @@ window.UPCOMING = [
     cat: 'Creative · Data',
     teaser: 'Real-time audio analysis mapped to emotion and rendered as live visuals — a creative tool at the intersection of music, data, and feeling.',
     tone: 'bubble', status: 'planned', category: 'data', glyph: 'flower',
+    lede: 'What does music look like when you try to draw what it feels like rather than what it sounds like?',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'Emotion as a rendering target.', body: 'Real-time audio analysis — tempo, key, energy, timbre — mapped to a visual language built around emotional categories rather than acoustic properties. The output isn\'t a waveform or an equaliser; it\'s something closer to how music actually feels. Part creative tool, part data visualisation experiment.' },
+      { kind: 'metrics', items: [
+        { num: 'Creative · Data', label: 'Category' },
+        { num: 'Real-time', label: 'Rendering' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'The space between data and feeling.', body: 'Most data visualisation tries to be precise. This one tries to be evocative. The challenge is building a visual vocabulary for emotional content without it becoming arbitrary — grounding the aesthetic choices in the actual audio features, so the result feels like a consequence of the music rather than a decoration.' },
+    ],
   },
   {
     id: 'u12', slug: 'stock-price-dashboard',
@@ -302,6 +422,18 @@ window.UPCOMING = [
     cat: 'Data · Finance',
     teaser: 'A stock prediction dashboard that surfaces uncertainty as prominently as the forecast — because the confidence interval is the most useful part.',
     tone: 'moss', status: 'planned', category: 'data', glyph: 'star',
+    lede: 'Most prediction dashboards hide the uncertainty. This one treats it as the main event.',
+    role: 'Solo project', year: 2026,
+    sections: [
+      { kind: 'block', tag: 'Concept', title: 'Honest forecasting.', body: 'Stock price prediction models are plentiful. What most dashboards don\'t show is what the model actually knows versus what it\'s guessing — the prediction interval, the model\'s historical accuracy on similar conditions, and the scenarios that would invalidate the forecast. This dashboard makes that uncertainty visible and central, not buried in a footnote.' },
+      { kind: 'metrics', items: [
+        { num: 'Data · Finance', label: 'Category' },
+        { num: 'Uncertainty-first', label: 'Design approach' },
+        { num: 'Concept', label: 'Current stage' },
+        { num: '~2026', label: 'Expected' },
+      ]},
+      { kind: 'block', tag: 'Why', title: 'Confidence intervals are the product.', body: 'A point estimate without a confidence range is a guess dressed as a fact. The design principle here is that the uncertainty quantification is as important as the forecast — and should be presented that way, not as a caveat but as the core output. The target user is someone making a real decision who needs to know what they don\'t know.' },
+    ],
   },
 ];
 
@@ -406,13 +538,97 @@ window.LEARNING = [
       { kind: 'block', tag: 'What I\'m taking away', title: 'Research documentation and portfolio process.', body: 'The most useful part so far has been the research documentation framework — how to structure a usability study so findings are legible to stakeholders who weren\'t in the sessions. I\'ve also started applying the certificate\'s portfolio approach retroactively to past projects like WheelToDo, which has surfaced decisions I made instinctively but couldn\'t previously articulate cleanly to clients.' },
     ],
   },
-  { id: 2, slug: 'google-data', title: 'Google Data Analytics Certificate', provider: 'Google', status: 'planned', platform: 'Coursera', desc: 'Data cleaning, analysis, visualisation, and SQL fundamentals.' },
-  { id: 3, slug: 'microsoft-data', title: 'Microsoft Data Certificates', provider: 'Microsoft', status: 'planned', platform: 'Microsoft Learn', desc: 'Azure data fundamentals and data engineering paths.' },
-  { id: 4, slug: 'databricks', title: 'Databricks Certification', provider: 'Databricks', status: 'planned', platform: 'Databricks Academy', desc: 'Lakehouse architecture, Apache Spark, and data engineering workflows.' },
-  { id: 5, slug: 'snowflake', title: 'Snowflake Certification', provider: 'Snowflake', status: 'planned', platform: 'Snowflake University', desc: 'Cloud data warehousing, data sharing, and Snowflake architecture.' },
-  { id: 6, slug: 'anthropic', title: 'Anthropic AI Certification', provider: 'Anthropic', status: 'planned', platform: 'Anthropic', desc: 'Responsible AI development, prompt engineering, and Claude API fundamentals.' },
-  { id: 7, slug: 'linkedin-learning', title: 'LinkedIn Learning', provider: 'LinkedIn', status: 'planned', platform: 'LinkedIn Learning', desc: 'Ongoing courses across design, data, and professional development.' },
-  { id: 8, slug: 'docker', title: 'Docker Certification', provider: 'Docker', status: 'planned', platform: 'Docker', desc: 'Containerisation, Docker Compose, and deploying applications with Docker.' },
+  { id: 2, slug: 'google-data', title: 'Google Data Analytics Certificate', provider: 'Google', status: 'planned', platform: 'Coursera', desc: 'Data cleaning, analysis, visualisation, and SQL fundamentals.',
+    tone: 'moss', glyph: 'globe',
+    lede: 'A structured path through data fundamentals — SQL, R, Tableau, and the data analysis workflow from raw data to decision-ready output.',
+    sections: [
+      { kind: 'block', tag: 'Why this cert', title: 'Grounding the practice in fundamentals.', body: 'Most of my data work so far has been project-driven — learning tools as I needed them. This certificate is about filling the gaps: a structured pass through SQL, data cleaning methodology, statistical thinking, and Tableau, with documented outputs I can point to. The Google certificate is one of the more rigorous options for this particular stack.' },
+      { kind: 'metrics', items: [
+        { num: '0%', label: 'Progress to date' },
+        { num: 'Planned', label: 'Status' },
+        { num: 'Coursera', label: 'Platform' },
+        { num: 'Google', label: 'Provider' },
+      ]},
+    ],
+  },
+  { id: 3, slug: 'microsoft-data', title: 'Microsoft Data Certificates', provider: 'Microsoft', status: 'planned', platform: 'Microsoft Learn', desc: 'Azure data fundamentals and data engineering paths.',
+    tone: 'lilac', glyph: 'compass',
+    lede: 'Azure data services, Power BI, and data engineering fundamentals — the Microsoft stack that underpins a lot of enterprise analytics work.',
+    sections: [
+      { kind: 'block', tag: 'Why this cert', title: 'Enterprise data infrastructure is unavoidable.', body: 'A significant proportion of the analytics work I encounter in government and enterprise contexts runs on Microsoft infrastructure. Understanding Azure data services, Power BI at depth, and the data engineering patterns in that ecosystem is a practical necessity, not a preference. This track covers the foundations and pushes into the specialist paths.' },
+      { kind: 'metrics', items: [
+        { num: '0%', label: 'Progress to date' },
+        { num: 'Planned', label: 'Status' },
+        { num: 'Microsoft Learn', label: 'Platform' },
+        { num: 'Microsoft', label: 'Provider' },
+      ]},
+    ],
+  },
+  { id: 4, slug: 'databricks', title: 'Databricks Certification', provider: 'Databricks', status: 'planned', platform: 'Databricks Academy', desc: 'Lakehouse architecture, Apache Spark, and data engineering workflows.',
+    tone: 'cherry', glyph: 'flame',
+    lede: 'Lakehouse architecture, Apache Spark, and the data engineering patterns that make large-scale analytics workloads manageable.',
+    sections: [
+      { kind: 'block', tag: 'Why this cert', title: 'Scale-up data engineering.', body: 'As the projects I work on grow in data volume, the tools that work for analysis-at-a-laptop scale stop working. Databricks and the Lakehouse pattern are the next step — understanding how to design data pipelines and ML workflows that perform at scale, and how to integrate Spark into a modern data stack.' },
+      { kind: 'metrics', items: [
+        { num: '0%', label: 'Progress to date' },
+        { num: 'Planned', label: 'Status' },
+        { num: 'Databricks Academy', label: 'Platform' },
+        { num: 'Databricks', label: 'Provider' },
+      ]},
+    ],
+  },
+  { id: 5, slug: 'snowflake', title: 'Snowflake Certification', provider: 'Snowflake', status: 'planned', platform: 'Snowflake University', desc: 'Cloud data warehousing, data sharing, and Snowflake architecture.',
+    tone: 'bubble', glyph: 'globe',
+    lede: 'Cloud data warehousing and Snowflake\'s architecture — understanding the platform that\'s become central to modern data stacks.',
+    sections: [
+      { kind: 'block', tag: 'Why this cert', title: 'The warehouse that became a platform.', body: 'Snowflake has moved well beyond being a data warehouse — it\'s now a data sharing and collaboration platform used across a wide range of industries. Getting fluent in its architecture, data loading patterns, and query optimisation is increasingly useful context for analytics and data engineering work at scale.' },
+      { kind: 'metrics', items: [
+        { num: '0%', label: 'Progress to date' },
+        { num: 'Planned', label: 'Status' },
+        { num: 'Snowflake University', label: 'Platform' },
+        { num: 'Snowflake', label: 'Provider' },
+      ]},
+    ],
+  },
+  { id: 6, slug: 'anthropic', title: 'Anthropic AI Certification', provider: 'Anthropic', status: 'planned', platform: 'Anthropic', desc: 'Responsible AI development, prompt engineering, and Claude API fundamentals.',
+    tone: 'ink', glyph: 'star',
+    lede: 'Responsible AI development, Claude API integration, and the model context protocol — the technical and ethical foundations of building with AI.',
+    sections: [
+      { kind: 'block', tag: 'Why this cert', title: 'Building with AI that I actually understand.', body: 'Most of my AI integration work through Ion Studio is already built on Claude. These certifications formalise what I\'ve been learning by doing — particularly the responsible development practices, the API patterns that scale, and the Model Context Protocol work that\'s opening up a lot of interesting integration possibilities. This is the most directly applicable cert track to my current work.' },
+      { kind: 'metrics', items: [
+        { num: '0%', label: 'Progress to date' },
+        { num: 'Planned', label: 'Status' },
+        { num: 'Anthropic', label: 'Platform' },
+        { num: 'Anthropic', label: 'Provider' },
+      ]},
+    ],
+  },
+  { id: 7, slug: 'linkedin-learning', title: 'LinkedIn Learning', provider: 'LinkedIn', status: 'planned', platform: 'LinkedIn Learning', desc: 'Ongoing courses across design, data, and professional development.',
+    tone: 'moss', glyph: 'note',
+    lede: 'An ongoing mix of short courses across design, data, development, and professional practice — the "just-in-time" learning layer.',
+    sections: [
+      { kind: 'block', tag: 'How I use it', title: 'Supplementary and just-in-time.', body: 'LinkedIn Learning works differently to the structured certificate tracks — it\'s where I go when I need to understand something quickly before applying it to a project. Short courses on specific tools, frameworks, or techniques that fill a gap without requiring a month-long commitment. More breadth-oriented than the specialist certifications.' },
+      { kind: 'metrics', items: [
+        { num: 'Ongoing', label: 'Status' },
+        { num: 'Short courses', label: 'Format' },
+        { num: 'LinkedIn Learning', label: 'Platform' },
+        { num: 'Various', label: 'Topics' },
+      ]},
+    ],
+  },
+  { id: 8, slug: 'docker', title: 'Docker Certification', provider: 'Docker', status: 'planned', platform: 'Docker', desc: 'Containerisation, Docker Compose, and deploying applications with Docker.',
+    tone: 'cherry', glyph: 'check',
+    lede: 'Containerisation fundamentals — making applications reproducible and deployable without the "works on my machine" problem.',
+    sections: [
+      { kind: 'block', tag: 'Why this cert', title: 'The gap between built and deployed.', body: 'One of the consistent friction points in my development work is the distance between "it runs locally" and "it runs in production." Docker is the foundational technology for closing that gap — containerising applications so they behave consistently across environments. This cert covers the fundamentals and the Compose workflows that make multi-service setups manageable.' },
+      { kind: 'metrics', items: [
+        { num: '0%', label: 'Progress to date' },
+        { num: 'Planned', label: 'Status' },
+        { num: 'Docker', label: 'Platform' },
+        { num: 'Docker', label: 'Provider' },
+      ]},
+    ],
+  },
 ];
 
 /* ─────────────────────────────────────────────────────────
