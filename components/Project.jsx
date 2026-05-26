@@ -206,6 +206,7 @@ function ProjectCard({ project, featured }) {
         <svg className="al-card__img-glyph" viewBox="0 0 28 28">{g}</svg>
         {label}
       </div>
+      {/* Sticker hover system — disabled for now, uncomment to re-enable
       <div className="al-card__stickers" aria-hidden="true">
         {layout.map((p, i) => {
           const stickerKey = set[i] || set[0];
@@ -226,6 +227,7 @@ function ProjectCard({ project, featured }) {
           );
         })}
       </div>
+      */}
       <div className="al-card__body">
         <span className="al-card__cat">{cat}</span>
         <h3 className="al-card__title" dangerouslySetInnerHTML={{ __html: title }} />
