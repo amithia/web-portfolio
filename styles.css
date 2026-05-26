@@ -356,27 +356,32 @@ html, body { overflow-x: clip; }
 /* ────────────────────────────────────────────
    Now Reading + Stamp + Poll widgets (replaces tickers)
    ──────────────────────────────────────────── */
-.al-widgets { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-4); margin-top: var(--space-12); margin-bottom: var(--space-8); }
+.al-widgets { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-4); margin-top: var(--space-4); margin-bottom: var(--space-8); }
 .al-now {
-  background: var(--color-ink); color: var(--color-chalk);
+  background: var(--color-bubblegum); color: var(--color-ink);
   border-radius: 16px; padding: 22px 24px;
   display: grid; grid-template-columns: 60px 1fr auto; gap: 18px; align-items: center;
+  text-decoration: none; transition: box-shadow var(--duration-fast);
 }
-.al-now__cover { width: 60px; height: 60px; border-radius: 10px; background: var(--color-cherry); display: flex; align-items: center; justify-content: center; }
-.al-now__lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-bubblegum); display: inline-flex; align-items: center; gap: 8px; }
-.al-now__lbl::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--color-bubblegum); animation: pulse 1.4s ease-in-out infinite; }
+.al-now:hover { box-shadow: 4px 4px 0 var(--color-ink); }
+.al-now__cover { width: 60px; height: 60px; border-radius: 10px; background: var(--color-ink); display: flex; align-items: center; justify-content: center; }
+.al-now__lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-ink); opacity: 0.7; display: inline-flex; align-items: center; gap: 8px; }
+.al-now__lbl::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--color-ink); animation: pulse 1.4s ease-in-out infinite; }
 @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 .al-now__title { font-family: var(--font-display); font-weight: 900; font-size: 22px; line-height: 1; letter-spacing: -0.03em; margin-top: 4px; }
-.al-now__title em { font-family: var(--font-accent); font-style: italic; font-weight: 400; letter-spacing: 0; color: var(--color-chalk); }
+.al-now__title em { font-family: var(--font-accent); font-style: italic; font-weight: 400; letter-spacing: 0; color: var(--color-ink); }
 .al-now__sub { font-size: 12px; opacity: 0.7; margin-top: 4px; }
 .al-now__pct { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; opacity: 0.7; text-align: right; }
-.al-now__bar { width: 80px; height: 4px; background: rgba(248,243,227,0.15); border-radius: 2px; margin-top: 8px; overflow: hidden; }
-.al-now__bar > div { height: 100%; width: 52%; background: var(--color-bubblegum); border-radius: 2px; }
+.al-now__bar { width: 80px; height: 4px; background: rgba(26,22,18,0.2); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+.al-now__bar > div { height: 100%; width: 52%; background: var(--color-ink); border-radius: 2px; }
 .al-stamp {
   background: var(--color-lilac); color: var(--color-ink);
-  border-radius: 16px; padding: 18px 22px;
-  display: flex; flex-direction: column; gap: 8px; justify-content: center;
+  border-radius: 16px; padding: 22px 24px;
+  display: grid; grid-template-columns: 60px 1fr; gap: 18px; align-items: center;
+  text-decoration: none; transition: box-shadow var(--duration-fast);
 }
+.al-stamp:hover { box-shadow: 4px 4px 0 var(--color-ink); }
+.al-stamp__cup { width: 68px; height: auto; flex-shrink: 0; }
 .al-stamp__lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.6; }
 .al-stamp__val { font-family: var(--font-display); font-weight: 900; font-size: 22px; line-height: 1; letter-spacing: -0.03em; }
 .al-stamp__val em { font-family: var(--font-accent); font-style: italic; font-weight: 400; letter-spacing: 0; }
@@ -386,7 +391,7 @@ html, body { overflow-x: clip; }
 /* ────────────────────────────────────────────
    Stats — softer than bordered grid; chunky chips
    ──────────────────────────────────────────── */
-.al-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin-block: var(--space-12); }
+.al-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin-top: var(--space-12); margin-bottom: 0; }
 .al-stat {
   background: var(--color-chalk); border: 2px solid var(--color-ink); border-radius: 14px;
   padding: var(--space-6) var(--space-5);
@@ -410,6 +415,9 @@ html, body { overflow-x: clip; }
 .al-section-header__title { font-family: var(--font-display); font-weight: 900; font-size: var(--text-3xl); line-height: 0.95; letter-spacing: -0.04em; }
 .al-section-header__title em { font-family: var(--font-accent); font-style: italic; font-weight: 400; letter-spacing: 0; color: var(--color-cherry); }
 .al-section-header__num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink); opacity: 0.55; letter-spacing: 0.1em; white-space: nowrap; }
+.al-sub-header { margin-top: var(--space-16); margin-bottom: var(--space-6); }
+.al-sub-header__title { font-family: var(--font-display); font-weight: 900; font-size: var(--text-xl); line-height: 0.95; letter-spacing: -0.04em; }
+.al-sub-header__title em { font-family: var(--font-accent); font-style: italic; font-weight: 400; letter-spacing: 0; color: var(--color-cherry); }
 
 /* ────────────────────────────────────────────
    Filter pills — dot leading
@@ -507,13 +515,7 @@ html, body { overflow-x: clip; }
 /* ────────────────────────────────────────────
    Poll widget after grid (replaces second ticker)
    ──────────────────────────────────────────── */
-.al-spotify__wrap { margin-block: var(--space-12); }
-.al-spotify__heading {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-family: var(--font-display); font-weight: 900; font-size: var(--text-xl);
-  letter-spacing: -0.02em; margin-bottom: var(--space-3);
-}
-.al-spotify__record { width: 36px; height: 36px; animation: spin 4s linear infinite; flex-shrink: 0; }
+.al-spotify__record { width: 64px; height: 64px; animation: spin 4s linear infinite; flex-shrink: 0; }
 .al-spotify {
   display: flex; align-items: center; gap: var(--space-4);
   background: var(--color-ink); color: var(--color-chalk);

@@ -1,8 +1,11 @@
 /* global React */
 
 function NowReading() {
+  const title = 'Our Man in Havana';
+  const author = 'Graham Greene';
+  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(title + ' ' + author)}`;
   return (
-    <div className="al-now">
+    <a href={searchUrl} target="_blank" rel="noopener noreferrer" className="al-now">
       <div className="al-now__cover">
         <svg viewBox="0 0 32 32" fill="none">
           <rect x="6" y="4" width="20" height="24" rx="2" fill="#F8F3E3" stroke="#1A1612" strokeWidth="1.5" />
@@ -14,23 +17,48 @@ function NowReading() {
       <div>
         <div className="al-now__lbl">Now Reading</div>
         <div className="al-now__title">Our Man in <em>Havana</em></div>
-        <div className="al-now__sub">Graham Greene, 1958</div>
+        <div className="al-now__sub">{author}, 1958</div>
       </div>
       <div className="al-now__pct">
         <div>38%</div>
         <div className="al-now__bar"><div></div></div>
       </div>
-    </div>);
+    </a>);
 
 }
 
 function Stamp() {
   return (
-    <div className="al-stamp">
-      <div className="al-stamp__lbl">Currently · May 2026</div>
-      <div className="al-stamp__val">Canberra, <em>Australia</em></div>
-      <div className="al-stamp__coords">35.2802° S · 149.1310° E</div>
-    </div>);
+    <a href="https://www.google.com/maps/search/Recess+Cafe+Canberra" target="_blank" rel="noopener noreferrer" className="al-stamp">
+      <svg className="al-stamp__cup" viewBox="0 0 50 52" fill="none">
+        {/* Steam */}
+        <path d="M15 11 Q14 9 15 7 Q16 5 15 3" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+        <path d="M22 10 Q21 8 22 6 Q23 4 22 2" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+        <path d="M29 11 Q28 9 29 7 Q30 5 29 3" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+        {/* Handle — cherry D-shape, drawn before cup so cup covers the left edge */}
+        <path d="M32 21 Q45 21 45 28.5 Q45 36 32 36 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"/>
+        {/* Handle hole — filled with card's lilac background */}
+        <path d="M32 25 Q40 25 40 28.5 Q40 32 32 32 Z" fill="#B9A6E0"/>
+        {/* Cup body */}
+        <path d="M8 13 L10 35 Q10.5 37 12.5 37 L30.5 37 Q32.5 37 33 35 L35 13 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"/>
+        {/* Cup rim */}
+        <ellipse cx="21.5" cy="13" rx="13.5" ry="3" fill="#1A1612"/>
+        {/* Coffee surface */}
+        <ellipse cx="21.5" cy="13" rx="12" ry="2.5" fill="#2C1810"/>
+        {/* Saucer shadow */}
+        <ellipse cx="21.5" cy="43" rx="16" ry="4" fill="#1A1612"/>
+        {/* Saucer */}
+        <ellipse cx="21.5" cy="42" rx="15" ry="3.5" fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.2"/>
+        {/* Bubblegum dot */}
+        <circle cx="21.5" cy="13" r="2.5" fill="#EE7BA8"/>
+        <circle cx="21.5" cy="13" r="1" fill="#FCF7E5"/>
+      </svg>
+      <div>
+        <div className="al-stamp__lbl">Favourite cafe · May 2026</div>
+        <div className="al-stamp__val">Recess <em>Cafe</em></div>
+        <div className="al-stamp__coords">Canberra, ACT · flat white</div>
+      </div>
+    </a>);
 
 }
 
@@ -64,7 +92,7 @@ function SpotifyWidget() {
       fetch('/api/now-playing')
         .then(r => r.json())
         .then(setData)
-        .catch(() => {});
+        .catch(() => setData({ isPlaying: false, title: '—', artist: '—', albumArt: null, songUrl: '#' }));
     fetch_();
     const id = setInterval(fetch_, 30000);
     return () => clearInterval(id);
@@ -73,29 +101,17 @@ function SpotifyWidget() {
   if (!data) return null;
 
   return (
-    <div className="al-spotify__wrap">
-      <div className="al-spotify__heading">
-        <svg className="al-spotify__record" viewBox="0 0 40 40">
-          {/* Outer ring — cherry */}
-          <circle cx="20" cy="20" r="19" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5"/>
-          {/* Groove rings */}
-          <circle cx="20" cy="20" r="15" fill="none" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.25"/>
-          <circle cx="20" cy="20" r="12" fill="none" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.2"/>
-          <circle cx="20" cy="20" r="9"  fill="none" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.15"/>
-          {/* Label disc — cream */}
-          <circle cx="20" cy="20" r="7"  fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.2"/>
-          {/* Label detail — bubblegum dot */}
-          <circle cx="20" cy="16" r="1.5" fill="#EE7BA8"/>
-          {/* Centre hole */}
-          <circle cx="20" cy="20" r="2"  fill="#1A1612"/>
-          <circle cx="20" cy="20" r="0.8" fill="#FCF7E5"/>
-        </svg>
-        <span>Currently listening to</span>
-      </div>
     <a href={data.songUrl || '#'} target="_blank" rel="noopener noreferrer" className="al-spotify">
-      {data.albumArt && (
-        <img src={data.albumArt} alt={data.album} className="al-spotify__art" />
-      )}
+      <svg className="al-spotify__record" viewBox="0 0 40 40">
+        <circle cx="20" cy="20" r="19" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5"/>
+        <circle cx="20" cy="20" r="15" fill="none" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.25"/>
+        <circle cx="20" cy="20" r="12" fill="none" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.2"/>
+        <circle cx="20" cy="20" r="9"  fill="none" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.15"/>
+        <circle cx="20" cy="20" r="7"  fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.2"/>
+        <circle cx="20" cy="16" r="1.5" fill="#EE7BA8"/>
+        <circle cx="20" cy="20" r="2"  fill="#1A1612"/>
+        <circle cx="20" cy="20" r="0.8" fill="#FCF7E5"/>
+      </svg>
       <div className="al-spotify__info">
         <div className="al-spotify__status">
           {data.isPlaying ? (
@@ -107,9 +123,11 @@ function SpotifyWidget() {
         <div className="al-spotify__title">{data.title}</div>
         <div className="al-spotify__artist">{data.artist}</div>
       </div>
+      {data.albumArt && (
+        <img src={data.albumArt} alt={data.album} className="al-spotify__art" />
+      )}
       <svg className="al-spotify__logo" viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
     </a>
-    </div>
   );
 }
 

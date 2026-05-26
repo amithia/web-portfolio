@@ -3,7 +3,7 @@ function Services() {
   return (
     <section className="al-section al-bg-parchment" id="practice" data-screen-label="Practice">
       <div className="al-container">
-        <SectionHeader title='Four <em>practices</em>' index="03 / Practice" />
+        <SectionHeader title='Four <em>focuses</em>'/>
         <div className="al-services">
           {window.PRACTICES.map((s) => (
             <a key={s.slug} href={`/practice?id=${s.slug}`} className={`al-service al-service--${s.tone}`}>
@@ -45,7 +45,7 @@ function Reading() {
   return (
     <section className="al-section al-bg-chalk" id="beyond-work" data-screen-label="Beyond Work">
       <div className="al-container">
-        <SectionHeader title='Beyond <em>work</em>' index="04 / Beyond Work" />
+        <SectionHeader title='Beyond <em>work</em>' index="03 / Beyond Work" />
         <ul className="al-reading">
           {items.slice(0, 5).map((item) => (
             <li key={item.slug} className="al-reading__row">

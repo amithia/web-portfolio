@@ -1,9 +1,9 @@
 /* global React */
 function About() {
   return (
-    <section className="al-section al-bg-parchment" id="about" data-screen-label="About">
+    <section className="al-section al-bg-parchment" id="about" data-screen-label="About" style={{ paddingBottom: 0 }}>
       <div className="al-container">
-        <SectionHeader title='About <em>me</em>' index="02 / About" />
+        {/* <SectionHeader title='About <em>me</em>' index="02 / About" /> */}
         <div className="al-about">
           <div className="al-about__image">
             <div className="al-about__placeholder">AL</div>
@@ -26,8 +26,16 @@ function About() {
               <span className="al-country"><span style={{ background: '#1A1612' }}></span>+ exploring</span>
             </div>
           </div>
-        </div>
+        </div>       
       </div>
+      <div className="al-container">
+        <Stats items={[
+          { num: '5+', label: 'Years in the industry' },
+          { num: '6',  label: 'Projects shipped' },
+          { num: '10+',  label: 'Countries visited' },
+          { num: '4000+',  label: 'Cups of coffee consumed' },
+        ]} />
+      </div>  
     </section>);
 
 }
@@ -41,7 +49,7 @@ function Footer() {
             <p className="al-footer__cta">
               Let's make<br />something <em>worth</em><br />remembering.
             </p>
-            <Btn href="mailto:hello@amithi.com" variant="chalk">hello@amithi.com</Btn>
+            <Btn href="mailto:aliyanagamage@gmail.com" variant="chalk">Chuck me an email</Btn>
           </div>
           <ul className="al-footer__links" data-comment-anchor="5d97c6fe4b-ul-48-11">
             <li><a href="#" className="al-footer__link">LinkedIn</a></li>
@@ -54,7 +62,7 @@ function Footer() {
         <div className="al-footer__bottom">
           <span>© 2026 Amithi Liyanagamage</span>
           <span>Made slowly. Made with care.</span>
-          <a href="/sitemap" style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.06em', textTransform: 'uppercase', color: 'rgba(252,247,229,.4)', textDecoration: 'none' }} onMouseOver={e => e.target.style.color='rgba(252,247,229,.8)'} onMouseOut={e => e.target.style.color='rgba(252,247,229,.4)'}>Sitemap</a>
+          <a href="/sitemap" style={{ fontFamily: 'var(--font-mono)', fontSize: '.80rem', letterSpacing: '.06em', textTransform: 'uppercase', color: 'rgba(252,247,229,.4)', textDecoration: 'none' }} onMouseOver={e => e.target.style.color='rgba(252,247,229,.8)'} onMouseOut={e => e.target.style.color='rgba(252,247,229,.4)'}>Sitemap</a>
         </div>
       </div>
     </footer>);
