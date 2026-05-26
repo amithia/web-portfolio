@@ -92,12 +92,20 @@ function NotFound({ backHref, backLabel }) {
   );
 }
 
-/* Tiny helper — read ?id=… from URL. */
+/* Tiny helper — read slug from URL.
+   Priority: ?id= query param (Vercel rewrite) → last path segment (static server) */
 function useSlug() {
   const [slug] = React.useState(() => {
     if (typeof window === 'undefined') return null;
     const params = new URLSearchParams(window.location.search);
-    return params.get('id');
+    const fromQuery = params.get('id');
+    if (fromQuery) return fromQuery;
+    // Fallback: last path segment, strips .html extension
+    const segments = window.location.pathname.replace(/\.html$/, '').split('/').filter(Boolean);
+    const last = segments[segments.length - 1] || null;
+    // Don't return page names like 'case-study' or 'beyond-work-detail'
+    const templateNames = ['case-study', 'beyond-work-detail', 'practice', 'book', 'templates'];
+    return (last && !templateNames.includes(last)) ? last : null;
   });
   return slug;
 }
