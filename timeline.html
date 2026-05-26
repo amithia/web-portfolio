@@ -13,18 +13,77 @@
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 <style>
-.tl { position: relative; padding-left: 2.5rem; }
-.tl::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 0; width: 2px; background: rgba(26,22,18,.15); }
-.tl-entry { position: relative; margin-bottom: 3rem; }
-.tl-entry::before { content: ''; position: absolute; left: -2.5rem; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--color-cherry); border: 2px solid var(--color-parchment); box-shadow: 0 0 0 2px var(--color-cherry); }
-.tl-entry--edu::before { background: var(--color-bubblegum); box-shadow: 0 0 0 2px var(--color-bubblegum); }
-.tl-entry--current::before { background: var(--color-cherry); box-shadow: 0 0 0 4px rgba(229,75,60,.2); }
-.tl-date { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: #888; margin-bottom: .4rem; }
-.tl-role { font-family: var(--font-display); font-weight: 900; font-size: var(--text-xl); letter-spacing: -.02em; line-height: 1.1; margin-bottom: .25rem; }
-.tl-org { font-size: var(--text-sm); font-weight: 600; color: var(--color-cherry); margin-bottom: .75rem; }
+/* ── Timeline ──
+   Marker column = 20px wide. Line centre = 10px from .tl left.
+   .tl-title-row uses flex + align-items:center so the dot
+   is always vertically centred on the role title — no offset math needed. */
+
+.tl { position: relative; }
+
+.tl::before {
+  content: ''; position: absolute;
+  left: 9px;           /* 10px centre − 1px for half of 2px line */
+  top: 0; bottom: 0; width: 2px;
+  background: rgba(26,22,18,.13);
+}
+
+.tl-entry { margin-bottom: 3.5rem; }
+
+/* Date sits above the title row, indented to match the text column */
+.tl-date {
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: .35rem;
+  padding-left: calc(20px + 1.75rem);
+}
+
+/* Flex row: marker column (20 px) + role title — align-items:center does the work */
+.tl-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  margin-bottom: .3rem;
+}
+
+.tl-marker {
+  width: 20px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.tl-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  background: var(--color-cherry);
+  border: 2px solid var(--color-parchment);
+  box-shadow: 0 0 0 2px var(--color-cherry);
+}
+
+.tl-entry--edu     .tl-dot { background: var(--color-bubblegum); box-shadow: 0 0 0 2px var(--color-bubblegum); }
+.tl-entry--current .tl-dot { box-shadow: 0 0 0 4px rgba(229,75,60,.2); }
+
+.tl-role {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--text-xl);
+  letter-spacing: -.02em;
+  line-height: 1.1;
+}
+
+/* Everything below the title row is indented to align with the text column */
+.tl-sub { padding-left: calc(20px + 1.75rem); }
+
+.tl-org  { font-size: var(--text-sm); font-weight: 600; color: var(--color-cherry); margin-bottom: .75rem; margin-top: .2rem; }
 .tl-desc { font-size: var(--text-sm); line-height: 1.7; color: #3a3530; max-width: 60ch; }
 .tl-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
-.tl-tag { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; padding: 2px 8px; border: 1px solid rgba(26,22,18,.2); border-radius: 100px; color: #6b6460; text-transform: uppercase; }
+.tl-tag  { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; padding: 2px 8px; border: 1px solid rgba(26,22,18,.2); border-radius: 100px; color: #6b6460; text-transform: uppercase; }
+
 .tl-section-head { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--color-cherry); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid var(--color-ink); margin-top: 3.5rem; }
 .tl-section-head:first-child { margin-top: 0; }
 </style>
@@ -67,38 +126,53 @@ function TimelinePage() {
 
             <div className="tl-entry tl-entry--current">
               <div className="tl-date">2024 — Present</div>
-              <div className="tl-role">Co-founder</div>
-              <div className="tl-org">Ion Studio · Colombo / Remote</div>
-              <p className="tl-desc">Building AI integration tools for mobile app teams. Helping clients ship intelligent features without rebuilding from scratch.</p>
-              <div className="tl-tags">
-                <span className="tl-tag">AI Integration</span>
-                <span className="tl-tag">Start-up</span>
-                <span className="tl-tag">Product</span>
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Co-founder</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Ion Studio · Colombo / Remote</div>
+                <p className="tl-desc">Building AI integration tools for mobile app teams. Helping clients ship intelligent features without rebuilding from scratch.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">AI Integration</span>
+                  <span className="tl-tag">Start-up</span>
+                  <span className="tl-tag">Product</span>
+                </div>
               </div>
             </div>
 
-            <div className="tl-entry">
+            <div className="tl-entry tl-entry--current">
               <div className="tl-date">2023 — Present</div>
-              <div className="tl-role">Web Project Officer</div>
-              <div className="tl-org">Australian National University · Digital Strategy, Insights &amp; Analytics · Canberra</div>
-              <p className="tl-desc">Building and maintaining student-facing web experiences and internal platforms across ANU. Led the Explore Your Campus project — restructuring navigation around student moments rather than institutional categories. Work spans public web products, SharePoint development, and data-informed UX decisions.</p>
-              <div className="tl-tags">
-                <span className="tl-tag">Web Dev</span>
-                <span className="tl-tag">UI/UX</span>
-                <span className="tl-tag">ANU</span>
-                <span className="tl-tag">SharePoint</span>
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Web Project Officer</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Australian National University · Digital Strategy, Insights &amp; Analytics · Canberra</div>
+                <p className="tl-desc">Building and maintaining student-facing web experiences and internal platforms across ANU. Led the Explore Your Campus project — restructuring navigation around student moments rather than institutional categories. Work spans public web products, SharePoint development, and data-informed UX decisions.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">Web Dev</span>
+                  <span className="tl-tag">UI/UX</span>
+                  <span className="tl-tag">ANU</span>
+                  <span className="tl-tag">SharePoint</span>
+                </div>
               </div>
             </div>
 
             <div className="tl-entry">
               <div className="tl-date">2022 — 2023</div>
-              <div className="tl-role">Student Developer &amp; Research Assistant</div>
-              <div className="tl-org">Australian National University · Canberra, Australia</div>
-              <p className="tl-desc">Part-time development and research work during studies — building internal tools, supporting research teams with data analysis, and contributing to ANU's digital projects alongside coursework.</p>
-              <div className="tl-tags">
-                <span className="tl-tag">ANU</span>
-                <span className="tl-tag">Research</span>
-                <span className="tl-tag">Data</span>
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Student Developer &amp; Research Assistant</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Australian National University · Canberra, Australia</div>
+                <p className="tl-desc">Part-time development and research work during studies — building internal tools, supporting research teams with data analysis, and contributing to ANU's digital projects alongside coursework.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">ANU</span>
+                  <span className="tl-tag">Research</span>
+                  <span className="tl-tag">Data</span>
+                </div>
               </div>
             </div>
 
@@ -109,35 +183,37 @@ function TimelinePage() {
 
             <div className="tl-entry tl-entry--edu">
               <div className="tl-date">2020 — 2024</div>
-              <div className="tl-role">Bachelor of Advanced Computing (Data Science)</div>
-              <div className="tl-org">Australian National University · Canberra, Australia</div>
-              <p className="tl-desc">Studied computing and data science at one of Australia's leading research universities. Coursework spanning software engineering, machine learning, human-computer interaction, and statistical analysis. The degree that started the obsession with building things that actually work for people.</p>
-              <div className="tl-tags">
-                <span className="tl-tag">ANU</span>
-                <span className="tl-tag">Computing</span>
-                <span className="tl-tag">Data Science</span>
-                <span className="tl-tag">HCI</span>
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Bachelor of Advanced Computing (Data Science)</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Australian National University · Canberra, Australia</div>
+                <p className="tl-desc">Studied computing and data science at one of Australia's leading research universities. Coursework spanning software engineering, machine learning, human-computer interaction, and statistical analysis. The degree that started the obsession with building things that actually work for people.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">ANU</span>
+                  <span className="tl-tag">Computing</span>
+                  <span className="tl-tag">Data Science</span>
+                  <span className="tl-tag">HCI</span>
+                </div>
               </div>
             </div>
 
             <div className="tl-entry tl-entry--edu">
               <div className="tl-date">Pre-2020</div>
-              <div className="tl-role">Secondary Education</div>
-              <div className="tl-org">Sri Lanka</div>
-              <p className="tl-desc">Grew up in Sri Lanka before moving to Australia to study. The move shaped a lot — a global perspective, a sensitivity to how design and technology land differently across cultures, and a stubborn preference for things that actually work over things that look like they should.</p>
-              <div className="tl-tags">
-                <span className="tl-tag">Sri Lanka</span>
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Secondary Education</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Sri Lanka</div>
+                <p className="tl-desc">Grew up in Sri Lanka before moving to Australia to study. The move shaped a lot — a global perspective, a sensitivity to how design and technology land differently across cultures, and a stubborn preference for things that actually work over things that look like they should.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">Sri Lanka</span>
+                </div>
               </div>
             </div>
 
-          </div>
-
-          <div className="tl-section-head">Lived &amp; Worked</div>
-          <div className="tl">
-            <div className="tl-entry">
-              <div className="tl-role" style={{ fontSize: 'var(--text-lg)' }}>🇱🇰 Sri Lanka &nbsp;·&nbsp; 🇬🇧 United Kingdom &nbsp;·&nbsp; 🇿🇦 South Africa &nbsp;·&nbsp; 🇦🇺 Australia &nbsp;·&nbsp; 🇵🇹 Portugal &nbsp;·&nbsp; + more</div>
-              <p className="tl-desc" style={{ marginTop: '.75rem' }}>A global perspective shaped by living, studying, and working across multiple countries.</p>
-            </div>
           </div>
 
         </div>

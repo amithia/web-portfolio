@@ -117,7 +117,7 @@ function PhotoStack() {
               <span className="al-photo-card__place">{card.place}</span>
             </div>
             <div className="al-photo-card__hint" style={{ opacity: pos === 0 ? 1 : 0, transition: 'opacity 300ms ease' }}>
-              Flip Through My Life
+              Click Through My Life
             </div>
           </div>);
 
@@ -139,8 +139,8 @@ function Hero() {
         <div className="al-hero__grid">
           <div className="al-hero__content" data-comment-anchor="9c49413224-div-136-11">
             <p className="al-hero__eyebrow">
-              <span className="badge">Full-Stack Developer</span>
               <span className="badge">Web Project Officer</span>
+              <span className="badge">Full-Stack Developer</span>
             </p>
             <h1 className="al-hero__title">
               <span className="word">Work</span>{' '}

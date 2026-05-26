@@ -35,23 +35,26 @@ function Stamp() {
         <path d="M15 11 Q14 9 15 7 Q16 5 15 3" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
         <path d="M22 10 Q21 8 22 6 Q23 4 22 2" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
         <path d="M29 11 Q28 9 29 7 Q30 5 29 3" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-        {/* Handle — cherry D-shape, drawn before cup so cup covers the left edge */}
-        <path d="M32 21 Q45 21 45 28.5 Q45 36 32 36 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"/>
-        {/* Handle hole — filled with card's lilac background */}
-        <path d="M32 25 Q40 25 40 28.5 Q40 32 32 32 Z" fill="#B9A6E0"/>
-        {/* Cup body */}
-        <path d="M8 13 L10 35 Q10.5 37 12.5 37 L30.5 37 Q32.5 37 33 35 L35 13 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"/>
+        {/* Saucer shadow — behind everything */}
+        <ellipse cx="21.5" cy="43.5" rx="14" ry="2" fill="#1A1612" opacity="0.18"/>
+        {/* Saucer — drawn before cup so cup overlaps it */}
+        <ellipse cx="21.5" cy="41" rx="15" ry="3.5" fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.2"/>
+        {/* Saucer inner well ring */}
+        <ellipse cx="21.5" cy="41" rx="7.5" ry="1.8" fill="none" stroke="#1A1612" strokeWidth="0.7" opacity="0.25"/>
+        {/* Handle — proper D-ring, transparent hole via evenodd, drawn before cup */}
+        <path
+          d="M32 21 Q47 21 47 28.5 Q47 36 32 36 Z M32 25 Q42 25 42 28.5 Q42 32 32 32 Z"
+          fill="#E54B3C" fillRule="evenodd"
+          stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"
+        />
+        {/* Cup body — bottom at y≈38.5 so it sits inside the saucer */}
+        <path d="M8 13 L10 36 Q10.5 38.5 13 38.5 L30 38.5 Q32.5 38.5 33 36 L35 13 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"/>
         {/* Cup rim */}
         <ellipse cx="21.5" cy="13" rx="13.5" ry="3" fill="#1A1612"/>
         {/* Coffee surface */}
         <ellipse cx="21.5" cy="13" rx="12" ry="2.5" fill="#2C1810"/>
-        {/* Saucer shadow */}
-        <ellipse cx="21.5" cy="43" rx="16" ry="4" fill="#1A1612"/>
-        {/* Saucer */}
-        <ellipse cx="21.5" cy="42" rx="15" ry="3.5" fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.2"/>
-        {/* Bubblegum dot */}
-        <circle cx="21.5" cy="13" r="2.5" fill="#EE7BA8"/>
-        <circle cx="21.5" cy="13" r="1" fill="#FCF7E5"/>
+        {/* Milk swirl — subtle latte art */}
+        <path d="M17.5 13 Q19.5 11.2 21.5 13 Q19.5 14.8 17.5 13 Z" fill="rgba(252,247,229,0.22)"/>
       </svg>
       <div>
         <div className="al-stamp__lbl">Favourite cafe · May 2026</div>
