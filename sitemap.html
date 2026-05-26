@@ -244,7 +244,7 @@ function SitemapPage() {
   const upcoming = window.UPCOMING  || [];
   const learning = window.LEARNING  || [];
   const creative = window.CREATIVE  || [];
-  const total    = 6 + projects.length + upcoming.length + learning.length + creative.length + 3;
+  const total    = 6 + projects.length + upcoming.length + learning.length + creative.length;
 
   return (
     <>
@@ -272,8 +272,8 @@ function SitemapPage() {
           <div className="sm-grid">
 
             {/* Main navigation */}
-            <SmCard label="Navigation" title="Main pages" tone="cherry" count={`${6} pages`}>
-              <SmLink href="/"       name="Home"        num={1} tag="Index" />
+            <SmCard label="Navigation" title="Main pages" tone="cherry" count="6 pages">
+              <SmLink href="/"            name="Home"        num={1} tag="Index" />
               <SmLink href="/about"       name="About"       num={2} />
               <SmLink href="/work"        name="Work"        num={3} />
               <SmLink href="/beyond-work" name="Beyond Work" num={4} />
@@ -333,11 +333,17 @@ function SitemapPage() {
               ))}
             </SmCard>
 
-            {/* Other pages */}
-            <SmCard label="More" title="Other pages" count="3 pages">
-              <SmLink href="/projects" name="All Work"     num={1} />
-              <SmLink href="/courses"  name="Courses"      num={2} />
-              <SmLink href="/book"     name="Reading list" num={3} />
+            {/* Focuses */}
+            <SmCard label="Disciplines" title="Focuses" count="4 areas">
+              {(window.PRACTICES || []).map((p, i) => (
+                <SmLink
+                  key={p.slug}
+                  href={`/practice?id=${p.slug}`}
+                  name={p.title}
+                  num={i + 1}
+                  tag={p.tag}
+                />
+              ))}
             </SmCard>
 
           </div>

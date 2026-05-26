@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Practice · Amithi Liyanagamage</title>
+<title>Focuses · Amithi Liyanagamage</title>
 <link rel="stylesheet" href="/styles.css" />
 <link rel="stylesheet" href="/detail.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,14 +24,14 @@
 <script type="text/babel" src="/components/DetailParts.jsx"></script>
 
 <script type="text/babel">
-function PracticePage() {
+function FocusPage() {
   const slug = useSlug();
   const idx = window.PRACTICES.findIndex(p => p.slug === slug);
   const practice = idx >= 0 ? window.PRACTICES[idx] : null;
 
   React.useEffect(() => {
     if (practice) {
-      document.title = `${practice.title} · Practice · Amithi Liyanagamage`;
+      document.title = `${practice.title} · Focuses · Amithi Liyanagamage`;
     }
   }, [practice]);
 
@@ -39,7 +39,7 @@ function PracticePage() {
     return (
       <>
         <Nav />
-        <NotFound backHref="index.html#practice" backLabel="Back to practices" />
+        <NotFound backHref="/home#practice" backLabel="Back to focuses" />
         <Footer />
       </>
     );
@@ -57,18 +57,18 @@ function PracticePage() {
   return (
     <>
       <Nav />
-      <main className="al-container" data-screen-label="Practice">
+      <main className="al-container" data-screen-label="Focus">
         <Breadcrumb trail={[
           { label: 'Home', href: '/home' },
-          { label: 'Practice', href: 'index.html#practice' },
-          { label: practice.tag },
+          { label: 'Focuses', href: '/home#practice' },
+          { label: practice.title },
         ]} />
 
         <header className="al-detail-header">
           <div>
             <div className="al-detail-header__eyebrow">
               <span className="badge">{practice.tag}</span>
-              How I work
+              What I do
             </div>
             <h1 className="al-detail-header__title">{practice.title}</h1>
             <p className="al-detail-header__lede">{practice.lede}</p>
@@ -121,7 +121,7 @@ function PracticePage() {
         {relatedProjects.length > 0 && (
           <section className="al-related">
             <h2 className="al-related__title">
-              <span>Selected <em>work</em> in this practice</span>
+              <span>Selected <em>work</em> in this focus</span>
               <small>{relatedProjects.length} project{relatedProjects.length === 1 ? '' : 's'}</small>
             </h2>
             <div className="al-grid-2">
@@ -133,8 +133,8 @@ function PracticePage() {
         <NextPrev
           prev={prev}
           next={next}
-          prevLabel="Previous practice"
-          nextLabel="Next practice"
+          prevLabel="Previous focus"
+          nextLabel="Next focus"
           hrefFor={(p) => `/practice?id=${p.slug}`}
         />
       </main>
@@ -143,7 +143,7 @@ function PracticePage() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<PracticePage />);
+ReactDOM.createRoot(document.getElementById('root')).render(<FocusPage />);
 </script>
 </body>
 </html>

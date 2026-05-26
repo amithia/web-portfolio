@@ -1,5 +1,5 @@
 /* global React */
-/* Shared bits used by detail pages (case-study, practice, book). */
+/* Shared bits used by detail pages (case-study, focuses, beyond-work-detail). */
 
 const HERO_GLYPHS = {
   heart:  <path d="M20 34 C 20 34, 6 26, 6 16 A 7 7 0 0 1 20 12 A 7 7 0 0 1 34 16 C 34 26, 20 34, 20 34 Z" fill="currentColor" stroke="#1A1612" strokeWidth="2" strokeLinejoin="round"/>,

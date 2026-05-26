@@ -47,7 +47,7 @@ function CaseStudy() {
     return (
       <>
         <Nav />
-        <NotFound backHref="/projects" backLabel="Back to all work" />
+        <NotFound backHref="/work" backLabel="Back to all work" />
         <Footer />
       </>
     );
@@ -63,7 +63,7 @@ function CaseStudy() {
         <main className="al-container" data-screen-label="Coming Soon">
           <Breadcrumb trail={[
             { label: 'Home', href: '/home' },
-            { label: 'Work', href: '/projects' },
+            { label: 'Work', href: '/work' },
             { label: upcoming.cat.split('·')[0].trim() },
           ]} />
 
@@ -119,7 +119,7 @@ function CaseStudy() {
           )}
 
           <div style={{ marginTop: '2.5rem' }}>
-            <Btn href="/projects" variant="cherry">← Back to all work</Btn>
+            <Btn href="/work" variant="cherry">← Back to all work</Btn>
           </div>
 
           <NextPrev

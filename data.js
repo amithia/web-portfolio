@@ -1,7 +1,7 @@
 /* global window */
 /* ─────────────────────────────────────────────────────────
    Shared data — loaded as a plain <script> on every page.
-   window.PROJECTS  window.PRACTICES  window.READING
+   window.PROJECTS  window.PRACTICES  window.UPCOMING  window.LEARNING  window.CREATIVE
    slug = URL-safe id used as ?id=… in detail URLs.
    ───────────────────────────────────────────────────────── */
 
@@ -141,7 +141,7 @@ window.PROJECTS = [
 window.PRACTICES = [
   {
     slug: 'ux-product-design',
-    tone: 'cherry', tag: 'PRACTICE 01',
+    tone: 'cherry', tag: 'FOCUS 01',
     title: 'UX & Product Design',
     short: 'Research, prototyping, and interface design for mobile and web — from first interview to final handoff.',
     tools: 'Figma · React Native · Notion',
@@ -157,7 +157,7 @@ window.PRACTICES = [
   },
   {
     slug: 'ai-integration',
-    tone: 'bubblegum', tag: 'PRACTICE 02',
+    tone: 'bubblegum', tag: 'FOCUS 02',
     title: 'AI Integration',
     short: 'Helping mobile and web teams ship real AI features — through rapid audits, prototypes, and integration support.',
     tools: 'Claude API · Python · React Native',
@@ -173,7 +173,7 @@ window.PRACTICES = [
   },
   {
     slug: 'data-analytics',
-    tone: 'lilac', tag: 'PRACTICE 03',
+    tone: 'lilac', tag: 'FOCUS 03',
     title: 'Data & Analytics',
     short: 'Analysis, dashboards, and statistical tools that help teams make better decisions — not just prettier charts.',
     tools: 'Python · SQL · Tableau',
@@ -189,7 +189,7 @@ window.PRACTICES = [
   },
   {
     slug: 'web-development',
-    tone: 'moss', tag: 'PRACTICE 04',
+    tone: 'moss', tag: 'FOCUS 04',
     title: 'Web Development',
     short: 'Building web experiences — from interactive campus guides to SharePoint infrastructure at ANU.',
     tools: 'React · JavaScript · SharePoint',
@@ -437,244 +437,189 @@ window.UPCOMING = [
   },
 ];
 
-window.COURSES = [
-  { id: 'google-ux',       provider: 'Google',           title: 'UX Design Certificate',                  status: 'in-progress', progress: 40, category: 'ux',    description: 'Research, wireframing, prototyping, and design systems fundamentals.' },
-  { id: 'google-data',     provider: 'Google',           title: 'Data Analytics Certificate',              status: 'planned',     progress: 0,  category: 'data',  description: 'Data analysis, SQL, R programming, and Tableau.' },
-  { id: 'anthropic-cc101', provider: 'Anthropic',        title: 'Claude Code 101',                         status: 'planned',     progress: 0,  category: 'ai',    description: 'Getting started with Claude Code for AI-assisted development.' },
-  { id: 'anthropic-api',   provider: 'Anthropic',        title: 'Building with Claude API',                status: 'planned',     progress: 0,  category: 'ai',    description: 'Integrating Claude into applications using the Anthropic API.' },
-  { id: 'anthropic-mcp',   provider: 'Anthropic',        title: 'Introduction to Model Context Protocol',  status: 'planned',     progress: 0,  category: 'ai',    description: 'Understanding and implementing MCP for Claude integrations.' },
-  { id: 'anthropic-mcp2',  provider: 'Anthropic',        title: 'MCP: Advanced Topics',                    status: 'planned',     progress: 0,  category: 'ai',    description: 'Advanced MCP patterns and production integration strategies.' },
-  { id: 'anthropic-bdrk',  provider: 'Anthropic',        title: 'Claude with Amazon Bedrock',              status: 'planned',     progress: 0,  category: 'ai',    description: 'Deploying and scaling Claude via Amazon Bedrock.' },
-  { id: 'anthropic-vtx',   provider: 'Anthropic',        title: 'Claude with Google Vertex AI',            status: 'planned',     progress: 0,  category: 'ai',    description: 'Deploying and scaling Claude via Google Cloud\'s Vertex AI.' },
-  { id: 'ms-az900',        provider: 'Microsoft',        title: 'AZ-900: Azure Fundamentals',              status: 'planned',     progress: 0,  category: 'cloud', description: 'Cloud concepts, Azure architecture, and core Azure services.' },
-  { id: 'ms-pl300',        provider: 'Microsoft',        title: 'PL-300: Power BI Data Analyst',           status: 'planned',     progress: 0,  category: 'data',  description: 'Data modelling, transformation, and visualisation in Power BI.' },
-  { id: 'ms-dp300',        provider: 'Microsoft',        title: 'DP-300: Azure Database Administrator',    status: 'planned',     progress: 0,  category: 'cloud', description: 'Managing and securing relational databases in Azure.' },
-  { id: 'aws-sa',          provider: 'Amazon',           title: 'Solutions Architect Associate',           status: 'planned',     progress: 0,  category: 'cloud', description: 'AWS architecture patterns and services for robust solutions design.' },
-  { id: 'li-fullstack',    provider: 'LinkedIn Learning', title: 'Pathway to Full-Stack Engineering',      status: 'planned',     progress: 0,  category: 'dev',   description: 'Full-stack fundamentals from HTML/CSS through to back-end and deployment.' },
-  { id: 'li-data',         provider: 'LinkedIn Learning', title: 'Data Analyst Pathway',                   status: 'planned',     progress: 0,  category: 'data',  description: 'Core analyst skills: statistics, SQL, Excel, and visualisation.' },
-  { id: 'databricks',      provider: 'Databricks',       title: 'Lakehouse Fundamentals',                  status: 'planned',     progress: 0,  category: 'data',  description: 'Data engineering and ML workflows on the Databricks Lakehouse platform.' },
-  { id: 'snowflake',       provider: 'Snowflake',        title: 'SnowPro Core Certification',              status: 'planned',     progress: 0,  category: 'data',  description: 'Cloud data warehousing, data loading, and query optimisation.' },
-  { id: 'docker',          provider: 'Docker',           title: 'Docker Foundations',                      status: 'planned',     progress: 0,  category: 'dev',   description: 'Containerisation fundamentals, Compose, and deployment workflows.' },
-];
-
-window.READING = [
-  {
-    slug: 'the-alignment-problem',
-    num: '01', title: 'The Alignment <em>Problem</em>', author: 'Brian Christian',
-    publisher: 'W. W. Norton & Company', year: 2020, tag: 'Reading', tone: 'cherry',
-    progress: 38,
-    lede: 'A lucid account of the technical and human challenges in making AI systems do what we actually want.',
-    why: 'Reading this alongside my Anthropic courses — it fills in the conceptual background behind a lot of what I\'m building. The book is good at distinguishing between "the model does what we said" and "the model does what we meant," which is exactly the tension I think about in AI integration work.',
-    notes: [
-      { tag: 'Ch. 2', text: 'On reward hacking — the model optimises exactly what you measured, not what you cared about. Directly relevant to designing AI features: specify the outcome, not just the action.' },
-      { tag: 'Ch. 4', text: 'Imitation learning and the challenge of teaching values by example. Useful framing for how users "teach" an AI product through their behaviour.' },
-    ],
-  },
-  {
-    slug: 'thinking-fast-and-slow',
-    num: '02', title: 'Thinking, Fast <em>and Slow</em>', author: 'Daniel Kahneman',
-    publisher: 'Farrar, Straus and Giroux', year: 2011, tag: 'Bookshelf', tone: 'bubblegum',
-    progress: 100,
-    lede: 'The book behind every UX research insight about cognitive bias — finally read in full.',
-    why: 'I\'d cited Kahneman in research decks for years before actually reading this cover to cover. Reading it properly changed how I frame research findings: System 1 vs. System 2 is a useful shorthand, but the underlying studies are more nuanced and more useful than the shorthand suggests.',
-    notes: [
-      { tag: 'Part II', text: 'On anchoring and availability heuristics. I now include an "anchoring check" in every usability test debrief — are we anchoring on the first session, the most dramatic failure, the last one?' },
-      { tag: 'Part IV', text: 'On the planning fallacy. Directly applicable to every project estimate I\'ve ever made or received.' },
-    ],
-  },
-  {
-    slug: 'sprint',
-    num: '03', title: '<em>Sprint</em>', author: 'Jake Knapp, John Zeratsky, Braden Kowitz',
-    publisher: 'Simon & Schuster', year: 2016, tag: 'Bookshelf', tone: 'lilac',
-    progress: 100,
-    lede: 'The five-day design sprint methodology — read it to steal from it, not to follow it.',
-    why: 'I picked this up because Ion Studio\'s three-week audit-prototype-handoff cycle is loosely derived from sprint thinking. The book is more prescriptive than I\'d like, but the core principle — prototype and test something real before committing resources — is sound and underused.',
-    notes: [
-      { tag: 'Day 3', text: 'On parallel prototyping before converging. We adapted this for Ion Studio: multiple AI integration approaches in one week, then pick the one worth testing.' },
-      { tag: 'Day 5', text: 'On the interview structure. The sprint interview format (5 users, back-to-back, one debrief) is still one of the most efficient research formats I use.' },
-    ],
-  },
-  {
-    slug: 'invisible-women',
-    num: '04', title: 'Invisible <em>Women</em>', author: 'Caroline Criado Perez',
-    publisher: 'Chatto & Windus', year: 2019, tag: 'Bookshelf', tone: 'moss',
-    progress: 100,
-    lede: 'On the data gap — how designing for the default male user creates systems that fail half the population.',
-    why: 'This is the book I reference when product managers think research recruitment doesn\'t matter. The argument is simple and devastating: when you don\'t gather data on a group, you design as if they don\'t exist. Applies to AI training data, UX research, analytics dashboards, and everything in between.',
-    notes: [
-      { tag: 'Part I', text: 'On the default male in data. The hospital crash test dummy chapter is one of the most effective single arguments for diverse research participants I\'ve read.' },
-      { tag: 'Part III', text: 'On medical data. Directly influenced how I think about accessibility-first design — who\'s in the dataset, and whose edge case are you treating as the norm?' },
-    ],
-  },
-  {
-    slug: 'make',
-    num: '05', title: '<em>Make</em>', author: 'Pieter Levels',
-    publisher: 'Self-published', year: 2019, tag: 'Bookshelf', tone: 'cherry',
-    progress: 100,
-    lede: 'A scrappy, honest guide to building internet products — relevant whether you\'re solo or co-founding.',
-    why: 'Read this while building the early Ion Studio concept. Levels\' core argument — ship something real before you polish anything — is one I\'ve disagreed with in detail but agreed with in principle. The bit on charging from day one changed how we approached our first client conversation.',
-    notes: [
-      { tag: 'Ch. 4', text: 'On charging early. The argument that "free" devalues your product and your time is more nuanced in practice, but the bias toward charging is a useful corrective.' },
-      { tag: 'Ch. 6', text: 'On avoiding perfectionism. Relevant for both design and product work — the WheelToDo beta launched with known gaps, and that was the right call.' },
-    ],
-  },
-];
-
-/* ─────────────────────────────────────────────────────────
-   Learning — certifications in progress and planned
-   ───────────────────────────────────────────────────────── */
 window.LEARNING = [
-  { id: 1, slug: 'google-ux', title: 'Google UX Design Certificate', provider: 'Google', status: 'active', platform: 'Coursera', desc: 'Foundations of UX research, wireframing, prototyping, and usability testing.',
-    tone: 'cherry', glyph: 'compass', progress: 40,
-    lede: 'A structured foundation in UX — covering research, wireframing, prototyping, and testing across mobile and web.',
+  {
+    id: 1, slug: 'google-ux',
+    title: 'Google UX Design Certificate',
+    provider: 'Google', platform: 'Coursera',
+    status: 'planned',
+    desc: 'A seven-course professional certificate covering UX research, wireframing, prototyping, and usability testing.',
+    lede: 'A structured introduction to UX practice from Google — covering the full design process from empathy mapping through high-fidelity prototypes.',
+    tone: 'cherry', glyph: 'compass',
     sections: [
-      { kind: 'block', tag: 'Why this cert', title: 'Formalising what I\'ve been doing.', body: 'Most of my UX practice has been learn-by-doing — working through real projects, running research sessions, and iterating on live products. This certificate is about filling in the formal gaps: grounding the intuition in documented methodology, and building a portfolio that shows the research process, not just the final output. The Google certificate has more rigour around research documentation than most alternatives.' },
+      { kind: 'block', tag: 'Why this cert', title: 'Foundation over credential.', body: 'Most of what I know about UX came from doing — designing real products for real users. This certificate is about formalising that knowledge: filling in the gaps, learning the vocabulary, and being rigorous about the parts I\'ve been intuiting. Google\'s curriculum is industry-respected and well-structured, which makes it a useful benchmark.' },
       { kind: 'metrics', items: [
-        { num: '40%', label: 'Progress to date' },
         { num: '7', label: 'Courses in the certificate' },
-        { num: 'Active', label: 'Status' },
         { num: 'Coursera', label: 'Platform' },
-      ] },
-      { kind: 'block', tag: 'What I\'m taking away', title: 'Research documentation and portfolio process.', body: 'The most useful part so far has been the research documentation framework — how to structure a usability study so findings are legible to stakeholders who weren\'t in the sessions. I\'ve also started applying the certificate\'s portfolio approach retroactively to past projects like WheelToDo, which has surfaced decisions I made instinctively but couldn\'t previously articulate cleanly to clients.' },
-    ],
-  },
-  { id: 2, slug: 'google-data', title: 'Google Data Analytics Certificate', provider: 'Google', status: 'planned', platform: 'Coursera', desc: 'Data cleaning, analysis, visualisation, and SQL fundamentals.',
-    tone: 'moss', glyph: 'globe',
-    lede: 'A structured path through data fundamentals — SQL, R, Tableau, and the data analysis workflow from raw data to decision-ready output.',
-    sections: [
-      { kind: 'block', tag: 'Why this cert', title: 'Grounding the practice in fundamentals.', body: 'Most of my data work so far has been project-driven — learning tools as I needed them. This certificate is about filling the gaps: a structured pass through SQL, data cleaning methodology, statistical thinking, and Tableau, with documented outputs I can point to. The Google certificate is one of the more rigorous options for this particular stack.' },
-      { kind: 'metrics', items: [
-        { num: '0%', label: 'Progress to date' },
         { num: 'Planned', label: 'Status' },
-        { num: 'Coursera', label: 'Platform' },
-        { num: 'Google', label: 'Provider' },
+        { num: '~6 mo', label: 'Estimated completion' },
       ]},
     ],
   },
-  { id: 3, slug: 'microsoft-data', title: 'Microsoft Data Certificates', provider: 'Microsoft', status: 'planned', platform: 'Microsoft Learn', desc: 'Azure data fundamentals and data engineering paths.',
-    tone: 'lilac', glyph: 'compass',
-    lede: 'Azure data services, Power BI, and data engineering fundamentals — the Microsoft stack that underpins a lot of enterprise analytics work.',
+  {
+    id: 2, slug: 'google-data',
+    title: 'Google Data Analytics Certificate',
+    provider: 'Google', platform: 'Coursera',
+    status: 'planned',
+    desc: 'Eight courses covering data analysis using SQL, R, Tableau, and spreadsheets — with a focus on the full analytics workflow.',
+    lede: 'Data analytics formalised: from cleaning messy datasets to presenting findings in ways that actually influence decisions.',
+    tone: 'moss', glyph: 'star',
     sections: [
-      { kind: 'block', tag: 'Why this cert', title: 'Enterprise data infrastructure is unavoidable.', body: 'A significant proportion of the analytics work I encounter in government and enterprise contexts runs on Microsoft infrastructure. Understanding Azure data services, Power BI at depth, and the data engineering patterns in that ecosystem is a practical necessity, not a preference. This track covers the foundations and pushes into the specialist paths.' },
+      { kind: 'block', tag: 'Why this cert', title: 'Rigour over intuition.', body: 'My data work has always been project-driven — I pick up what I need when I need it. This certificate is an attempt to reverse that: learn the full workflow deliberately, then apply it to real problems. The focus on spreadsheets, SQL, and R together covers the full entry-to-insight pipeline in a way that ad-hoc learning rarely does.' },
       { kind: 'metrics', items: [
-        { num: '0%', label: 'Progress to date' },
+        { num: '8', label: 'Courses in the certificate' },
+        { num: 'SQL + R', label: 'Core tools' },
         { num: 'Planned', label: 'Status' },
+        { num: 'Coursera', label: 'Platform' },
+      ]},
+    ],
+  },
+  {
+    id: 3, slug: 'microsoft-data',
+    title: 'Microsoft Azure Data Fundamentals',
+    provider: 'Microsoft', platform: 'Microsoft Learn',
+    status: 'planned',
+    desc: 'Azure DP-900 certification covering core data concepts, relational and non-relational data, and Azure data services.',
+    lede: 'Cloud data fundamentals through the Azure lens — a baseline understanding of how data infrastructure is structured at scale.',
+    tone: 'bubblegum', glyph: 'globe',
+    sections: [
+      { kind: 'block', tag: 'Why this cert', title: 'Architecture shapes query design.', body: 'Snowflake\'s compute-storage separation and multi-cluster virtual warehouse model change how you think about data. Understanding the architecture — how credits are consumed, how caching works, how to avoid full-table scans — changes how you write queries, structure data, and design pipelines. Azure\'s DP-900 covers the conceptual landscape of cloud data without being locked into a single implementation.' },
+      { kind: 'metrics', items: [
+        { num: 'DP-900', label: 'Exam code' },
         { num: 'Microsoft Learn', label: 'Platform' },
-        { num: 'Microsoft', label: 'Provider' },
-      ]},
-    ],
-  },
-  { id: 4, slug: 'databricks', title: 'Databricks Certification', provider: 'Databricks', status: 'planned', platform: 'Databricks Academy', desc: 'Lakehouse architecture, Apache Spark, and data engineering workflows.',
-    tone: 'cherry', glyph: 'flame',
-    lede: 'Lakehouse architecture, Apache Spark, and the data engineering patterns that make large-scale analytics workloads manageable.',
-    sections: [
-      { kind: 'block', tag: 'Why this cert', title: 'Scale-up data engineering.', body: 'As the projects I work on grow in data volume, the tools that work for analysis-at-a-laptop scale stop working. Databricks and the Lakehouse pattern are the next step — understanding how to design data pipelines and ML workflows that perform at scale, and how to integrate Spark into a modern data stack.' },
-      { kind: 'metrics', items: [
-        { num: '0%', label: 'Progress to date' },
         { num: 'Planned', label: 'Status' },
-        { num: 'Databricks Academy', label: 'Platform' },
-        { num: 'Databricks', label: 'Provider' },
+        { num: 'Foundational', label: 'Level' },
       ]},
     ],
   },
-  { id: 5, slug: 'snowflake', title: 'Snowflake Certification', provider: 'Snowflake', status: 'planned', platform: 'Snowflake University', desc: 'Cloud data warehousing, data sharing, and Snowflake architecture.',
-    tone: 'bubble', glyph: 'globe',
-    lede: 'Cloud data warehousing and Snowflake\'s architecture — understanding the platform that\'s become central to modern data stacks.',
+  {
+    id: 4, slug: 'databricks',
+    title: 'Databricks Data Engineer Associate',
+    provider: 'Databricks', platform: 'Databricks Academy',
+    status: 'planned',
+    desc: 'Associate-level certification covering Delta Lake, Apache Spark, and the Databricks Lakehouse architecture.',
+    lede: 'Engineering data pipelines at scale — Databricks\' lakehouse architecture and the Delta Lake paradigm for reliable, performant data.',
+    tone: 'moss', glyph: 'flame',
     sections: [
-      { kind: 'block', tag: 'Why this cert', title: 'The warehouse that became a platform.', body: 'Snowflake has moved well beyond being a data warehouse — it\'s now a data sharing and collaboration platform used across a wide range of industries. Getting fluent in its architecture, data loading patterns, and query optimisation is increasingly useful context for analytics and data engineering work at scale.' },
+      { kind: 'block', tag: 'Why this cert', title: 'Lakehouse over warehouse.', body: 'The lakehouse architecture is increasingly the default for serious data work — it combines the flexibility of a data lake with the reliability guarantees of a warehouse. Databricks\' associate certification focuses on Delta Lake, which handles versioning, ACID transactions, and schema enforcement in a way that makes large-scale pipelines tractable. Getting rigorous about this layer matters.' },
       { kind: 'metrics', items: [
-        { num: '0%', label: 'Progress to date' },
+        { num: 'Spark', label: 'Core engine' },
+        { num: 'Delta Lake', label: 'Key technology' },
+        { num: 'Planned', label: 'Status' },
+        { num: 'Associate', label: 'Level' },
+      ]},
+    ],
+  },
+  {
+    id: 5, slug: 'snowflake',
+    title: 'Snowflake SnowPro Core',
+    provider: 'Snowflake', platform: 'Snowflake University',
+    status: 'planned',
+    desc: 'Core certification covering Snowflake architecture, virtual warehouses, data sharing, and performance optimisation.',
+    lede: 'Snowflake\'s architecture is genuinely different from traditional warehouses — this certification is about understanding why, and using that to write better queries.',
+    tone: 'lilac', glyph: 'star',
+    sections: [
+      { kind: 'block', tag: 'Why this cert', title: 'Architecture shapes everything.', body: 'Snowflake\'s compute-storage separation and multi-cluster virtual warehouse model change how you think about data. Understanding the architecture — how credits are consumed, how caching works, how to avoid full-table scans — changes how you write queries, structure data, and design pipelines. The SnowPro Core covers all of this as a foundation.' },
+      { kind: 'metrics', items: [
+        { num: 'SnowPro', label: 'Certification family' },
+        { num: 'Core', label: 'Level' },
         { num: 'Planned', label: 'Status' },
         { num: 'Snowflake University', label: 'Platform' },
-        { num: 'Snowflake', label: 'Provider' },
       ]},
     ],
   },
-  { id: 6, slug: 'anthropic', title: 'Anthropic AI Certification', provider: 'Anthropic', status: 'planned', platform: 'Anthropic', desc: 'Responsible AI development, prompt engineering, and Claude API fundamentals.',
-    tone: 'ink', glyph: 'star',
-    lede: 'Responsible AI development, Claude API integration, and the model context protocol — the technical and ethical foundations of building with AI.',
+  {
+    id: 6, slug: 'anthropic',
+    title: 'Building with Claude',
+    provider: 'Anthropic', platform: 'Anthropic Academy',
+    status: 'active', progress: 42,
+    desc: 'Practical training on building production applications with Claude — prompt engineering, tool use, the API, and responsible deployment.',
+    lede: 'Using Claude as a building block rather than a product — understanding how the API works, where the limits are, and how to design around them.',
+    tone: 'cherry', glyph: 'flame',
     sections: [
-      { kind: 'block', tag: 'Why this cert', title: 'Building with AI that I actually understand.', body: 'Most of my AI integration work through Ion Studio is already built on Claude. These certifications formalise what I\'ve been learning by doing — particularly the responsible development practices, the API patterns that scale, and the Model Context Protocol work that\'s opening up a lot of interesting integration possibilities. This is the most directly applicable cert track to my current work.' },
+      { kind: 'block', tag: 'Why this cert', title: 'First-party knowledge from the source.', body: 'There\'s a lot of content about using LLMs from third-party sources. Getting it from Anthropic directly means understanding the actual constraints, capabilities, and design philosophy behind Claude — not a community\'s interpretation of it. For anyone building AI-assisted products, that distinction matters: you write better prompts and make better architectural decisions when you understand what the model is actually doing.' },
       { kind: 'metrics', items: [
-        { num: '0%', label: 'Progress to date' },
-        { num: 'Planned', label: 'Status' },
-        { num: 'Anthropic', label: 'Platform' },
+        { num: '42%', label: 'Progress' },
+        { num: 'In Progress', label: 'Status' },
         { num: 'Anthropic', label: 'Provider' },
+        { num: 'API + Prompting', label: 'Focus' },
       ]},
     ],
   },
-  { id: 7, slug: 'linkedin-learning', title: 'LinkedIn Learning', provider: 'LinkedIn', status: 'planned', platform: 'LinkedIn Learning', desc: 'Ongoing courses across design, data, and professional development.',
-    tone: 'moss', glyph: 'note',
-    lede: 'An ongoing mix of short courses across design, data, development, and professional practice — the "just-in-time" learning layer.',
+  {
+    id: 7, slug: 'linkedin-learning',
+    title: 'LinkedIn Learning Paths',
+    provider: 'LinkedIn', platform: 'LinkedIn Learning',
+    status: 'active', progress: 65,
+    desc: 'A curated set of learning paths across UX design, data analytics, and project management — ongoing professional development.',
+    lede: 'Continuous learning across the disciplines I work in — not one certificate but an ongoing practice of staying current.',
+    tone: 'bubblegum', glyph: 'book',
     sections: [
-      { kind: 'block', tag: 'How I use it', title: 'Supplementary and just-in-time.', body: 'LinkedIn Learning works differently to the structured certificate tracks — it\'s where I go when I need to understand something quickly before applying it to a project. Short courses on specific tools, frameworks, or techniques that fill a gap without requiring a month-long commitment. More breadth-oriented than the specialist certifications.' },
+      { kind: 'block', tag: 'Why this cert', title: 'Breadth as strategy.', body: 'Not every skill needs deep certification — sometimes you need to understand enough to collaborate effectively, evaluate work, or ask the right questions. LinkedIn Learning\'s shorter format is ideal for breadth: understanding project management methodology, accessibility standards, or data visualisation principles at a level that informs practice without requiring full certification depth.' },
       { kind: 'metrics', items: [
-        { num: 'Ongoing', label: 'Status' },
-        { num: 'Short courses', label: 'Format' },
-        { num: 'LinkedIn Learning', label: 'Platform' },
-        { num: 'Various', label: 'Topics' },
+        { num: '65%', label: 'Progress on current path' },
+        { num: 'In Progress', label: 'Status' },
+        { num: 'LinkedIn', label: 'Provider' },
+        { num: 'Ongoing', label: 'Format' },
       ]},
     ],
   },
-  { id: 8, slug: 'docker', title: 'Docker Certification', provider: 'Docker', status: 'planned', platform: 'Docker', desc: 'Containerisation, Docker Compose, and deploying applications with Docker.',
-    tone: 'cherry', glyph: 'check',
-    lede: 'Containerisation fundamentals — making applications reproducible and deployable without the "works on my machine" problem.',
+  {
+    id: 8, slug: 'docker',
+    title: 'Docker Foundations',
+    provider: 'Docker', platform: 'Docker Learning',
+    status: 'planned',
+    desc: 'Containerisation fundamentals — images, containers, Docker Compose, and deployment basics for modern software delivery.',
+    lede: 'Containers are the default unit of deployment now. Understanding Docker properly means writing code that actually works the same way everywhere.',
+    tone: 'ink', glyph: 'compass',
     sections: [
-      { kind: 'block', tag: 'Why this cert', title: 'The gap between built and deployed.', body: 'One of the consistent friction points in my development work is the distance between "it runs locally" and "it runs in production." Docker is the foundational technology for closing that gap — containerising applications so they behave consistently across environments. This cert covers the fundamentals and the Compose workflows that make multi-service setups manageable.' },
+      { kind: 'block', tag: 'Why this cert', title: '"Works on my machine" is not a solution.', body: 'Containerisation solves the environment problem. Understanding Docker properly — not just how to run a container but how images are structured, how networking and volumes work, how Compose orchestrates multi-service applications — changes how you build and ship software. It\'s also increasingly a baseline expectation in any engineering environment, and foundational to understanding cloud-native deployments.' },
       { kind: 'metrics', items: [
-        { num: '0%', label: 'Progress to date' },
-        { num: 'Planned', label: 'Status' },
-        { num: 'Docker', label: 'Platform' },
         { num: 'Docker', label: 'Provider' },
+        { num: 'Foundational', label: 'Level' },
+        { num: 'Planned', label: 'Status' },
+        { num: 'Containerisation', label: 'Focus' },
       ]},
     ],
   },
 ];
 
-/* ─────────────────────────────────────────────────────────
-   Creative — art submissions and other works
-   ───────────────────────────────────────────────────────── */
 window.CREATIVE = [
-  { id: 1, slug: 'incognito-2025', title: 'Incognito Art Show 2025', meta: '3 submissions · Canberra · 2025', desc: 'Three small works sold anonymously at the Incognito Art Show.',
+  {
+    id: 'c1', slug: 'incognito-2025',
+    title: 'Incognito 2025',
+    meta: 'Annual Exhibition · 2025',
+    tone: 'cherry',
+    lede: 'A piece submitted to Incognito — the National Gallery of Australia\'s annual anonymous art sale, where no names or prices are attached until after the purchase.',
+    desc: 'Annual anonymous art exhibition and sale at the National Gallery of Australia.',
+    sections: [
+      { kind: 'block', tag: 'About this work', title: 'Anonymous by design.', body: 'Incognito is the National Gallery of Australia\'s annual fundraiser where artists submit small original works — all the same size, all anonymous, all the same price. Buyers choose based on the work alone, with no knowledge of who made it. It\'s a genuinely unusual format: no hierarchy, no reputation, just the piece itself. Submitting felt like an honest test of whether the work could stand without a name attached.' },
+      { kind: 'block', tag: 'The work', title: 'Submitted 2025.', body: 'The piece submitted for 2025 is a small mixed-media work. The anonymity of the exhibition is intentional — details live with the piece, not the documentation.' },
+    ],
+  },
+  {
+    id: 'c2', slug: 'incognito-2026',
+    title: 'Incognito 2026',
+    meta: 'Annual Exhibition · 2026',
     tone: 'bubblegum',
-    lede: 'Three works entered anonymously at the Canberra show where every piece sells for the same price and no one knows who made what.',
+    lede: 'Preparing a piece for the National Gallery of Australia\'s 2026 Incognito exhibition — the annual anonymous art sale.',
+    desc: 'Annual anonymous art exhibition and sale at the National Gallery of Australia — 2026 submission in progress.',
     sections: [
-      { kind: 'block', tag: 'The Show', title: 'Art without the hierarchy.', body: 'The Incognito Art Show is an annual fundraiser at the Canberra Museum and Gallery where artists submit 20×25cm works anonymously — buyers don\'t know who made what until after purchase. Every piece sells for the same price. It\'s the most level playing field in the Canberra art scene: no names, no reputation, just the work in front of you.' },
-      { kind: 'block', tag: 'The Work', title: 'Three small pieces on paper.', body: 'All three submissions were mixed-media works on paper — combining ink, watercolour wash, and printed text fragments. The pieces share a loose theme of maps and displacement: two are abstract interpretations of Sri Lankan coastal geography, and the third is a typographic piece built around a phrase that\'s been sitting in a notebook for a few years. All three sold.' },
-      { kind: 'metrics', items: [
-        { num: '3', label: 'Pieces submitted' },
-        { num: '3', label: 'Pieces sold' },
-        { num: '20×25cm', label: 'Fixed format for all works' },
-        { num: '2025', label: 'Year' },
-      ] },
+      { kind: 'block', tag: 'About this work', title: 'Second year.', body: 'After submitting to Incognito in 2025, the plan is to return for 2026. The anonymous format is something I find genuinely interesting — it flattens the usual art-world signals and forces work to speak on its own terms. The 2026 piece is still in progress; the exhibition\'s constraint (a fixed small format, no identifying information) is the starting condition.' },
+      { kind: 'block', tag: 'Status', title: 'In progress.', body: 'The 2026 submission is being developed. This page will be updated as the work takes shape.' },
     ],
   },
-  { id: 2, slug: 'incognito-2026', title: 'Incognito Art Show 2026', meta: '3 submissions · Canberra · 2026', desc: 'Three small works for the 2026 Incognito Art Show.',
+  {
+    id: 'c3', slug: 'other-artworks',
+    title: 'Other Artworks',
+    meta: 'Ongoing · Mixed Media',
     tone: 'lilac',
-    lede: 'Three works in progress for the 2026 Incognito Art Show at CMAG — continuing the annual practice of making something small and anonymous.',
+    lede: 'A collection of smaller works, experiments, and creative practice made outside of formal exhibitions.',
+    desc: 'Ongoing creative practice — illustrations, mixed media, and experiments that don\'t fit a single category.',
     sections: [
-      { kind: 'block', tag: 'The Show', title: 'Same rules, different year.', body: 'The Incognito Art Show at the Canberra Museum and Gallery runs the same format every year: 20×25cm works, anonymous submission, every piece the same price. No names on the wall until after the sale. It strips out almost everything art markets run on — reputation, gallery relationships, price signalling — and leaves only the work.' },
-      { kind: 'block', tag: 'In Progress', title: 'Three new pieces.', body: 'The 2026 submissions are still in progress. Working in the same mixed-media approach as 2025 — ink, watercolour, and text fragments — but with less mapping and more colour. One piece is a response to a line from a book I\'m taking too long to finish. The other two are still finding their direction, which is the honest state of most work before it\'s done.' },
-      { kind: 'metrics', items: [
-        { num: '3', label: 'Pieces in progress' },
-        { num: '20×25cm', label: 'Fixed format' },
-        { num: '2026', label: 'Year' },
-        { num: 'CMAG', label: 'Venue' },
-      ] },
-    ],
-  },
-  { id: 3, slug: 'other-artworks', title: 'Other Artworks', meta: 'Various · Ongoing', desc: 'A collection of artworks made outside of exhibition submissions.',
-    tone: 'moss',
-    lede: 'Work made for no particular reason — which is usually the best reason to make something.',
-    sections: [
-      { kind: 'block', tag: 'The Practice', title: 'Making without a brief.', body: 'Most of my professional work starts with a problem to solve or a brief to respond to. Making art is the opposite — it starts with nothing, no client, no metric, no defined outcome. That gap is the point. I make things for the same reason I read too slowly and drink too much coffee: it\'s how I think when I\'m not trying to think.' },
-      { kind: 'block', tag: 'The Work', title: 'Mixed media, mostly paper.', body: 'Most of it is on paper — ink, watercolour, collage elements, printed text. Some pieces are very small (postcard-sized), some fill a full sheet of A2. Recurring subjects: maps and displacement, language and its gaps, colour relationships that are harder to name than to see. Not everything is finished. Not everything needs to be.' },
-      { kind: 'metrics', items: [
-        { num: 'Ongoing', label: 'Status' },
-        { num: 'Mixed media', label: 'Primary medium' },
-        { num: 'Paper', label: 'Primary surface' },
-        { num: 'No brief', label: 'Starting point' },
-      ] },
+      { kind: 'block', tag: 'About', title: 'Practice as process.', body: 'Not everything made needs to be exhibited. A lot of creative work is practice — experimenting with materials, learning by making, building the muscle memory that makes the exhibited pieces better. This page collects the work that doesn\'t fit neatly into a named project: illustrations, colour studies, mixed media experiments, and things that exist somewhere between finished and abandoned.' },
+      { kind: 'block', tag: 'Format', title: 'Mixed and ongoing.', body: 'The medium varies — pencil, ink, digital, collage. The common thread is that these are made for the making, not for an audience. More detail and images to follow.' },
     ],
   },
 ];
+

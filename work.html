@@ -72,19 +72,22 @@ const STATUS_FILTERS = [
   { id: 'planned', label: 'Coming soon' },
 ];
 
-const CAT_FILTERS = [
-  { id: 'all',     label: 'All' },
-  { id: 'ux',      label: 'UI/UX' },
-  { id: 'startup', label: 'Start-ups' },
-  { id: 'data',    label: 'Data' },
+const FILTERS = [
+  { id: 'all',        label: 'All',              dot: '#E54B3C' },
+  { id: 'fullstack',  label: 'Full-Stack Dev',   dot: '#E54B3C' },
+  { id: 'ux',         label: 'UI/UX',            dot: '#E54B3C' },
+  { id: 'mobile',     label: 'Mobile Apps',      dot: '#EE7BA8' },
+  { id: 'data',       label: 'Data & Analytics', dot: '#6B7A3F' },
+  { id: 'ai',         label: 'AI',               dot: '#B9A6E0' },
+  { id: 'consulting', label: 'Consulting',        dot: '#e4d837' },
 ];
 
 function WorkPage() {
   const [status, setStatus] = useState('all');
-  const [cat, setCat]       = useState('all');
+  const [filter, setFilter] = useState('all');
 
-  const shipped  = window.PROJECTS.filter(p => cat === 'all' || p.category === cat);
-  const upcoming = window.UPCOMING.filter(p => cat === 'all' || p.category === cat);
+  const shipped  = window.PROJECTS.filter(p => filter === 'all' || p.category === filter);
+  const upcoming = window.UPCOMING.filter(p => filter === 'all' || p.category === filter);
 
   const showShipped = status === 'all' || status === 'shipped';
   const showPlanned = status === 'all' || status === 'planned';
@@ -105,18 +108,12 @@ function WorkPage() {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginBottom: '2.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(26,22,18,.1)' }}>
-          <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
-            {STATUS_FILTERS.map(f => (
-              <button key={f.id} onClick={() => setStatus(f.id)} className={`al-pill${status === f.id ? ' active' : ''}`}>{f.label}</button>
-            ))}
-          </div>
-          <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
-            {CAT_FILTERS.map(f => (
-              <button key={f.id} onClick={() => setCat(f.id)} style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.06em', padding: '.35rem .9rem', borderRadius: '100px', border: '1px solid rgba(26,22,18,.2)', background: cat === f.id ? 'var(--color-ink)' : 'transparent', color: cat === f.id ? '#FCF7E5' : 'var(--color-ink)', cursor: 'pointer' }}>{f.label}</button>
-            ))}
-          </div>
+        <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap', marginBottom: '1.25rem', paddingBottom: '1.25rem', borderBottom: '1px solid rgba(26,22,18,.1)' }}>
+          {STATUS_FILTERS.map(f => (
+            <button key={f.id} onClick={() => setStatus(f.id)} className={`al-pill${status === f.id ? ' active' : ''}`}>{f.label}</button>
+          ))}
         </div>
+        <FilterBar filters={FILTERS} active={filter} onChange={setFilter} />
 
         {showShipped && shipped.length > 0 && (
           <div className="al-subsection">
@@ -124,7 +121,7 @@ function WorkPage() {
               <span className="al-subsection__label">Shipped <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>work</em></span>
               <span className="al-subsection__count">{shipped.length} project{shipped.length !== 1 ? 's' : ''}</span>
             </div>
-            <div className="al-grid-2">
+            <div className="al-grid-3">
               {shipped.map(p => <ProjectCard key={p.id} project={p} featured={p.featured} />)}
             </div>
           </div>
