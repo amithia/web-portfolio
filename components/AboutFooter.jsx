@@ -53,7 +53,6 @@ function Footer() {
           </div>
           <ul className="al-footer__links" data-comment-anchor="5d97c6fe4b-ul-48-11">
             <li><a href="#" className="al-footer__link">LinkedIn</a></li>
-            <li><a href="#" className="al-footer__link">Are.na</a></li>
             <li><a href="#" className="al-footer__link">GitHub</a></li>
             <li><a href="/courses" className="al-footer__link">Learning</a></li>
             <li><a href="#" className="al-footer__link">Download CV</a></li>
