@@ -12,12 +12,12 @@ function PhotoStack() {
   { tone: 'cherry', photo: '/assets/photos/card-1.jpg', caption: 'Pitching a startup idea', place: 'Vietnam · 2024' },
   { tone: 'lilac',  photo: '/assets/photos/card-2.jpg', caption: 'Visiting the Amazon office',  place: 'Vietnam · 2024' },
   { tone: 'bubble', photo: '/assets/photos/card-3.jpg', caption: 'Quick vacation', place: 'Singapore · 2025' },
-  { tone: 'moss',   photo: '/assets/photos/card-4.jpg', caption: 'Annual trip to the coast', place: 'Gold Coast · 2025' },
+  { tone: 'moss',   photo: '/assets/photos/card-4.jpg', caption: 'Trips to the coast', place: 'Gold Coast · 2025' },
   { tone: 'cream',  photo: '/assets/photos/card-5.jpg', caption: 'Hot-air balloon watching', place: 'Canberra · 2024' }, 
   { tone: 'cherry', photo: '/assets/photos/card-6.jpg', caption: 'Born a programmer', place: 'Sri Lanka · 2004' },
   { tone: 'lilac',  photo: '/assets/photos/card-7.jpg', caption: 'With my besties', place: 'Sydney · 2026' },
-  { tone: 'bubble', photo: '/assets/photos/card-8.jpg', caption: 'My music taste', place: 'Sydney · 2026' },
-  { tone: 'moss',   photo: '/assets/photos/card-9.jpg', caption: 'In Da Nang', place: 'Vietnam · 2024' },
+  { tone: 'bubble', photo: '/assets/photos/card-8.jpg', caption: 'Weekend away', place: 'Sydney · 2026' },
+  { tone: 'moss',   photo: '/assets/photos/card-9.jpg', caption: 'Seeing Da Nang', place: 'Vietnam · 2024' },
   { tone: 'cream',  photo: '/assets/photos/card-10.jpg', caption: 'With more besties', place: 'Canberra · 2024' },];
 
 
@@ -112,7 +112,7 @@ function PhotoStack() {
             <div className="al-photo-card__art">
               <img src={card.photo} alt={card.caption} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            <div className="al-photo-card__caption" style={{ opacity: pos === 0 ? 1 : 0, transition: 'opacity 300ms ease' }}>
+            <div className="al-photo-card__caption" style={{ opacity: pos < 4 ? 1 : 0, transition: 'opacity 300ms ease' }}>
               <span className="al-photo-card__title">{card.caption}</span>
               <span className="al-photo-card__place">{card.place}</span>
             </div>
