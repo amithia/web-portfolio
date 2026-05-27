@@ -9,7 +9,7 @@ const { useState } = React;
    ───────────────────────────────────────────── */
 function PhotoStack() {
   const cards = [
-  { tone: 'cherry', photo: '/assets/photos/card-1.jpg', caption: 'Pitching my startup idea', place: 'Vietnam · 2024' },
+  { tone: 'cherry', photo: '/assets/photos/card-1.jpg', caption: 'Pitching a startup idea', place: 'Vietnam · 2024' },
   { tone: 'lilac',  photo: '/assets/photos/card-2.jpg', caption: 'Visiting the Amazon office',  place: 'Vietnam · 2024' },
   { tone: 'bubble', photo: '/assets/photos/card-3.jpg', caption: 'Quick vacation', place: 'Singapore · 2025' },
   { tone: 'moss',   photo: '/assets/photos/card-4.jpg', caption: 'Annual trip to the coast', place: 'Gold Coast · 2025' },

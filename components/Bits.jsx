@@ -32,9 +32,9 @@ function Stamp() {
     <a href="https://www.google.com/maps/search/Recess+Cafe+Canberra" target="_blank" rel="noopener noreferrer" className="al-stamp">
       <svg className="al-stamp__cup" viewBox="0 0 50 52" fill="none">
         {/* Steam */}
-        <path d="M15 11 Q14 9 15 7 Q16 5 15 3" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-        <path d="M22 10 Q21 8 22 6 Q23 4 22 2" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-        <path d="M29 11 Q28 9 29 7 Q30 5 29 3" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+        <path d="M15 13 Q14 11 15 9 Q16 7 15 5" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+        <path d="M22 12 Q21 10 22 8 Q23 6 22 4" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+        <path d="M29 13 Q28 11 29 9 Q30 7 29 5" stroke="#1A1612" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
         {/* Saucer shadow — behind everything */}
         <ellipse cx="21.5" cy="43.5" rx="14" ry="2" fill="#1A1612" opacity="0.18"/>
         {/* Saucer — drawn before cup so cup overlaps it */}
@@ -43,18 +43,18 @@ function Stamp() {
         <ellipse cx="21.5" cy="41" rx="7.5" ry="1.8" fill="none" stroke="#1A1612" strokeWidth="0.7" opacity="0.25"/>
         {/* Handle — proper D-ring, transparent hole via evenodd, drawn before cup */}
         <path
-          d="M32 21 Q47 21 47 28.5 Q47 36 32 36 Z M32 25 Q42 25 42 28.5 Q42 32 32 32 Z"
+          d="M32 23 Q47 23 47 30.5 Q47 38 32 38 Z M32 27 Q42 27 42 30.5 Q42 34 32 34 Z"
           fill="#E54B3C" fillRule="evenodd"
           stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"
         />
-        {/* Cup body — bottom at y≈38.5 so it sits inside the saucer */}
-        <path d="M8 13 L10 36 Q10.5 38.5 13 38.5 L30 38.5 Q32.5 38.5 33 36 L35 13 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"/>
+        {/* Cup body — bottom at y≈40.5 so it overlaps into the saucer */}
+        <path d="M8 15 L10 38 Q10.5 40.5 13 40.5 L30 40.5 Q32.5 40.5 33 38 L35 15 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"/>
         {/* Cup rim */}
-        <ellipse cx="21.5" cy="13" rx="13.5" ry="3" fill="#1A1612"/>
+        <ellipse cx="21.5" cy="15" rx="13.5" ry="3" fill="#1A1612"/>
         {/* Coffee surface */}
-        <ellipse cx="21.5" cy="13" rx="12" ry="2.5" fill="#2C1810"/>
+        <ellipse cx="21.5" cy="15" rx="12" ry="2.5" fill="#2C1810"/>
         {/* Milk swirl — subtle latte art */}
-        <path d="M17.5 13 Q19.5 11.2 21.5 13 Q19.5 14.8 17.5 13 Z" fill="rgba(252,247,229,0.22)"/>
+        <path d="M17.5 15 Q19.5 13.2 21.5 15 Q19.5 16.8 17.5 15 Z" fill="rgba(252,247,229,0.22)"/>
       </svg>
       <div>
         <div className="al-stamp__lbl">Favourite cafe · May 2026</div>

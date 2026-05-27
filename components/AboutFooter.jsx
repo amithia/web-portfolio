@@ -6,7 +6,10 @@ function About() {
         {/* <SectionHeader title='About <em>me</em>' index="02 / About" /> */}
         <div className="al-about">
           <div className="al-about__image">
-            <div className="al-about__placeholder">AL</div>
+            <img
+              src="/assets/photos/home-profile.jpg"
+              alt="Me standing in front of the coloured houses in Singapore."
+            />
             <div className="al-about__stamp">ALWAYS<br />· BUILDING ·</div>
           </div>
           <div>
@@ -21,8 +24,8 @@ function About() {
               With a background in computing and data science (also from ANU!), I've had the opportunity to work on a variety of projects across different industries, including education, healthcare and e-commerce. I'm passionate about using technology to solve real-world problems and create meaningful experiences for users.
             </p>
             <div className="al-countries">
-              <span className="al-country"><span className="dot" style={{ background: '#E54B3C' }}></span>Sri Lanka</span>
               <span className="al-country"><span className="dot" style={{ background: '#6B7A3F' }}></span>Australia</span>
+              <span className="al-country"><span className="dot" style={{ background: '#E54B3C' }}></span>Sri Lanka</span>
               <span className="al-country"><span style={{ background: '#1A1612' }}></span>+ exploring</span>
             </div>
           </div>
@@ -60,7 +63,7 @@ function Footer() {
         </div>
         <div className="al-footer__bottom">
           <span>© 2026 Amithi Liyanagamage</span>
-          <span>Made slowly. Made with care.</span>
+          <span>Made with care.</span>
           <a href="/sitemap" style={{ fontFamily: 'var(--font-mono)', fontSize: '.80rem', letterSpacing: '.06em', textTransform: 'uppercase', color: 'rgba(252,247,229,.4)', textDecoration: 'none' }} onMouseOver={e => e.target.style.color='rgba(252,247,229,.8)'} onMouseOut={e => e.target.style.color='rgba(252,247,229,.4)'}>Sitemap</a>
         </div>
       </div>

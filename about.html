@@ -14,8 +14,8 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 <style>
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,5rem); align-items: stretch; margin-bottom: 4rem; }
-.about-photo { background: var(--color-mist); border: 2px solid var(--color-ink); border-radius: 8px; overflow: hidden; position: sticky; top: 80px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 4rem; font-weight: 900; color: rgba(26,22,18,.15); }
-.about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-photo { background: var(--color-mist); border: 2px solid var(--color-ink); border-radius: 8px; overflow: hidden; position: sticky; top: 80px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 4rem; font-weight: 900; color: rgba(26,22,18,.15); }
+.about-photo img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 .skill-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
 .skill-item { padding: 1.25rem 1.5rem; border: 2px solid var(--color-ink); border-radius: 8px; }
 .skill-item__num { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em; color: var(--color-cherry); margin-bottom: .4rem; }
@@ -43,7 +43,7 @@ function AboutPage() {
           <div style={{ marginBottom: '3rem' }}>
             <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>01 / About</p>
             <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
-              Hello, I'm <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>Amithi</em>
+              Hello, my name is <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>Amithi</em>
             </h1>
             <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 560 }}>
               Designer, developer, and co-founder — working at the intersection of design, data, and policy.
@@ -52,14 +52,14 @@ function AboutPage() {
 
           <div className="about-grid">
             <div className="about-photo">
-              <img src="assets/images/portrait.jpg" alt="Amithi Liyanagamage" onError={(e) => { e.target.style.display='none'; }} />
+              <img src="/assets/photos/about-profile.jpg" alt="Me standing in the rain in Vietnam." onError={(e) => { e.target.style.display='none'; }} />
               AL
             </div>
             <div>
               <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '1rem' }}>The longer version</p>
               <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-2xl)', letterSpacing: '-.03em', lineHeight: 1.05, marginBottom: '1.5rem' }}>
-                Born in Sri Lanka,<br />
-                <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>built in Canberra.</em>
+                Raised up around the world,
+                <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}> building in Canberra.</em>
               </h2>
               <p style={{ marginBottom: '1.5rem', color: '#3a3530', lineHeight: 1.7 }}>
                 I grew up in Sri Lanka and moved to Australia to study Computing and Data Science at the Australian National University — which turned into a full-time obsession with building things that actually work for people. I stayed, got a job at ANU, co-founded a studio, and haven't really stopped since.
@@ -77,9 +77,9 @@ function AboutPage() {
           </div>
 
           <div style={{ borderTop: '1px solid rgba(26,22,18,.12)', paddingTop: '3rem' }}>
-            <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '1rem' }}>What I do</p>
+            <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '1rem' }}>What I'm doing</p>
             <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-2xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '2rem' }}>
-              Six <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>disciplines</em>
+              My six <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>interests</em>
             </h2>
             <div className="skill-row">
               {[
