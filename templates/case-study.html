@@ -97,12 +97,15 @@ function CaseStudy() {
               {upcoming.sections.map((s, i) => {
                 if (s.kind === 'metrics') return <MetricsRow key={i} items={s.items} />;
                 if (s.kind === 'pull') return <blockquote key={i} className="al-pull">{s.text}</blockquote>;
+                if (s.kind === 'callout') return <div key={i} className="al-callout">{s.text}</div>;
                 return (
                   <section key={i} className="al-block">
                     <div className="al-block__tag">{s.tag}</div>
                     <div className="al-block__body">
                       <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
-                      <p>{s.body}</p>
+                      {Array.isArray(s.body)
+                        ? s.body.map((para, j) => <p key={j}>{para}</p>)
+                        : <p>{s.body}</p>}
                     </div>
                   </section>
                 );
@@ -178,9 +181,14 @@ function CaseStudy() {
           </div>
         </header>
 
-        <div className={`al-detail-hero al-detail-hero--${project.tone}`}>
-          <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>
-        </div>
+        {project.heroImg
+          ? <div className="al-detail-hero al-detail-hero--photo">
+              <img src={project.heroImg} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+          : <div className={`al-detail-hero al-detail-hero--${project.tone}`}>
+              <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>
+            </div>
+        }
 
         <article className="al-article">
           {(project.sections || []).map((s, i) => {
@@ -188,12 +196,17 @@ function CaseStudy() {
             if (s.kind === 'pull') return (
               <blockquote key={i} className="al-pull">{s.text}</blockquote>
             );
+            if (s.kind === 'callout') return (
+              <div key={i} className="al-callout">{s.text}</div>
+            );
             return (
               <section key={i} className="al-block">
                 <div className="al-block__tag">{s.tag}</div>
                 <div className="al-block__body">
                   <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
-                  <p>{s.body}</p>
+                  {Array.isArray(s.body)
+                    ? s.body.map((para, j) => <p key={j}>{para}</p>)
+                    : <p>{s.body}</p>}
                 </div>
               </section>
             );

@@ -200,11 +200,15 @@ function ProjectCard({ project, featured }) {
   ];
   const layout = LAYOUTS[stickers] || fallback;
 
+  const thumbImg = project.cardImg || project.heroImg;
+
   return (
     <a href={href} className={`al-card${featured ? ' al-card--featured' : ''}`}>
       <div className={`al-card__img al-card__img--${tone}`}>
-        <svg className="al-card__img-glyph" viewBox="0 0 28 28">{g}</svg>
-        {label}
+        {thumbImg
+          ? <img src={thumbImg} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          : <><svg className="al-card__img-glyph" viewBox="0 0 28 28">{g}</svg>{label}</>
+        }
       </div>
       {/* Sticker hover system — disabled for now, uncomment to re-enable
       <div className="al-card__stickers" aria-hidden="true">
