@@ -1,11 +1,19 @@
 /* global React */
+
+const FOCUS_STICKER_SRCS = [
+  '/assets/motifs/sticker-pencil.svg',
+  '/assets/motifs/sticker-robot.svg',
+  '/assets/motifs/sticker-bar-chart.svg',
+  '/assets/motifs/sticker-code-window.svg',
+];
+
 function Services() {
   return (
     <section className="al-section al-bg-parchment" id="practice" data-screen-label="Focuses" style={{ paddingTop: 'clamp(2rem,4vw,3rem)' }}>
       <div className="al-container">
         <SectionHeader title='Four <em>focuses</em>'/>
         <div className="al-services">
-          {window.PRACTICES.map((s) => (
+          {window.PRACTICES.map((s, i) => (
             <a key={s.slug} href={`/practice?id=${s.slug}`} className={`al-service al-service--${s.tone}`}>
               <div className="al-service__tag">{s.tag}</div>
               <h3 className="al-service__title">{s.title}</h3>
@@ -14,6 +22,7 @@ function Services() {
                 <span>{s.tools}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="al-service__arrow"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
               </div>
+              {FOCUS_STICKER_SRCS[i] && <div className="al-service__sticker"><img src={FOCUS_STICKER_SRCS[i]} alt="" /></div>}
             </a>
           ))}
         </div>

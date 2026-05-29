@@ -48,13 +48,13 @@ function Footer() {
     <footer className="al-footer" id="contact" data-screen-label="Footer">
       <div className="al-container">
         <div className="al-footer__inner">
-          <div data-comment-anchor="6522278850-div-42-11">
+          <div>
             <p className="al-footer__cta">
               Let's make<br />something <em>worth</em><br />remembering.
             </p>
             <Btn href="mailto:aliyanagamage@gmail.com" variant="chalk">Chuck me an email</Btn>
           </div>
-          <ul className="al-footer__links" data-comment-anchor="5d97c6fe4b-ul-48-11">
+          <ul className="al-footer__links">
             <li><a href="#" className="al-footer__link">LinkedIn</a></li>
             <li><a href="#" className="al-footer__link">GitHub</a></li>
             <li><a href="/beyond-work" className="al-footer__link">Learning</a></li>

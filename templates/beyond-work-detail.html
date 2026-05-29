@@ -128,9 +128,11 @@ function BeyondWorkDetail() {
 
         {isLearning ? (
           <div className={`al-detail-hero al-detail-hero--${tone}`}>
-            <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">
-              {HERO_GLYPHS[item.glyph] || HERO_GLYPHS.compass}
-            </svg>
+            {(() => { const g = HERO_GLYPHS[item.glyph] || HERO_GLYPHS.compass;
+              return typeof g === 'string'
+                ? <img className="al-detail-hero__glyph" src={g} alt="" />
+                : <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{g}</svg>;
+            })()}
           </div>
         ) : (
           <div className={`al-detail-hero al-detail-hero--${tone}`} style={{ fontSize: '5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

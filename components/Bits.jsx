@@ -65,17 +65,24 @@ function Stamp() {
 
 }
 
+const STAT_STICKER_SRCS = [
+  '/assets/motifs/sticker-hourglass.svg',
+  '/assets/motifs/sticker-rocket.svg',
+  '/assets/motifs/sticker-globe-pin.svg',
+  '/assets/motifs/sticker-coffee.svg',
+];
+
 function Stats({ items }) {
   return (
     <div className="al-stats">
       {items.map((s, i) =>
-      <div key={i} className="al-stat">
+        <div key={i} className="al-stat">
           <div className="al-stat__num">{s.num}</div>
           <div className="al-stat__lab">{s.label}</div>
+          <div className="al-stat__sticker"><img src={STAT_STICKER_SRCS[i]} alt="" /></div>
         </div>
       )}
     </div>);
-
 }
 
 function SectionHeader({ title, index }) {

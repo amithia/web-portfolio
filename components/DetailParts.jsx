@@ -30,49 +30,8 @@ const HERO_GLYPHS = {
     <path d="M20 8 L23 20 L20 32 L17 20 Z" fill="#1A1612"/>
     <circle cx="20" cy="20" r="2" fill="#FCF7E5"/>
   </g>),
-  fridge: (<g>
-    {/* Fridge body (chalk) */}
-    <rect x="8" y="3" width="24" height="35" rx="4" fill="#FCF7E5"/>
-    {/* Freezer section (moss green) */}
-    <path d="M12 3 L28 3 Q32 3 32 7 L32 16 L8 16 L8 7 Q8 3 12 3 Z" fill="#6B7A3F"/>
-    {/* Body outline */}
-    <rect x="8" y="3" width="24" height="35" rx="4" stroke="#1A1612" strokeWidth="2"/>
-    {/* Divider */}
-    <line x1="8" y1="16" x2="32" y2="16" stroke="#1A1612" strokeWidth="2"/>
-    {/* Freezer handle (chalk) */}
-    <rect x="15.5" y="8.5" width="9" height="2.5" rx="1.25" fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.2"/>
-    {/* Fridge handle (ink) */}
-    <rect x="15.5" y="21.5" width="9" height="2.5" rx="1.25" fill="#1A1612"/>
-    {/* Apple (cherry) */}
-    <circle cx="15.5" cy="30" r="3.5" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5"/>
-    <path d="M15.5 26.5 Q16.5 25.2 17.5 24.8" stroke="#6B7A3F" strokeWidth="1.3" strokeLinecap="round"/>
-    <path d="M17.5 24.8 Q19.5 23.5 19 25.8 Q17.5 25.5 17.5 24.8 Z" fill="#6B7A3F" stroke="#1A1612" strokeWidth="0.8"/>
-    {/* Herb / plant */}
-    <line x1="25" y1="35.5" x2="25" y2="27.5" stroke="#6B7A3F" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M25 32.5 C23.5 30.5 20.5 31 20.5 33 C22.5 33 24.5 32.5 25 32.5 Z" fill="#6B7A3F" stroke="#1A1612" strokeWidth="0.9"/>
-    <path d="M25 29 C26.5 27 29.5 27.5 29.5 29.5 C27.5 29.5 25.5 29 25 29 Z" fill="#6B7A3F" stroke="#1A1612" strokeWidth="0.9"/>
-  </g>),
-  house: (<g>
-    {/* Chimney */}
-    <rect x="25.5" y="11" width="5" height="12" rx="1" fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.5"/>
-    {/* Roof */}
-    <path d="M4 22 L20 8 L36 22 Z" fill="#EE7BA8" stroke="#1A1612" strokeWidth="2" strokeLinejoin="round"/>
-    {/* Walls */}
-    <rect x="6" y="21" width="28" height="17" rx="1.5" fill="#FCF7E5" stroke="#1A1612" strokeWidth="2"/>
-    {/* Left window */}
-    <rect x="8.5" y="24" width="7.5" height="5.5" rx="1.5" fill="#B9A6E0" stroke="#1A1612" strokeWidth="1.5"/>
-    <line x1="12.25" y1="24" x2="12.25" y2="29.5" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.3"/>
-    <line x1="8.5" y1="26.75" x2="16" y2="26.75" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.3"/>
-    {/* Right window */}
-    <rect x="24" y="24" width="7.5" height="5.5" rx="1.5" fill="#B9A6E0" stroke="#1A1612" strokeWidth="1.5"/>
-    <line x1="27.75" y1="24" x2="27.75" y2="29.5" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.3"/>
-    <line x1="24" y1="26.75" x2="31.5" y2="26.75" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.3"/>
-    {/* Arched door */}
-    <path d="M16 38 L16 33 C16 29.5 24 29.5 24 33 L24 38 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"/>
-    <circle cx="22.5" cy="34.5" r="0.9" fill="#FCF7E5"/>
-    {/* Star on chimney */}
-    <path d="M28 5.5 L29 8.2 L32 8.2 L29.6 10 L30.5 12.8 L28 11.2 L25.5 12.8 L26.4 10 L24 8.2 L27 8.2 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.3" strokeLinejoin="round"/>
-  </g>),
+  fridge: '/assets/motifs/fridge-leftover.svg',
+  house:  '/assets/motifs/house-cribd.svg',
 };
 
 function Breadcrumb({ trail }) {

@@ -137,7 +137,7 @@ function Hero() {
       </div>
       <div className="al-container">
         <div className="al-hero__grid">
-          <div className="al-hero__content" data-comment-anchor="9c49413224-div-136-11">
+          <div className="al-hero__content">
             <p className="al-hero__eyebrow">
               <span className="badge">Web Project Officer</span>
               <span className="badge">Full-Stack Developer</span>
@@ -149,24 +149,23 @@ function Hero() {
               <span className="word"><em>purpose</em>.</span>
             </h1>
             <p className="al-hero__subtitle">
-              <br></br>
               A collection of projects I've built across full-stack software, AI integrations and data — some shipped, some ongoing, but all worth sharing.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <Btn href="#work" variant="cherry">View My Work</Btn>
               <Btn href="#about" variant="chalk">Learn More About Me</Btn>
             </div>
-            <div className="al-hero__meta" data-comment-anchor="e0ff07d39f-div-154-13">
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#E54B3C' }}></span>Full-Stack Development</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#6B7A3F' }}></span>UI/UX</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#EE7BA8' }}></span>Mobile Apps</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#B9A6E0' }}></span>AI</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#571aff' }}></span>Data &amp; Analytics</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#e4d837' }}></span>Consulting</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#37e4cd' }}></span>Start-up Builds</span>
+            <div className="al-hero__meta">
+              <span className="al-hero__chip">Full-Stack Development</span>
+              <span className="al-hero__chip">UI/UX</span>
+              <span className="al-hero__chip">Software Development</span>
+              <span className="al-hero__chip">AI</span>
+              <span className="al-hero__chip">Data &amp; Analytics</span>
+              <span className="al-hero__chip">Consulting</span>
+              <span className="al-hero__chip">Start-up Builds</span>
             </div>
           </div>
-          <div className="al-hero__stack-wrap" data-comment-anchor="483d53d25e-div-163-11">
+          <div className="al-hero__stack-wrap">
             <PhotoStack />
           </div>
         </div>

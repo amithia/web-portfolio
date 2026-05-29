@@ -89,7 +89,9 @@ function CaseStudy() {
           </header>
 
           <div className={`al-detail-hero al-detail-hero--${upcoming.tone}`} style={{ opacity: .65 }}>
-            <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>
+            {typeof glyph === 'string'
+              ? <img className="al-detail-hero__glyph" src={glyph} alt="" />
+              : <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>}
           </div>
 
           {upcoming.sections && upcoming.sections.length > 0 ? (
@@ -190,7 +192,9 @@ function CaseStudy() {
               <img src={project.heroImg} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           : <div className={`al-detail-hero al-detail-hero--${project.tone}`}>
-              <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>
+              {typeof glyph === 'string'
+                ? <img className="al-detail-hero__glyph" src={glyph} alt="" />
+                : <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>}
             </div>
         }
 
