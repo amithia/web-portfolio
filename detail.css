@@ -149,6 +149,29 @@
 .al-block__body p + p {
   margin-top: var(--space-4);
 }
+.al-block__list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 62ch;
+}
+.al-block__list li {
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: #3a3530;
+  padding-left: 1.5em;
+  position: relative;
+}
+.al-block__list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-cherry);
+  font-weight: 700;
+}
 @media (max-width: 768px) {
   .al-block { grid-template-columns: 1fr; gap: var(--space-3); }
   .al-block__tag { width: max-content; padding-top: 6px; }

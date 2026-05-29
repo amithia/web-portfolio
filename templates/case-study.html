@@ -104,7 +104,11 @@ function CaseStudy() {
                     <div className="al-block__body">
                       <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
                       {Array.isArray(s.body)
-                        ? s.body.map((para, j) => <p key={j}>{para}</p>)
+                        ? s.body.map((item, j) =>
+                            typeof item === 'string'
+                              ? <p key={j}>{item}</p>
+                              : <ul key={j} className="al-block__list">{item.items.map((li, k) => <li key={k}>{li}</li>)}</ul>
+                          )
                         : <p>{s.body}</p>}
                     </div>
                   </section>
@@ -205,7 +209,11 @@ function CaseStudy() {
                 <div className="al-block__body">
                   <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
                   {Array.isArray(s.body)
-                    ? s.body.map((para, j) => <p key={j}>{para}</p>)
+                    ? s.body.map((item, j) =>
+                        typeof item === 'string'
+                          ? <p key={j}>{item}</p>
+                          : <ul key={j} className="al-block__list">{item.items.map((li, k) => <li key={k}>{li}</li>)}</ul>
+                      )
                     : <p>{s.body}</p>}
                 </div>
               </section>

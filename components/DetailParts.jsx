@@ -30,6 +30,27 @@ const HERO_GLYPHS = {
     <path d="M20 8 L23 20 L20 32 L17 20 Z" fill="#1A1612"/>
     <circle cx="20" cy="20" r="2" fill="#FCF7E5"/>
   </g>),
+  house: (<g>
+    {/* Chimney */}
+    <rect x="25.5" y="11" width="5" height="12" rx="1" fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.5"/>
+    {/* Roof */}
+    <path d="M4 22 L20 8 L36 22 Z" fill="#EE7BA8" stroke="#1A1612" strokeWidth="2" strokeLinejoin="round"/>
+    {/* Walls */}
+    <rect x="6" y="21" width="28" height="17" rx="1.5" fill="#FCF7E5" stroke="#1A1612" strokeWidth="2"/>
+    {/* Left window */}
+    <rect x="8.5" y="24" width="7.5" height="5.5" rx="1.5" fill="#B9A6E0" stroke="#1A1612" strokeWidth="1.5"/>
+    <line x1="12.25" y1="24" x2="12.25" y2="29.5" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.3"/>
+    <line x1="8.5" y1="26.75" x2="16" y2="26.75" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.3"/>
+    {/* Right window */}
+    <rect x="24" y="24" width="7.5" height="5.5" rx="1.5" fill="#B9A6E0" stroke="#1A1612" strokeWidth="1.5"/>
+    <line x1="27.75" y1="24" x2="27.75" y2="29.5" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.3"/>
+    <line x1="24" y1="26.75" x2="31.5" y2="26.75" stroke="#1A1612" strokeWidth="1" strokeOpacity="0.3"/>
+    {/* Arched door */}
+    <path d="M16 38 L16 33 C16 29.5 24 29.5 24 33 L24 38 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5" strokeLinejoin="round"/>
+    <circle cx="22.5" cy="34.5" r="0.9" fill="#FCF7E5"/>
+    {/* Star on chimney */}
+    <path d="M28 5.5 L29 8.2 L32 8.2 L29.6 10 L30.5 12.8 L28 11.2 L25.5 12.8 L26.4 10 L24 8.2 L27 8.2 Z" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.3" strokeLinejoin="round"/>
+  </g>),
 };
 
 function Breadcrumb({ trail }) {
