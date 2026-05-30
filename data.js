@@ -216,20 +216,20 @@ window.PROJECTS = [
 
 window.PRACTICES = [
   {
-    slug: 'ux-product-design',
+    slug: 'web-development',
     tone: 'cherry', tag: 'FOCUS 01',
-    title: 'UI/UX & Web Design',
-    short: 'Research, prototyping, and interface design across mobile, web, and interactive experiences — from first interview to final handoff.',
-    tools: 'Figma · React · HTML/CSS',
-    lede: 'Most of the work is not the artefact. It\'s sitting in the room before there is one.',
-    body: 'I lead user research, information architecture, interaction design, and UI work — across mobile apps, web platforms, and interactive experiences. My projects span student-facing tools at ANU, NFC-enabled apps, and startup prototypes. I take work from discovery through to engineering handoff, and I stay around for the messy bit after launch when things actually start to behave like a product.',
+    title: 'Software Development',
+    short: 'Building web apps, mobile prototypes, and internal platforms — from NFC-enabled React apps to interactive campus tools at ANU.',
+    tools: 'React · JavaScript · Python',
+    lede: 'The best code is the kind users never have to think about.',
+    body: 'I build across the stack — web apps, mobile prototypes, data tools, and internal platforms. Projects range from a React/Vite NFC food-tracking app and a gamified share house management concept, to an interactive Leaflet map shipped for ANU Open Day 2026. I\'m comfortable going end-to-end: design, build, deploy.',
     methods: [
-      { name: 'User research', detail: 'Evaluation studies, co-design sessions, SUS testing, and contextual observation.' },
-      { name: 'UI & visual design', detail: 'Interface design, design systems, and brand-aligned components for web and mobile.' },
-      { name: 'Interaction prototyping', detail: 'High-fidelity prototypes that survive contact with engineering.' },
-      { name: 'Web experience design', detail: 'Designing interactive web tools — from map-based campus guides to campaign landing pages.' },
+      { name: 'Web app development', detail: 'React, Vite, JavaScript — from prototypes to production-deployed tools.' },
+      { name: 'Mobile prototyping', detail: 'App concepts built and tested with real users, including NFC integration.' },
+      { name: 'Internal platforms', detail: 'SharePoint infrastructure, intranet design, and CMS workflows at ANU.' },
+      { name: 'Performance & accessibility', detail: 'Fast, accessible experiences that work on the first visit, not just in Figma.' },
     ],
-    relatedProjectIds: [2, 4],
+    relatedProjectIds: [5, 3],
   },
   {
     slug: 'ai-integration',
@@ -264,20 +264,20 @@ window.PRACTICES = [
     relatedProjectIds: [6],
   },
   {
-    slug: 'web-development',
+    slug: 'ux-product-design',
     tone: 'moss', tag: 'FOCUS 04',
-    title: 'Software Development',
-    short: 'Building web apps, mobile prototypes, and internal platforms — from NFC-enabled React apps to interactive campus tools at ANU.',
-    tools: 'React · JavaScript · Python',
-    lede: 'The best code is the kind users never have to think about.',
-    body: 'I build across the stack — web apps, mobile prototypes, data tools, and internal platforms. Projects range from a React/Vite NFC food-tracking app and a gamified share house management concept, to an interactive Leaflet map shipped for ANU Open Day 2026. I\'m comfortable going end-to-end: design, build, deploy.',
+    title: 'UI/UX & Web Design',
+    short: 'Research, prototyping, and interface design across mobile, web, and interactive experiences — from first interview to final handoff.',
+    tools: 'Figma · React · HTML/CSS',
+    lede: 'Most of the work is not the artefact. It\'s sitting in the room before there is one.',
+    body: 'I lead user research, information architecture, interaction design, and UI work — across mobile apps, web platforms, and interactive experiences. My projects span student-facing tools at ANU, NFC-enabled apps, and startup prototypes. I take work from discovery through to engineering handoff, and I stay around for the messy bit after launch when things actually start to behave like a product.',
     methods: [
-      { name: 'Web app development', detail: 'React, Vite, JavaScript — from prototypes to production-deployed tools.' },
-      { name: 'Mobile prototyping', detail: 'App concepts built and tested with real users, including NFC integration.' },
-      { name: 'Internal platforms', detail: 'SharePoint infrastructure, intranet design, and CMS workflows at ANU.' },
-      { name: 'Performance & accessibility', detail: 'Fast, accessible experiences that work on the first visit, not just in Figma.' },
+      { name: 'User research', detail: 'Evaluation studies, co-design sessions, SUS testing, and contextual observation.' },
+      { name: 'UI & visual design', detail: 'Interface design, design systems, and brand-aligned components for web and mobile.' },
+      { name: 'Interaction prototyping', detail: 'High-fidelity prototypes that survive contact with engineering.' },
+      { name: 'Web experience design', detail: 'Designing interactive web tools — from map-based campus guides to campaign landing pages.' },
     ],
-    relatedProjectIds: [5, 3],
+    relatedProjectIds: [2, 4],
   },
 ];
 
@@ -492,38 +492,38 @@ window.UPCOMING = [
       { kind: 'block', tag: 'Why', title: 'The space between data and feeling.', body: 'Most data visualisation tries to be precise. This one tries to be evocative. The challenge is building a visual vocabulary for emotional content without it becoming arbitrary — grounding the aesthetic choices in the actual audio features, so the result feels like a consequence of the music rather than a decoration.' },
     ],
   },
-  {
-    id: 'u12', slug: 'stock-price-dashboard',
-    title: 'Stock Price <em>Dashboard</em>',
-    cat: 'Data · Finance',
-    teaser: 'A stock prediction dashboard that surfaces uncertainty as prominently as the forecast — because the confidence interval is the most useful part.',
-    tone: 'moss', status: 'planned', category: 'data', glyph: 'star',
-    lede: 'Most prediction dashboards hide the uncertainty. This one treats it as the main event.',
-    role: 'Solo project', year: 2026,
-    sections: [
-      { kind: 'block', tag: 'Concept', title: 'Honest forecasting.', body: 'Stock price prediction models are plentiful. What most dashboards don\'t show is what the model actually knows versus what it\'s guessing — the prediction interval, the model\'s historical accuracy on similar conditions, and the scenarios that would invalidate the forecast. This dashboard makes that uncertainty visible and central, not buried in a footnote.' },
-      { kind: 'metrics', items: [
-        { num: 'Data · Finance', label: 'Category' },
-        { num: 'Uncertainty-first', label: 'Design approach' },
-        { num: 'Concept', label: 'Current stage' },
-        { num: '~2026', label: 'Expected' },
-      ]},
-      { kind: 'block', tag: 'Why', title: 'Confidence intervals are the product.', body: 'A point estimate without a confidence range is a guess dressed as a fact. The design principle here is that the uncertainty quantification is as important as the forecast — and should be presented that way, not as a caveat but as the core output. The target user is someone making a real decision who needs to know what they don\'t know.' },
-    ],
-  },
+  // {
+  //   id: 'u12', slug: 'stock-price-dashboard',
+  //   title: 'Stock Price <em>Dashboard</em>',
+  //   cat: 'Data · Finance',
+  //   teaser: 'A stock prediction dashboard that surfaces uncertainty as prominently as the forecast — because the confidence interval is the most useful part.',
+  //   tone: 'moss', status: 'planned', category: 'data', glyph: 'star',
+  //   lede: 'Most prediction dashboards hide the uncertainty. This one treats it as the main event.',
+  //   role: 'Solo project', year: 2026,
+  //   sections: [
+  //     { kind: 'block', tag: 'Concept', title: 'Honest forecasting.', body: 'Stock price prediction models are plentiful. What most dashboards don\'t show is what the model actually knows versus what it\'s guessing — the prediction interval, the model\'s historical accuracy on similar conditions, and the scenarios that would invalidate the forecast. This dashboard makes that uncertainty visible and central, not buried in a footnote.' },
+  //     { kind: 'metrics', items: [
+  //       { num: 'Data · Finance', label: 'Category' },
+  //       { num: 'Uncertainty-first', label: 'Design approach' },
+  //       { num: 'Concept', label: 'Current stage' },
+  //       { num: '~2026', label: 'Expected' },
+  //     ]},
+  //     { kind: 'block', tag: 'Why', title: 'Confidence intervals are the product.', body: 'A point estimate without a confidence range is a guess dressed as a fact. The design principle here is that the uncertainty quantification is as important as the forecast — and should be presented that way, not as a caveat but as the core output. The target user is someone making a real decision who needs to know what they don\'t know.' },
+  //   ],
+  // },
 ];
 
 window.LEARNING = [
   {
     id: 1, slug: 'google-ux',
     title: 'Google UX Design Certificate',
-    provider: 'Google', platform: 'Coursera',
+    provider: 'Google · 2026',
     status: 'planned',
-    desc: 'A seven-course professional certificate covering UX research, wireframing, prototyping, and usability testing.',
+    desc: 'A seven-course professional certificate covering UX research, wireframing, prototyping and usability testing.',
     lede: 'A structured introduction to UX practice from Google — covering the full design process from empathy mapping through high-fidelity prototypes.',
-    tone: 'cherry', glyph: 'compass',
+    tone: 'cherry', glyph: null, /* heroImg: '/assets/learning/google-ux.jpg' */
     sections: [
-      { kind: 'block', tag: 'Why this cert', title: 'Foundation over credential.', body: 'Most of what I know about UX came from doing — designing real products for real users. This certificate is about formalising that knowledge: filling in the gaps, learning the vocabulary, and being rigorous about the parts I\'ve been intuiting. Google\'s curriculum is industry-respected and well-structured, which makes it a useful benchmark.' },
+      { kind: 'block', tag: 'Why this cert', title: 'Foundation over credential.', body: 'Most of what I know about UX came from doing — designing real products for real users. This certificate is about formalising that knowledge: filling in the gaps, learning the vocabulary and being rigorous about the parts I\'ve been intuiting. Google\'s curriculum is industry-respected and well-structured, which makes it a useful benchmark.' },
       { kind: 'metrics', items: [
         { num: '7', label: 'Courses in the certificate' },
         { num: 'Coursera', label: 'Platform' },
@@ -663,14 +663,14 @@ window.LEARNING = [
 window.CREATIVE = [
   {
     id: 'c1', slug: 'incognito-2025',
-    title: 'Incognito 2025',
+    title: 'Incognito Art Show 2025',
     meta: 'Annual Exhibition · 2025',
-    tone: 'cherry',
-    lede: 'A piece submitted to Incognito — the National Gallery of Australia\'s annual anonymous art sale, where no names or prices are attached until after the purchase.',
+    heroImg: '/assets/beyond-work/incognito-2025.png',
+    lede: 'Three original artworks submitted to Australia\'s biggest anonymous art show. All sold. Each piece a Sri Lankan Raksha mask.',
     desc: 'Annual anonymous art exhibition and sale at the National Gallery of Australia.',
     sections: [
-      { kind: 'block', tag: 'About this work', title: 'Anonymous by design.', body: 'Incognito is the National Gallery of Australia\'s annual fundraiser where artists submit small original works — all the same size, all anonymous, all the same price. Buyers choose based on the work alone, with no knowledge of who made it. It\'s a genuinely unusual format: no hierarchy, no reputation, just the piece itself. Submitting felt like an honest test of whether the work could stand without a name attached.' },
-      { kind: 'block', tag: 'The work', title: 'Submitted 2025.', body: 'The piece submitted for 2025 is a small mixed-media work. The anonymity of the exhibition is intentional — details live with the piece, not the documentation.' },
+      { kind: 'block', tag: 'About this work', title: 'Anonymous by design.', body: 'Incognito is Australia\'s biggest and most inclusive art show, run as a not-for-profit to support Australian artists. Every artwork is A5 in size and priced at $100. Artists\' identities are hidden at the point of sale; only once a piece is purchased does the buyer find the artist\'s name on the back.' },
+      { kind: 'block', tag: 'The work', title: 'Submitted 2025.', body: 'Three original artworks, all sold. Each piece depicts one of the 24 Raksha masks from Sri Lankan cultural tradition: Ginidal Raksha, the fire demon; Naga Raksha, the cobra demon and Maru Raksha, the mask of death.' },
     ],
   },
   // {

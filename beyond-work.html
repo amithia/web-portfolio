@@ -4,6 +4,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Beyond Work · Amithi Liyanagamage</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<!-- SEO & Social — update domain once deployed -->
+<meta name="description" content="Independent learning and creative work by Amithi Liyanagamage — certifications and art outside of professional projects." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://amithi.work/beyond-work" />
+<meta property="og:title" content="Beyond Work · Amithi Liyanagamage" />
+<meta property="og:description" content="Independent learning and creative work by Amithi Liyanagamage — certifications and art outside of professional projects." />
+<meta property="og:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Beyond Work · Amithi Liyanagamage" />
+<meta name="twitter:description" content="Independent learning and creative work by Amithi Liyanagamage — certifications and art outside of professional projects." />
+<meta name="twitter:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
 <link rel="stylesheet" href="/styles.css" />
 <link rel="stylesheet" href="/detail.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -106,7 +118,11 @@ function BeyondWorkPage() {
             <div className="art-grid">
               {window.CREATIVE.map(item => (
                 <a key={item.id} href={`/beyond-work/${item.slug}`} className="art-card">
-                  <div className="art-card__img">✦</div>
+                  <div className="art-card__img">
+                    {item.heroImg
+                      ? <img src={item.heroImg} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                      : '✦'}
+                  </div>
                   <div className="art-card__body">
                     <div className="art-card__title">{item.title}</div>
                     <div className="art-card__meta">{item.meta}</div>

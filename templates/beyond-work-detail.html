@@ -126,7 +126,7 @@ function BeyondWorkDetail() {
           </div>
         </header>
 
-        {isLearning ? (
+        {isLearning && item.glyph ? (
           <div className={`al-detail-hero al-detail-hero--${tone}`}>
             {(() => { const g = HERO_GLYPHS[item.glyph] || HERO_GLYPHS.compass;
               return typeof g === 'string'
@@ -134,11 +134,15 @@ function BeyondWorkDetail() {
                 : <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{g}</svg>;
             })()}
           </div>
-        ) : (
+        ) : !isLearning && item.heroImg ? (
+          <div className="al-detail-hero al-detail-hero--photo">
+            <img src={item.heroImg} alt={item.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+          </div>
+        ) : !isLearning ? (
           <div className={`al-detail-hero al-detail-hero--${tone}`} style={{ fontSize: '5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <span style={{ opacity: 0.35, fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'clamp(4rem,10vw,7rem)', letterSpacing: '-0.04em', color: '#1A1612' }}>✦</span>
           </div>
-        )}
+        ) : null}
 
         {item.sections && item.sections.length > 0 ? (
           <article className="al-article">

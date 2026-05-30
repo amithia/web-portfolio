@@ -188,11 +188,17 @@ html, body { overflow-x: clip; }
 /* Sparkle floaters in hero */
 .al-hero__bling { position: absolute; inset: 0; pointer-events: none; opacity: 0.7; }
 .al-hero__bling svg { position: absolute; }
-.al-hero__bling svg.x1 { top: 12%; left: 8%; width: 16px; height: 16px; animation: spin 14s linear infinite; }
+.al-hero__bling svg.x1 { top: 4%; left: 4%; width: 16px; height: 16px; animation: spin 14s linear infinite; }
 .al-hero__bling svg.x2 { top: 22%; right: 12%; width: 26px; height: 26px; animation: spin 18s linear infinite reverse; }
 .al-hero__bling svg.x3 { bottom: 18%; right: 8%; width: 12px; height: 12px; animation: spin 10s linear infinite; }
-.al-hero__bling svg.x4 { bottom: 28%; left: 16%; width: 20px; height: 20px; animation: spin 22s linear infinite reverse; }
+.al-hero__bling svg.x4 { bottom: 15%; left: 4%; width: 20px; height: 20px; animation: spin 22s linear infinite reverse; }
 @keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 900px) {
+  .al-hero__bling svg.x1 { top: 3%; right: 6%;  left: auto; }
+  .al-hero__bling svg.x2 { top: 3%; right: 16%; }
+  .al-hero__bling svg.x3 { bottom: 3%; right: 6%; }
+  .al-hero__bling svg.x4 { bottom: 3%; left: 6%; }
+}
 .al-hero__content { display: flex; flex-direction: column; justify-content: flex-end; padding-block: var(--space-16); position: relative; }
 /* Two-column grid: copy left, photo stack right */
 .al-hero__grid { display: grid; grid-template-columns: 1fr minmax(320px, 440px); gap: var(--space-12); align-items: stretch; }
@@ -405,9 +411,13 @@ html, body { overflow-x: clip; }
   display: flex; flex-direction: column; gap: 8px;
   min-width: 0;
   position: relative; overflow: visible;
-  transition: transform var(--duration-normal), box-shadow var(--duration-normal);
+  transition: transform var(--duration-normal);
 }
-.al-stat:hover { transform: translateY(-3px); box-shadow: 4px 4px 0 var(--color-ink); }
+.al-stat:nth-child(1) { transform: rotate(-1.5deg); }
+.al-stat:nth-child(2) { transform: rotate(1deg); }
+.al-stat:nth-child(3) { transform: rotate(-0.8deg); }
+.al-stat:nth-child(4) { transform: rotate(1.2deg); }
+.al-stat:hover { transform: rotate(0deg); }
 .al-stat__sticker {
   position: absolute;
   top: -10px; right: 8px;
@@ -577,7 +587,7 @@ html, body { overflow-x: clip; }
    ──────────────────────────────────────────── */
 .al-footer { background: var(--color-ink); color: var(--color-chalk); padding-block: var(--space-16); }
 .al-footer__inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: end; }
-.al-footer__cta { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 0.95; letter-spacing: -0.04em; margin-bottom: var(--space-6); }
+.al-footer__cta { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 0.95; letter-spacing: -0.04em; margin-bottom: var(--space-6); }
 .al-footer__cta em { font-family: var(--font-accent); font-style: italic; font-weight: 400; color: var(--color-cherry); letter-spacing: 0; }
 .al-footer__links { display: flex; flex-direction: column; gap: var(--space-3); text-align: right; }
 .al-footer__link { font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color var(--duration-fast); display: inline-flex; align-items: center; gap: 8px; justify-content: flex-end; }

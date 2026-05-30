@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Timeline · Amithi Liyanagamage</title>
+<title>Milestones · Amithi Liyanagamage</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<!-- SEO & Social — update domain once deployed -->
+<meta name="description" content="Career milestones and education history of Amithi Liyanagamage." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://amithi.work/milestones" />
+<meta property="og:title" content="Milestones · Amithi Liyanagamage" />
+<meta property="og:description" content="Career milestones and education history of Amithi Liyanagamage." />
+<meta property="og:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Milestones · Amithi Liyanagamage" />
+<meta name="twitter:description" content="Career milestones and education history of Amithi Liyanagamage." />
+<meta name="twitter:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
 <link rel="stylesheet" href="/styles.css" />
 <link rel="stylesheet" href="/detail.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,7 +25,7 @@
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 <style>
-/* ── Timeline ──
+/* ── Milestones ──
    Marker column = 20px wide. Line centre = 10px from .tl left.
    .tl-title-row uses flex + align-items:center so the dot
    is always vertically centred on the role title — no offset math needed. */
@@ -97,25 +109,24 @@
 <script type="text/babel" src="/components/DetailParts.jsx"></script>
 
 <script type="text/babel">
-function TimelinePage() {
+function MilestonesPage() {
   return (
     <>
       <Nav />
       <main>
         <div className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)' }}>
-          <Breadcrumb trail={[{ label: 'Home', href: '/home' }, { label: 'Timeline' }]} />
+          <Breadcrumb trail={[{ label: 'Home', href: '/home' }, { label: 'Milestones' }]} />
 
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '3rem' }}>
             <div>
-              <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>04 / Timeline</p>
+              <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>04 / Milestones</p>
               <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
                 The <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>journey</em>
               </h1>
               <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 520 }}>
-                Experience, education, and the moments that shaped the work.
+                Experience, education and the moments that shaped the work.
               </p>
             </div>
-            <Btn href="/assets/cv.pdf" variant="primary">Download CV</Btn>
           </div>
         </div>
 
@@ -125,24 +136,6 @@ function TimelinePage() {
           <div className="tl">
 
             <div className="tl-entry tl-entry--current">
-              <div className="tl-date">2024 — Present</div>
-              <div className="tl-title-row">
-                <div className="tl-marker"><div className="tl-dot" /></div>
-                <div className="tl-role">Co-founder</div>
-              </div>
-              <div className="tl-sub">
-                <div className="tl-org">Ion Studio · Colombo / Remote</div>
-                <p className="tl-desc">Building AI integration tools for mobile app teams. Helping clients ship intelligent features without rebuilding from scratch.</p>
-                <div className="tl-tags">
-                  <span className="tl-tag">AI Integration</span>
-                  <span className="tl-tag">Start-up</span>
-                  <span className="tl-tag">Product</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="tl-entry tl-entry--current">
-              <div className="tl-date">2023 — Present</div>
               <div className="tl-title-row">
                 <div className="tl-marker"><div className="tl-dot" /></div>
                 <div className="tl-role">Web Project Officer</div>
@@ -154,24 +147,67 @@ function TimelinePage() {
                   <span className="tl-tag">Web Dev</span>
                   <span className="tl-tag">UI/UX</span>
                   <span className="tl-tag">ANU</span>
-                  <span className="tl-tag">SharePoint</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="tl-entry tl-entry">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Education Support Officer</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Australian National University · Technology-Enhanced Learning & Teaching · Canberra</div>
+                <p className="tl-desc">Building AI integration tools for mobile app teams. Helping clients ship intelligent features without rebuilding from scratch.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">AI Integration</span>
+                  <span className="tl-tag">Start-up</span>
+                  <span className="tl-tag">Product</span>
                 </div>
               </div>
             </div>
 
             <div className="tl-entry">
-              <div className="tl-date">2022 — 2023</div>
               <div className="tl-title-row">
                 <div className="tl-marker"><div className="tl-dot" /></div>
-                <div className="tl-role">Student Developer &amp; Research Assistant</div>
+                <div className="tl-role">Treasurer</div>
               </div>
               <div className="tl-sub">
-                <div className="tl-org">Australian National University · Canberra, Australia</div>
-                <p className="tl-desc">Part-time development and research work during studies — building internal tools, supporting research teams with data analysis, and contributing to ANU's digital projects alongside coursework.</p>
+                <div className="tl-org">Robogals Asia Pacific · Canberra, Australia</div>
+                <p className="tl-desc">Managing the financial operations of the Canberra branch of the Asia-Pacific Chapter and leading the team at ANU. Gaining hands-on experience with leading STEM coding workshops for young children on a volunteer basis.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">Engineering</span>
+                  <span className="tl-tag">Education</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="tl-entry">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Internal Operations Director</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">ANU Consulting Society · Canberra, Australia</div>
+                <p className="tl-desc">Responsible for managing internal operations in the society including team facilitation, liaising with external partners as well as overseeing the society's digital platforms.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">Consulting</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="tl-entry">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Consultant</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">180 Degrees Consulting · Canberra, Australia</div>
+                <p className="tl-desc">Working as a consultant for socially conscious, not-for-profit organisations within a team. Involves breaking down problems, advising of solutions and presenting them to clients.</p>
                 <div className="tl-tags">
                   <span className="tl-tag">ANU</span>
-                  <span className="tl-tag">Research</span>
-                  <span className="tl-tag">Data</span>
+                  <span className="tl-tag">Consulting</span>
+                  <span className="tl-tag">Not-for-Profit</span>
                 </div>
               </div>
             </div>
@@ -182,34 +218,38 @@ function TimelinePage() {
           <div className="tl">
 
             <div className="tl-entry tl-entry--edu">
-              <div className="tl-date">2020 — 2024</div>
               <div className="tl-title-row">
                 <div className="tl-marker"><div className="tl-dot" /></div>
-                <div className="tl-role">Bachelor of Advanced Computing (Data Science)</div>
+                <div className="tl-role">Bachelor of Computing @ ANU</div>
               </div>
               <div className="tl-sub">
                 <div className="tl-org">Australian National University · Canberra, Australia</div>
                 <p className="tl-desc">Studied computing and data science at one of Australia's leading research universities. Coursework spanning software engineering, machine learning, human-computer interaction, and statistical analysis. The degree that started the obsession with building things that actually work for people.</p>
                 <div className="tl-tags">
                   <span className="tl-tag">ANU</span>
-                  <span className="tl-tag">Computing</span>
-                  <span className="tl-tag">Data Science</span>
-                  <span className="tl-tag">HCI</span>
+                  <span className="tl-tag">Software Development</span>
+                  <span className="tl-tag">Data Analytics</span>
                 </div>
               </div>
             </div>
 
+          </div>
+
+          <div className="tl-section-head">Awards</div>
+          <div className="tl">
+
             <div className="tl-entry tl-entry--edu">
-              <div className="tl-date">Pre-2020</div>
               <div className="tl-title-row">
                 <div className="tl-marker"><div className="tl-dot" /></div>
-                <div className="tl-role">Secondary Education</div>
+                <div className="tl-role">Chancellor's International Scholarship</div>
               </div>
               <div className="tl-sub">
-                <div className="tl-org">Sri Lanka</div>
-                <p className="tl-desc">Grew up in Sri Lanka before moving to Australia to study. The move shaped a lot — a global perspective, a sensitivity to how design and technology land differently across cultures, and a stubborn preference for things that actually work over things that look like they should.</p>
+                <div className="tl-org">Australian National University · Canberra, Australia</div>
+                <p className="tl-desc">Studied computing and data science at one of Australia's leading research universities. Coursework spanning software engineering, machine learning, human-computer interaction, and statistical analysis. The degree that started the obsession with building things that actually work for people.</p>
                 <div className="tl-tags">
-                  <span className="tl-tag">Sri Lanka</span>
+                  <span className="tl-tag">ANU</span>
+                  <span className="tl-tag">Software Development</span>
+                  <span className="tl-tag">Data Analytics</span>
                 </div>
               </div>
             </div>
@@ -223,7 +263,7 @@ function TimelinePage() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<TimelinePage />);
+ReactDOM.createRoot(document.getElementById('root')).render(<MilestonesPage />);
 </script>
 </body>
 </html>

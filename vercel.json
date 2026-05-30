@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/timeline", "destination": "/milestones", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/home" },
     { "source": "/work/:slug", "destination": "/templates/case-study?id=:slug" },

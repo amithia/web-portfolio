@@ -153,7 +153,7 @@ function Hero() {
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <Btn href="#work" variant="cherry">View My Work</Btn>
-              <Btn href="#about" variant="chalk">Learn More About Me</Btn>
+              <Btn href="/about" variant="chalk">Learn More About Me</Btn>
             </div>
             <div className="al-hero__meta">
               <span className="al-hero__chip">Full-Stack Development</span>
