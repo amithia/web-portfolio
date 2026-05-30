@@ -27,7 +27,6 @@ function Nav() {
     ['/work',         '02', 'Work'],
     ['/beyond-work',  '03', 'Beyond Work'],
     ['/milestones',   '04', 'Milestones'],
-    ['/contact',      '05', 'Contact'],
   ];
 
   const current = window.location.pathname.replace(/\.html$/, '');
@@ -42,7 +41,7 @@ function Nav() {
       <nav className={`al-nav${scrolled ? ' scrolled' : ''}`}>
         <div className="al-container">
           <div className="al-nav__inner">
-            <a href="/home" className="al-nav__logo" style={current === '/home' ? { color: 'var(--color-cherry)', fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 } : {}}>AL</a>
+            <a href="/home" className="al-nav__logo" style={current === '/home' || current === '/' ? { color: 'var(--color-cherry)', fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 } : {}}>AL</a>
             <ul className="al-nav__links">
               {links.map(([page, idx, label]) => (
                 <li key={page}>
