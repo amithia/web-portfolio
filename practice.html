@@ -90,18 +90,10 @@ function FocusPage() {
               <span className="al-detail-header__lbl">Tools</span>
               <span className="al-detail-header__val">{practice.tools}</span>
             </div>
-            <div className="al-detail-header__row">
-              <span className="al-detail-header__lbl">Format</span>
-              <span className="al-detail-header__val">Project · Retainer · Workshop</span>
-            </div>
-            <div className="al-detail-header__row">
-              <span className="al-detail-header__lbl">Availability</span>
-              <span className="al-detail-header__val">Q3 2026 onwards</span>
-            </div>
           </div>
         </header>
 
-        <div className={`al-detail-hero al-detail-hero--${practice.tone}`}>
+        <div className={`al-detail-hero al-detail-hero--${practice.tone}`} style={{ aspectRatio: '3/1', minHeight: 'unset' }}>
           <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>
         </div>
 
