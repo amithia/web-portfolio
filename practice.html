@@ -51,7 +51,7 @@ function FocusPage() {
     return (
       <>
         <Nav />
-        <NotFound backHref="/home#practice" backLabel="Back to focuses" />
+        <NotFound backHref="/home#focus" backLabel="Back to focuses" />
         <Footer />
       </>
     );
@@ -72,7 +72,7 @@ function FocusPage() {
       <main className="al-container" data-screen-label="Focus">
         <Breadcrumb trail={[
           { label: 'Home', href: '/home' },
-          { label: 'Focuses', href: '/#focus' },
+          { label: 'Focuses', href: '/home#focus' },
           { label: practice.title },
         ]} />
 
