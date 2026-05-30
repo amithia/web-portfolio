@@ -51,6 +51,19 @@ const FILTERS = [
 function App() {
   const [filter, setFilter] = useState('all');
   const visible = window.PROJECTS.filter(p => p.slug !== 'ab-testing-calculator' && (filter === 'all' || p.category === filter));
+
+  React.useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const el = document.querySelector(hash);
+    if (el) { el.scrollIntoView({ behavior: 'smooth' }); return; }
+    // Section not yet painted — wait for next frame
+    requestAnimationFrame(() => {
+      const el2 = document.querySelector(hash);
+      if (el2) el2.scrollIntoView({ behavior: 'smooth' });
+    });
+  }, []);
+
   return (
     <>
       <Nav />
