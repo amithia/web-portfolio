@@ -72,7 +72,7 @@ function FocusPage() {
       <main className="al-container" data-screen-label="Focus">
         <Breadcrumb trail={[
           { label: 'Home', href: '/home' },
-          { label: 'Focuses', href: '/home#practice' },
+          { label: 'Focuses', href: '/#focus' },
           { label: practice.title },
         ]} />
 
@@ -136,7 +136,7 @@ function FocusPage() {
               <span>Selected <em>work</em> in this focus</span>
               <small>{relatedProjects.length} project{relatedProjects.length === 1 ? '' : 's'}</small>
             </h2>
-            <div className="al-grid-2">
+            <div className="al-grid-3">
               {relatedProjects.map(p => <ProjectCard key={p.id} project={p} featured={false} />)}
             </div>
           </section>
