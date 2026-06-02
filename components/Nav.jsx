@@ -1,9 +1,7 @@
 /* global React */
 const { useState, useEffect } = React;
 
-/* Nav is page-based — all links navigate to dedicated pages.
-   detailBase: path prefix for pages in subdirectories (e.g. '../../') */
-function Nav({ detailBase = '' }) {
+function Nav() {
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
 
@@ -25,32 +23,30 @@ function Nav({ detailBase = '' }) {
   }, [menuOpen]);
 
   const links = [
-    ['about.html',       '01', 'About'],
-    ['work.html',        '02', 'Work'],
-    ['beyond-work.html', '03', 'Beyond Work'],
-    ['timeline.html',    '04', 'Timeline'],
-    ['contact.html',     '05', 'Contact'],
+    ['/about',        '01', 'About'],
+    ['/work',         '02', 'Work'],
+    ['/beyond-work',  '03', 'Beyond Work'],
+    ['/milestones',   '04', 'Milestones'],
   ];
 
-  const current = window.location.pathname.split('/').pop() || 'index.html';
+  const current = window.location.pathname.replace(/\.html$/, '');
 
   return (
     <>
       <div className="coord-strip">
         <div className="pin"><span className="dot"></span>Open to opportunities</div>
-        <div className="coords">6.9271° N, 79.8612° E</div>
-        <div className="stamp">Currently · Lisbon</div>
-        <div className="right">May 2026</div>
+        <div className="coords"></div>
+        <div className="stamp">Currently in Canberra · June 2026</div>
       </div>
       <nav className={`al-nav${scrolled ? ' scrolled' : ''}`}>
         <div className="al-container">
           <div className="al-nav__inner">
-            <a href={`${detailBase}index.html`} className="al-nav__logo">AL</a>
+            <a href="/home" className="al-nav__logo" style={current === '/home' || current === '/' ? { color: 'var(--color-cherry)', fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 } : {}}>AL</a>
             <ul className="al-nav__links">
               {links.map(([page, idx, label]) => (
                 <li key={page}>
                   <a
-                    href={`${detailBase}${page}`}
+                    href={page}
                     className={`al-nav__link${current === page ? ' active' : ''}`}
                   ><span className="idx">{idx}</span> {label}</a>
                 </li>
@@ -58,7 +54,7 @@ function Nav({ detailBase = '' }) {
             </ul>
             <div className="al-nav__actions">
               <div className="al-nav__cta-wrap">
-                <Btn href={`${detailBase}contact.html`} variant="primary">Say Hello</Btn>
+                <Btn href="/contact" variant="primary">Say Hello</Btn>
               </div>
               <button
                 className="al-nav__hamburger"
@@ -79,7 +75,7 @@ function Nav({ detailBase = '' }) {
             {links.map(([page, idx, label]) => (
               <a
                 key={page}
-                href={`${detailBase}${page}`}
+                href={page}
                 className={`al-mobile-menu__link${current === page ? ' active' : ''}`}
                 onClick={() => setMenuOpen(false)}
               >
@@ -88,7 +84,7 @@ function Nav({ detailBase = '' }) {
               </a>
             ))}
             <div className="al-mobile-menu__foot">
-              <Btn href={`${detailBase}contact.html`} variant="primary">Say Hello</Btn>
+              <Btn href="/contact" variant="primary">Say Hello</Btn>
             </div>
           </div>
         </div>

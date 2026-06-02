@@ -3,9 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Practice · Amithi Liyanagamage</title>
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="detail.css" />
+<title>Focuses · Amithi Liyanagamage</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<!-- SEO & Social — update domain once deployed -->
+<meta name="description" content="Areas of focus — software development, AI integration, data analytics and UI/UX design." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://amithi.work/practice" />
+<meta property="og:title" content="Focuses · Amithi Liyanagamage" />
+<meta property="og:description" content="Areas of focus — software development, AI integration, data analytics and UI/UX design." />
+<meta property="og:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Focuses · Amithi Liyanagamage" />
+<meta name="twitter:description" content="Areas of focus — software development, AI integration, data analytics and UI/UX design." />
+<meta name="twitter:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/detail.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -16,30 +28,30 @@
 <body>
 <div id="root"></div>
 
-<script src="data.js"></script>
-<script type="text/babel" src="components/Nav.jsx"></script>
-<script type="text/babel" src="components/Bits.jsx"></script>
-<script type="text/babel" src="components/Project.jsx"></script>
-<script type="text/babel" src="components/AboutFooter.jsx"></script>
-<script type="text/babel" src="components/DetailParts.jsx"></script>
+<script src="/data.js"></script>
+<script type="text/babel" src="/components/Nav.jsx"></script>
+<script type="text/babel" src="/components/Bits.jsx"></script>
+<script type="text/babel" src="/components/Project.jsx"></script>
+<script type="text/babel" src="/components/AboutFooter.jsx"></script>
+<script type="text/babel" src="/components/DetailParts.jsx"></script>
 
 <script type="text/babel">
-function PracticePage() {
+function FocusPage() {
   const slug = useSlug();
   const idx = window.PRACTICES.findIndex(p => p.slug === slug);
   const practice = idx >= 0 ? window.PRACTICES[idx] : null;
 
   React.useEffect(() => {
     if (practice) {
-      document.title = `${practice.title} · Practice · Amithi Liyanagamage`;
+      document.title = `${practice.title} · Focuses · Amithi Liyanagamage`;
     }
   }, [practice]);
 
   if (!practice) {
     return (
       <>
-        <Nav detailMode={true} />
-        <NotFound backHref="index.html#practice" backLabel="Back to practices" />
+        <Nav />
+        <NotFound backHref="/home#focus" backLabel="Back to focuses" />
         <Footer />
       </>
     );
@@ -56,19 +68,19 @@ function PracticePage() {
 
   return (
     <>
-      <Nav detailMode={true} />
-      <main className="al-container" data-screen-label="Practice">
+      <Nav />
+      <main className="al-container" data-screen-label="Focus">
         <Breadcrumb trail={[
-          { label: 'Index', href: 'index.html' },
-          { label: 'Practice', href: 'index.html#practice' },
-          { label: practice.tag },
+          { label: 'Home', href: '/home' },
+          { label: 'Focuses', href: '/home#focus' },
+          { label: practice.title },
         ]} />
 
         <header className="al-detail-header">
           <div>
             <div className="al-detail-header__eyebrow">
               <span className="badge">{practice.tag}</span>
-              How I work
+              What I do
             </div>
             <h1 className="al-detail-header__title">{practice.title}</h1>
             <p className="al-detail-header__lede">{practice.lede}</p>
@@ -78,20 +90,12 @@ function PracticePage() {
               <span className="al-detail-header__lbl">Tools</span>
               <span className="al-detail-header__val">{practice.tools}</span>
             </div>
-            <div className="al-detail-header__row">
-              <span className="al-detail-header__lbl">Format</span>
-              <span className="al-detail-header__val">Project · Retainer · Workshop</span>
-            </div>
-            <div className="al-detail-header__row">
-              <span className="al-detail-header__lbl">Availability</span>
-              <span className="al-detail-header__val">Q3 2026 onwards</span>
-            </div>
           </div>
         </header>
 
-        <div className={`al-detail-hero al-detail-hero--${practice.tone}`}>
-          <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{glyph}</svg>
-        </div>
+        {/* Hero image placeholder — uncomment when images are ready
+        <div style={{ aspectRatio: '3/1', minHeight: 'unset', background: 'rgba(26,22,18,0.04)', border: '1px dashed rgba(26,22,18,0.15)', borderRadius: '12px' }} />
+        */}
 
         <article className="al-article">
           <section className="al-block">
@@ -121,10 +125,10 @@ function PracticePage() {
         {relatedProjects.length > 0 && (
           <section className="al-related">
             <h2 className="al-related__title">
-              <span>Selected <em>work</em> in this practice</span>
+              <span>Selected <em>work</em> in this focus</span>
               <small>{relatedProjects.length} project{relatedProjects.length === 1 ? '' : 's'}</small>
             </h2>
-            <div className="al-grid-2">
+            <div className="al-grid-3">
               {relatedProjects.map(p => <ProjectCard key={p.id} project={p} featured={false} />)}
             </div>
           </section>
@@ -133,9 +137,9 @@ function PracticePage() {
         <NextPrev
           prev={prev}
           next={next}
-          prevLabel="Previous practice"
-          nextLabel="Next practice"
-          hrefFor={(p) => `practice.html?id=${p.slug}`}
+          prevLabel="Previous focus"
+          nextLabel="Next focus"
+          hrefFor={(p) => `/practice?id=${p.slug}`}
         />
       </main>
       <Footer />
@@ -143,7 +147,7 @@ function PracticePage() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<PracticePage />);
+ReactDOM.createRoot(document.getElementById('root')).render(<FocusPage />);
 </script>
 </body>
 </html>

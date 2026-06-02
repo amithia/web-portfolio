@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Milestones · Amithi Liyanagamage</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<!-- SEO & Social — update domain once deployed -->
+<meta name="description" content="Career milestones and education history of Amithi Liyanagamage." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://amithi.work/milestones" />
+<meta property="og:title" content="Milestones · Amithi Liyanagamage" />
+<meta property="og:description" content="Career milestones and education history of Amithi Liyanagamage." />
+<meta property="og:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Milestones · Amithi Liyanagamage" />
+<meta name="twitter:description" content="Career milestones and education history of Amithi Liyanagamage." />
+<meta name="twitter:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/detail.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<style>
+/* ── Milestones ──
+   Marker column = 20px wide. Line centre = 10px from .tl left.
+   .tl-title-row uses flex + align-items:center so the dot
+   is always vertically centred on the role title — no offset math needed. */
+
+.tl { position: relative; }
+
+.tl::before {
+  content: ''; position: absolute;
+  left: 9px;           /* 10px centre − 1px for half of 2px line */
+  top: 0; bottom: 0; width: 2px;
+  background: rgba(26,22,18,.13);
+}
+
+.tl-entry { margin-bottom: 3.5rem; }
+
+/* Date sits above the title row, indented to match the text column */
+.tl-date {
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: .35rem;
+  padding-left: calc(20px + 1.75rem);
+}
+
+/* Flex row: marker column (20 px) + role title — align-items:center does the work */
+.tl-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  margin-bottom: .3rem;
+}
+
+.tl-marker {
+  width: 20px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.tl-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  background: var(--color-cherry);
+  border: 2px solid var(--color-parchment);
+  box-shadow: 0 0 0 2px var(--color-cherry);
+}
+
+.tl-entry--edu     .tl-dot { background: var(--color-bubblegum); box-shadow: 0 0 0 2px var(--color-bubblegum); }
+.tl-entry--current .tl-dot { box-shadow: 0 0 0 4px rgba(229,75,60,.2); }
+
+.tl-role {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--text-xl);
+  letter-spacing: -.02em;
+  line-height: 1.1;
+}
+
+/* Everything below the title row is indented to align with the text column */
+.tl-sub { padding-left: calc(20px + 1.75rem); }
+
+.tl-org  { font-size: var(--text-sm); font-weight: 600; color: var(--color-cherry); margin-bottom: .75rem; margin-top: .2rem; }
+.tl-desc { font-size: var(--text-sm); line-height: 1.7; color: #3a3530; max-width: 60ch; }
+.tl-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
+.tl-tag  { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; padding: 2px 8px; border: 1px solid rgba(26,22,18,.2); border-radius: 100px; color: #6b6460; text-transform: uppercase; }
+
+.tl-section-head { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--color-cherry); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid var(--color-ink); margin-top: 3.5rem; }
+.tl-section-head:first-child { margin-top: 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="/data.js"></script>
+<script type="text/babel" src="/components/Nav.jsx"></script>
+<script type="text/babel" src="/components/Bits.jsx"></script>
+<script type="text/babel" src="/components/AboutFooter.jsx"></script>
+<script type="text/babel" src="/components/DetailParts.jsx"></script>
+
+<script type="text/babel">
+function MilestonesPage() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <div className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)' }}>
+          <Breadcrumb trail={[{ label: 'Home', href: '/home' }, { label: 'Milestones' }]} />
+
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '3rem' }}>
+            <div>
+              <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>04 / Milestones</p>
+              <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
+                The <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>journey</em>
+              </h1>
+              <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 520 }}>
+                Experience, education and the moments that shaped the work.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="al-container" style={{ maxWidth: 'var(--container-text)', paddingBottom: 'clamp(3rem,7vw,6rem)' }}>
+
+          <div className="tl-section-head">Experience</div>
+          <div className="tl">
+
+            <div className="tl-entry tl-entry--current">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Web Project Officer</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Australian National University · Digital Strategy, Insights &amp; Analytics · Canberra</div>
+                <p className="tl-desc">Building and maintaining student-facing web experiences and internal platforms across ANU. Led the Explore Your Campus project — restructuring navigation around student moments rather than institutional categories. Work spans public web products, SharePoint development, and data-informed UX decisions.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">Web Dev</span>
+                  <span className="tl-tag">UI/UX</span>
+                  <span className="tl-tag">ANU</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="tl-entry">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Education Support Officer</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Australian National University · Technology-Enhanced Learning & Teaching · Canberra</div>
+                <p className="tl-desc">Worked within ANU's Technology-Enhanced Learning and Teaching team to support the School of Medicine and Psychology's migration from WATTLE to Canvas. Migrated and quality-assured online course materials — assignments, quizzes and exams — while supporting academic staff through the transition. Also developed digital learning resources and activities in Canvas in collaboration with course convenors and clinical staff.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">EdTech</span>
+                  <span className="tl-tag">Canvas</span>
+                  <span className="tl-tag">ANU</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="tl-entry">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Treasurer</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Robogals Asia Pacific · Canberra, Australia</div>
+                <p className="tl-desc">Managed the financial operations of the Canberra branch of the Asia-Pacific Chapter and led the team at ANU. Led STEM coding workshops for young children on a volunteer basis.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">Engineering</span>
+                  <span className="tl-tag">Education</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="tl-entry">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Internal Operations Director</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">ANU Consulting Society · Canberra, Australia</div>
+                <p className="tl-desc">Responsible for managing internal operations in the society including team facilitation, liaising with external partners as well as overseeing the society's digital platforms.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">Consulting</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="tl-entry">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Consultant</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">180 Degrees Consulting · Canberra, Australia</div>
+                <p className="tl-desc">Worked as a consultant for socially conscious not-for-profit organisations. Broke down complex problems, developed recommendations and presented solutions to clients.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">ANU</span>
+                  <span className="tl-tag">Consulting</span>
+                  <span className="tl-tag">Not-for-Profit</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="tl-section-head">Education</div>
+          <div className="tl">
+
+            <div className="tl-entry tl-entry--edu">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Bachelor of Computing @ ANU</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Australian National University · Canberra, Australia</div>
+                <p className="tl-desc">Studied computing at one of Australia's leading research universities. Coursework spanning software engineering, machine learning, human-computer interaction and statistical analysis.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">ANU</span>
+                  <span className="tl-tag">Software Development</span>
+                  <span className="tl-tag">Data Analytics</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="tl-section-head">Awards</div>
+          <div className="tl">
+
+            <div className="tl-entry tl-entry--edu">
+              <div className="tl-title-row">
+                <div className="tl-marker"><div className="tl-dot" /></div>
+                <div className="tl-role">Chancellor's International Scholarship</div>
+              </div>
+              <div className="tl-sub">
+                <div className="tl-org">Australian National University · Canberra, Australia</div>
+                <p className="tl-desc">Merit-based scholarship awarded by the Australian National University to high-achieving international students. Recognised academic excellence at the point of entry into the Bachelor of Computing program.</p>
+                <div className="tl-tags">
+                  <span className="tl-tag">ANU</span>
+                  <span className="tl-tag">Scholarship</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<MilestonesPage />);
+</script>
+</body>
+</html>

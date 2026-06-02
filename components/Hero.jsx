@@ -9,11 +9,16 @@ const { useState } = React;
    ───────────────────────────────────────────── */
 function PhotoStack() {
   const cards = [
-  { tone: 'cherry', icon: 'flame', caption: 'Ion Studio', place: 'Colombo · 2024' },
-  { tone: 'lilac',  icon: 'heart', caption: 'WheelToDo',  place: 'Canberra · 2025' },
-  { tone: 'bubble', icon: 'globe', caption: 'Cribd.',      place: 'Canberra · 2024' },
-  { tone: 'moss',   icon: 'flower', caption: 'Leftover App', place: 'Canberra · 2023' },
-  { tone: 'cream',  icon: 'pin',   caption: 'Explore ANU', place: 'Canberra · 2024' }];
+  { tone: 'cherry', photo: '/assets/photos/card-1.jpg', caption: 'Pitching a startup idea', place: 'Vietnam · 2024' },
+  { tone: 'lilac',  photo: '/assets/photos/card-2.jpg', caption: 'Visiting the Amazon office',  place: 'Vietnam · 2024' },
+  { tone: 'bubble', photo: '/assets/photos/card-3.jpg', caption: 'Quick vacation', place: 'Singapore · 2025' },
+  { tone: 'moss',   photo: '/assets/photos/card-4.jpg', caption: 'Trips to the coast', place: 'Gold Coast · 2025' },
+  { tone: 'cream',  photo: '/assets/photos/card-5.jpg', caption: 'Hot-air balloon watching', place: 'Canberra · 2024' }, 
+  { tone: 'cherry', photo: '/assets/photos/card-6.jpg', caption: 'Born a programmer', place: 'Sri Lanka · 2004' },
+  { tone: 'lilac',  photo: '/assets/photos/card-7.jpg', caption: 'With my besties', place: 'Sydney · 2026' },
+  { tone: 'bubble', photo: '/assets/photos/card-8.jpg', caption: 'Weekend away', place: 'Sydney · 2026' },
+  { tone: 'moss',   photo: '/assets/photos/card-9.jpg', caption: 'Seeing Da Nang', place: 'Vietnam · 2024' },
+  { tone: 'cream',  photo: '/assets/photos/card-10.jpg', caption: 'With more besties', place: 'Canberra · 2024' },];
 
 
   const [order, setOrder] = useState(cards.map((_, i) => i));
@@ -105,17 +110,15 @@ function PhotoStack() {
             style={style}>
             
             <div className="al-photo-card__art">
-              <svg viewBox="0 0 40 40" width="120" height="120">{ICONS[card.icon]}</svg>
+              <img src={card.photo} alt={card.caption} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-            <div className="al-photo-card__caption">
+            <div className="al-photo-card__caption" style={{ opacity: pos < 4 ? 1 : 0, transition: 'opacity 300ms ease' }}>
               <span className="al-photo-card__title">{card.caption}</span>
               <span className="al-photo-card__place">{card.place}</span>
             </div>
-            {pos === 0 &&
-            <div className="al-photo-card__hint">
-                <span className="dot"></span>Click to flip
-              </div>
-            }
+            <div className="al-photo-card__hint" style={{ opacity: pos === 0 ? 1 : 0, transition: 'opacity 300ms ease' }}>
+              Click Through My Life
+            </div>
           </div>);
 
       })}
@@ -134,33 +137,35 @@ function Hero() {
       </div>
       <div className="al-container">
         <div className="al-hero__grid">
-          <div className="al-hero__content" data-comment-anchor="9c49413224-div-136-11">
+          <div className="al-hero__content">
             <p className="al-hero__eyebrow">
-              <span className="badge">v. 2026</span>
-              Designer · Strategist · Global Citizen
+              <span className="badge">Web Project Officer</span>
+              <span className="badge">Full-Stack Developer</span>
             </p>
             <h1 className="al-hero__title">
               <span className="word">Work</span>{' '}
               <span className="word">that</span>{' '}
-              <span className="word"><em>moves</em></span>{' '}
-              <span className="word">people.</span>
+              <span className="word">has</span>{' '}
+              <span className="word"><em>purpose</em>.</span>
             </h1>
             <p className="al-hero__subtitle">
-              I design digital products, build AI integrations, and analyse data for impact — from mobile apps to web experiences, across borders and disciplines.
+              A collection of projects I've built across full-stack software, AI integrations and data — some shipped, some ongoing, but all worth sharing.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Btn href="#work" variant="cherry">View Work</Btn>
-              <Btn href="#about" variant="chalk">About Me</Btn>
+              <Btn href="#work" variant="cherry">View My Work</Btn>
+              <Btn href="/about" variant="chalk">Learn More About Me</Btn>
             </div>
-            <div className="al-hero__meta" data-comment-anchor="e0ff07d39f-div-154-13">
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#E54B3C' }}></span>UI/UX</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#EE7BA8' }}></span>Mobile Apps</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#B9A6E0' }}></span>AI Integration</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#6B7A3F' }}></span>Data &amp; Analytics</span>
-              <span className="al-hero__chip"><span className="dot" style={{ background: '#1A1612' }}></span>Start-ups</span>
+            <div className="al-hero__meta">
+              <span className="al-hero__chip">Full-Stack Development</span>
+              <span className="al-hero__chip">UI/UX</span>
+              <span className="al-hero__chip">Software Development</span>
+              <span className="al-hero__chip">AI</span>
+              <span className="al-hero__chip">Data &amp; Analytics</span>
+              <span className="al-hero__chip">Consulting</span>
+              <span className="al-hero__chip">Start-up Builds</span>
             </div>
           </div>
-          <div className="al-hero__stack-wrap" data-comment-anchor="483d53d25e-div-163-11">
+          <div className="al-hero__stack-wrap">
             <PhotoStack />
           </div>
         </div>

@@ -4,8 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Beyond Work · Amithi Liyanagamage</title>
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="detail.css" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<!-- SEO & Social — update domain once deployed -->
+<meta name="description" content="Independent learning and creative work by Amithi Liyanagamage — certifications and art outside of professional projects." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://amithi.work/beyond-work" />
+<meta property="og:title" content="Beyond Work · Amithi Liyanagamage" />
+<meta property="og:description" content="Independent learning and creative work by Amithi Liyanagamage — certifications and art outside of professional projects." />
+<meta property="og:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Beyond Work · Amithi Liyanagamage" />
+<meta name="twitter:description" content="Independent learning and creative work by Amithi Liyanagamage — certifications and art outside of professional projects." />
+<meta name="twitter:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/detail.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -39,11 +51,11 @@
 </head>
 <body>
 <div id="root"></div>
-<script src="data.js"></script>
-<script type="text/babel" src="components/Nav.jsx"></script>
-<script type="text/babel" src="components/Bits.jsx"></script>
-<script type="text/babel" src="components/AboutFooter.jsx"></script>
-<script type="text/babel" src="components/DetailParts.jsx"></script>
+<script src="/data.js"></script>
+<script type="text/babel" src="/components/Nav.jsx"></script>
+<script type="text/babel" src="/components/Bits.jsx"></script>
+<script type="text/babel" src="/components/AboutFooter.jsx"></script>
+<script type="text/babel" src="/components/DetailParts.jsx"></script>
 
 <script type="text/babel">
 function BeyondWorkPage() {
@@ -52,7 +64,7 @@ function BeyondWorkPage() {
       <Nav />
       <main>
         <div className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)', paddingBottom: 'clamp(3rem,7vw,6rem)' }}>
-          <Breadcrumb trail={[{ label: 'Index', href: 'index.html' }, { label: 'Beyond Work' }]} />
+          <Breadcrumb trail={[{ label: 'Home', href: '/home' }, { label: 'Beyond Work' }]} />
 
           <div style={{ marginBottom: '3rem' }}>
             <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>03 / Beyond Work</p>
@@ -76,7 +88,7 @@ function BeyondWorkPage() {
             </div>
             <div className="cert-grid">
               {window.LEARNING.map(cert => (
-                <a key={cert.id} href={`learning-detail?id=${cert.slug}`} className="cert-card">
+                <a key={cert.id} href={`/beyond-work/${cert.slug}`} className="cert-card">
                   <div className="cert-card__header">
                     <span className="cert-card__provider">{cert.provider}</span>
                     <span className={`cert-card__status cert-card__status--${cert.status}`}>
@@ -105,8 +117,12 @@ function BeyondWorkPage() {
             </div>
             <div className="art-grid">
               {window.CREATIVE.map(item => (
-                <a key={item.id} href={`creative-detail?id=${item.slug}`} className="art-card">
-                  <div className="art-card__img">✦</div>
+                <a key={item.id} href={`/beyond-work/${item.slug}`} className="art-card">
+                  <div className="art-card__img">
+                    {item.heroImg
+                      ? <img src={item.heroImg} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                      : '✦'}
+                  </div>
                   <div className="art-card__body">
                     <div className="art-card__title">{item.title}</div>
                     <div className="art-card__meta">{item.meta}</div>

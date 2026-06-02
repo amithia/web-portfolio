@@ -4,8 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Contact · Amithi Liyanagamage</title>
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="detail.css" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<!-- SEO & Social — update domain once deployed -->
+<meta name="description" content="Get in touch with Amithi Liyanagamage — open to opportunities, collaborations and interesting conversations." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://amithi.work/contact" />
+<meta property="og:title" content="Contact · Amithi Liyanagamage" />
+<meta property="og:description" content="Get in touch with Amithi Liyanagamage — open to opportunities, collaborations and interesting conversations." />
+<meta property="og:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact · Amithi Liyanagamage" />
+<meta name="twitter:description" content="Get in touch with Amithi Liyanagamage — open to opportunities, collaborations and interesting conversations." />
+<meta name="twitter:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/detail.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -31,20 +43,43 @@
 </head>
 <body>
 <div id="root"></div>
-<script src="data.js"></script>
-<script type="text/babel" src="components/Nav.jsx"></script>
-<script type="text/babel" src="components/Bits.jsx"></script>
-<script type="text/babel" src="components/AboutFooter.jsx"></script>
-<script type="text/babel" src="components/DetailParts.jsx"></script>
+<script src="/data.js"></script>
+<script type="text/babel" src="/components/Nav.jsx"></script>
+<script type="text/babel" src="/components/Bits.jsx"></script>
+<script type="text/babel" src="/components/AboutFooter.jsx"></script>
+<script type="text/babel" src="/components/DetailParts.jsx"></script>
 
 <script type="text/babel">
 function ContactPage() {
+  const [status, setStatus] = React.useState('idle'); // idle | sending | success | error
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus('sending');
+    const data = new FormData(e.target);
+    try {
+      const res = await fetch('https://formspree.io/f/mbdbbvwl', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        setStatus('success');
+        e.target.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  }
+
   return (
     <>
       <Nav />
       <main>
         <div className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)', paddingBottom: 'clamp(3rem,7vw,6rem)' }}>
-          <Breadcrumb trail={[{ label: 'Index', href: 'index.html' }, { label: 'Contact' }]} />
+          <Breadcrumb trail={[{ label: 'Home', href: '/home' }, { label: 'Contact' }]} />
 
           <div style={{ marginBottom: '3rem' }}>
             <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>05 / Contact</p>
@@ -53,7 +88,7 @@ function ContactPage() {
               <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>worth remembering.</em>
             </h1>
             <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 480 }}>
-              Open to opportunities, collaborations, and interesting conversations.
+              Open to opportunities, collaborations and interesting conversations.
             </p>
           </div>
 
@@ -61,15 +96,7 @@ function ContactPage() {
             <div>
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.1em', textTransform: 'uppercase', color: '#888', marginBottom: '1rem' }}>Find me here</p>
 
-              <a href="mailto:hello@amithi.com" className="contact-row">
-                <div>
-                  <div className="contact-row__label">Email</div>
-                  <div className="contact-row__value">hello@amithi.com</div>
-                </div>
-                <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-
-              <a href="#" className="contact-row">
+              <a href="https://www.linkedin.com/in/amithi-liyanagamage/" className="contact-row">
                 <div>
                   <div className="contact-row__label">LinkedIn</div>
                   <div className="contact-row__value">Amithi Liyanagamage</div>
@@ -77,26 +104,10 @@ function ContactPage() {
                 <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
               </a>
 
-              <a href="#" className="contact-row">
+              <a href="https://github.com/amithia" className="contact-row">
                 <div>
                   <div className="contact-row__label">GitHub</div>
-                  <div className="contact-row__value">@amithi</div>
-                </div>
-                <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-
-              <a href="#" className="contact-row">
-                <div>
-                  <div className="contact-row__label">Are.na</div>
-                  <div className="contact-row__value">amithi</div>
-                </div>
-                <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-
-              <a href="assets/cv.pdf" className="contact-row">
-                <div>
-                  <div className="contact-row__label">Resume</div>
-                  <div className="contact-row__value">Download CV</div>
+                  <div className="contact-row__value">@amithia</div>
                 </div>
                 <svg className="contact-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
               </a>
@@ -104,21 +115,35 @@ function ContactPage() {
 
             <div>
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '.65rem', letterSpacing: '.1em', textTransform: 'uppercase', color: '#888', marginBottom: '1rem' }}>Send a message</p>
-              <form name="contact" method="POST">
-                <div className="form-field">
-                  <label className="form-label" htmlFor="name">Name</label>
-                  <input className="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+
+              {status === 'success' ? (
+                <div style={{ padding: '2rem', border: '2px solid var(--color-ink)', borderRadius: '8px', background: 'var(--color-chalk)' }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-lg)', letterSpacing: '-.02em', marginBottom: '.5rem' }}>Message sent.</p>
+                  <p style={{ color: '#6b6460', fontSize: 'var(--text-sm)', lineHeight: 1.6, marginBottom: '1.25rem' }}>Thanks for reaching out — I'll get back to you soon.</p>
+                  <button className="al-btn al-btn--primary" onClick={() => setStatus('idle')} style={{ cursor: 'pointer' }}>Send another <Sparkles /></button>
                 </div>
-                <div className="form-field">
-                  <label className="form-label" htmlFor="email">Email</label>
-                  <input className="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
-                </div>
-                <div className="form-field">
-                  <label className="form-label" htmlFor="message">Message</label>
-                  <textarea className="form-textarea" id="message" name="message" placeholder="What's on your mind?" required />
-                </div>
-                <Btn href="#" variant="primary" onClick={(e) => e.preventDefault()}>Send Message</Btn>
-              </form>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <div className="form-field">
+                    <label className="form-label" htmlFor="name">Name</label>
+                    <input className="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+                  </div>
+                  <div className="form-field">
+                    <label className="form-label" htmlFor="email">Email</label>
+                    <input className="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
+                  </div>
+                  <div className="form-field">
+                    <label className="form-label" htmlFor="message">Message</label>
+                    <textarea className="form-textarea" id="message" name="message" placeholder="What's on your mind?" required />
+                  </div>
+                  {status === 'error' && (
+                    <p style={{ color: 'var(--color-cherry)', fontSize: 'var(--text-xs)', marginBottom: '1rem' }}>Something went wrong — please try again or email me directly.</p>
+                  )}
+                  <button type="submit" className="al-btn al-btn--primary" disabled={status === 'sending'} style={{ cursor: status === 'sending' ? 'wait' : 'pointer', opacity: status === 'sending' ? 0.7 : 1 }}>
+                    {status === 'sending' ? 'Sending…' : 'Send Message'}<Sparkles />
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

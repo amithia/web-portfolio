@@ -1,5 +1,5 @@
 /* global React */
-/* Shared bits used by detail pages (case-study, practice, book). */
+/* Shared bits used by detail pages (case-study, focuses, beyond-work-detail). */
 
 const HERO_GLYPHS = {
   heart:  <path d="M20 34 C 20 34, 6 26, 6 16 A 7 7 0 0 1 20 12 A 7 7 0 0 1 34 16 C 34 26, 20 34, 20 34 Z" fill="currentColor" stroke="#1A1612" strokeWidth="2" strokeLinejoin="round"/>,
@@ -30,6 +30,8 @@ const HERO_GLYPHS = {
     <path d="M20 8 L23 20 L20 32 L17 20 Z" fill="#1A1612"/>
     <circle cx="20" cy="20" r="2" fill="#FCF7E5"/>
   </g>),
+  fridge: '/assets/motifs/fridge-leftover.svg',
+  house:  '/assets/motifs/house-cribd.svg',
 };
 
 function Breadcrumb({ trail }) {
@@ -73,14 +75,17 @@ function NextPrev({ prev, next, hrefFor, prevLabel = 'Previous', nextLabel = 'Ne
   );
 }
 
-/* 404-ish fallback shown when the slug is missing/invalid */
+/* Fallback shown when the slug is missing/invalid */
 function NotFound({ backHref, backLabel }) {
   return (
     <div className="al-container" style={{ padding: '6rem 0', textAlign: 'center' }}>
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-cherry)', marginBottom: 16 }}>404 · OFF THE MAP</p>
+      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-cherry)', marginBottom: 16 }}>Coming soon</p>
       <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'clamp(3rem, 7vw, 5rem)', letterSpacing: '-0.04em', lineHeight: 0.95, marginBottom: 24 }}>
-        That entry doesn't <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, letterSpacing: 0, color: 'var(--color-cherry)' }}>exist yet</em>.
+        This one is <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, letterSpacing: 0, color: 'var(--color-cherry)' }}>in the works</em>.
       </h1>
+      <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 480, margin: '0 auto 2rem' }}>
+        The page for this entry is being put together — check back soon.
+      </p>
       <a href={backHref} className="al-btn al-btn--cherry">
         ← {backLabel}
         <Sparkles />
@@ -89,12 +94,20 @@ function NotFound({ backHref, backLabel }) {
   );
 }
 
-/* Tiny helper — read ?id=… from URL. */
+/* Tiny helper — read slug from URL.
+   Priority: ?id= query param (Vercel rewrite) → last path segment (static server) */
 function useSlug() {
   const [slug] = React.useState(() => {
     if (typeof window === 'undefined') return null;
     const params = new URLSearchParams(window.location.search);
-    return params.get('id');
+    const fromQuery = params.get('id');
+    if (fromQuery) return fromQuery;
+    // Fallback: last path segment, strips .html extension
+    const segments = window.location.pathname.replace(/\.html$/, '').split('/').filter(Boolean);
+    const last = segments[segments.length - 1] || null;
+    // Don't return page names like 'case-study' or 'beyond-work-detail'
+    const templateNames = ['case-study', 'beyond-work-detail', 'practice', 'book', 'templates'];
+    return (last && !templateNames.includes(last)) ? last : null;
   });
   return slug;
 }
