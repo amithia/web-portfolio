@@ -191,6 +191,16 @@ window.PROJECTS = [
       },
     ],
   },
+  {
+    id: 7, slug: 'google-ux-cert',
+    href: '/beyond-work/google-ux',
+    cat: 'UI/UX · Certificate',
+    title: 'Canberra Art <em>Museum</em>',
+    teaser: 'A mobile app and responsive website redesign — researched, wireframed and prototyped as a Google UX Design Certificate case study.',
+    tone: 'cherry', label: 'CERT', meta: 'UI/UX · 2026',
+    category: 'ux', featured: false, glyph: 'heart',
+    cardImg: '/assets/google-ui-ux/web-landing-page.png',
+  },
   // {
   //   id: 6, slug: 'ab-testing-calculator',
   //   cat: 'Data & Analytics',
@@ -482,7 +492,7 @@ window.UPCOMING = [
     lede: 'What does music look like when you try to draw what it feels like rather than what it sounds like?',
     role: 'Solo project', year: 2026,
     sections: [
-      { kind: 'block', tag: 'Concept', title: 'Emotion as a rendering target.', body: 'Real-time audio analysis — tempo, key, energy, timbre — mapped to a visual language built around emotional categories rather than acoustic properties. The output isn\'t a waveform or an equaliser; it\'s something closer to how music actually feels. Part creative tool, part data visualisation experiment.' },
+      { kind: 'block', tag: 'Concept', title: 'Emotion as a rendering target.', body: 'Real-time audio analysis — tempo, key, energy, timbre — mapped to a visual language built around emotional categories rather than acoustic properties. The output is not a waveform or an equaliser; it is something closer to how music actually feels. Part creative tool, part data visualisation experiment.' },
       { kind: 'metrics', items: [
         { num: 'Creative · Data', label: 'Category' },
         { num: 'Real-time', label: 'Rendering' },
@@ -563,7 +573,7 @@ window.LEARNING = [
 
       { kind: 'block', tag: 'Competitive analysis', title: 'The gap across all four institutions.',
         body: [
-          'NGV has strong exhibition content but booking is buried several steps deep — plan-your-visit information doesn not surface quickly on mobile. NMA does accessibility information well but events can not be filtered by type and membership has no digital card. MCA has a mobile-friendly layout but the events calendar is a flat, unfiltered list with no quick-scan format.',
+          'NGV has strong exhibition content but booking is buried several steps deep; plan-your-visit information doesn not surface quickly on mobile. NMA does accessibility information well but events can not be filtered by type and membership has no digital card. MCA has a mobile-friendly layout but the events calendar is a flat, unfiltered list with no quick-scan format.',
           'Google Arts & Culture is best-in-class for content depth and image quality but has no local visit planning, ticketing, or membership integration. The gap across all four: no single product combines contextual visit planning with rich exhibition content and a seamless booking flow.',
         ],
       },
@@ -579,7 +589,7 @@ window.LEARNING = [
 
       { kind: 'block', tag: 'Synthesis', title: 'One shared frustration, two very different gaps.',
         body: [
-          'Sarah needs a reliable mobile experience to plan family visits — get hours, check accessibility, find family-friendly shows, and book a time slot without navigating five pages to do it. Her failure point is the research phase, before she even arrives.',
+          'Sarah needs a reliable mobile experience to plan family visits; get hours, check accessibility, find family-friendly shows, and book a time slot without navigating five pages to do it. Her failure point is the research phase, before she even arrives.',
           'Marcus needs the app to keep up with his practice as a Fine Arts student. He wants to manage membership digitally, filter events by type, and find artist statements and catalogue notes on exhibition pages. His failure point is depth and the content is there but the interface doesn not give him access to it.',
           'Both users are blocked by the same root cause: the digital experience was built to display information, not to help people act on it.',
         ],
@@ -600,7 +610,7 @@ window.LEARNING = [
 
       { kind: 'block', tag: 'Design system', title: 'A design language built for trust, not excitement.',
         body: [
-          'The CAM visual design uses a restrained palette: off-white backgrounds, a single dark navy primary (#1B3161), and a light blue-grey for interactive surface accents. No gradients. No decorative illustration. The design language signals that the interface is a tool for the collection — not competing with it.',
+          'The CAM visual design uses a restrained palette: off-white backgrounds, a single dark navy primary (#1B3161), and a light blue-grey for interactive surface accents. No gradients. No decorative illustration. The design language signals that the interface is a tool for the collection, not competing with it.',
           'Typography uses the system stack for body and UI text (-apple-system, BlinkMacSystemFont) and a heavyweight display face for headings. Accessibility contrast ratios are met throughout; touch targets are minimum 44px.',
           { type: 'ul', items: [
             'Primary: #1B3161 (navy) — buttons, active states, links',
@@ -611,7 +621,7 @@ window.LEARNING = [
         ],
       },
 
-      { kind: 'callout', text: 'The design challenge was not adding more features — it was removing friction from the three moments that matter most: finding out what is on, booking a visit, and navigating the museum on the day.' },
+      { kind: 'callout', text: 'The design challenge was not adding more features, it was removing friction from the three moments that matter most: finding out what is on, booking a visit, and navigating the museum on the day.' },
 
       { kind: 'process-heading', num: 'V', title: 'Interactive Prototypes' },
 
@@ -637,15 +647,15 @@ window.LEARNING = [
         ],
       },
 
-      { kind: 'takeaways', tag: 'Takeaways',
-        title: 'What the process taught me.',
-        items: [
-          { num: 'Takeaway 01', title: 'Research shapes the problem definition, not just the solution.', text: 'Going into the competitive analysis I assumed the main problem was visual — cluttered interfaces. The research showed the deeper issue was structural: flows designed for desktops, served to mobile users with no adaptation. That changed the entire design brief.' },
-          { num: 'Takeaway 02', title: 'Two personas require two genuinely different design lenses.', text: 'Sarah and Marcus share the same product but arrive with opposite needs — Sarah wants friction removed, Marcus wants depth added. Designing for both without compromising either meant building a surface layer that gets out of the way quickly, with exhibition and event content that rewards going further.' },
-          { num: 'Takeaway 03', title: 'The booking flow is the product.', text: 'The "Confirm free pass" booking sheet went through the most iterations of any screen. Single sheet vs. multi-step; date-first vs. time-first; showing party size upfront vs. after selection. Every decision changed the perceived complexity of visiting. Getting it to one scrollable sheet — date, time, party — removed the last practical barrier to booking.' },
-          { num: 'Takeaway 04', title: 'A formalised process surfaces decisions you would otherwise make by instinct.', text: 'Most of what I know about UX came from building real products. The certificate forced me to name those decisions — to articulate why one layout tests better than another, what a persona\'s problem statement actually commits the design to, and where instinct is well-founded vs. where it is a guess dressed as expertise.' },
-        ],
-      },
+      // { kind: 'takeaways', tag: 'Takeaways',
+      //   title: 'What the process taught me.',
+      //   items: [
+      //     { num: 'Takeaway 01', title: 'Research shapes the problem definition, not just the solution.', text: 'Going into the competitive analysis I assumed the main problem was visual — cluttered interfaces. The research showed the deeper issue was structural: flows designed for desktops, served to mobile users with no adaptation. That changed the entire design brief.' },
+      //     { num: 'Takeaway 02', title: 'Two personas require two genuinely different design lenses.', text: 'Sarah and Marcus share the same product but arrive with opposite needs — Sarah wants friction removed, Marcus wants depth added. Designing for both without compromising either meant building a surface layer that gets out of the way quickly, with exhibition and event content that rewards going further.' },
+      //     { num: 'Takeaway 03', title: 'The booking flow is the product.', text: 'The "Confirm free pass" booking sheet went through the most iterations of any screen. Single sheet vs. multi-step; date-first vs. time-first; showing party size upfront vs. after selection. Every decision changed the perceived complexity of visiting. Getting it to one scrollable sheet — date, time, party — removed the last practical barrier to booking.' },
+      //     { num: 'Takeaway 04', title: 'A formalised process surfaces decisions you would otherwise make by instinct.', text: 'Most of what I know about UX came from building real products. The certificate forced me to name those decisions — to articulate why one layout tests better than another, what a persona\'s problem statement actually commits the design to, and where instinct is well-founded vs. where it is a guess dressed as expertise.' },
+      //   ],
+      // },
 
     ],
   },
