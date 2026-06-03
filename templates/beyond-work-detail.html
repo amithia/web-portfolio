@@ -22,6 +22,53 @@
 <script type="text/babel" src="/components/DetailParts.jsx"></script>
 
 <script type="text/babel">
+function MobilePrototypeEmbed({ src }) {
+  return (
+    <div className="al-prototype__mobile">
+      <div className="al-prototype__mobile-island-row">
+        <div className="al-prototype__mobile-island" />
+      </div>
+      <div className="al-prototype__mobile-viewport">
+        <iframe src={src} title="CAM app prototype" />
+      </div>
+      <div className="al-prototype__mobile-chin">
+        <div className="al-prototype__mobile-home" />
+      </div>
+    </div>
+  );
+}
+
+function WebPrototypeEmbed({ src }) {
+  const viewportRef = React.useRef(null);
+  React.useLayoutEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const update = () => {
+      const scale = el.offsetWidth / 1440;
+      const iframe = el.querySelector('iframe');
+      if (iframe) iframe.style.transform = `scale(${scale})`;
+      el.style.height = Math.round(860 * scale) + 'px';
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return (
+    <div className="al-prototype__browser">
+      <div className="al-prototype__browser-bar">
+        <div className="al-prototype__browser-dots">
+          <span className="al-prototype__browser-dot"/><span className="al-prototype__browser-dot"/><span className="al-prototype__browser-dot"/>
+        </div>
+        <div className="al-prototype__browser-url">canberraartmuseum.org</div>
+      </div>
+      <div ref={viewportRef} className="al-prototype__browser-viewport">
+        <iframe src={src} title="CAM website prototype"/>
+      </div>
+    </div>
+  );
+}
+
 function BeyondWorkDetail() {
   const slug = useSlug();
 
@@ -39,6 +86,16 @@ function BeyondWorkDetail() {
   React.useEffect(() => {
     if (item) document.title = `${item.title} · Amithi Liyanagamage`;
   }, [item]);
+
+  React.useEffect(() => {
+    if (item && item.credlyBadgeId) {
+      const script = document.createElement('script');
+      script.src = '//cdn.credly.com/assets/utilities/embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+      return () => { document.body.removeChild(script); };
+    }
+  }, []);
 
   if (!item) {
     return (
@@ -69,8 +126,11 @@ function BeyondWorkDetail() {
             <div className="al-detail-header__eyebrow">
               {isLearning ? (
                 <>
-                  <span className="badge" style={{ background: `var(--color-${tone})`, color: tone === 'ink' ? '#FCF7E5' : '#1A1612' }}>
-                    {item.status === 'active' ? 'IN PROGRESS' : 'PLANNED'}
+                  <span className="badge" style={{
+                    background: item.status === 'complete' ? 'var(--color-moss)' : item.status === 'active' ? 'var(--color-cherry)' : `var(--color-${tone})`,
+                    color: (item.status === 'complete' || item.status === 'active' || tone === 'ink') ? '#FCF7E5' : '#1A1612'
+                  }}>
+                    {item.status === 'complete' ? 'COMPLETED' : item.status === 'active' ? 'IN PROGRESS' : 'PLANNED'}
                   </span>
                   {item.provider}{item.platform ? ` · ${item.platform}` : ''}
                 </>
@@ -102,12 +162,18 @@ function BeyondWorkDetail() {
                 )}
                 <div className="al-detail-header__row">
                   <span className="al-detail-header__lbl">Status</span>
-                  <span className="al-detail-header__val">{item.status === 'active' ? 'In progress' : 'Planned'}</span>
+                  <span className="al-detail-header__val">
+                    {item.status === 'complete' ? 'Completed' : item.status === 'active' ? 'In progress' : 'Planned'}
+                  </span>
                 </div>
-                {item.progress != null && (
-                  <div className="al-detail-header__row">
-                    <span className="al-detail-header__lbl">Progress</span>
-                    <span className="al-detail-header__val">{item.progress}%</span>
+                {item.credlyBadgeId && (
+                  <div style={{ marginTop: 'var(--space-4)' }}>
+                    <div
+                      data-iframe-width="150"
+                      data-iframe-height="270"
+                      data-share-badge-id={item.credlyBadgeId}
+                      data-share-badge-host="https://www.credly.com"
+                    />
                   </div>
                 )}
               </>
@@ -126,17 +192,17 @@ function BeyondWorkDetail() {
           </div>
         </header>
 
-        {isLearning && item.glyph ? (
+        {item.heroImg ? (
+          <div className="al-detail-hero al-detail-hero--photo" style={{ aspectRatio: '16/7', minHeight: 280 }}>
+            <img src={item.heroImg} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </div>
+        ) : isLearning && item.glyph ? (
           <div className={`al-detail-hero al-detail-hero--${tone}`}>
             {(() => { const g = HERO_GLYPHS[item.glyph] || HERO_GLYPHS.compass;
               return typeof g === 'string'
                 ? <img className="al-detail-hero__glyph" src={g} alt="" />
                 : <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{g}</svg>;
             })()}
-          </div>
-        ) : !isLearning && item.heroImg ? (
-          <div className="al-detail-hero al-detail-hero--photo">
-            <img src={item.heroImg} alt={item.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
           </div>
         ) : !isLearning ? (
           <div className={`al-detail-hero al-detail-hero--${tone}`} style={{ fontSize: '5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -149,12 +215,84 @@ function BeyondWorkDetail() {
             {item.sections.map((s, i) => {
               if (s.kind === 'metrics') return <MetricsRow key={i} items={s.items} />;
               if (s.kind === 'pull') return <blockquote key={i} className="al-pull">{s.text}</blockquote>;
+              if (s.kind === 'callout') return <div key={i} className="al-callout">{s.text}</div>;
+
+              if (s.kind === 'process-heading') return (
+                <div key={i} className="al-process-heading">
+                  <span className="al-process-heading__num">{s.num}.</span>
+                  <span className="al-process-heading__title">{s.title}</span>
+                </div>
+              );
+
+              if (s.kind === 'photo-context') return (
+                <div key={i} className="al-photo-context">
+                  <img src={s.src} alt={s.alt || ''} loading="lazy" />
+                </div>
+              );
+
+              if (s.kind === 'takeaways') return (
+                <section key={i} className="al-block">
+                  <div className="al-block__tag">{s.tag || 'Takeaways'}</div>
+                  <div className="al-block__body">
+                    {s.title && <h3 dangerouslySetInnerHTML={{ __html: s.title }} />}
+                    <div className="al-takeaways-list">
+                      {(s.items || []).map((t, j) => (
+                        <div key={j} className="al-takeaway">
+                          <div className="al-takeaway__num">{t.num || `0${j+1}`}</div>
+                          <div className="al-takeaway__body">
+                            {t.title && <h4>{t.title}</h4>}
+                            <p>{t.text}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              );
+
+              if (s.kind === 'images') return (
+                <section key={i} className="al-block">
+                  <div className="al-block__tag">{s.tag}</div>
+                  <div className="al-block__body">
+                    {s.title && <h3 dangerouslySetInnerHTML={{ __html: s.title }} />}
+                    <div className={`al-image-gallery${s.layout === 'logos' ? ' al-image-gallery--logos' : ''}`}>
+                      {(s.items || []).map((img, j) => (
+                        <figure key={j}>
+                          <img src={img.src} alt={img.caption || ''} loading="lazy" />
+                          {img.caption && <figcaption>{img.caption}</figcaption>}
+                        </figure>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              );
+
+              if (s.kind === 'prototype') return (
+                <section key={i} className="al-block">
+                  <div className="al-block__tag">{s.tag}</div>
+                  <div className="al-block__body">
+                    <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
+                    {s.device === 'web'
+                      ? <WebPrototypeEmbed src={s.src} />
+                      : <MobilePrototypeEmbed src={s.src} />
+                    }
+                    {s.caption && <p className="al-prototype__caption">{s.caption}</p>}
+                  </div>
+                </section>
+              );
+
               return (
                 <section key={i} className="al-block">
                   <div className="al-block__tag">{s.tag}</div>
                   <div className="al-block__body">
-                    <h3>{s.title}</h3>
-                    <p>{s.body}</p>
+                    <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
+                    {Array.isArray(s.body)
+                      ? s.body.map((part, j) =>
+                          typeof part === 'string'
+                            ? <p key={j}>{part}</p>
+                            : <ul key={j} className="al-block__list">{part.items.map((li, k) => <li key={k}>{li}</li>)}</ul>
+                        )
+                      : <p>{s.body}</p>}
                   </div>
                 </section>
               );
