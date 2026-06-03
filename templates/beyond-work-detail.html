@@ -127,8 +127,8 @@ function BeyondWorkDetail() {
               {isLearning ? (
                 <>
                   <span className="badge" style={{
-                    background: item.status === 'complete' ? 'var(--color-moss)' : `var(--color-${tone})`,
-                    color: (item.status === 'complete' || tone === 'ink') ? '#FCF7E5' : '#1A1612'
+                    background: item.status === 'complete' ? 'var(--color-moss)' : item.status === 'active' ? 'var(--color-cherry)' : `var(--color-${tone})`,
+                    color: (item.status === 'complete' || item.status === 'active' || tone === 'ink') ? '#FCF7E5' : '#1A1612'
                   }}>
                     {item.status === 'complete' ? 'COMPLETED' : item.status === 'active' ? 'IN PROGRESS' : 'PLANNED'}
                   </span>
