@@ -814,5 +814,6 @@ window.CREATIVE = [
   //     { kind: 'block', tag: 'Format', title: 'Mixed and ongoing.', body: 'The medium varies — pencil, ink, digital, collage. The common thread is that these are made for the making, not for an audience. More detail and images to follow.' },
   //   ],
   // },
-];
+]; 
+
 
