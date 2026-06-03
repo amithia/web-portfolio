@@ -525,7 +525,7 @@ window.LEARNING = [
     desc: 'A seven-course professional certificate covering the full UX design process — applied to a real museum app and website redesign.',
     lede: 'Designing a museum app and responsive website from first research to interactive prototype — a complete UX case study applying Google\'s structured design process to CAM (Canberra Art Museum).',
     tone: 'cherry', glyph: null,
-    heroImg: '/assets/google-ui-ux/zalfa-imani--ufC6XEWFlI-unsplash.jpg',
+    heroImg: '/assets/google-ui-ux/web-landing-page.png',
     sections: [
 
       { kind: 'block', tag: 'The brief', title: 'A museum with great programming and a digital presence that works against it.',
@@ -539,14 +539,10 @@ window.LEARNING = [
         { num: '7', label: 'Courses in the certificate' },
         { num: '2', label: 'User personas researched' },
         { num: '4', label: 'Institutions analysed' },
-        { num: '60%', label: 'Progress to date' },
+        { num: 'Completed', label: 'Status' },
       ]},
 
       { kind: 'process-heading', num: 'I', title: 'Initial Research' },
-
-      { kind: 'photo-context',
-        src: '/assets/google-ui-ux/sandy-ching-k7b6pvNqAuM-unsplash.jpg',
-        alt: 'Visitors navigating a museum atrium' },
 
       { kind: 'block', tag: 'Research', title: 'Understanding how museums actually fail their visitors digitally.',
         body: [
@@ -574,10 +570,6 @@ window.LEARNING = [
 
       { kind: 'process-heading', num: 'II', title: 'User Personas' },
 
-      { kind: 'photo-context',
-        src: '/assets/google-ui-ux/jessica-pamp-JNTSoyb_bbw-unsplash.jpg',
-        alt: 'Museum visitors viewing artwork' },
-
       { kind: 'images', tag: 'Personas', title: 'Two users. One product.',
         items: [
           { src: '/assets/google-ui-ux/user-persona-1.png', caption: 'Sarah, 32 — busy parent planning family museum visits on mobile' },
@@ -595,10 +587,6 @@ window.LEARNING = [
 
       { kind: 'process-heading', num: 'III', title: 'Refinement' },
 
-      { kind: 'photo-context',
-        src: '/assets/google-ui-ux/redcharlie-upMGQthYQxY-unsplash.jpg',
-        alt: 'Visitors gathered around a painting at a museum' },
-
       { kind: 'images', tag: 'Mobile screens', title: 'Five screens, five decisions.',
         items: [
           { src: '/assets/google-ui-ux/home-today-first.png', caption: 'Home (Variant A — Today-first) — open status, current shows, and events surfaced on load' },
@@ -609,10 +597,6 @@ window.LEARNING = [
       },
 
       { kind: 'process-heading', num: 'IV', title: 'Design Choices' },
-
-      { kind: 'photo-context',
-        src: '/assets/google-ui-ux/stijn-te-strake-VwhZm4LRQYs-unsplash.jpg',
-        alt: 'Person standing before a Monet Water Lilies panorama' },
 
       { kind: 'block', tag: 'Design system', title: 'A design language built for trust, not excitement.',
         body: [
@@ -631,21 +615,19 @@ window.LEARNING = [
 
       { kind: 'process-heading', num: 'V', title: 'Interactive Prototypes' },
 
-      { kind: 'prototype', tag: 'Mobile prototype', title: 'Home screen — Today-first.',
-        src: '/assets/google-ui-ux/prototype-home.html',
-        caption: 'Interactive — click the bottom tabs to explore Home, What\'s on, Visit, and Tickets.',
+      { kind: 'prototype', tag: 'Mobile app', title: 'CAM — App prototype.',
+        src: '/assets/google-ui-ux/Canberra%20Art%20Museum%20-%20App.html',
+        device: 'mobile',
+        caption: 'Fully interactive — scroll, tap through screens, and explore the complete app flow.',
       },
 
-      { kind: 'prototype', tag: 'Booking prototype', title: 'One sheet to book your visit.',
-        src: '/assets/google-ui-ux/prototype-booking.html',
-        caption: 'Interactive — select a date and time, adjust your party, then confirm. Pass lands in Tickets.',
+      { kind: 'prototype', tag: 'Website', title: 'CAM — Website prototype.',
+        src: '/assets/google-ui-ux/Canberra%20Art%20Museum%20-%20Website.html',
+        device: 'web',
+        caption: 'Fully interactive — explore the homepage, exhibitions, visit planning and more.',
       },
 
       { kind: 'process-heading', num: 'VI', title: 'Responsive Web' },
-
-      { kind: 'photo-context',
-        src: '/assets/google-ui-ux/dannie-jing-3GZlhROZIQg-unsplash-1.jpg',
-        alt: 'Clean contemporary art gallery with artworks on white walls' },
 
       { kind: 'images', tag: 'Web designs', title: 'The companion website.',
         items: [
