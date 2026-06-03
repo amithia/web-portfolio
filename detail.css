@@ -384,7 +384,7 @@
    ───────────────────────────────────────────────────────── */
 .al-process-heading {
   display: flex; align-items: baseline; gap: var(--space-5);
-  padding: var(--space-9) 0 var(--space-2);
+  padding: var(--space-10) 0 var(--space-2);
   border-top: 3px solid var(--color-ink);
 }
 .al-process-heading__num {
