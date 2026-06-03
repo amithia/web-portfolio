@@ -22,6 +22,37 @@
 <script type="text/babel" src="/components/DetailParts.jsx"></script>
 
 <script type="text/babel">
+function WebPrototypeEmbed({ src }) {
+  const viewportRef = React.useRef(null);
+  React.useLayoutEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const update = () => {
+      const scale = el.offsetWidth / 1440;
+      const iframe = el.querySelector('iframe');
+      if (iframe) iframe.style.transform = `scale(${scale})`;
+      el.style.height = Math.round(860 * scale) + 'px';
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return (
+    <div className="al-prototype__browser">
+      <div className="al-prototype__browser-bar">
+        <div className="al-prototype__browser-dots">
+          <span className="al-prototype__browser-dot"/><span className="al-prototype__browser-dot"/><span className="al-prototype__browser-dot"/>
+        </div>
+        <div className="al-prototype__browser-url">canberraartmuseum.org</div>
+      </div>
+      <div ref={viewportRef} className="al-prototype__browser-viewport">
+        <iframe src={src} title="CAM website prototype"/>
+      </div>
+    </div>
+  );
+}
+
 function BeyondWorkDetail() {
   const slug = useSlug();
 
@@ -221,42 +252,17 @@ function BeyondWorkDetail() {
               );
 
               if (s.kind === 'prototype') return (
-                <div key={i} className="al-prototype">
-                  <div className="al-prototype__meta">
-                    <div className="al-block__tag">{s.tag}</div>
+                <section key={i} className="al-block">
+                  <div className="al-block__tag">{s.tag}</div>
+                  <div className="al-block__body">
                     <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
-                    {s.caption && <p>{s.caption}</p>}
-                  </div>
-                  <div className="al-prototype__viewer">
-                    {s.device === 'web' ? (
-                      <div className="al-prototype__browser">
-                        <div className="al-prototype__browser-bar">
-                          <div className="al-prototype__browser-dots">
-                            <div className="al-prototype__browser-dot" />
-                            <div className="al-prototype__browser-dot" />
-                            <div className="al-prototype__browser-dot" />
-                          </div>
-                          <div className="al-prototype__browser-url">canberraartmuseum.org</div>
-                        </div>
-                        <div className="al-prototype__browser-viewport"
-                          ref={el => {
-                            if (el) {
-                              const scale = el.offsetWidth / 1440;
-                              el.style.height = Math.round(950 * scale) + 'px';
-                              el.querySelector('iframe').style.transform = `scale(${scale})`;
-                            }
-                          }}>
-                          <iframe src={s.src} title={s.title} />
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="al-prototype__embed">
-                        <iframe src={s.src} title={s.title} scrolling="yes" />
-                      </div>
-                    )}
+                    {s.device === 'web'
+                      ? <WebPrototypeEmbed src={s.src} />
+                      : <div className="al-prototype__embed"><iframe src={s.src} title={s.title} /></div>
+                    }
                     {s.caption && <p className="al-prototype__caption">{s.caption}</p>}
                   </div>
-                </div>
+                </section>
               );
 
               return (

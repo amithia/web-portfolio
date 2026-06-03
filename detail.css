@@ -384,7 +384,7 @@
    ───────────────────────────────────────────────────────── */
 .al-process-heading {
   display: flex; align-items: baseline; gap: var(--space-5);
-  padding: var(--space-10) 0 var(--space-2);
+  padding: var(--space-7) 0 var(--space-2);
   border-top: 3px solid var(--color-ink);
 }
 .al-process-heading__num {
@@ -476,67 +476,37 @@
 }
 
 /* ─────────────────────────────────────────────────────────
-   Prototype embed — phone-frame iframe for interactive prototypes.
+   Prototype embeds — live inside al-block__body.
    ───────────────────────────────────────────────────────── */
-.al-prototype {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: var(--space-10);
-  align-items: start;
-}
-.al-prototype__meta { display: flex; flex-direction: column; gap: var(--space-3); }
-.al-prototype__meta .al-block__tag {
-  border-top: 2px solid var(--color-ink);
-  padding-top: 8px;
-}
-.al-prototype__meta h3 {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: var(--text-2xl); line-height: 1.05; letter-spacing: -0.03em;
-  max-width: 18ch;
-}
-.al-prototype__meta h3 em {
-  font-family: var(--font-accent); font-style: italic;
-  font-weight: 400; letter-spacing: 0; color: var(--color-cherry);
-}
-.al-prototype__meta p {
-  font-size: var(--text-base); line-height: 1.65; color: #3a3530; max-width: 42ch;
-}
-.al-prototype__viewer {
-  display: flex; flex-direction: column; align-items: flex-start;
-  gap: var(--space-4); width: 100%;
-}
 
-/* App prototype — the file renders its own phone frame centred on a grey bg */
+/* App prototype — file renders its own centred phone frame */
 .al-prototype__embed {
-  width: 100%;
+  width: 100%; margin-top: var(--space-4);
   border: 2px solid var(--color-ink);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 6px 6px 0 var(--color-ink);
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 5px 5px 0 var(--color-ink);
   background: #EDEAE5;
 }
 .al-prototype__embed iframe {
-  width: 100%; height: 720px;
+  width: 100%; height: 680px;
   border: none; display: block;
 }
 
-/* Web prototype — browser chrome wrapper + scaled iframe */
+/* Web prototype — browser chrome + ResizeObserver-scaled iframe */
 .al-prototype__browser {
-  width: 100%;
+  width: 100%; margin-top: var(--space-4);
   border: 2px solid var(--color-ink);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 6px 6px 0 var(--color-ink);
+  border-radius: 10px; overflow: hidden;
+  box-shadow: 5px 5px 0 var(--color-ink);
 }
 .al-prototype__browser-bar {
-  height: 38px; background: #F2F0EA;
+  height: 36px; background: #F2F0EA;
   border-bottom: 1.5px solid var(--color-ink);
   display: flex; align-items: center; gap: 10px; padding: 0 14px;
-  flex-shrink: 0;
 }
-.al-prototype__browser-dots { display: flex; gap: 6px; }
+.al-prototype__browser-dots { display: flex; gap: 5px; }
 .al-prototype__browser-dot {
-  width: 11px; height: 11px; border-radius: 50%; background: #D4D0CA;
+  width: 10px; height: 10px; border-radius: 50%; background: #D4D0CA;
 }
 .al-prototype__browser-url {
   flex: 1; height: 22px; background: #fff;
@@ -545,21 +515,20 @@
   letter-spacing: 0.04em; display: flex; align-items: center; padding: 0 8px;
 }
 .al-prototype__browser-viewport {
-  width: 100%; height: 580px; overflow: hidden; position: relative;
+  width: 100%; overflow: hidden; position: relative;
+  /* height set by ResizeObserver — starts at 0 */
 }
 .al-prototype__browser-viewport iframe {
-  width: 1440px; height: 950px;
+  position: absolute; top: 0; left: 0;
+  width: 1440px; height: 860px;
   border: none; display: block; transform-origin: top left;
-  transform: scale(var(--proto-scale, 0.6));
 }
 
 .al-prototype__caption {
+  margin-top: var(--space-3);
   font-family: var(--font-mono); font-size: 10px;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: #6b645b; max-width: 48ch; line-height: 1.5;
-}
-@media (max-width: 900px) {
-  .al-prototype { grid-template-columns: 1fr; gap: var(--space-5); }
+  color: #6b645b; line-height: 1.5;
 }
 
 /* Next/prev row at the bottom of every detail page */
