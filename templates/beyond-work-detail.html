@@ -25,14 +25,14 @@
 function MobilePrototypeEmbed({ src }) {
   return (
     <div className="al-prototype__mobile">
-      <div className="al-prototype__mobile-bar">
-        <div className="al-prototype__browser-dots">
-          <span className="al-prototype__browser-dot"/><span className="al-prototype__browser-dot"/><span className="al-prototype__browser-dot"/>
-        </div>
-        <div className="al-prototype__mobile-label">CAM — App</div>
+      <div className="al-prototype__mobile-island-row">
+        <div className="al-prototype__mobile-island" />
       </div>
       <div className="al-prototype__mobile-viewport">
         <iframe src={src} title="CAM app prototype" />
+      </div>
+      <div className="al-prototype__mobile-chin">
+        <div className="al-prototype__mobile-home" />
       </div>
     </div>
   );
