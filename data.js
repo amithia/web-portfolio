@@ -517,19 +517,153 @@ window.LEARNING = [
   {
     id: 1, slug: 'google-ux',
     title: 'Google UX Design Certificate',
-    provider: 'Google · 2026',
-    status: 'planned',
-    desc: 'A seven-course professional certificate covering UX research, wireframing, prototyping and usability testing.',
-    lede: 'A structured introduction to UX practice from Google — covering the full design process from empathy mapping through high-fidelity prototypes.',
-    tone: 'cherry', glyph: null, /* heroImg: '/assets/learning/google-ux.jpg' */
+    provider: 'Google',
+    platform: 'Coursera',
+    status: 'active',
+    progress: 60,
+    desc: 'A seven-course professional certificate covering the full UX design process — applied to a real museum app and website redesign.',
+    lede: 'Designing a museum app and responsive website from first research to interactive prototype — a complete UX case study applying Google\'s structured design process to CAM (Canberra Art Museum).',
+    tone: 'cherry', glyph: null,
+    heroImg: '/assets/google-ui-ux/zalfa-imani--ufC6XEWFlI-unsplash.jpg',
     sections: [
-      { kind: 'block', tag: 'Why this cert', title: 'Foundation over credential.', body: 'Most of what I know about UX came from doing — designing real products for real users. This certificate is about formalising that knowledge: filling in the gaps, learning the vocabulary and being rigorous about the parts I\'ve been intuiting. Google\'s curriculum is industry-respected and well-structured, which makes it a useful benchmark.' },
+
+      { kind: 'block', tag: 'The brief', title: 'A museum with great programming and a digital presence that works against it.',
+        body: [
+          'CAM (Canberra Art Museum) offers a rich programme of exhibitions, events and membership — but its digital touchpoints fail the people trying to engage with it. The brief was to design a mobile app and responsive website that makes planning and attending a visit feel effortless rather than effortful.',
+          'The work covers the complete UX process: problem definition, user research, competitive analysis, wireframing across multiple design directions, interaction design decisions, and an interactive prototype ready for usability testing.',
+        ],
+      },
+
       { kind: 'metrics', items: [
         { num: '7', label: 'Courses in the certificate' },
-        { num: 'Coursera', label: 'Platform' },
-        { num: 'Planned', label: 'Status' },
-        { num: '~6 mo', label: 'Estimated completion' },
+        { num: '2', label: 'User personas researched' },
+        { num: '4', label: 'Institutions analysed' },
+        { num: '60%', label: 'Progress to date' },
       ]},
+
+      { kind: 'process-heading', num: 'I', title: 'Initial Research' },
+
+      { kind: 'photo-context',
+        src: '/assets/google-ui-ux/sandy-ching-k7b6pvNqAuM-unsplash.jpg',
+        alt: 'Visitors navigating a museum atrium' },
+
+      { kind: 'block', tag: 'Research', title: 'Understanding how museums actually fail their visitors digitally.',
+        body: [
+          'The research phase started with two questions: who are the people trying to use a museum\'s digital products, and what specific moments cause them to fail? Secondary research — visitor behaviour studies, platform reviews, accessibility audits — established the landscape before primary personas were developed.',
+          'Museum apps tend to suffer from the same cluster of problems: information overload on landing, multi-step booking flows that feel designed for desktops, event listings that can\'t be filtered by type, and no coherent "plan your visit" experience that surfaces hours, accessibility info, and bookings in one place.',
+        ],
+      },
+
+      { kind: 'images', tag: 'Competitive analysis', title: 'Four institutions. Four gaps.',
+        layout: 'logos',
+        items: [
+          { src: '/assets/google-ui-ux/ngv.svg', caption: 'NGV — strong content, buried booking' },
+          { src: '/assets/google-ui-ux/nma.svg', caption: 'NMA — great accessibility info, weak events filtering' },
+          { src: '/assets/google-ui-ux/mca.png', caption: 'MCA — mobile-friendly, flat event calendar' },
+          { src: '/assets/google-ui-ux/google-arts-culture.png', caption: 'Google Arts & Culture — best content depth, no visit planning' },
+        ],
+      },
+
+      { kind: 'block', tag: 'Competitive analysis', title: 'The gap across all four institutions.',
+        body: [
+          'NGV has strong exhibition content but booking is buried several steps deep — plan-your-visit information doesn\'t surface quickly on mobile. NMA does accessibility information well but events can\'t be filtered by type and membership has no digital card. MCA has a mobile-friendly layout but the events calendar is a flat, unfiltered list with no quick-scan format.',
+          'Google Arts & Culture is best-in-class for content depth and image quality but has no local visit planning, ticketing, or membership integration. The gap across all four: no single product combines contextual visit planning with rich exhibition content and a seamless booking flow.',
+        ],
+      },
+
+      { kind: 'process-heading', num: 'II', title: 'User Personas' },
+
+      { kind: 'photo-context',
+        src: '/assets/google-ui-ux/jessica-pamp-JNTSoyb_bbw-unsplash.jpg',
+        alt: 'Museum visitors viewing artwork' },
+
+      { kind: 'images', tag: 'Personas', title: 'Two users. One product.',
+        items: [
+          { src: '/assets/google-ui-ux/user-persona-1.png', caption: 'Sarah, 32 — busy parent planning family museum visits on mobile' },
+          { src: '/assets/google-ui-ux/user-persona-2.png', caption: 'Marcus, 24 — Fine Arts student and museum member who needs deep exhibition content' },
+        ],
+      },
+
+      { kind: 'block', tag: 'Synthesis', title: 'One shared frustration, two very different gaps.',
+        body: [
+          'Sarah needs a reliable mobile experience to plan family visits — get hours, check accessibility, find family-friendly shows, and book a time slot without navigating five pages to do it. Her failure point is the research phase, before she even arrives.',
+          'Marcus needs the app to keep up with his practice as a Fine Arts student. He wants to manage membership digitally, filter events by type, and find artist statements and catalogue notes on exhibition pages. His failure point is depth — the content is there but the interface doesn\'t give him access to it.',
+          'Both users are blocked by the same root cause: the digital experience was built to display information, not to help people act on it.',
+        ],
+      },
+
+      { kind: 'process-heading', num: 'III', title: 'Refinement' },
+
+      { kind: 'photo-context',
+        src: '/assets/google-ui-ux/redcharlie-upMGQthYQxY-unsplash.jpg',
+        alt: 'Visitors gathered around a painting at a museum' },
+
+      { kind: 'images', tag: 'Mobile screens', title: 'Five screens, five decisions.',
+        items: [
+          { src: '/assets/google-ui-ux/home-today-first.png', caption: 'Home (Variant A — Today-first) — open status, current shows, and events surfaced on load' },
+          { src: '/assets/google-ui-ux/exhibition-detail.png', caption: 'Exhibition detail — full-bleed hero artwork, persistent ticket CTA, featured works' },
+          { src: '/assets/google-ui-ux/events-calendar.png', caption: 'Events — two layouts tested: date-strip list (A) vs. month-grid + sheet (B)' },
+          { src: '/assets/google-ui-ux/membership.png', caption: 'Membership — value-first layout with digital card and household tier' },
+        ],
+      },
+
+      { kind: 'process-heading', num: 'IV', title: 'Design Choices' },
+
+      { kind: 'photo-context',
+        src: '/assets/google-ui-ux/stijn-te-strake-VwhZm4LRQYs-unsplash.jpg',
+        alt: 'Person standing before a Monet Water Lilies panorama' },
+
+      { kind: 'block', tag: 'Design system', title: 'A design language built for trust, not excitement.',
+        body: [
+          'The CAM visual design uses a restrained palette: off-white backgrounds, a single dark navy primary (#1B3161), and a light blue-grey for interactive surface accents. No gradients. No decorative illustration. The design language signals that the interface is a tool for the collection — not competing with it.',
+          'Typography uses the system stack for body and UI text (-apple-system, BlinkMacSystemFont) and a heavyweight display face for headings. Accessibility contrast ratios are met throughout; touch targets are minimum 44px.',
+          { type: 'ul', items: [
+            'Primary: #1B3161 (navy) — buttons, active states, links',
+            'Surface accent: #DCE8F5 (light blue-grey) — banners, booking sheets, highlighted states',
+            'Background: #F8F6F2 (off-white) — app and web base, card contrast',
+            'Border: #E0DDD6 (warm grey) — cards, dividers, inactive chips',
+          ]},
+        ],
+      },
+
+      { kind: 'callout', text: 'The design challenge wasn\'t adding more features — it was removing friction from the three moments that matter most: finding out what\'s on, booking a visit, and navigating the museum on the day.' },
+
+      { kind: 'process-heading', num: 'V', title: 'Interactive Prototypes' },
+
+      { kind: 'prototype', tag: 'Mobile prototype', title: 'Home screen — Today-first.',
+        src: '/assets/google-ui-ux/prototype-home.html',
+        caption: 'Interactive — click the bottom tabs to explore Home, What\'s on, Visit, and Tickets.',
+      },
+
+      { kind: 'prototype', tag: 'Booking prototype', title: 'One sheet to book your visit.',
+        src: '/assets/google-ui-ux/prototype-booking.html',
+        caption: 'Interactive — select a date and time, adjust your party, then confirm. Pass lands in Tickets.',
+      },
+
+      { kind: 'process-heading', num: 'VI', title: 'Responsive Web' },
+
+      { kind: 'photo-context',
+        src: '/assets/google-ui-ux/dannie-jing-3GZlhROZIQg-unsplash-1.jpg',
+        alt: 'Clean contemporary art gallery with artworks on white walls' },
+
+      { kind: 'images', tag: 'Web designs', title: 'The companion website.',
+        items: [
+          { src: '/assets/google-ui-ux/web-landing-page.png', caption: 'Landing page — editorial hero, current exhibitions, events and plan-your-visit above the fold' },
+          { src: '/assets/google-ui-ux/web-exhibition-detail.png', caption: 'Exhibition detail — gallery-led image slider, about and artist bio, related shows' },
+          { src: '/assets/google-ui-ux/web-plan-your-visit.png', caption: 'Plan your visit — dashboard of cards: hours, admission, accessibility, map, café' },
+        ],
+      },
+
+      { kind: 'takeaways', tag: 'Takeaways',
+        title: 'What the process taught me.',
+        items: [
+          { num: 'Takeaway 01', title: 'Research shapes the problem definition, not just the solution.', text: 'Going into the competitive analysis I assumed the main problem was visual — cluttered interfaces. The research showed the deeper issue was structural: flows designed for desktops, served to mobile users with no adaptation. That changed the entire design brief.' },
+          { num: 'Takeaway 02', title: 'Two personas require two genuinely different design lenses.', text: 'Sarah and Marcus share the same product but arrive with opposite needs — Sarah wants friction removed, Marcus wants depth added. Designing for both without compromising either meant building a surface layer that gets out of the way quickly, with exhibition and event content that rewards going further.' },
+          { num: 'Takeaway 03', title: 'The booking flow is the product.', text: 'The "Confirm free pass" booking sheet went through the most iterations of any screen. Single sheet vs. multi-step; date-first vs. time-first; showing party size upfront vs. after selection. Every decision changed the perceived complexity of visiting. Getting it to one scrollable sheet — date, time, party — removed the last practical barrier to booking.' },
+          { num: 'Takeaway 04', title: 'A formalised process surfaces decisions you\'d otherwise make by instinct.', text: 'Most of what I know about UX came from building real products. The certificate forced me to name those decisions — to articulate why one layout tests better than another, what a persona\'s problem statement actually commits the design to, and where instinct is well-founded vs. where it\'s a guess dressed as expertise.' },
+        ],
+      },
+
     ],
   },
   // {

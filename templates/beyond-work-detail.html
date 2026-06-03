@@ -126,17 +126,17 @@ function BeyondWorkDetail() {
           </div>
         </header>
 
-        {isLearning && item.glyph ? (
+        {item.heroImg ? (
+          <div className="al-detail-hero al-detail-hero--photo" style={{ aspectRatio: '16/7', minHeight: 280 }}>
+            <img src={item.heroImg} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </div>
+        ) : isLearning && item.glyph ? (
           <div className={`al-detail-hero al-detail-hero--${tone}`}>
             {(() => { const g = HERO_GLYPHS[item.glyph] || HERO_GLYPHS.compass;
               return typeof g === 'string'
                 ? <img className="al-detail-hero__glyph" src={g} alt="" />
                 : <svg className="al-detail-hero__glyph" viewBox="0 0 40 40">{g}</svg>;
             })()}
-          </div>
-        ) : !isLearning && item.heroImg ? (
-          <div className="al-detail-hero al-detail-hero--photo">
-            <img src={item.heroImg} alt={item.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
           </div>
         ) : !isLearning ? (
           <div className={`al-detail-hero al-detail-hero--${tone}`} style={{ fontSize: '5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -149,12 +149,86 @@ function BeyondWorkDetail() {
             {item.sections.map((s, i) => {
               if (s.kind === 'metrics') return <MetricsRow key={i} items={s.items} />;
               if (s.kind === 'pull') return <blockquote key={i} className="al-pull">{s.text}</blockquote>;
+              if (s.kind === 'callout') return <div key={i} className="al-callout">{s.text}</div>;
+
+              if (s.kind === 'process-heading') return (
+                <div key={i} className="al-process-heading">
+                  <span className="al-process-heading__num">{s.num}.</span>
+                  <span className="al-process-heading__title">{s.title}</span>
+                </div>
+              );
+
+              if (s.kind === 'photo-context') return (
+                <div key={i} className="al-photo-context">
+                  <img src={s.src} alt={s.alt || ''} loading="lazy" />
+                </div>
+              );
+
+              if (s.kind === 'takeaways') return (
+                <section key={i} className="al-block">
+                  <div className="al-block__tag">{s.tag || 'Takeaways'}</div>
+                  <div className="al-block__body">
+                    {s.title && <h3 dangerouslySetInnerHTML={{ __html: s.title }} />}
+                    <div className="al-takeaways-list">
+                      {(s.items || []).map((t, j) => (
+                        <div key={j} className="al-takeaway">
+                          <div className="al-takeaway__num">{t.num || `0${j+1}`}</div>
+                          <div className="al-takeaway__body">
+                            {t.title && <h4>{t.title}</h4>}
+                            <p>{t.text}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              );
+
+              if (s.kind === 'images') return (
+                <section key={i} className="al-block">
+                  <div className="al-block__tag">{s.tag}</div>
+                  <div className="al-block__body">
+                    {s.title && <h3 dangerouslySetInnerHTML={{ __html: s.title }} />}
+                    <div className={`al-image-gallery${s.layout === 'logos' ? ' al-image-gallery--logos' : ''}`}>
+                      {(s.items || []).map((img, j) => (
+                        <figure key={j}>
+                          <img src={img.src} alt={img.caption || ''} loading="lazy" />
+                          {img.caption && <figcaption>{img.caption}</figcaption>}
+                        </figure>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              );
+
+              if (s.kind === 'prototype') return (
+                <div key={i} className="al-prototype">
+                  <div className="al-prototype__meta">
+                    <div className="al-block__tag">{s.tag}</div>
+                    <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
+                    {s.caption && <p>{s.caption}</p>}
+                  </div>
+                  <div className="al-prototype__viewer">
+                    <div className="al-prototype__phone">
+                      <iframe src={s.src} title={s.title} scrolling="no" />
+                    </div>
+                    {s.caption && <p className="al-prototype__caption">{s.caption}</p>}
+                  </div>
+                </div>
+              );
+
               return (
                 <section key={i} className="al-block">
                   <div className="al-block__tag">{s.tag}</div>
                   <div className="al-block__body">
-                    <h3>{s.title}</h3>
-                    <p>{s.body}</p>
+                    <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
+                    {Array.isArray(s.body)
+                      ? s.body.map((part, j) =>
+                          typeof part === 'string'
+                            ? <p key={j}>{part}</p>
+                            : <ul key={j} className="al-block__list">{part.items.map((li, k) => <li key={k}>{li}</li>)}</ul>
+                        )
+                      : <p>{s.body}</p>}
                   </div>
                 </section>
               );
