@@ -502,32 +502,64 @@
   font-size: var(--text-base); line-height: 1.65; color: #3a3530; max-width: 42ch;
 }
 .al-prototype__viewer {
-  display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4);
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: var(--space-4); width: 100%;
 }
-.al-prototype__phone {
-  width: 390px; max-width: 100%;
-  border: 2.5px solid var(--color-ink);
-  border-radius: 32px;
+
+/* App prototype — the file renders its own phone frame centred on a grey bg */
+.al-prototype__embed {
+  width: 100%;
+  border: 2px solid var(--color-ink);
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 6px 6px 0 var(--color-ink);
-  background: #fff;
-  position: relative;
+  background: #EDEAE5;
 }
-.al-prototype__phone iframe {
-  width: 390px; max-width: 100%;
-  height: 680px;
+.al-prototype__embed iframe {
+  width: 100%; height: 720px;
   border: none; display: block;
 }
+
+/* Web prototype — browser chrome wrapper + scaled iframe */
+.al-prototype__browser {
+  width: 100%;
+  border: 2px solid var(--color-ink);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 6px 6px 0 var(--color-ink);
+}
+.al-prototype__browser-bar {
+  height: 38px; background: #F2F0EA;
+  border-bottom: 1.5px solid var(--color-ink);
+  display: flex; align-items: center; gap: 10px; padding: 0 14px;
+  flex-shrink: 0;
+}
+.al-prototype__browser-dots { display: flex; gap: 6px; }
+.al-prototype__browser-dot {
+  width: 11px; height: 11px; border-radius: 50%; background: #D4D0CA;
+}
+.al-prototype__browser-url {
+  flex: 1; height: 22px; background: #fff;
+  border-radius: 5px; border: 1px solid #D4D0CA;
+  font-size: 10px; color: #8B847B; font-family: var(--font-mono);
+  letter-spacing: 0.04em; display: flex; align-items: center; padding: 0 8px;
+}
+.al-prototype__browser-viewport {
+  width: 100%; height: 580px; overflow: hidden; position: relative;
+}
+.al-prototype__browser-viewport iframe {
+  width: 1440px; height: 950px;
+  border: none; display: block; transform-origin: top left;
+  transform: scale(var(--proto-scale, 0.6));
+}
+
 .al-prototype__caption {
   font-family: var(--font-mono); font-size: 10px;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: #6b645b; max-width: 40ch; line-height: 1.5;
+  color: #6b645b; max-width: 48ch; line-height: 1.5;
 }
 @media (max-width: 900px) {
   .al-prototype { grid-template-columns: 1fr; gap: var(--space-5); }
-}
-@media (max-width: 500px) {
-  .al-prototype__phone { border-radius: 20px; }
 }
 
 /* Next/prev row at the bottom of every detail page */

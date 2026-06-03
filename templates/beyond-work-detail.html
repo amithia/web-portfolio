@@ -228,9 +228,32 @@ function BeyondWorkDetail() {
                     {s.caption && <p>{s.caption}</p>}
                   </div>
                   <div className="al-prototype__viewer">
-                    <div className="al-prototype__phone">
-                      <iframe src={s.src} title={s.title} scrolling="no" />
-                    </div>
+                    {s.device === 'web' ? (
+                      <div className="al-prototype__browser">
+                        <div className="al-prototype__browser-bar">
+                          <div className="al-prototype__browser-dots">
+                            <div className="al-prototype__browser-dot" />
+                            <div className="al-prototype__browser-dot" />
+                            <div className="al-prototype__browser-dot" />
+                          </div>
+                          <div className="al-prototype__browser-url">canberraartmuseum.org</div>
+                        </div>
+                        <div className="al-prototype__browser-viewport"
+                          ref={el => {
+                            if (el) {
+                              const scale = el.offsetWidth / 1440;
+                              el.style.height = Math.round(950 * scale) + 'px';
+                              el.querySelector('iframe').style.transform = `scale(${scale})`;
+                            }
+                          }}>
+                          <iframe src={s.src} title={s.title} />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="al-prototype__embed">
+                        <iframe src={s.src} title={s.title} scrolling="yes" />
+                      </div>
+                    )}
                     {s.caption && <p className="al-prototype__caption">{s.caption}</p>}
                   </div>
                 </div>
