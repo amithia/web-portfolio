@@ -40,6 +40,16 @@ function BeyondWorkDetail() {
     if (item) document.title = `${item.title} · Amithi Liyanagamage`;
   }, [item]);
 
+  React.useEffect(() => {
+    if (item && item.credlyBadgeId) {
+      const script = document.createElement('script');
+      script.src = '//cdn.credly.com/assets/utilities/embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+      return () => { document.body.removeChild(script); };
+    }
+  }, []);
+
   if (!item) {
     return (
       <>
@@ -69,8 +79,11 @@ function BeyondWorkDetail() {
             <div className="al-detail-header__eyebrow">
               {isLearning ? (
                 <>
-                  <span className="badge" style={{ background: `var(--color-${tone})`, color: tone === 'ink' ? '#FCF7E5' : '#1A1612' }}>
-                    {item.status === 'active' ? 'IN PROGRESS' : 'PLANNED'}
+                  <span className="badge" style={{
+                    background: item.status === 'complete' ? 'var(--color-moss)' : `var(--color-${tone})`,
+                    color: (item.status === 'complete' || tone === 'ink') ? '#FCF7E5' : '#1A1612'
+                  }}>
+                    {item.status === 'complete' ? 'COMPLETED' : item.status === 'active' ? 'IN PROGRESS' : 'PLANNED'}
                   </span>
                   {item.provider}{item.platform ? ` · ${item.platform}` : ''}
                 </>
@@ -102,12 +115,18 @@ function BeyondWorkDetail() {
                 )}
                 <div className="al-detail-header__row">
                   <span className="al-detail-header__lbl">Status</span>
-                  <span className="al-detail-header__val">{item.status === 'active' ? 'In progress' : 'Planned'}</span>
+                  <span className="al-detail-header__val">
+                    {item.status === 'complete' ? 'Completed' : item.status === 'active' ? 'In progress' : 'Planned'}
+                  </span>
                 </div>
-                {item.progress != null && (
-                  <div className="al-detail-header__row">
-                    <span className="al-detail-header__lbl">Progress</span>
-                    <span className="al-detail-header__val">{item.progress}%</span>
+                {item.credlyBadgeId && (
+                  <div style={{ marginTop: 'var(--space-4)' }}>
+                    <div
+                      data-iframe-width="150"
+                      data-iframe-height="270"
+                      data-share-badge-id={item.credlyBadgeId}
+                      data-share-badge-host="https://www.credly.com"
+                    />
                   </div>
                 )}
               </>
