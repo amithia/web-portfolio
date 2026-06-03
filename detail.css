@@ -479,13 +479,9 @@
    Prototype embeds — live inside al-block__body.
    ───────────────────────────────────────────────────────── */
 
-/* App prototype — file renders its own centred phone frame */
+/* App prototype — file renders its own centred phone frame; no extra wrapper */
 .al-prototype__embed {
   width: 100%; margin-top: var(--space-4);
-  border: 2px solid var(--color-ink);
-  border-radius: 14px; overflow: hidden;
-  box-shadow: 5px 5px 0 var(--color-ink);
-  background: #EDEAE5;
 }
 .al-prototype__embed iframe {
   width: 100%; height: 680px;
