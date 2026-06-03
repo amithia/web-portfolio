@@ -522,16 +522,16 @@ window.LEARNING = [
     status: 'complete',
     progress: 100,
     credlyBadgeId: 'bf75b068-2941-4d1f-ae62-602391d77c9f',
-    desc: 'A seven-course professional certificate covering the full UX design process — applied to a real museum app and website redesign.',
-    lede: 'Designing a museum app and responsive website from first research to interactive prototype — a complete UX case study applying Google\'s structured design process to CAM (Canberra Art Museum).',
+    desc: 'A seven-course professional certificate covering the full UX design process, applied to a real museum app and website redesign.',
+    lede: 'Designing a museum app and responsive website from first research to interactive prototype, a complete UX case study applying Google\'s structured design process to CAM (Canberra Art Museum).',
     tone: 'cherry', glyph: null,
     heroImg: '/assets/google-ui-ux/web-landing-page.png',
     sections: [
 
       { kind: 'block', tag: 'The brief', title: 'A museum with great programming and a digital presence that works against it.',
         body: [
-          'CAM (Canberra Art Museum) offers a rich programme of exhibitions, events and membership — but its digital touchpoints fail the people trying to engage with it. The brief was to design a mobile app and responsive website that makes planning and attending a visit feel effortless rather than effortful.',
-          'The work covers the complete UX process: problem definition, user research, competitive analysis, wireframing across multiple design directions, interaction design decisions, and an interactive prototype ready for usability testing.',
+          'CAM (Canberra Art Museum - hypothetical museum for the purpose of the case study) offers a rich programme of exhibitions, events and membership, but its digital touchpoints fail the people trying to engage with it. The brief was to design a mobile app and responsive website that makes planning and attending a visit feel effortless rather than effortful.',
+          'The work covers the complete UX process: problem definition, user research, competitive analysis, wireframing across multiple design directions, interaction design decisions and an interactive prototype ready for usability testing.',
         ],
       },
 
@@ -546,8 +546,8 @@ window.LEARNING = [
 
       { kind: 'block', tag: 'Research', title: 'Understanding how museums actually fail their visitors digitally.',
         body: [
-          'The research phase started with two questions: who are the people trying to use a museum\'s digital products, and what specific moments cause them to fail? Secondary research — visitor behaviour studies, platform reviews, accessibility audits — established the landscape before primary personas were developed.',
-          'Museum apps tend to suffer from the same cluster of problems: information overload on landing, multi-step booking flows that feel designed for desktops, event listings that can\'t be filtered by type, and no coherent "plan your visit" experience that surfaces hours, accessibility info, and bookings in one place.',
+          'The research phase started with two questions: who are the people trying to use a museum\'s digital products, and what specific moments cause them to fail? Secondary research included visitor behaviour studies, platform reviews, accessibility audits which established the landscape before primary personas were developed.',
+          'Museum apps tend to suffer from the same cluster of problems: information overload on landing, multi-step booking flows that feel designed for desktops, event listings that can not be filtered by type, and no coherent "plan your visit" experience that surfaces hours, accessibility info and bookings in one place.',
         ],
       },
 
@@ -563,7 +563,7 @@ window.LEARNING = [
 
       { kind: 'block', tag: 'Competitive analysis', title: 'The gap across all four institutions.',
         body: [
-          'NGV has strong exhibition content but booking is buried several steps deep — plan-your-visit information doesn\'t surface quickly on mobile. NMA does accessibility information well but events can\'t be filtered by type and membership has no digital card. MCA has a mobile-friendly layout but the events calendar is a flat, unfiltered list with no quick-scan format.',
+          'NGV has strong exhibition content but booking is buried several steps deep — plan-your-visit information doesn not surface quickly on mobile. NMA does accessibility information well but events can not be filtered by type and membership has no digital card. MCA has a mobile-friendly layout but the events calendar is a flat, unfiltered list with no quick-scan format.',
           'Google Arts & Culture is best-in-class for content depth and image quality but has no local visit planning, ticketing, or membership integration. The gap across all four: no single product combines contextual visit planning with rich exhibition content and a seamless booking flow.',
         ],
       },
@@ -580,7 +580,7 @@ window.LEARNING = [
       { kind: 'block', tag: 'Synthesis', title: 'One shared frustration, two very different gaps.',
         body: [
           'Sarah needs a reliable mobile experience to plan family visits — get hours, check accessibility, find family-friendly shows, and book a time slot without navigating five pages to do it. Her failure point is the research phase, before she even arrives.',
-          'Marcus needs the app to keep up with his practice as a Fine Arts student. He wants to manage membership digitally, filter events by type, and find artist statements and catalogue notes on exhibition pages. His failure point is depth — the content is there but the interface doesn\'t give him access to it.',
+          'Marcus needs the app to keep up with his practice as a Fine Arts student. He wants to manage membership digitally, filter events by type, and find artist statements and catalogue notes on exhibition pages. His failure point is depth and the content is there but the interface doesn not give him access to it.',
           'Both users are blocked by the same root cause: the digital experience was built to display information, not to help people act on it.',
         ],
       },
@@ -611,7 +611,7 @@ window.LEARNING = [
         ],
       },
 
-      { kind: 'callout', text: 'The design challenge wasn\'t adding more features — it was removing friction from the three moments that matter most: finding out what\'s on, booking a visit, and navigating the museum on the day.' },
+      { kind: 'callout', text: 'The design challenge was not adding more features — it was removing friction from the three moments that matter most: finding out what is on, booking a visit, and navigating the museum on the day.' },
 
       { kind: 'process-heading', num: 'V', title: 'Interactive Prototypes' },
 
@@ -643,30 +643,30 @@ window.LEARNING = [
           { num: 'Takeaway 01', title: 'Research shapes the problem definition, not just the solution.', text: 'Going into the competitive analysis I assumed the main problem was visual — cluttered interfaces. The research showed the deeper issue was structural: flows designed for desktops, served to mobile users with no adaptation. That changed the entire design brief.' },
           { num: 'Takeaway 02', title: 'Two personas require two genuinely different design lenses.', text: 'Sarah and Marcus share the same product but arrive with opposite needs — Sarah wants friction removed, Marcus wants depth added. Designing for both without compromising either meant building a surface layer that gets out of the way quickly, with exhibition and event content that rewards going further.' },
           { num: 'Takeaway 03', title: 'The booking flow is the product.', text: 'The "Confirm free pass" booking sheet went through the most iterations of any screen. Single sheet vs. multi-step; date-first vs. time-first; showing party size upfront vs. after selection. Every decision changed the perceived complexity of visiting. Getting it to one scrollable sheet — date, time, party — removed the last practical barrier to booking.' },
-          { num: 'Takeaway 04', title: 'A formalised process surfaces decisions you\'d otherwise make by instinct.', text: 'Most of what I know about UX came from building real products. The certificate forced me to name those decisions — to articulate why one layout tests better than another, what a persona\'s problem statement actually commits the design to, and where instinct is well-founded vs. where it\'s a guess dressed as expertise.' },
+          { num: 'Takeaway 04', title: 'A formalised process surfaces decisions you would otherwise make by instinct.', text: 'Most of what I know about UX came from building real products. The certificate forced me to name those decisions — to articulate why one layout tests better than another, what a persona\'s problem statement actually commits the design to, and where instinct is well-founded vs. where it is a guess dressed as expertise.' },
         ],
       },
 
     ],
   },
-  // {
-  //   id: 2, slug: 'google-data',
-  //   title: 'Google Data Analytics Certificate',
-  //   provider: 'Google', platform: 'Coursera',
-  //   status: 'planned',
-  //   desc: 'Eight courses covering data analysis using SQL, R, Tableau, and spreadsheets — with a focus on the full analytics workflow.',
-  //   lede: 'Data analytics formalised: from cleaning messy datasets to presenting findings in ways that actually influence decisions.',
-  //   tone: 'moss', glyph: 'star',
-  //   sections: [
-  //     { kind: 'block', tag: 'Why this cert', title: 'Rigour over intuition.', body: 'My data work has always been project-driven — I pick up what I need when I need it. This certificate is an attempt to reverse that: learn the full workflow deliberately, then apply it to real problems. The focus on spreadsheets, SQL, and R together covers the full entry-to-insight pipeline in a way that ad-hoc learning rarely does.' },
-  //     { kind: 'metrics', items: [
-  //       { num: '8', label: 'Courses in the certificate' },
-  //       { num: 'SQL + R', label: 'Core tools' },
-  //       { num: 'Planned', label: 'Status' },
-  //       { num: 'Coursera', label: 'Platform' },
-  //     ]},
-  //   ],
-  // },
+  {
+    id: 2, slug: 'google-data',
+    title: 'Google Data Analytics Certificate',
+    provider: 'Google', platform: 'Coursera',
+    status: 'in progress', progress: 50,
+    desc: 'Eight courses covering data analysis using SQL, R, Tableau, and spreadsheets — with a focus on the full analytics workflow.',
+    lede: 'Data analytics formalised: from cleaning messy datasets to presenting findings in ways that actually influence decisions.',
+    tone: 'moss', glyph: 'star',
+    sections: [
+      { kind: 'block', tag: 'Why this cert', title: 'Rigour over intuition.', body: 'My data work has always been project-driven — I pick up what I need when I need it. This certificate is an attempt to reverse that: learn the full workflow deliberately, then apply it to real problems. The focus on spreadsheets, SQL, and R together covers the full entry-to-insight pipeline in a way that ad-hoc learning rarely does.' },
+      { kind: 'metrics', items: [
+        { num: '8', label: 'Courses in the certificate' },
+        { num: 'SQL + R', label: 'Core tools' },
+        { num: 'In Progress', label: 'Status' },
+        { num: 'Coursera', label: 'Platform' },
+      ]},
+    ],
+  },
   // {
   //   id: 3, slug: 'microsoft-data',
   //   title: 'Microsoft Azure Data Fundamentals',
