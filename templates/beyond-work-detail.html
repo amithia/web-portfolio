@@ -22,6 +22,22 @@
 <script type="text/babel" src="/components/DetailParts.jsx"></script>
 
 <script type="text/babel">
+function MobilePrototypeEmbed({ src }) {
+  return (
+    <div className="al-prototype__mobile">
+      <div className="al-prototype__mobile-bar">
+        <div className="al-prototype__browser-dots">
+          <span className="al-prototype__browser-dot"/><span className="al-prototype__browser-dot"/><span className="al-prototype__browser-dot"/>
+        </div>
+        <div className="al-prototype__mobile-label">CAM — App</div>
+      </div>
+      <div className="al-prototype__mobile-viewport">
+        <iframe src={src} title="CAM app prototype" />
+      </div>
+    </div>
+  );
+}
+
 function WebPrototypeEmbed({ src }) {
   const viewportRef = React.useRef(null);
   React.useLayoutEffect(() => {
@@ -258,7 +274,7 @@ function BeyondWorkDetail() {
                     <h3 dangerouslySetInnerHTML={{ __html: s.title }} />
                     {s.device === 'web'
                       ? <WebPrototypeEmbed src={s.src} />
-                      : <div className="al-prototype__embed"><iframe src={s.src} title={s.title} /></div>
+                      : <MobilePrototypeEmbed src={s.src} />
                     }
                     {s.caption && <p className="al-prototype__caption">{s.caption}</p>}
                   </div>
