@@ -50,7 +50,7 @@ function Footer() {
         <div className="al-footer__inner">
           <div>
             <p className="al-footer__cta">
-              Let's make<br />something <em>worth</em><br />remembering.
+              Still scrolling?<br /><em>Let's work.</em>
             </p>
             <Btn href="/contact" variant="chalk">Chuck me an email</Btn>
           </div>
