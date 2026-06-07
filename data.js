@@ -199,7 +199,7 @@ window.PROJECTS = [
     teaser: 'A mobile app and responsive website redesign — researched, wireframed and prototyped as a Google UX Design Certificate case study.',
     tone: 'cherry', label: 'CERT', meta: 'UI/UX · 2026',
     category: 'ux', featured: false, glyph: 'heart',
-    cardImg: '/assets/google-ui-ux/web-landing-page.png',
+    cardImg: '/assets/google-ui-ux/banner.png',
   },
   // {
   //   id: 6, slug: 'ab-testing-calculator',
@@ -535,7 +535,7 @@ window.LEARNING = [
     desc: 'A seven-course professional certificate covering the full UX design process, applied to a real museum app and website redesign.',
     lede: 'Designing a museum app and responsive website from first research to interactive prototype, a complete UX case study applying Google\'s structured design process to CAM (Canberra Art Museum).',
     tone: 'cherry', glyph: null,
-    heroImg: '/assets/google-ui-ux/web-landing-page.png',
+    heroImg: '/assets/google-ui-ux/banner.png',
     sections: [
 
       { kind: 'block', tag: 'The brief', title: 'A museum with great programming and a digital presence that works against it.',
