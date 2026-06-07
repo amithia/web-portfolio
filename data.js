@@ -193,7 +193,7 @@ window.PROJECTS = [
   },
   {
     id: 7, slug: 'google-ux-cert',
-    href: '/beyond-work/google-ux',
+    href: '/beyond-work/google-ux-design-certificate',
     cat: 'UI/UX · Certificate',
     title: 'Canberra Art <em>Museum</em>',
     teaser: 'A mobile app and responsive website redesign — researched, wireframed and prototyped as a Google UX Design Certificate case study.',
@@ -525,7 +525,7 @@ window.UPCOMING = [
 
 window.LEARNING = [
   {
-    id: 1, slug: 'google-ux',
+    id: 1, slug: 'google-ux-design-certificate',
     title: 'Google UX Design Certificate',
     provider: 'Google',
     platform: 'Coursera',
@@ -660,7 +660,7 @@ window.LEARNING = [
     ],
   },
   {
-    id: 2, slug: 'google-data',
+    id: 2, slug: 'google-data-analytics-certificate',
     title: 'Google Data Analytics Certificate',
     provider: 'Google',
     platform: 'Coursera',

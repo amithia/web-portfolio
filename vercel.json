@@ -6,7 +6,7 @@
   ],
   "rewrites": [
     { "source": "/", "destination": "/home" },
-    { "source": "/work/:slug", "destination": "/templates/case-study?id=:slug" },
+    { "source": "/work/:slug", "destination": "/templates/work-detail?id=:slug" },
     { "source": "/beyond-work/:slug", "destination": "/templates/beyond-work-detail?id=:slug" }
   ]
 }
