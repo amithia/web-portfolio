@@ -106,7 +106,7 @@ function useSlug() {
     const segments = window.location.pathname.replace(/\.html$/, '').split('/').filter(Boolean);
     const last = segments[segments.length - 1] || null;
     // Don't return page names like 'case-study' or 'beyond-work-detail'
-    const templateNames = ['case-study', 'beyond-work-detail', 'practice', 'book', 'templates'];
+    const templateNames = ['work-detail', 'beyond-work-detail', 'practice', 'book', 'templates'];
     return (last && !templateNames.includes(last)) ? last : null;
   });
   return slug;

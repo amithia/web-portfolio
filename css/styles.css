@@ -203,28 +203,27 @@ html, body { overflow-x: clip; }
 /* Two-column grid: copy left, photo stack right */
 .al-hero__grid { display: grid; grid-template-columns: 1fr minmax(320px, 440px); gap: var(--space-12); align-items: stretch; }
 @media (max-width: 900px) {
-  /* Hero: full viewport height */
-  .al-hero { height: 100svh; }
+  /* Hero: natural height on mobile — no forced full-viewport */
+  .al-hero { height: auto; }
 
-  /* Grid fills the hero below its top padding */
+  /* Grid stacks vertically */
   .al-hero__grid {
     display: flex;
     flex-direction: column;
-    height: calc(100svh - var(--space-8));
+    height: auto;
   }
 
-  /* Content: natural size only — don't grow and push card below the fold.
-     Reduced padding so text + card both fit in the visible viewport. */
+  /* Content: natural size with reduced padding */
   .al-hero__content {
     flex: 0 0 auto;
     padding-top: var(--space-4);
     padding-bottom: var(--space-2);
   }
 
-  /* Hide the skill tags row on mobile — saves ~130px, keeps card visible */
+  /* Hide the skill tags row on mobile */
   .al-hero__meta { display: none; }
 
-  /* Card zone: fixed 290px immediately after the content block */
+  /* Card zone: fixed height immediately after the content block */
   .al-hero__stack-wrap {
     flex: 0 0 290px;
   }
