@@ -8,6 +8,7 @@
   "rewrites": [
     { "source": "/", "destination": "/home" },
     { "source": "/work/:slug", "destination": "/templates/work-detail?id=:slug" },
-    { "source": "/beyond-work/:slug", "destination": "/templates/beyond-work-detail?id=:slug" }
+    { "source": "/beyond-work/:slug", "destination": "/templates/beyond-work-detail?id=:slug" },
+    { "source": "/practice/:slug", "destination": "/templates/practice-detail?id=:slug" }
   ]
 }

@@ -108,7 +108,19 @@ function SpotifyWidget() {
     return () => clearInterval(id);
   }, []);
 
-  if (!data) return null;
+  if (!data) return (
+    <div className="al-spotify al-spotify--loading">
+      <svg className="al-spotify__record" viewBox="0 0 40 40">
+        <circle cx="20" cy="20" r="19" fill="#E54B3C" stroke="#1A1612" strokeWidth="1.5"/>
+        <circle cx="20" cy="20" r="7" fill="#FCF7E5" stroke="#1A1612" strokeWidth="1.2"/>
+        <circle cx="20" cy="20" r="2" fill="#1A1612"/>
+      </svg>
+      <div className="al-spotify__info">
+        <div className="al-spotify__status">Loading…</div>
+        <div className="al-spotify__title" style={{ opacity: 0.3 }}>—</div>
+      </div>
+    </div>
+  );
 
   return (
     <a href={data.songUrl || '#'} target="_blank" rel="noopener noreferrer" className="al-spotify">

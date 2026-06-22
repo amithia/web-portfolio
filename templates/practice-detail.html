@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Focus · Amithi Liyanagamage</title>
+<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/detail.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="/data.js"></script>
+<script type="text/babel" src="/components/Nav.jsx"></script>
+<script type="text/babel" src="/components/Bits.jsx"></script>
+<script type="text/babel" src="/components/AboutFooter.jsx"></script>
+<script type="text/babel" src="/components/DetailParts.jsx"></script>
+
+<script type="text/babel">
+function PracticeDetail() {
+  const slug = useSlug();
+  const all = window.PRACTICES || [];
+  const idx = all.findIndex(p => p.slug === slug);
+  const practice = idx >= 0 ? all[idx] : null;
+  const prev = idx > 0 ? all[idx - 1] : null;
+  const next = idx < all.length - 1 ? all[idx + 1] : null;
+
+  React.useEffect(() => {
+    if (practice) document.title = `${practice.title} · Amithi Liyanagamage`;
+  }, [practice]);
+
+  if (!practice) {
+    return (
+      <>
+        <Nav />
+        <NotFound backHref="/about#focus" backLabel="Back to focuses" />
+        <Footer />
+      </>
+    );
+  }
+
+  const relatedProjects = practice.relatedProjectIds
+    ? (window.PROJECTS || []).filter(p => practice.relatedProjectIds.includes(p.id))
+    : [];
+
+  return (
+    <>
+      <Nav />
+      <main className="al-container" data-screen-label="Focus">
+        <Breadcrumb trail={[
+          { label: 'Home', href: '/home' },
+          { label: 'About', href: '/about#focus' },
+          { label: practice.tag },
+        ]} />
+
+        <header className="al-detail-header">
+          <div>
+            <div className="al-detail-header__eyebrow">
+              <span className="badge" style={{ background: `var(--color-${practice.tone})`, color: practice.tone === 'ink' ? '#FCF7E5' : '#1A1612' }}>
+                {practice.tag}
+              </span>
+              Focus area
+            </div>
+            <h1 className="al-detail-header__title">{practice.title}</h1>
+            <p className="al-detail-header__lede">{practice.lede}</p>
+          </div>
+          <div className="al-detail-header__meta">
+            <div className="al-detail-header__row">
+              <span className="al-detail-header__lbl">Tools</span>
+              <span className="al-detail-header__val">{practice.tools}</span>
+            </div>
+          </div>
+        </header>
+
+        <div className={`al-detail-hero al-detail-hero--${practice.tone}`} />
+
+        <article className="al-article">
+          <section className="al-block">
+            <div className="al-block__tag">Overview</div>
+            <div className="al-block__body">
+              <p>{practice.body}</p>
+            </div>
+          </section>
+
+          {practice.methods && practice.methods.length > 0 && (
+            <section className="al-block">
+              <div className="al-block__tag">Methods</div>
+              <div className="al-block__body">
+                {practice.methods.map((m, i) => (
+                  <div key={i} style={{ marginBottom: '1.5rem' }}>
+                    <h3 style={{ marginBottom: '.4rem' }}>{m.name}</h3>
+                    <p>{m.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {relatedProjects.length > 0 && (
+            <section className="al-block">
+              <div className="al-block__tag">Related work</div>
+              <div className="al-block__body">
+                <ul className="al-block__list">
+                  {relatedProjects.map(p => (
+                    <li key={p.id}>
+                      <a href={p.href || `/work/${p.slug}`} style={{ color: 'var(--color-cherry)' }}
+                         dangerouslySetInnerHTML={{ __html: p.title }} />
+                      {' — '}{p.teaser}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          )}
+        </article>
+
+        <div style={{ marginTop: '2.5rem' }}>
+          <Btn href="/about#focus" variant="cherry">← Back to focuses</Btn>
+        </div>
+
+        <NextPrev
+          prev={prev}
+          next={next}
+          prevLabel="Previous focus"
+          nextLabel="Next focus"
+          hrefFor={(p) => `/practice/${p.slug}`}
+        />
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<PracticeDetail />);
+</script>
+</body>
+</html>
