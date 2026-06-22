@@ -39,7 +39,7 @@ function Breadcrumb({ trail }) {
     <nav className="al-breadcrumb">
       {trail.map((t, i) => (
         <React.Fragment key={i}>
-          {i > 0 && <span className="sep">/</span>}
+          {i > 0 && <span className="sep" aria-hidden="true">/</span>}
           {t.href ? <a href={t.href}>{t.label}</a> : <span>{t.label}</span>}
         </React.Fragment>
       ))}
@@ -63,11 +63,11 @@ function MetricsRow({ items }) {
 function NextPrev({ prev, next, hrefFor, prevLabel = 'Previous', nextLabel = 'Next' }) {
   return (
     <div className="al-nextprev">
-      <a className="al-nextprev__cell al-nextprev__cell--prev" href={prev ? hrefFor(prev) : '#'} style={prev ? null : { opacity: 0.4, pointerEvents: 'none' }}>
+      <a className="al-nextprev__cell al-nextprev__cell--prev" href={prev ? hrefFor(prev) : '#'} style={prev ? null : { opacity: 0.4, pointerEvents: 'none' }} aria-disabled={!prev || undefined}>
         <div className="al-nextprev__lbl">← {prevLabel}</div>
         <div className="al-nextprev__name" dangerouslySetInnerHTML={{ __html: prev ? (prev.title || prev.name) : '' }} />
       </a>
-      <a className="al-nextprev__cell al-nextprev__cell--next" href={next ? hrefFor(next) : '#'} style={next ? null : { opacity: 0.4, pointerEvents: 'none' }}>
+      <a className="al-nextprev__cell al-nextprev__cell--next" href={next ? hrefFor(next) : '#'} style={next ? null : { opacity: 0.4, pointerEvents: 'none' }} aria-disabled={!next || undefined}>
         <div className="al-nextprev__lbl">{nextLabel} →</div>
         <div className="al-nextprev__name" dangerouslySetInnerHTML={{ __html: next ? (next.title || next.name) : '' }} />
       </a>

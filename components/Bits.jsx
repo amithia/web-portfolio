@@ -98,14 +98,20 @@ function SpotifyWidget() {
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
-    const fetch_ = () =>
-      fetch('/api/now-playing')
+    const fetch_ = () => {
+      if (document.hidden) return;
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
+      fetch('/api/now-playing', { signal: controller.signal })
         .then(r => r.json())
-        .then(setData)
-        .catch(() => setData({ isPlaying: false, title: '', artist: '', albumArt: null, songUrl: '#' }));
+        .then(d => { clearTimeout(timeout); setData(d); })
+        .catch(() => { clearTimeout(timeout); setData({ isPlaying: false, title: '', artist: '', albumArt: null, songUrl: '#' }); });
+    };
     fetch_();
     const id = setInterval(fetch_, 30000);
-    return () => clearInterval(id);
+    const onVisible = () => { if (!document.hidden) fetch_(); };
+    document.addEventListener('visibilitychange', onVisible);
+    return () => { clearInterval(id); document.removeEventListener('visibilitychange', onVisible); };
   }, []);
 
   if (!data) return (

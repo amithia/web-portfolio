@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 <style>
 .al-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
@@ -162,10 +162,10 @@ function WorkPage() {
   const totalVotes = Object.values(votes).reduce((s, n) => s + n, 0);
 
   const matchCat = (p) => filter === 'all' || (Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter);
-  const shipped = window.PROJECTS.filter(matchCat);
+  const shipped = (window.PROJECTS || []).filter(matchCat);
 
   /* Filter then sort pipeline by votes desc — most-wanted first */
-  const upcoming = [...window.UPCOMING]
+  const upcoming = [...(window.UPCOMING || [])]
     .filter(matchCat)
     .sort((a, b) => (votes[b.slug] || 0) - (votes[a.slug] || 0));
 

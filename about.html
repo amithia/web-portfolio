@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 <style>
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,5rem); align-items: start; margin-bottom: 4rem; }
@@ -69,7 +69,7 @@ function AboutPage() {
 
           <div className="about-grid">
             <div className="about-photo">
-              <img src="/assets/photos/about-profile.jpg" alt="Me standing in the rain in Vietnam." onError={(e) => { e.target.style.display='none'; }} />
+              <img src="/assets/photos/about-profile.jpg" alt="Me standing in the rain in Vietnam." loading="lazy" onError={(e) => { e.target.style.display='none'; }} />
               AL
             </div>
             <div>

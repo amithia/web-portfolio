@@ -15,7 +15,7 @@ window.PROJECTS = [
     category: 'ux', featured: true, glyph: 'pin', stickers: 'campus',
     year: 2026, role: 'Web Project Officer, Digital Strategy & Analytics at Brand & Marketing, ANU',
     client: 'Australian National University', duration: 'Feb – Mar 2026',
-    heroImg: '/assets/work/explore-your-campus-hero.png',
+    heroImg: '/assets/work/explore-your-campus-hero.jpg',
     lede: 'ANU Open Day brings thousands of prospective students to a large, unfamiliar campus. We built a tool to help them plan their visit before they arrived and find their way to what actually mattered on the day based on their interests.',
     sections: [
       { kind: 'block', tag: 'Brief', title: 'A campus-wide event with no way to plan for it.',
@@ -106,7 +106,7 @@ window.PROJECTS = [
     category: ['ux', 'mobile'], glyph: 'house', stickers: 'cribd',
     year: 2024, role: 'Student',
     client: 'HEX Exchange Program, ANU', duration: 'Nov 2024 - Feb 2025',
-    heroImg: '/assets/work/cribd.png',
+    heroImg: '/assets/work/cribd.jpg',
     lede: 'Share house living is increasingly common and increasingly difficult. Cribd. is a gamified all-in-one management app designed to reduce the friction, from chore wars to split bills, that strains housemate relationships.',
     sections: [
       { kind: 'block', tag: 'Origin', title: 'A problem close to home.',
@@ -807,7 +807,7 @@ window.CREATIVE = [
     id: 'c1', slug: 'incognito-2025',
     title: 'Incognito Art Show 2025',
     meta: 'Annual Exhibition · 2025',
-    heroImg: '/assets/beyond-work/incognito-2025.png',
+    heroImg: '/assets/beyond-work/incognito-2025.jpg',
     lede: 'Three original artworks submitted to Australia\'s biggest anonymous art show. All sold. Each piece a Sri Lankan Raksha mask.',
     desc: 'Annual anonymous art exhibition and sale at the National Gallery of Australia.',
     sections: [
