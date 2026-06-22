@@ -536,7 +536,7 @@ html, body { overflow-x: clip; }
 @media (max-width: 768px) {
   .al-grid-2 { grid-template-columns: 1fr; }
   .al-grid-3 { grid-template-columns: 1fr; }
-  .al-card--featured { grid-template-columns: 1fr; }
+  .al-card--featured { grid-column: span 1; }
 }
 
 /* ────────────────────────────────────────────
