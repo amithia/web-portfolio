@@ -223,9 +223,11 @@ html, body { overflow-x: clip; }
   /* Hide the skill tags row on mobile */
   .al-hero__meta { display: none; }
 
-  /* Card zone: fixed height immediately after the content block */
+  /* Card zone: fixed height immediately after the content block.
+     Extra space below so the stacked card offsets don't clip the dark bg. */
   .al-hero__stack-wrap {
-    flex: 0 0 290px;
+    flex: 0 0 360px;
+    padding-bottom: var(--space-8);
   }
 }
 
