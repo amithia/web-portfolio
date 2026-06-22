@@ -151,10 +151,6 @@ function Hero() {
             <p className="al-hero__subtitle">
               A collection of projects I've built across full-stack software, AI integrations and data — some shipped, some ongoing, but all worth sharing.
             </p>
-            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Btn href="#work" variant="cherry">View My Work</Btn>
-              <Btn href="/about" variant="chalk">Learn More About Me</Btn>
-            </div>
             <div className="al-hero__meta">
               <span className="al-hero__chip">Full-Stack Development</span>
               <span className="al-hero__chip">UI/UX</span>
@@ -167,6 +163,10 @@ function Hero() {
           </div>
           <div className="al-hero__stack-wrap">
             <PhotoStack />
+          </div>
+          <div className="al-hero__btns">
+            <Btn href="#work" variant="cherry">View My Work</Btn>
+            <Btn href="/about" variant="chalk">Learn More About Me</Btn>
           </div>
         </div>
       </div>
