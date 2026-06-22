@@ -89,7 +89,7 @@
   display: flex; align-items: center; justify-content: center;
   box-shadow: 8px 8px 0 var(--color-ink);
 }
-.al-detail-hero--photo     { background: var(--color-ink); aspect-ratio: auto; min-height: unset; }
+.al-detail-hero--photo     { background: var(--color-ink); aspect-ratio: 16/7; min-height: unset; }
 .al-detail-hero--cherry    { background: var(--color-cherry);    color: var(--color-chalk); }
 .al-detail-hero--bubble    { background: var(--color-bubblegum); color: var(--color-ink); }
 .al-detail-hero--bubblegum { background: var(--color-bubblegum); color: var(--color-ink); }
