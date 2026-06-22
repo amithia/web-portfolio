@@ -111,7 +111,7 @@ function PracticeDetail() {
                     <li key={p.id}>
                       <a href={p.href || `/work/${p.slug}`} style={{ color: 'var(--color-cherry)' }}
                          dangerouslySetInnerHTML={{ __html: p.title }} />
-                      {' — '}{p.teaser}
+                      {': '}{p.teaser}
                     </li>
                   ))}
                 </ul>

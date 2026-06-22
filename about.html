@@ -127,7 +127,7 @@ function AboutPage() {
                 <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-xl)', letterSpacing: '-.02em', lineHeight: 1.1, marginBottom: '1rem' }}>{p.title}</h3>
                 <p style={{ color: '#3a3530', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: 640 }}>{p.body}</p>
                 {p.methods && (
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
                     {p.methods.map(m => (
                       <div key={m.name} style={{ padding: '1rem 1.25rem', border: '1.5px solid rgba(26,22,18,.15)', borderRadius: 8 }}>
                         <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'var(--text-sm)', marginBottom: '.35rem' }}>{m.name}</div>
@@ -136,6 +136,7 @@ function AboutPage() {
                     ))}
                   </div>
                 )}
+                <a href={`/practice/${p.slug}`} style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--color-cherry)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '.4rem' }}>View focus area →</a>
               </div>
             ))}
           </div>

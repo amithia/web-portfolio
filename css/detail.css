@@ -108,6 +108,27 @@
 }
 .al-detail-hero__sticker--tl { top: -20px; left: 6%; rotate: -14deg; }
 .al-detail-hero__sticker--br { bottom: -22px; right: 8%; rotate: 12deg; }
+@media (max-width: 768px) {
+  .al-detail-hero {
+    aspect-ratio: 16/7;
+    min-height: unset;
+    margin-block: var(--space-8);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    border-radius: 14px;
+  }
+  .al-detail-hero--photo {
+    aspect-ratio: 16/9;
+    min-height: unset;
+  }
+  .al-detail-hero__sticker { width: 90px; height: 90px; }
+  .al-detail-hero__sticker--tl { top: -12px; left: 4%; }
+  .al-detail-hero__sticker--br { bottom: -14px; right: 5%; }
+  .al-photo-context {
+    aspect-ratio: 4/3;
+    box-shadow: 4px 4px 0 var(--color-ink);
+    border-radius: 14px;
+  }
+}
 
 /* ─────────────────────────────────────────────────────────
    Article body — long-form blocks with editorial tags.
@@ -166,7 +187,7 @@
   position: relative;
 }
 .al-block__list li::before {
-  content: '—';
+  content: '·';
   position: absolute;
   left: 0;
   color: var(--color-cherry);

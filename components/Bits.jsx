@@ -102,7 +102,7 @@ function SpotifyWidget() {
       fetch('/api/now-playing')
         .then(r => r.json())
         .then(setData)
-        .catch(() => setData({ isPlaying: false, title: '—', artist: '—', albumArt: null, songUrl: '#' }));
+        .catch(() => setData({ isPlaying: false, title: '', artist: '', albumArt: null, songUrl: '#' }));
     fetch_();
     const id = setInterval(fetch_, 30000);
     return () => clearInterval(id);
@@ -117,7 +117,7 @@ function SpotifyWidget() {
       </svg>
       <div className="al-spotify__info">
         <div className="al-spotify__status">Loading…</div>
-        <div className="al-spotify__title" style={{ opacity: 0.3 }}>—</div>
+        <div className="al-spotify__title" style={{ opacity: 0.3 }}></div>
       </div>
     </div>
   );

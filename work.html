@@ -161,11 +161,12 @@ function WorkPage() {
 
   const totalVotes = Object.values(votes).reduce((s, n) => s + n, 0);
 
-  const shipped = window.PROJECTS.filter(p => filter === 'all' || p.category === filter);
+  const matchCat = (p) => filter === 'all' || (Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter);
+  const shipped = window.PROJECTS.filter(matchCat);
 
   /* Filter then sort pipeline by votes desc — most-wanted first */
   const upcoming = [...window.UPCOMING]
-    .filter(p => filter === 'all' || p.category === filter)
+    .filter(matchCat)
     .sort((a, b) => (votes[b.slug] || 0) - (votes[a.slug] || 0));
 
   const showShipped = status === 'all' || status === 'shipped';
@@ -180,7 +181,7 @@ function WorkPage() {
         <div style={{ marginBottom: '3rem' }}>
           <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>02 / Work</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
-            Work that <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>ships</em> — and work in the pipeline.
+            Work that <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>ships</em>, and work in the pipeline.
           </h1>
           <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 560 }}>
             Shipped projects and upcoming work across UI/UX, data analytics and software development.
