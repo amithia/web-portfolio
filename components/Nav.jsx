@@ -61,6 +61,7 @@ function Nav() {
                 onClick={() => setMenuOpen(o => !o)}
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={menuOpen}
+                aria-controls="al-mobile-menu"
               >
                 <span className={`al-hamburger__bar${menuOpen ? ' open' : ''}`}></span>
               </button>
@@ -70,7 +71,7 @@ function Nav() {
       </nav>
 
       {menuOpen && (
-        <div className="al-mobile-menu" onClick={() => setMenuOpen(false)}>
+        <div id="al-mobile-menu" className="al-mobile-menu" onClick={() => setMenuOpen(false)}>
           <div className="al-mobile-menu__panel" onClick={e => e.stopPropagation()}>
             {links.map(([page, idx, label]) => (
               <a

@@ -7,6 +7,7 @@ function FilterBar({ filters, active, onChange }) {
           key={f.id}
           className={`al-pill${active === f.id ? ' active' : ''}`}
           onClick={() => onChange(f.id)}
+          aria-pressed={active === f.id}
         >
           <span className="al-pill__dot" style={{ background: f.dot }}></span>
           {f.label}
@@ -206,32 +207,10 @@ function ProjectCard({ project, featured }) {
     <a href={href} className={`al-card${featured ? ' al-card--featured' : ''}`}>
       <div className={`al-card__img al-card__img--${tone}`}>
         {thumbImg
-          ? <img src={thumbImg} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          ? <img src={thumbImg} alt="" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           : <><svg className="al-card__img-glyph" viewBox="0 0 28 28">{g}</svg>{label}</>
         }
       </div>
-      {/* Sticker hover system — disabled for now, uncomment to re-enable
-      <div className="al-card__stickers" aria-hidden="true">
-        {layout.map((p, i) => {
-          const stickerKey = set[i] || set[0];
-          const sticker = STICKERS[stickerKey] || STICKERS.star;
-          return (
-            <div
-              key={i}
-              className="al-card__sticker"
-              style={{
-                top: p.top, right: p.right, bottom: p.bottom, left: p.left,
-                width: `${p.size}px`,
-                height: `${p.size}px`,
-                '--r': `${p.rotate}deg`,
-              }}
-            >
-              <svg viewBox="0 0 40 40" style={{ width: '100%', height: '100%', display: 'block' }}>{sticker}</svg>
-            </div>
-          );
-        })}
-      </div>
-      */}
       <div className="al-card__body">
         <span className="al-card__cat">{cat}</span>
         <h3 className="al-card__title" dangerouslySetInnerHTML={{ __html: title }} />

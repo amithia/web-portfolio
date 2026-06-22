@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -25,13 +25,15 @@
 <script type="text/babel">
 function CaseStudy() {
   const slug = useSlug();
-  const idx = window.PROJECTS.findIndex(p => p.slug === slug);
-  const project = idx >= 0 ? window.PROJECTS[idx] : null;
+  const projects = window.PROJECTS || [];
+  const upcoming_ = window.UPCOMING || [];
+  const idx = projects.findIndex(p => p.slug === slug);
+  const project = idx >= 0 ? projects[idx] : null;
 
-  const upcomingIdx = !project && window.UPCOMING
-    ? window.UPCOMING.findIndex(p => p.slug === slug)
+  const upcomingIdx = !project
+    ? upcoming_.findIndex(p => p.slug === slug)
     : -1;
-  const upcoming = upcomingIdx >= 0 ? window.UPCOMING[upcomingIdx] : null;
+  const upcoming = upcomingIdx >= 0 ? upcoming_[upcomingIdx] : null;
 
   React.useEffect(() => {
     if (project) {
@@ -55,8 +57,8 @@ function CaseStudy() {
 
   if (upcoming) {
     const glyph = HERO_GLYPHS[upcoming.glyph] || HERO_GLYPHS.star;
-    const prevU = upcomingIdx > 0 ? window.UPCOMING[upcomingIdx - 1] : null;
-    const nextU = upcomingIdx < window.UPCOMING.length - 1 ? window.UPCOMING[upcomingIdx + 1] : null;
+    const prevU = upcomingIdx > 0 ? upcoming_[upcomingIdx - 1] : null;
+    const nextU = upcomingIdx < upcoming_.length - 1 ? upcoming_[upcomingIdx + 1] : null;
     return (
       <>
         <Nav />
@@ -122,7 +124,7 @@ function CaseStudy() {
               <div className="al-block__tag">What's next</div>
               <div className="al-block__body">
                 <h3>This one is <em>in progress</em>.</h3>
-                <p>This project is on the workbench. The case study will fill in as the work develops — brief, approach, and outcomes added as they happen. Check back, or get in touch if you'd like to know more.</p>
+                <p>This project is on the workbench. The case study will fill in as the work develops. Brief, approach, and outcomes added as they happen. Check back, or get in touch if you'd like to know more.</p>
               </div>
             </section>
           )}
@@ -144,8 +146,8 @@ function CaseStudy() {
     );
   }
 
-  const prev = idx > 0 ? window.PROJECTS[idx - 1] : null;
-  const next = idx < window.PROJECTS.length - 1 ? window.PROJECTS[idx + 1] : null;
+  const prev = idx > 0 ? projects[idx - 1] : null;
+  const next = idx < projects.length - 1 ? projects[idx + 1] : null;
   const glyph = HERO_GLYPHS[project.glyph] || HERO_GLYPHS.star;
 
   return (
@@ -170,11 +172,11 @@ function CaseStudy() {
           <div className="al-detail-header__meta">
             <div className="al-detail-header__row">
               <span className="al-detail-header__lbl">Role</span>
-              <span className="al-detail-header__val">{project.role || '—'}</span>
+              <span className="al-detail-header__val">{project.role || ''}</span>
             </div>
             <div className="al-detail-header__row">
               <span className="al-detail-header__lbl">Client</span>
-              <span className="al-detail-header__val">{project.client || '—'}</span>
+              <span className="al-detail-header__val">{project.client || ''}</span>
             </div>
             <div className="al-detail-header__row">
               <span className="al-detail-header__lbl">Year</span>
@@ -182,14 +184,14 @@ function CaseStudy() {
             </div>
             <div className="al-detail-header__row">
               <span className="al-detail-header__lbl">Duration</span>
-              <span className="al-detail-header__val">{project.duration || '—'}</span>
+              <span className="al-detail-header__val">{project.duration || ''}</span>
             </div>
           </div>
         </header>
 
         {project.heroImg
           ? <div className="al-detail-hero al-detail-hero--photo">
-              <img src={project.heroImg} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <img src={project.heroImg} alt="" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           : <div className={`al-detail-hero al-detail-hero--${project.tone}`}>
               {typeof glyph === 'string'

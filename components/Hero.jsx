@@ -149,7 +149,7 @@ function Hero() {
               <span className="word"><em>purpose</em>.</span>
             </h1>
             <p className="al-hero__subtitle">
-              A collection of projects I've built across full-stack software, AI integrations and data — some shipped, some ongoing, but all worth sharing.
+              A collection of projects I've built across full-stack software, AI integrations and data, some shipped, some ongoing, but all worth sharing.
             </p>
             <div className="al-hero__meta">
               <span className="al-hero__chip">Full-Stack Development</span>

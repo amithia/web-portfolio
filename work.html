@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 <style>
 .al-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
@@ -161,11 +161,12 @@ function WorkPage() {
 
   const totalVotes = Object.values(votes).reduce((s, n) => s + n, 0);
 
-  const shipped = window.PROJECTS.filter(p => filter === 'all' || p.category === filter);
+  const matchCat = (p) => filter === 'all' || (Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter);
+  const shipped = (window.PROJECTS || []).filter(matchCat);
 
   /* Filter then sort pipeline by votes desc — most-wanted first */
-  const upcoming = [...window.UPCOMING]
-    .filter(p => filter === 'all' || p.category === filter)
+  const upcoming = [...(window.UPCOMING || [])]
+    .filter(matchCat)
     .sort((a, b) => (votes[b.slug] || 0) - (votes[a.slug] || 0));
 
   const showShipped = status === 'all' || status === 'shipped';
@@ -180,7 +181,7 @@ function WorkPage() {
         <div style={{ marginBottom: '3rem' }}>
           <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>02 / Work</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
-            Work that <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>ships</em> — and work in the pipeline.
+            Work that <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>ships</em>, and work in the pipeline.
           </h1>
           <p style={{ color: '#3a3530', lineHeight: 1.7, maxWidth: 560 }}>
             Shipped projects and upcoming work across UI/UX, data analytics and software development.
