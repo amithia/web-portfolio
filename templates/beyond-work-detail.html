@@ -193,8 +193,8 @@ function BeyondWorkDetail() {
         </header>
 
         {item.heroImg ? (
-          <div className="al-detail-hero al-detail-hero--photo" style={{ aspectRatio: '16/7', minHeight: 280 }}>
-            <img src={item.heroImg} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          <div className="al-detail-hero al-detail-hero--photo">
+            <img src={item.heroImg} alt={item.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         ) : isLearning && item.glyph ? (
           <div className={`al-detail-hero al-detail-hero--${tone}`}>
