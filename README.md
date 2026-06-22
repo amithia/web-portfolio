@@ -1,60 +1,76 @@
-# Amithi Liyanagamage — Portfolio
+# amithi.work
 
-Personal portfolio site. Live at [amithi-work.vercel.app](https://amithi-work.vercel.app).
+Personal portfolio site for Amithi Liyanagamage — developer, designer, and all-round builder. Live at [amithi.work](https://amithi.work).
+
+---
 
 ## Stack
 
-Plain HTML + React 18 (CDN) + Babel (CDN). No build step, no bundler.
+| Layer | Choice |
+|---|---|
+| Markup | Plain HTML |
+| UI | React 18 (CDN) + Babel (CDN) |
+| Styles | Vanilla CSS with custom properties |
+| Deploy | Vercel (no build step) |
+| Fonts | Space Grotesk · Bespoke Serif · Inter · JetBrains Mono |
 
-All content is driven by `data.js` — adding a new project, cert, or creative piece only requires adding an object to the relevant array. No HTML files need to be created.
+No bundler. No framework. No node_modules. Just files.
 
-## Structure
+---
+
+## Project structure
 
 ```
 /
-├── data.js                   ← All content (projects, learning, creative, reading)
+├── home.html                   ← Homepage (hero, projects, about snippet)
+├── about.html                  ← About page
+├── work.html                   ← Full work listing
+├── beyond-work.html            ← Beyond-work listing
+├── milestones.html             ← Timeline / milestones
+├── contact.html                ← Contact page
 │
-├── index.html                ← Home
-├── about.html                ← About
-├── work.html                 ← Work listing
-├── beyond-work.html          ← Learning + creative listing
-├── timeline.html             ← Timeline
-├── contact.html              ← Contact
-├── sitemap.html              ← Full site index
+├── templates/
+│   ├── work-detail.html        ← Project detail (data-driven, shared template)
+│   └── beyond-work-detail.html ← Beyond-work detail template
 │
-├── case-study.html           ← Project detail template (all projects)
-├── learning-detail.html      ← Learning detail template (all certs)
-├── creative-detail.html      ← Creative detail template (all creative work)
-│
-├── projects.html             ← Full project grid
-├── courses.html              ← Full courses listing
-├── book.html                 ← Reading list
+├── data.js                     ← All content (projects, extras, etc.)
 │
 ├── components/
-│   ├── Nav.jsx               ← Navigation + mobile menu
-│   ├── Hero.jsx              ← Homepage hero
-│   ├── Project.jsx           ← Project cards
-│   ├── DetailParts.jsx       ← Breadcrumb, metrics row, next/prev
-│   ├── Bits.jsx              ← Buttons, badges, section headers
-│   ├── AboutFooter.jsx       ← About section + footer
-│   └── Extras.jsx            ← Misc UI pieces
+│   ├── Nav.jsx                 ← Navigation + hamburger mobile menu
+│   ├── Hero.jsx                ← Homepage hero with photo card stack
+│   ├── Project.jsx             ← Project cards + filter bar
+│   ├── DetailParts.jsx         ← Breadcrumb, metrics, next/prev nav
+│   ├── Bits.jsx                ← Shared UI: buttons, badges, section headers
+│   ├── AboutFooter.jsx         ← About snippet + footer
+│   └── Extras.jsx              ← Spotify widget, reading widget, misc
 │
-├── styles.css                ← Main stylesheet
-├── detail.css                ← Detail page styles
-├── colors_and_type.css       ← Design tokens (colours, type, spacing)
+├── css/
+│   ├── colors_and_type.css     ← Design tokens (colours, type scale, spacing)
+│   ├── styles.css              ← Main stylesheet
+│   └── detail.css              ← Detail page styles
+│
+├── api/
+│   └── now-playing.js          ← Vercel serverless fn — Spotify now playing
 │
 ├── assets/
-│   ├── logo-al.svg           ← Monogram
-│   ├── logo-full.svg         ← Full name logo
-│   └── motifs/               ← Decorative SVG glyphs
+│   ├── photos/                 ← Profile + project images
+│   └── motifs/                 ← Decorative SVG stickers and glyphs
 │
-└── fonts/                    ← Bespoke Serif (self-hosted)
+├── fonts/                      ← Bespoke Serif (self-hosted woff2)
+├── favicon.svg
+└── vercel.json                 ← Routing, redirects, clean URLs
 ```
+
+---
 
 ## Design tokens
 
-| Token | Value |
-|-------|-------|
+Defined in `css/colors_and_type.css` and used as CSS custom properties throughout.
+
+**Colours**
+
+| Name | Hex |
+|---|---|
 | Ink | `#1A1612` |
 | Parchment | `#F0E9D6` |
 | Chalk | `#FCF7E5` |
@@ -63,47 +79,74 @@ All content is driven by `data.js` — adding a new project, cert, or creative p
 | Lilac | `#B9A6E0` |
 | Moss | `#6B7A3F` |
 
-**Fonts:** Space Grotesk (display) · Bespoke Serif (accent italic) · Inter (body) · JetBrains Mono (mono)
+**Type** — fluid scale via `clamp()`, from `--text-xs` through `--text-hero`.
+
+**Spacing** — `--space-1` through `--space-32` (0.25rem steps).
+
+---
 
 ## Adding content
 
-**New project** — add to `window.PROJECTS` in `data.js`:
+All content lives in `data.js` — no HTML files need to be touched for new entries.
+
+**New project**
 ```js
+// window.PROJECTS in data.js
 {
-  id: N, slug: 'your-slug',
-  cat: 'Category · Type',
+  id: N,
+  slug: 'project-slug',          // used in URL: /work/project-slug
+  category: 'fullstack',         // fullstack | ux | mobile | data | ai | consulting
   title: 'Project <em>Title</em>',
   teaser: 'One-line description.',
-  tone: 'cherry',         // cherry | lilac | moss | bubblegum
+  tone: 'cherry',                // cherry | lilac | moss | bubblegum | ink
   year: 2025,
-  sections: [ ... ],      // optional detail content
+  featured: false,               // true = spans 2 columns in the grid
+  sections: [ ... ],             // detail page content blocks
 }
 ```
 
-**New pipeline project** — add to `window.UPCOMING` in `data.js` (same shape, no `year`).
-
-**New cert** — add to `window.LEARNING` in `data.js`:
+**New beyond-work entry**
 ```js
-{ slug: 'your-slug', provider: 'Google', title: 'Cert Name', status: 'active', progress: 40, desc: '...' }
+// window.EXTRAS in data.js
+{
+  id: N,
+  slug: 'entry-slug',
+  title: 'Title',
+  meta: 'Type · Year',
+  tone: 'bubblegum',
+  desc: 'Short description.',
+}
 ```
 
-**New creative work** — add to `window.CREATIVE` in `data.js`:
-```js
-{ id: N, slug: 'your-slug', title: 'Title', meta: 'Medium · Year', tone: 'bubblegum', desc: '...' }
-```
+---
 
-## Dev workflow
+## Running locally
+
+No install needed — just serve the directory:
 
 ```bash
-# Work on dev
+npx serve .
+# or
+python3 -m http.server 3000
+```
+
+Then open `http://localhost:3000/home`.
+
+---
+
+## Deployment
+
+Deployed on Vercel. Pushing to `dev` triggers a preview deployment; merging to `main` goes live.
+
+```bash
+# Feature work
 git checkout dev
-# make changes
-git add <files>
-git commit -m "description"
-git push origin dev        # → preview at dev-amithi-work.vercel.app
+git push origin dev        # → preview deploy
 
 # Ship to production
 git checkout main
 git merge dev
-git push origin main       # → live at amithi-work.vercel.app
+git push origin main       # → live at amithi.work
 ```
+
+Routing is handled by `vercel.json` — clean URLs (no `.html` extensions), `/` rewrites to `/home`, and `/work/:slug` / `/beyond-work/:slug` resolve to their shared detail templates.

@@ -14,7 +14,7 @@ function Services() {
         <SectionHeader title='Four <em>focuses</em>'/>
         <div className="al-services">
           {window.PRACTICES.map((s, i) => (
-            <a key={s.slug} href={`/practice?id=${s.slug}`} className={`al-service al-service--${s.tone}`}>
+            <a key={s.slug} href={`/about#focus-${s.slug}`} className={`al-service al-service--${s.tone}`}>
               <div className="al-service__tag">{s.tag}</div>
               <h3 className="al-service__title">{s.title}</h3>
               <p className="al-service__body">{s.short}</p>
