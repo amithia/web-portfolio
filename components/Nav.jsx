@@ -36,7 +36,7 @@ function Nav() {
       <div className="coord-strip">
         <div className="pin"><span className="dot"></span>Open to opportunities</div>
         <div className="coords"></div>
-        <div className="stamp">Currently in Canberra · June 2026</div>
+        <div className="stamp">Currently in Canberra ·<br />June 2026</div>
       </div>
       <nav className={`al-nav${scrolled ? ' scrolled' : ''}`}>
         <div className="al-container">

@@ -256,6 +256,15 @@ html, body { overflow-x: clip; }
   height: clamp(275px, 27.5vw, 380px);
   cursor: pointer;
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.al-photo-stack img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
 }
 .al-photo-card {
   position: absolute;
