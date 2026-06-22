@@ -31,6 +31,7 @@ button { font: inherit; border: none; background: none; cursor: pointer; color: 
   .coord-strip { grid-template-columns: 1fr auto; gap: var(--space-2); }
   .coord-strip .coords { display: none; }
   .coord-strip .right  { display: none; }
+  .coord-strip .stamp  { text-align: right; }
 }
 
 /* ────────────────────────────────────────────
@@ -199,9 +200,12 @@ html, body { overflow-x: clip; }
   .al-hero__bling svg.x3 { bottom: 3%; right: 6%; }
   .al-hero__bling svg.x4 { bottom: 3%; left: 6%; }
 }
-.al-hero__content { display: flex; flex-direction: column; justify-content: flex-end; padding-block: var(--space-16); position: relative; }
+.al-hero__content { display: flex; flex-direction: column; justify-content: flex-end; padding-top: var(--space-16); padding-bottom: var(--space-6); position: relative; }
 /* Two-column grid: copy left, photo stack right */
-.al-hero__grid { display: grid; grid-template-columns: 1fr minmax(320px, 440px); gap: var(--space-12); align-items: stretch; }
+.al-hero__grid { display: grid; grid-template-columns: 1fr minmax(320px, 440px); grid-template-rows: 1fr auto; gap: var(--space-6) var(--space-12); align-items: stretch; }
+.al-hero__content { grid-column: 1; grid-row: 1; }
+.al-hero__stack-wrap { grid-column: 2; grid-row: 1 / 3; }
+.al-hero__btns { grid-column: 1; grid-row: 2; display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: flex-start; padding-bottom: var(--space-16); }
 @media (max-width: 900px) {
   /* Hero: natural height on mobile — no forced full-viewport */
   .al-hero { height: auto; }
@@ -228,6 +232,11 @@ html, body { overflow-x: clip; }
   .al-hero__stack-wrap {
     flex: 0 0 360px;
     padding-bottom: var(--space-8);
+  }
+
+  /* Buttons sit below the card stack on mobile */
+  .al-hero__btns {
+    padding: var(--space-4) 0 var(--space-10);
   }
 }
 
