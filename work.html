@@ -136,27 +136,37 @@ function WorkPage() {
   const [status, setStatus] = useState('all');
   const [filter, setFilter] = useState('all');
 
-  /* ── Vote state, persisted to localStorage ── */
-  const [votes, setVotes] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('al-pipeline-votes') || '{}'); }
-    catch { return {}; }
-  });
+  /* ── Vote state ── counts from API, voted-set from localStorage ── */
+  const [votes, setVotes] = useState({});
   const [voted, setVoted] = useState(() => {
     try { return new Set(JSON.parse(localStorage.getItem('al-pipeline-voted') || '[]')); }
     catch { return new Set(); }
   });
 
+  React.useEffect(() => {
+    fetch('/api/votes')
+      .then(r => r.json())
+      .then(data => setVotes(data || {}))
+      .catch(() => {});
+  }, []);
+
   const handleVote = (slug) => {
-    const wasVoted   = voted.has(slug);
-    const newVotes   = { ...votes, [slug]: Math.max(0, (votes[slug] || 0) + (wasVoted ? -1 : 1)) };
-    const newVoted   = new Set(voted);
+    const wasVoted = voted.has(slug);
+    const action   = wasVoted ? 'down' : 'up';
+    const newVoted = new Set(voted);
     wasVoted ? newVoted.delete(slug) : newVoted.add(slug);
-    setVotes(newVotes);
+    // Optimistic update
+    setVotes(v => ({ ...v, [slug]: Math.max(0, (v[slug] || 0) + (wasVoted ? -1 : 1)) }));
     setVoted(newVoted);
-    try {
-      localStorage.setItem('al-pipeline-votes', JSON.stringify(newVotes));
-      localStorage.setItem('al-pipeline-voted', JSON.stringify([...newVoted]));
-    } catch {}
+    try { localStorage.setItem('al-pipeline-voted', JSON.stringify([...newVoted])); } catch {}
+    fetch('/api/votes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug, action }),
+    })
+      .then(r => r.json())
+      .then(data => { if (typeof data.count === 'number') setVotes(v => ({ ...v, [slug]: data.count })); })
+      .catch(() => {});
   };
 
   const totalVotes = Object.values(votes).reduce((s, n) => s + n, 0);
