@@ -54,15 +54,23 @@ function Footer() {
             </p>
             <Btn href="/contact" variant="chalk">Chuck me an email</Btn>
           </div>
-          <ul className="al-footer__links">
-            <li><a href="https://www.linkedin.com/in/amithi-liyanagamage/" className="al-footer__link">LinkedIn</a></li>
-            <li><a href="https://github.com/amithia" className="al-footer__link">GitHub</a></li>
-          </ul>
+          <div className="al-footer__right">
+            <ul className="al-footer__links">
+              <li><a href="/about" className="al-footer__link">About</a></li>
+              <li><a href="/work" className="al-footer__link">Work</a></li>
+              <li><a href="/beyond-work" className="al-footer__link">Beyond Work</a></li>
+              <li><a href="/milestones" className="al-footer__link">Milestones</a></li>
+              <li><a href="/contact" className="al-footer__link">Contact</a></li>
+            </ul>
+            <ul className="al-footer__links al-footer__links--social">
+              <li><a href="https://www.linkedin.com/in/amithi-liyanagamage/" className="al-footer__link">LinkedIn</a></li>
+              <li><a href="https://github.com/amithia" className="al-footer__link">GitHub</a></li>
+            </ul>
+          </div>
         </div>
         <div className="al-footer__bottom">
           <span>© 2026 Amithi Liyanagamage</span>
           <span>Made with care.</span>
-          <a href="/sitemap" style={{ fontFamily: 'var(--font-mono)', fontSize: '.80rem', letterSpacing: '.06em', textTransform: 'uppercase', color: 'rgba(252,247,229,.4)', textDecoration: 'none' }} onMouseOver={e => e.target.style.color='rgba(252,247,229,.8)'} onMouseOut={e => e.target.style.color='rgba(252,247,229,.4)'}>Sitemap</a>
         </div>
       </div>
     </footer>);
