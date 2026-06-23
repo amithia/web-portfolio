@@ -239,7 +239,7 @@ html, body { overflow-x: clip; }
 
   /* Buttons sit below the card stack on mobile */
   .al-hero__btns {
-    padding: var(--space-4) 0 var(--space-10);
+    padding: var(--space-8) 0 var(--space-10);
   }
 }
 
