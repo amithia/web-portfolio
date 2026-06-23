@@ -226,7 +226,7 @@ window.PROJECTS = [
 
 window.PRACTICES = [
   {
-    slug: 'web-development',
+    slug: 'software-development',
     tone: 'cherry', tag: 'FOCUS 01',
     title: 'Software Development',
     short: 'Building web apps, mobile prototypes and internal platforms using React, JavaScript and Python.',
@@ -274,7 +274,7 @@ window.PRACTICES = [
     relatedProjectIds: [6],
   },
   {
-    slug: 'ux-product-design',
+    slug: 'ux-web-design',
     tone: 'moss', tag: 'FOCUS 04',
     title: 'UI/UX & Web Design',
     short: 'Research, prototyping and interface design across mobile, web and interactive experiences from first interview to final handoff.',
