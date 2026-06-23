@@ -233,8 +233,8 @@ html, body { overflow-x: clip; }
   /* Card zone: fixed height immediately after the content block.
      Extra space below so the stacked card offsets don't clip the dark bg. */
   .al-hero__stack-wrap {
-    flex: 0 0 360px;
-    padding-bottom: var(--space-8);
+    flex: 0 0 auto;
+    padding-bottom: var(--space-4);
   }
 
   /* Buttons sit below the card stack on mobile */
@@ -335,7 +335,7 @@ html, body { overflow-x: clip; }
     padding-bottom: var(--space-2);
   }
   .al-hero__meta { display: none; }
-  .al-photo-stack { width: 210px; height: 276px; }
+  .al-photo-stack { width: 260px; height: 340px; }
   .al-photo-card { padding: 16px; border-radius: 16px; }
   .al-photo-card__title { font-size: 15px; }
   .al-photo-card__hint { font-size: 8px; padding: 3px 8px; }
