@@ -37,17 +37,14 @@
 .al-card__soon-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-mono); font-size: .6rem; letter-spacing: .1em; padding: .3rem .8rem; background: rgba(26,22,18,.65); color: #FCF7E5; border-radius: 100px; white-space: nowrap; backdrop-filter: blur(2px); }
 .al-card--upcoming { opacity: .82; transition: opacity .2s ease; }
 .al-card--upcoming:hover { opacity: 1; }
-/* ── Upvote button ── */
-.al-upvote { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border:1.5px solid rgba(26,22,18,.18); border-radius:100px; background:transparent; color:var(--color-ink); font-family:var(--font-mono); font-size:.6rem; letter-spacing:.05em; cursor:pointer; transition:border-color .15s, background .15s, color .15s, transform .15s; white-space:nowrap; }
-.al-upvote:hover { border-color:var(--color-cherry); color:var(--color-cherry); transform:translateY(-1px); }
-.al-upvote--active { background:var(--color-cherry); border-color:var(--color-cherry); color:#FCF7E5; }
-.al-upvote--active:hover { opacity:.85; transform:translateY(-1px); }
-.al-upvote__icon { width:11px; height:11px; flex-shrink:0; transition:transform .15s; }
-.al-upvote:not(.al-upvote--active):hover .al-upvote__icon { transform:translateY(-2px); }
-.al-upvote__badge { display:inline-flex; align-items:center; justify-content:center; min-width:16px; height:16px; padding:0 4px; border-radius:100px; background:rgba(26,22,18,.1); font-size:.58rem; font-weight:700; margin-left:2px; }
-.al-upvote--active .al-upvote__badge { background:rgba(252,247,229,.25); }
-@keyframes al-pop { 0%,100%{transform:scale(1)} 45%{transform:scale(1.7)} }
-.al-upvote--just-voted .al-upvote__icon { animation:al-pop .25s ease forwards; }
+/* ── Flip card ── */
+.al-flip { perspective: 1000px; -webkit-perspective: 1000px; cursor: pointer; height: 300px; }
+.al-flip__inner { position: relative; width: 100%; height: 100%; transition: transform 0.45s cubic-bezier(.4,0,.2,1); transform-style: preserve-3d; -webkit-transform-style: preserve-3d; }
+.al-flip--flipped .al-flip__inner { transform: rotateY(180deg); -webkit-transform: rotateY(180deg); }
+.al-flip__face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 8px; border: 2px solid var(--color-ink); overflow: hidden; background: var(--color-parchment, #FCF7E5); display: flex; flex-direction: column; }
+.al-flip__back { transform: rotateY(180deg); -webkit-transform: rotateY(180deg); padding: 1.25rem; justify-content: space-between; }
+.al-flip__hint { font-family: var(--font-mono); font-size: .55rem; letter-spacing: .1em; color: rgba(26,22,18,.4); text-align: right; padding: .5rem .75rem .6rem; border-top: 1px solid rgba(26,22,18,.1); }
+@media (max-width: 768px) { .al-flip { height: 320px; } }
 </style>
 </head>
 <body>
@@ -71,48 +68,53 @@ const GLYPHS_SMALL = {
   pin:    <path d="M14 3 C 10 3, 7 6, 7 10 C 7 16, 14 25, 14 25 C 14 25, 21 16, 21 10 C 21 6, 18 3, 14 3 Z" fill="currentColor"/>,
 };
 
-function UpcomingCard({ project, votes, voted, onVote }) {
+function UpcomingCard({ project }) {
   const { tone = 'cherry', cat, title, teaser, slug, glyph } = project;
   const g = GLYPHS_SMALL[glyph] || GLYPHS_SMALL.star;
-  const count    = votes[slug] || 0;
-  const hasVoted = voted.has(slug);
-  const [justVoted, setJustVoted] = React.useState(false);
-
-  const handleVote = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!hasVoted) {
-      setJustVoted(true);
-      setTimeout(() => setJustVoted(false), 300);
-    }
-    onVote(slug);
-  };
+  const [flipped, setFlipped] = React.useState(false);
 
   return (
-    <a href={`/work/${slug}`} className="al-card al-card--upcoming">
-      <div className={`al-card__img al-card__img--${tone}`}>
-        <svg className="al-card__img-glyph" viewBox="0 0 28 28">{g}</svg>
-        <span className="al-card__soon-badge">COMING SOON</span>
+    <div
+      className={`al-flip${flipped ? ' al-flip--flipped' : ''}`}
+      onClick={() => setFlipped(f => !f)}
+      role="button"
+      tabIndex={0}
+      aria-pressed={flipped}
+      aria-label={`${flipped ? 'Flip back: ' : 'Flip for more: '}${title.replace(/<[^>]+>/g, '')}`}
+      onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setFlipped(f => !f)}
+    >
+      <div className="al-flip__inner">
+        <div className="al-flip__face">
+          <div className={`al-card__img al-card__img--${tone}`}>
+            <svg className="al-card__img-glyph" viewBox="0 0 28 28">{g}</svg>
+            <span className="al-card__soon-badge">COMING SOON</span>
+          </div>
+          <div className="al-card__body">
+            <span className="al-card__cat">{cat}</span>
+            <h3 className="al-card__title" dangerouslySetInnerHTML={{ __html: title }} />
+            <p className="al-card__teaser">{teaser}</p>
+          </div>
+          <div className="al-flip__hint">tap for more →</div>
+        </div>
+        <div className="al-flip__face al-flip__back">
+          <div>
+            <span className="al-card__cat" style={{ marginBottom: '.75rem', display: 'block' }}>{cat}</span>
+            <h3 className="al-card__title" style={{ marginBottom: '1rem' }} dangerouslySetInnerHTML={{ __html: title }} />
+            <p style={{ fontSize: 'var(--text-sm)', color: '#3a3530', lineHeight: 1.65 }}>{teaser}</p>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '1.25rem' }}>
+            <a
+              href={`/work/${slug}`}
+              onClick={e => e.stopPropagation()}
+              style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--color-cherry)', textDecoration: 'none' }}
+            >
+              View project →
+            </a>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '.55rem', letterSpacing: '.08em', color: 'rgba(26,22,18,.35)' }}>← flip back</span>
+          </div>
+        </div>
       </div>
-      <div className="al-card__body">
-        <span className="al-card__cat">{cat}</span>
-        <h3 className="al-card__title" dangerouslySetInnerHTML={{ __html: title }} />
-        <p className="al-card__teaser">{teaser}</p>
-      </div>
-      <div className="al-card__foot" style={{ justifyContent: 'flex-end' }}>
-        <button
-          className={`al-upvote${hasVoted ? ' al-upvote--active' : ''}${justVoted ? ' al-upvote--just-voted' : ''}`}
-          onClick={handleVote}
-          aria-label={hasVoted ? 'Remove upvote' : 'Upvote this project'}
-        >
-          <svg className="al-upvote__icon" viewBox="0 0 12 12" fill="currentColor">
-            <path d="M6 0.5L11 6H8.5V11.5H3.5V6H1L6 0.5Z"/>
-          </svg>
-          Want to see this?
-          {count > 0 && <span className="al-upvote__badge">{count}</span>}
-        </button>
-      </div>
-    </a>
+    </div>
   );
 }
 
@@ -136,38 +138,9 @@ function WorkPage() {
   const [status, setStatus] = useState('all');
   const [filter, setFilter] = useState('all');
 
-  /* ── Vote state, persisted to localStorage ── */
-  const [votes, setVotes] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('al-pipeline-votes') || '{}'); }
-    catch { return {}; }
-  });
-  const [voted, setVoted] = useState(() => {
-    try { return new Set(JSON.parse(localStorage.getItem('al-pipeline-voted') || '[]')); }
-    catch { return new Set(); }
-  });
-
-  const handleVote = (slug) => {
-    const wasVoted   = voted.has(slug);
-    const newVotes   = { ...votes, [slug]: Math.max(0, (votes[slug] || 0) + (wasVoted ? -1 : 1)) };
-    const newVoted   = new Set(voted);
-    wasVoted ? newVoted.delete(slug) : newVoted.add(slug);
-    setVotes(newVotes);
-    setVoted(newVoted);
-    try {
-      localStorage.setItem('al-pipeline-votes', JSON.stringify(newVotes));
-      localStorage.setItem('al-pipeline-voted', JSON.stringify([...newVoted]));
-    } catch {}
-  };
-
-  const totalVotes = Object.values(votes).reduce((s, n) => s + n, 0);
-
   const matchCat = (p) => filter === 'all' || (Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter);
-  const shipped = (window.PROJECTS || []).filter(matchCat);
-
-  /* Filter then sort pipeline by votes desc — most-wanted first */
-  const upcoming = [...(window.UPCOMING || [])]
-    .filter(matchCat)
-    .sort((a, b) => (votes[b.slug] || 0) - (votes[a.slug] || 0));
+  const shipped  = (window.PROJECTS || []).filter(matchCat);
+  const upcoming = (window.UPCOMING  || []).filter(matchCat);
 
   const showShipped = status === 'all' || status === 'shipped';
   const showPlanned = status === 'all' || status === 'planned';
@@ -211,17 +184,10 @@ function WorkPage() {
           <div className="al-subsection">
             <div className="al-subsection__head">
               <span className="al-subsection__label">In the <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>pipeline</em></span>
-              <span className="al-subsection__count">
-                {upcoming.length} project{upcoming.length !== 1 ? 's' : ''}
-                {totalVotes > 0 && (
-                  <span style={{ marginLeft: '.75rem', color: 'var(--color-cherry)', fontFamily: 'var(--font-mono)', fontSize: '.6rem', letterSpacing: '.08em' }}>
-                    ↑ sorted by votes
-                  </span>
-                )}
-              </span>
+              <span className="al-subsection__count">{upcoming.length} project{upcoming.length !== 1 ? 's' : ''}</span>
             </div>
             <div className="al-grid-3">
-              {upcoming.map(p => <UpcomingCard key={p.id} project={p} votes={votes} voted={voted} onVote={handleVote} />)}
+              {upcoming.map(p => <UpcomingCard key={p.id} project={p} />)}
             </div>
           </div>
         )}
