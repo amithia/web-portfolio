@@ -355,7 +355,7 @@ window.UPCOMING = [
     title: 'Financial Time <em>Machine</em>',
     cat: 'Data · Personal Finance',
     teaser: 'Visualise how financial decisions made in the past would play out with today\'s information, and what that tells you about the choices you\'re making now.',
-    tone: 'lilac', status: 'planned', category: 'data', glyph: 'star',
+    tone: 'lavender', status: 'planned', category: 'data', glyph: 'star',
     lede: 'What would you have done differently if you\'d had this information sooner? That question drives the whole thing.',
     role: 'Solo project', year: 2026,
     sections: [
