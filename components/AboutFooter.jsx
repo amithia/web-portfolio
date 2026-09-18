@@ -15,7 +15,7 @@ function About() {
           <div>
             <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '1rem' }}>Hi there, I'm Amithi</p>
             <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-2xl)', marginBottom: '1.5rem', lineHeight: 1.05, letterSpacing: '-0.03em' }}>
-              I write code and analyse data <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>with meaning behind every line.</em>
+              I write code and <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>analyse data.</em>
             </h3>
             <p style={{ marginBottom: '1.5rem', color: '#3a3530', lineHeight: 1.7 }}>
               I'm a full-stack developer with an interest in UI/UX and data analytics based in Canberra. I currently work in Digital Strategy, Insights & Analytics at the Australian National University as a Web Project Officer and as a developer (and founder!) at Ion Studio. My work spans web development, data analytics and AI.
