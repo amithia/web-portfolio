@@ -139,7 +139,7 @@ function Hero() {
         <div className="al-hero__grid">
           <div className="al-hero__content">
             <p className="al-hero__eyebrow">
-              <span className="badge">Web Project Officer</span>
+              <span className="badge">Project Officer (Web &amp; UI/UX)</span>
               <span className="badge">Full-Stack Developer</span>
             </p>
             <h1 className="al-hero__title">

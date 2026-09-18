@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Work · Amithi Liyanagamage</title>
+<title>Projects · Amithi Liyanagamage</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <!-- SEO & Social — update domain once deployed -->
 <meta name="description" content="Projects and case studies by Amithi Liyanagamage — web development, UI/UX design, and data work." />
@@ -11,11 +11,11 @@
 <meta property="og:url" content="https://amithi.work/work" />
 <meta property="og:title" content="Work · Amithi Liyanagamage" />
 <meta property="og:description" content="Projects and case studies by Amithi Liyanagamage — web development, UI/UX design, and data work." />
-<meta property="og:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<meta property="og:image" content="https://amithi.work/assets/photos/home-profile.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Work · Amithi Liyanagamage" />
 <meta name="twitter:description" content="Projects and case studies by Amithi Liyanagamage — web development, UI/UX design, and data work." />
-<meta name="twitter:image" content="https://amithi.work/assets/photos/about-profile.jpg" />
+<meta name="twitter:image" content="https://amithi.work/assets/photos/home-profile.jpg" />
 <link rel="stylesheet" href="/css/styles.css" />
 <link rel="stylesheet" href="/css/detail.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -155,11 +155,19 @@ const FILTERS = [
   { id: 'consulting', label: 'Consulting',        dot: '#e4d837' },
 ];
 
+const catsOf = (p) => (Array.isArray(p.category) ? p.category : [p.category]);
+// Only surface a filter once at least one project sits behind it.
+const populatedFilters = (projects) => {
+  const used = new Set(projects.flatMap(catsOf));
+  return FILTERS.filter(f => f.id === 'all' || used.has(f.id));
+};
+
 function WorkPage() {
   const [status, setStatus] = useState('all');
   const [filter, setFilter] = useState('all');
 
-  const matchCat = (p) => filter === 'all' || (Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter);
+  const matchCat = (p) => filter === 'all' || catsOf(p).includes(filter);
+  const filters  = populatedFilters([...(window.PROJECTS || []), ...(window.UPCOMING || [])]);
   const shipped  = (window.PROJECTS || []).filter(matchCat);
   const upcoming = (window.UPCOMING  || []).filter(matchCat);
 
@@ -170,10 +178,10 @@ function WorkPage() {
     <>
       <Nav />
       <main className="al-container" style={{ paddingTop: 'clamp(2rem,5vw,4rem)', paddingBottom: 'clamp(3rem,7vw,6rem)' }}>
-        <Breadcrumb trail={[{ label: 'Home', href: '/home' }, { label: 'Work' }]} />
+        <Breadcrumb trail={[{ label: 'Home', href: '/home' }, { label: 'Projects' }]} />
 
         <div style={{ marginBottom: '3rem' }}>
-          <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>02 / Work</p>
+          <p className="al-eyebrow" style={{ color: 'var(--color-cherry)', marginBottom: '.75rem' }}>02 / Projects</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-4xl)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: '1rem' }}>
             Work that <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>ships</em>, and work in the pipeline.
           </h1>
@@ -187,7 +195,7 @@ function WorkPage() {
             <button key={f.id} onClick={() => setStatus(f.id)} className={`al-pill${status === f.id ? ' active' : ''}`}>{f.label}</button>
           ))}
         </div>
-        <FilterBar filters={FILTERS} active={filter} onChange={setFilter} />
+        {filters.length > 1 && <FilterBar filters={filters} active={filter} onChange={setFilter} />}
 
         {showShipped && shipped.length > 0 && (
           <div className="al-subsection">

@@ -13,7 +13,7 @@ window.PROJECTS = [
     teaser: 'An interactive campus map for ANU Open Day 2026, built from ideation to launch.',
     tone: 'cherry', label: 'WEB', meta: 'UI/UX · Web Dev · 2026',
     category: 'ux', featured: true, glyph: 'pin', stickers: 'campus',
-    year: 2026, role: 'Web Project Officer, Digital Strategy & Analytics at Brand & Marketing, ANU',
+    year: 2026, role: 'Project Officer (Web & UI/UX), Digital Strategy & Analytics at Brand & Marketing, ANU',
     client: 'Australian National University', duration: 'Feb – Mar 2026',
     heroImg: '/assets/work/explore-your-campus-hero.jpg',
     lede: 'ANU Open Day brings thousands of prospective students to a large, unfamiliar campus. We built a tool to help them plan their visit before they arrived and find their way to what actually mattered on the day based on their interests.',
