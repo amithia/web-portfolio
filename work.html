@@ -155,11 +155,19 @@ const FILTERS = [
   { id: 'consulting', label: 'Consulting',        dot: '#e4d837' },
 ];
 
+const catsOf = (p) => (Array.isArray(p.category) ? p.category : [p.category]);
+// Only surface a filter once at least one project sits behind it.
+const populatedFilters = (projects) => {
+  const used = new Set(projects.flatMap(catsOf));
+  return FILTERS.filter(f => f.id === 'all' || used.has(f.id));
+};
+
 function WorkPage() {
   const [status, setStatus] = useState('all');
   const [filter, setFilter] = useState('all');
 
-  const matchCat = (p) => filter === 'all' || (Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter);
+  const matchCat = (p) => filter === 'all' || catsOf(p).includes(filter);
+  const filters  = populatedFilters([...(window.PROJECTS || []), ...(window.UPCOMING || [])]);
   const shipped  = (window.PROJECTS || []).filter(matchCat);
   const upcoming = (window.UPCOMING  || []).filter(matchCat);
 
@@ -187,7 +195,7 @@ function WorkPage() {
             <button key={f.id} onClick={() => setStatus(f.id)} className={`al-pill${status === f.id ? ' active' : ''}`}>{f.label}</button>
           ))}
         </div>
-        <FilterBar filters={FILTERS} active={filter} onChange={setFilter} />
+        {filters.length > 1 && <FilterBar filters={filters} active={filter} onChange={setFilter} />}
 
         {showShipped && shipped.length > 0 && (
           <div className="al-subsection">

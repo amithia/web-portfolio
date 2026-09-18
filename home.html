@@ -48,10 +48,18 @@ const FILTERS = [
   { id: 'consulting', label: 'Consulting',      dot: '#e4d837' }
 ];
 
+const catsOf = (p) => (Array.isArray(p.category) ? p.category : [p.category]);
+// Only surface a filter once at least one project sits behind it.
+const populatedFilters = (projects) => {
+  const used = new Set(projects.flatMap(catsOf));
+  return FILTERS.filter(f => f.id === 'all' || used.has(f.id));
+};
+
 function App() {
   const [filter, setFilter] = useState('all');
-  const allProjects = window.PROJECTS || [];
-  const visible = allProjects.filter(p => p.slug !== 'ab-testing-calculator' && (filter === 'all' || (Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter)));
+  const allProjects = (window.PROJECTS || []).filter(p => p.slug !== 'ab-testing-calculator');
+  const filters = populatedFilters(allProjects);
+  const visible = allProjects.filter(p => filter === 'all' || catsOf(p).includes(filter));
 
   React.useEffect(() => {
     const hash = window.location.hash;
@@ -73,7 +81,7 @@ function App() {
       <section className="al-section" id="work" data-screen-label="Work" style={{ paddingBottom: 'clamp(2rem,4vw,3rem)' }}>
         <div className="al-container">
           <SectionHeader title='Selected <em>work</em>' index="02 / Projects" />
-          <FilterBar filters={FILTERS} active={filter} onChange={setFilter} />
+          {filters.length > 1 && <FilterBar filters={filters} active={filter} onChange={setFilter} />}
           <div className="al-grid-3">
             {visible.map(p => <ProjectCard key={p.id} project={p} featured={p.featured} />)}
           </div>
