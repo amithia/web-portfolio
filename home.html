@@ -72,7 +72,7 @@ function App() {
       <About />
       <section className="al-section" id="work" data-screen-label="Work" style={{ paddingBottom: 'clamp(2rem,4vw,3rem)' }}>
         <div className="al-container">
-          <SectionHeader title='Selected <em>work</em>' index="02 / Work" />
+          <SectionHeader title='Selected <em>work</em>' index="02 / Projects" />
           <FilterBar filters={FILTERS} active={filter} onChange={setFilter} />
           <div className="al-grid-3">
             {visible.map(p => <ProjectCard key={p.id} project={p} featured={p.featured} />)}

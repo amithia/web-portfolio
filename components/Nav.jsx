@@ -24,7 +24,7 @@ function Nav() {
 
   const links = [
     ['/about',        '01', 'About'],
-    ['/work',         '02', 'Work'],
+    ['/work',         '02', 'Projects'],
     ['/beyond-work',  '03', 'Beyond Work'],
     ['/milestones',   '04', 'Milestones'],
   ];

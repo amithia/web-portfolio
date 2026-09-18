@@ -343,7 +343,7 @@ html, body { overflow-x: clip; }
 .al-hero__eyebrow {
   font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--color-cherry); margin-bottom: var(--space-6);
-  display: inline-flex; align-items: center; gap: 10px;
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px 10px;
 }
 .al-hero__eyebrow .badge {
   padding: 4px 10px; border: 1.5px solid var(--color-cherry); border-radius: 999px;
