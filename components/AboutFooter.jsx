@@ -18,7 +18,7 @@ function About() {
               I write code and <em style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, color: 'var(--color-cherry)' }}>analyse data.</em>
             </h3>
             <p style={{ marginBottom: '1.5rem', color: '#3a3530', lineHeight: 1.7 }}>
-              I'm a full-stack developer with an interest in UI/UX and data analytics based in Canberra. I currently work in Digital Strategy, Insights & Analytics at the Australian National University as a Web Project Officer and as a developer (and founder!) at Ion Studio. My work spans web development, data analytics and AI.
+              I'm a full-stack developer with an interest in UI/UX and data analytics based in Canberra. I currently work in Digital Strategy, Insights & Analytics at the Australian National University as a Project Officer (Web & UI/UX) and as a developer (and founder!) at Ion Studio. My work spans web development, data analytics and AI.
             </p>
             <p style={{ marginBottom: '2rem', color: '#3a3530', lineHeight: 1.7 }}>
               With a background in computing, I've had the opportunity to work on a variety of projects across different industries, including education, healthcare and marketing. I'm passionate about using technology to solve real-world problems and create meaningful experiences for users.
