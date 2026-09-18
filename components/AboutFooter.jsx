@@ -33,7 +33,7 @@ function About() {
       </div>
       <div className="al-container">
         <Stats items={[
-          { num: '5+', label: 'Years in the industry' },
+          { num: '3+', label: 'Years in the industry' },
           { num: '6',  label: 'Projects shipped' },
           { num: '10+',  label: 'Countries visited' },
           { num: '4000+',  label: 'Cups of coffee consumed' },
